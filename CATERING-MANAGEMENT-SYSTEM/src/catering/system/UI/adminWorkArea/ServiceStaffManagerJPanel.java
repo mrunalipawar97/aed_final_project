@@ -9,25 +9,26 @@ import catering.system.useraccount.UserAccount;
 
 /**
  *
- * @author nishipancholi
+ * @author jeelkanzaria
  */
-public class SupervisorJPanel extends javax.swing.JPanel {
+public class ServiceStaffManagerJPanel extends javax.swing.JPanel {
 
     /**
-     * Creates new form SupervisorJPanel
+     * Creates new form ServiceStaffManagerJPanel
      */
     private ApplicationSystem system;
     private UserAccount useraccount;
     
-    public SupervisorJPanel() {
+    public ServiceStaffManagerJPanel() {
         initComponents();
     }
+
+    ServiceStaffManagerJPanel(ApplicationSystem system, UserAccount useraccount) {
+       initComponents();
+       this.setVisible(true);
+       this.system = system;
+       this.useraccount = useraccount;
     
-    public SupervisorJPanel(ApplicationSystem system, UserAccount useraccount){
-        initComponents();
-        this.setVisible(true);
-        this.system = system;
-        this.useraccount = useraccount;
     }
 
     /**
@@ -45,7 +46,7 @@ public class SupervisorJPanel extends javax.swing.JPanel {
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         backButton.setText("<< BACK");
-        add(backButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 190, -1, -1));
+        add(backButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 420, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
 
