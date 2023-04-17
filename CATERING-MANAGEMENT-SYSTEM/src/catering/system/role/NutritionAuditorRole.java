@@ -4,10 +4,21 @@
  */
 package catering.system.role;
 
+import business.ApplicationSystem;
+import catering.system.useraccount.UserAccount;
+import javax.swing.JFrame;
+
 /**
  *
  * @author mrunalipawar
  */
 public class NutritionAuditorRole {
+    public NutritionAuditorRole() {
+    }
+
     
+    public JFrame getWorkArea(ApplicationSystem system, UserAccount useraccount) {
+//        return new AdminJFrame(system, useraccount);
+        return null;
+    }
 }
