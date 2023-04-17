@@ -43,13 +43,13 @@ public class AdminJFrame extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         logoutButton = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
+        coordinatorButton = new javax.swing.JButton();
+        organizationButton = new javax.swing.JButton();
+        nutritionAuditorButton = new javax.swing.JButton();
+        cateringManagerButton = new javax.swing.JButton();
+        staffButton = new javax.swing.JButton();
+        inventoryButton = new javax.swing.JButton();
+        supervisorButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -67,31 +67,31 @@ public class AdminJFrame extends javax.swing.JFrame {
         });
         jPanel3.add(logoutButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 10, -1, -1));
 
-        jButton1.setText("Add Coordinator");
-        jPanel3.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 180, -1, -1));
+        coordinatorButton.setText("Add Coordinator");
+        jPanel3.add(coordinatorButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 180, -1, -1));
 
-        jButton2.setText("Add Organization");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        organizationButton.setText("Add Organization");
+        organizationButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                organizationButtonActionPerformed(evt);
             }
         });
-        jPanel3.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 120, -1, -1));
+        jPanel3.add(organizationButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 120, -1, -1));
 
-        jButton3.setText("Register Nutrition Auditor");
-        jPanel3.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 290, -1, -1));
+        nutritionAuditorButton.setText("Register Nutrition Auditor");
+        jPanel3.add(nutritionAuditorButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 290, -1, -1));
 
-        jButton4.setText("Add Catering Manager");
-        jPanel3.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 290, -1, -1));
+        cateringManagerButton.setText("Add Catering Manager");
+        jPanel3.add(cateringManagerButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 290, -1, -1));
 
-        jButton5.setText("Add Service Staff Manager");
-        jPanel3.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 410, -1, -1));
+        staffButton.setText("Add Service Staff Manager");
+        jPanel3.add(staffButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 410, -1, -1));
 
-        jButton6.setText("Add Inventory Manager");
-        jPanel3.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 410, -1, -1));
+        inventoryButton.setText("Add Inventory Manager");
+        jPanel3.add(inventoryButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 410, -1, -1));
 
-        jButton7.setText("Register Supervisor");
-        jPanel3.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 170, -1, -1));
+        supervisorButton.setText("Register Supervisor");
+        jPanel3.add(supervisorButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 170, -1, -1));
 
         jSplitPane2.setRightComponent(jPanel3);
 
@@ -106,9 +106,9 @@ public class AdminJFrame extends javax.swing.JFrame {
         MainJFrame mj = new MainJFrame(this.system, this.useraccount);
     }//GEN-LAST:event_logoutButtonActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void organizationButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_organizationButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_organizationButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -146,16 +146,16 @@ public class AdminJFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
+    private javax.swing.JButton cateringManagerButton;
+    private javax.swing.JButton coordinatorButton;
+    private javax.swing.JButton inventoryButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JSplitPane jSplitPane2;
     private javax.swing.JButton logoutButton;
+    private javax.swing.JButton nutritionAuditorButton;
+    private javax.swing.JButton organizationButton;
+    private javax.swing.JButton staffButton;
+    private javax.swing.JButton supervisorButton;
     // End of variables declaration//GEN-END:variables
 }
