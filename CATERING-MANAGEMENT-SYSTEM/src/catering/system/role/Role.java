@@ -4,10 +4,19 @@
  */
 package catering.system.role;
 
+import javax.swing.JFrame;
+import catering.system.useraccount.UserAccount;
 /**
  *
  * @author mrunalipawar
  */
-public class Role {
+public abstract class Role {
+    static String[] roles = {"Admin","Chef", "Enterprise admin", "Coordinator" };
+
+    public static String[] getRoles() {
+        return roles;
+    }
+
+    public abstract JFrame getWorkArea(UserAccount userAccount);
     
 }
