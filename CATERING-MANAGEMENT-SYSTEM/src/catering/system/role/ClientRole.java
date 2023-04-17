@@ -13,7 +13,9 @@ import javax.swing.JFrame;
  * @author mrunalipawar
  */
 public class ClientRole {
+    
     public ClientRole() {
+        
     }
 
     

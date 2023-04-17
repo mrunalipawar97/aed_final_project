@@ -46,8 +46,9 @@ public class AdminJFrame extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         logoutButton = new javax.swing.JButton();
+
+        addOrganizationButton = new javax.swing.JButton();
         coordinatorButton = new javax.swing.JButton();
-        organizationButton = new javax.swing.JButton();
         nutritionAuditorButton = new javax.swing.JButton();
         cateringManagerButton = new javax.swing.JButton();
         staffButton = new javax.swing.JButton();
@@ -55,14 +56,15 @@ public class AdminJFrame extends javax.swing.JFrame {
         supervisorButton = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
 
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel2.setBackground(new java.awt.Color(255, 204, 204));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 300, -1));
 
         jLabel1.setFont(new java.awt.Font("Helvetica Neue", 3, 24)); // NOI18N
         jLabel1.setText("System Admin work area");
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 300, -1));
 
         logoutButton.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         logoutButton.setText("LOGOUT");
@@ -86,10 +88,11 @@ public class AdminJFrame extends javax.swing.JFrame {
         organizationButton.setText("Register Organization");
         organizationButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                organizationButtonActionPerformed(evt);
+                addOrganizationButtonActionPerformed(evt);
             }
         });
         jPanel2.add(organizationButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 250, 200, 30));
+
 
         nutritionAuditorButton.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         nutritionAuditorButton.setText("Register Nutrition Auditor");
@@ -153,9 +156,16 @@ public class AdminJFrame extends javax.swing.JFrame {
         jSplitPane1.setRightComponent(new CoordinatorJPanel(system, useraccount));
     }//GEN-LAST:event_coordinatorButtonActionPerformed
 
-    private void organizationButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_organizationButtonActionPerformed
+
+    private void addOrganizationButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addOrganizationButtonActionPerformed
+
         // TODO add your handling code here:
-    }//GEN-LAST:event_organizationButtonActionPerformed
+        OrganizationJPanel organizationJPanel = new OrganizationJPanel(system, useraccount);
+        AdminJFrame ad = new AdminJFrame();
+        jSplitPane2.setRightComponent(ad.add(organizationJPanel));
+        organizationJPanel.setVisible(true);
+    }//GEN-LAST:event_addOrganizationButtonActionPerformed
+
 
     private void nutritionAuditorButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nutritionAuditorButtonActionPerformed
         // TODO add your handling code here:
@@ -213,16 +223,18 @@ public class AdminJFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+
+    private javax.swing.JButton addOrganizationButton;
     private javax.swing.JButton cateringManagerButton;
     private javax.swing.JButton coordinatorButton;
     private javax.swing.JButton inventoryButton;
+
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JSplitPane jSplitPane1;
     private javax.swing.JButton logoutButton;
     private javax.swing.JButton nutritionAuditorButton;
-    private javax.swing.JButton organizationButton;
     private javax.swing.JButton staffButton;
     private javax.swing.JButton supervisorButton;
     // End of variables declaration//GEN-END:variables

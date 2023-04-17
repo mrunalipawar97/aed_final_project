@@ -14,6 +14,7 @@ import javax.swing.JFrame;
  * @author mrunalipawar
  */
 public class CateringSystemAdminRole {
+    
     public CateringSystemAdminRole() {
     }
 
