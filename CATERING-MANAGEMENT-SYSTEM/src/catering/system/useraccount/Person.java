@@ -4,28 +4,41 @@
  */
 package catering.system.useraccount;
 
+import java.util.ArrayList;
+import java.util.Date;
+
 /**
  *
  * @author mrunalipawar
  */
 public class Person {
-    String id;
-    private static int count = 0;
-   
-    public Person() {
-        this.count++;
-        this.id = "ID"+this.count;
-    }
-    public Person (String pid){
-        this.id = pid;
-    }
-    
-    public String getPersonId(){
-        return id+ this.count++;
-    }
+    private String firstName;
+    private String name;
+    private String lastName;
+    private Date dob;
+    private String address1;
+    private String phoneNumber;
+    private String personId;
+    private boolean Client;
+    private String emailId;
+    private String occupation;
+    private String address2;
+    private String town;
+    private String zipCode;
+    private String gender;
+    private static int count = 00001;
+    private String country;
+    private String state;
+    private int age;
 
     public boolean isMatch(String id){
         if(getPersonId().equals(id)) return true;
         return false;
     }
+
+    public String getPersonId() {
+        return personId;
+    }
+    
+    
 }
