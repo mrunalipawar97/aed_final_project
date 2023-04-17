@@ -7,7 +7,6 @@ package catering.system.UI.adminWorkArea;
 import business.ApplicationSystem;
 import catering.system.UI.MainJFrame;
 import catering.system.useraccount.UserAccount;
-import java.awt.CardLayout;
 import javax.swing.JPanel;
 
 /**
@@ -46,9 +45,8 @@ public class AdminJFrame extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         logoutButton = new javax.swing.JButton();
-
-        addOrganizationButton = new javax.swing.JButton();
         coordinatorButton = new javax.swing.JButton();
+        addOrganizationButton = new javax.swing.JButton();
         nutritionAuditorButton = new javax.swing.JButton();
         cateringManagerButton = new javax.swing.JButton();
         staffButton = new javax.swing.JButton();
@@ -56,15 +54,14 @@ public class AdminJFrame extends javax.swing.JFrame {
         supervisorButton = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
 
-
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel2.setBackground(new java.awt.Color(255, 204, 204));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 300, -1));
 
         jLabel1.setFont(new java.awt.Font("Helvetica Neue", 3, 24)); // NOI18N
         jLabel1.setText("System Admin work area");
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 300, -1));
 
         logoutButton.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         logoutButton.setText("LOGOUT");
@@ -84,15 +81,14 @@ public class AdminJFrame extends javax.swing.JFrame {
         });
         jPanel2.add(coordinatorButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 130, 200, 30));
 
-        organizationButton.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
-        organizationButton.setText("Register Organization");
-        organizationButton.addActionListener(new java.awt.event.ActionListener() {
+        addOrganizationButton.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        addOrganizationButton.setText("Register Organization");
+        addOrganizationButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addOrganizationButtonActionPerformed(evt);
             }
         });
-        jPanel2.add(organizationButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 250, 200, 30));
-
+        jPanel2.add(addOrganizationButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 250, 200, 30));
 
         nutritionAuditorButton.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         nutritionAuditorButton.setText("Register Nutrition Auditor");
@@ -105,7 +101,6 @@ public class AdminJFrame extends javax.swing.JFrame {
 
         cateringManagerButton.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         cateringManagerButton.setText("Register Catering Manager");
-        cateringManagerButton.setActionCommand("Register Catering Manager");
         cateringManagerButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cateringManagerButtonActionPerformed(evt);
@@ -160,10 +155,7 @@ public class AdminJFrame extends javax.swing.JFrame {
     private void addOrganizationButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addOrganizationButtonActionPerformed
 
         // TODO add your handling code here:
-        OrganizationJPanel organizationJPanel = new OrganizationJPanel(system, useraccount);
-        AdminJFrame ad = new AdminJFrame();
-        jSplitPane2.setRightComponent(ad.add(organizationJPanel));
-        organizationJPanel.setVisible(true);
+        jSplitPane1.setRightComponent(new OrganizationJPanel(system, useraccount));
     }//GEN-LAST:event_addOrganizationButtonActionPerformed
 
 
@@ -223,12 +215,10 @@ public class AdminJFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-
     private javax.swing.JButton addOrganizationButton;
     private javax.swing.JButton cateringManagerButton;
     private javax.swing.JButton coordinatorButton;
     private javax.swing.JButton inventoryButton;
-
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
