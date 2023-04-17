@@ -11,7 +11,7 @@ import catering.system.useraccount.UserAccount;
  * @author mrunalipawar
  */
 public abstract class Role {
-    static String[] roles = {"Admin","Chef", "Enterprise admin", "Coordinator" };
+    static String[] roles = {"SystemAdmin","Coordinator","Supervisor","NutritionAuditor","CateringManager","Client","ServiceStaffManager","InventoryManager"};
 
     public static String[] getRoles() {
         return roles;

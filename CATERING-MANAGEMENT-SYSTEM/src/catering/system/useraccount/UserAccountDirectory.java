@@ -56,10 +56,10 @@ public class UserAccountDirectory {
         return null;
     }
     
-    public Boolean accountExists(String username, String password, String role) {
+    public Boolean accountExists(String username, String password) {
         
         for (UserAccount u : this.userAccountlist) {
-            if(u.getUsername().equals(username) && u.getPassword().equals(password) && u.getRole().equals(role)){
+            if(u.getUsername().equals(username) && u.getPassword().equals(password)){
                 return true;
             }
         }
