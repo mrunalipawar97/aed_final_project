@@ -4,6 +4,17 @@
  */
 package catering.system.useraccount;
 
+import business.ApplicationSystem;
+import catering.system.role.CateringManagerRole;
+import catering.system.role.CateringSystemAdminRole;
+import catering.system.role.ClientRole;
+import catering.system.role.CoordinatorRole;
+import catering.system.role.InventoryManagerRole;
+import catering.system.role.NutritionAuditorRole;
+import catering.system.role.ServiceStaffManagerRole;
+import catering.system.role.SuperviserRole;
+import javax.swing.JFrame;
+
 /**
  *
  * @author mrunalipawar
@@ -81,20 +92,32 @@ public class UserAccount {
         this.password = password;
     }
 
-    /*public JFrame getWorkArea(String role,ApplicationSystem appSystem, UserAccount userAccount) {
+    public JFrame getWorkArea(String role,ApplicationSystem appSystem, UserAccount userAccount) {
         // the abstract class way
-        if (role.equals("Admin")) {
-            return new AdminRole().getWorkArea(college,  userAccount);
+        if (role.equals("SystemAdmin")) {
+            return new CateringSystemAdminRole().getWorkArea(appSystem,  userAccount);
         }
-        if (role.equals("Student")) {
-            return new StudentRole().getWorkArea(college,  userAccount);
+        if (role.equals("Coordinator")) {
+            return new CoordinatorRole().getWorkArea(appSystem,  userAccount);
         }
-        if (role.equals("Faculty")) {
-            return new FacultyRole().getWorkArea(college,   userAccount);
+        if (role.equals("Supervisor")) {
+            return new SuperviserRole().getWorkArea(appSystem,   userAccount);
         }
-        if (role.equals("Employer")) {
-            return new EmployerRole().getWorkArea(college, userAccount);
+        if (role.equals("NutritionAuditor")) {
+            return new NutritionAuditorRole().getWorkArea(appSystem, userAccount);
+        }
+        if (role.equals("CateringManager")) {
+            return new CateringManagerRole().getWorkArea(appSystem, userAccount);
+        }
+        if (role.equals("Client")) {
+            return new ClientRole().getWorkArea(appSystem, userAccount);
+        }
+        if (role.equals("ServiceStaffManager")) {
+            return new ServiceStaffManagerRole().getWorkArea(appSystem, userAccount);
+        }
+        if (role.equals("InventoryManager")) {
+            return new InventoryManagerRole().getWorkArea(appSystem, userAccount);
         }
         return null;
-    }*/
+    }
 }
