@@ -65,7 +65,6 @@ public class OrganizationJPanel extends javax.swing.JPanel {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         organizationTable = new javax.swing.JTable();
-        backButton = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 204, 204));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -89,28 +88,10 @@ public class OrganizationJPanel extends javax.swing.JPanel {
         jScrollPane1.setViewportView(organizationTable);
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 60, 470, 280));
-
-        backButton.setText("Back");
-        backButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                backButtonActionPerformed(evt);
-            }
-        });
-        add(backButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 20, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
-
-    private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
-        // TODO add your handling code here:
-        OrganizationJPanel op = new OrganizationJPanel(system, userAccount);
-        AdminJFrame ad = new AdminJFrame();
-        JFrame adminFrame = (JFrame) SwingUtilities.getWindowAncestor(ad);
-        adminFrame.setVisible(true);
-        setVisible(false);
-    }//GEN-LAST:event_backButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton backButton;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable organizationTable;
     // End of variables declaration//GEN-END:variables
