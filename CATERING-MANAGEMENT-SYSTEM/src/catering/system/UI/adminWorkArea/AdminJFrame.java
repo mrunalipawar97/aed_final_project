@@ -7,6 +7,8 @@ package catering.system.UI.adminWorkArea;
 import business.ApplicationSystem;
 import catering.system.UI.MainJFrame;
 import catering.system.useraccount.UserAccount;
+import java.awt.CardLayout;
+import javax.swing.JPanel;
 
 /**
  *
@@ -15,6 +17,7 @@ import catering.system.useraccount.UserAccount;
 public class AdminJFrame extends javax.swing.JFrame {
     private ApplicationSystem system;
     private UserAccount useraccount;
+    private JPanel userProcessContainer;
 
     /**
      * Creates new form AdminJFrame
@@ -39,8 +42,8 @@ public class AdminJFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jSplitPane2 = new javax.swing.JSplitPane();
-        jPanel3 = new javax.swing.JPanel();
+        jSplitPane1 = new javax.swing.JSplitPane();
+        jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         logoutButton = new javax.swing.JButton();
 
@@ -51,54 +54,93 @@ public class AdminJFrame extends javax.swing.JFrame {
         staffButton = new javax.swing.JButton();
         inventoryButton = new javax.swing.JButton();
         supervisorButton = new javax.swing.JButton();
+        jPanel4 = new javax.swing.JPanel();
 
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel3.setBackground(new java.awt.Color(204, 204, 255));
-        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel2.setBackground(new java.awt.Color(255, 204, 204));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 300, -1));
 
-        jLabel1.setText("Admin work area");
-        jPanel3.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 70, -1, -1));
+        jLabel1.setFont(new java.awt.Font("Helvetica Neue", 3, 24)); // NOI18N
+        jLabel1.setText("System Admin work area");
 
-        logoutButton.setText("Logout");
+        logoutButton.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        logoutButton.setText("LOGOUT");
         logoutButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 logoutButtonActionPerformed(evt);
             }
         });
-        jPanel3.add(logoutButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 10, -1, -1));
+        jPanel2.add(logoutButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 550, 90, 30));
 
-        coordinatorButton.setText("Add Coordinator");
-        jPanel3.add(coordinatorButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 180, -1, -1));
+        coordinatorButton.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        coordinatorButton.setText("Register Coordinator");
+        coordinatorButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                coordinatorButtonActionPerformed(evt);
+            }
+        });
+        jPanel2.add(coordinatorButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 130, 200, 30));
 
-        addOrganizationButton.setText("Add Organization");
-        addOrganizationButton.addActionListener(new java.awt.event.ActionListener() {
+        organizationButton.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        organizationButton.setText("Register Organization");
+        organizationButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addOrganizationButtonActionPerformed(evt);
             }
         });
-        jPanel3.add(addOrganizationButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 120, -1, -1));
+        jPanel2.add(organizationButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 250, 200, 30));
 
 
+        nutritionAuditorButton.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         nutritionAuditorButton.setText("Register Nutrition Auditor");
-        jPanel3.add(nutritionAuditorButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 290, -1, -1));
+        nutritionAuditorButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nutritionAuditorButtonActionPerformed(evt);
+            }
+        });
+        jPanel2.add(nutritionAuditorButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 310, 200, 30));
 
-        cateringManagerButton.setText("Add Catering Manager");
-        jPanel3.add(cateringManagerButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 290, -1, -1));
+        cateringManagerButton.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        cateringManagerButton.setText("Register Catering Manager");
+        cateringManagerButton.setActionCommand("Register Catering Manager");
+        cateringManagerButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cateringManagerButtonActionPerformed(evt);
+            }
+        });
+        jPanel2.add(cateringManagerButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 370, 200, 30));
 
-        staffButton.setText("Add Service Staff Manager");
-        jPanel3.add(staffButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 410, -1, -1));
+        staffButton.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        staffButton.setText("Register Service Staff Manager");
+        staffButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                staffButtonActionPerformed(evt);
+            }
+        });
+        jPanel2.add(staffButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 430, 200, 30));
 
-        inventoryButton.setText("Add Inventory Manager");
-        jPanel3.add(inventoryButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 410, -1, -1));
+        inventoryButton.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        inventoryButton.setText("Register Inventory Manager");
+        inventoryButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                inventoryButtonActionPerformed(evt);
+            }
+        });
+        jPanel2.add(inventoryButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 490, 200, 30));
 
+        supervisorButton.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         supervisorButton.setText("Register Supervisor");
-        jPanel3.add(supervisorButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 170, -1, -1));
+        jPanel2.add(supervisorButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 190, 200, 30));
 
-        jSplitPane2.setRightComponent(jPanel3);
+        jSplitPane1.setLeftComponent(jPanel2);
 
-        getContentPane().add(jSplitPane2, java.awt.BorderLayout.CENTER);
+        jPanel4.setBackground(new java.awt.Color(204, 204, 255));
+        jSplitPane1.setRightComponent(jPanel4);
+
+        getContentPane().add(jSplitPane1, java.awt.BorderLayout.CENTER);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -109,7 +151,14 @@ public class AdminJFrame extends javax.swing.JFrame {
         MainJFrame mj = new MainJFrame(this.system, this.useraccount);
     }//GEN-LAST:event_logoutButtonActionPerformed
 
+    private void coordinatorButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_coordinatorButtonActionPerformed
+        // TODO add your handling code here:
+        jSplitPane1.setRightComponent(new CoordinatorJPanel(system, useraccount));
+    }//GEN-LAST:event_coordinatorButtonActionPerformed
+
+
     private void addOrganizationButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addOrganizationButtonActionPerformed
+
         // TODO add your handling code here:
         OrganizationJPanel organizationJPanel = new OrganizationJPanel(system, useraccount);
         AdminJFrame ad = new AdminJFrame();
@@ -117,6 +166,26 @@ public class AdminJFrame extends javax.swing.JFrame {
         organizationJPanel.setVisible(true);
     }//GEN-LAST:event_addOrganizationButtonActionPerformed
 
+
+    private void nutritionAuditorButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nutritionAuditorButtonActionPerformed
+        // TODO add your handling code here:
+        jSplitPane1.setRightComponent(new NutritionAuditorJPanel(system, useraccount));
+    }//GEN-LAST:event_nutritionAuditorButtonActionPerformed
+
+    private void cateringManagerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cateringManagerButtonActionPerformed
+        // TODO add your handling code here:
+        jSplitPane1.setRightComponent(new CateringManagerJPanel(system, useraccount));
+    }//GEN-LAST:event_cateringManagerButtonActionPerformed
+
+    private void staffButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_staffButtonActionPerformed
+        // TODO add your handling code here:
+        jSplitPane1.setRightComponent(new ServiceStaffManagerJPanel(system, useraccount));
+    }//GEN-LAST:event_staffButtonActionPerformed
+
+    private void inventoryButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inventoryButtonActionPerformed
+        // TODO add your handling code here:
+        jSplitPane1.setRightComponent(new InventoryManagerJPanel(system, useraccount));
+    }//GEN-LAST:event_inventoryButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -161,8 +230,9 @@ public class AdminJFrame extends javax.swing.JFrame {
     private javax.swing.JButton inventoryButton;
 
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JSplitPane jSplitPane2;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JSplitPane jSplitPane1;
     private javax.swing.JButton logoutButton;
     private javax.swing.JButton nutritionAuditorButton;
     private javax.swing.JButton staffButton;
