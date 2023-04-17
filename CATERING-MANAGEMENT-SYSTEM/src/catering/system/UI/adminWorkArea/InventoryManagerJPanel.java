@@ -39,17 +39,11 @@ public class InventoryManagerJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        backButton = new javax.swing.JButton();
-
         setBackground(new java.awt.Color(204, 204, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        backButton.setText("<< BACK");
-        add(backButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 420, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton backButton;
     // End of variables declaration//GEN-END:variables
 }

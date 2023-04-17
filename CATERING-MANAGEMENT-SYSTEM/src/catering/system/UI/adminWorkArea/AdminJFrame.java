@@ -128,6 +128,11 @@ public class AdminJFrame extends javax.swing.JFrame {
 
         supervisorButton.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         supervisorButton.setText("Register Supervisor");
+        supervisorButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                supervisorButtonActionPerformed(evt);
+            }
+        });
         jPanel2.add(supervisorButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 190, 200, 30));
 
         jSplitPane1.setLeftComponent(jPanel2);
@@ -178,6 +183,11 @@ public class AdminJFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         jSplitPane1.setRightComponent(new InventoryManagerJPanel(system, useraccount));
     }//GEN-LAST:event_inventoryButtonActionPerformed
+
+    private void supervisorButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_supervisorButtonActionPerformed
+        // TODO add your handling code here:
+        jSplitPane1.setRightComponent(new SupervisorJPanel(system, useraccount));
+    }//GEN-LAST:event_supervisorButtonActionPerformed
 
     /**
      * @param args the command line arguments
