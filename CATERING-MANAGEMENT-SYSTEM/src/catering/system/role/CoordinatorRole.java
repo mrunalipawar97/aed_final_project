@@ -13,6 +13,7 @@ import javax.swing.JFrame;
  * @author mrunalipawar
  */
 public class CoordinatorRole {
+    
     public CoordinatorRole() {
     }
 

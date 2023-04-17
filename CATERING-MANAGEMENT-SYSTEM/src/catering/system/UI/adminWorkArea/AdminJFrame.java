@@ -44,7 +44,7 @@ public class AdminJFrame extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         logoutButton = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        addOrganizationButton = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
@@ -70,13 +70,13 @@ public class AdminJFrame extends javax.swing.JFrame {
         jButton1.setText("Add Coordinator");
         jPanel3.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 180, -1, -1));
 
-        jButton2.setText("Add Organization");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        addOrganizationButton.setText("Add Organization");
+        addOrganizationButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                addOrganizationButtonActionPerformed(evt);
             }
         });
-        jPanel3.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 120, -1, -1));
+        jPanel3.add(addOrganizationButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 120, -1, -1));
 
         jButton3.setText("Register Nutrition Auditor");
         jPanel3.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 290, -1, -1));
@@ -106,9 +106,13 @@ public class AdminJFrame extends javax.swing.JFrame {
         MainJFrame mj = new MainJFrame(this.system, this.useraccount);
     }//GEN-LAST:event_logoutButtonActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void addOrganizationButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addOrganizationButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+        OrganizationJPanel organizationJPanel = new OrganizationJPanel(system, useraccount);
+        AdminJFrame ad = new AdminJFrame();
+        jSplitPane2.setRightComponent(ad.add(organizationJPanel));
+        organizationJPanel.setVisible(true);
+    }//GEN-LAST:event_addOrganizationButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -146,8 +150,8 @@ public class AdminJFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton addOrganizationButton;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
