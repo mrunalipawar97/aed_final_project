@@ -71,7 +71,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="javax.swing.JButton" name="jButton1">
+            <Component class="javax.swing.JButton" name="coordinatorButton">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Add Coordinator"/>
               </Properties>
@@ -81,20 +81,20 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="javax.swing.JButton" name="jButton2">
+            <Component class="javax.swing.JButton" name="organizationButton">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Add Organization"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton2ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="organizationButtonActionPerformed"/>
               </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="310" y="120" width="-1" height="-1"/>
+                  <AbsoluteConstraints x="330" y="120" width="-1" height="-1"/>
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="javax.swing.JButton" name="jButton3">
+            <Component class="javax.swing.JButton" name="nutritionAuditorButton">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Register Nutrition Auditor"/>
               </Properties>
@@ -104,7 +104,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="javax.swing.JButton" name="jButton4">
+            <Component class="javax.swing.JButton" name="cateringManagerButton">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Add Catering Manager"/>
               </Properties>
@@ -114,7 +114,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="javax.swing.JButton" name="jButton5">
+            <Component class="javax.swing.JButton" name="staffButton">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Add Service Staff Manager"/>
               </Properties>
@@ -124,7 +124,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="javax.swing.JButton" name="jButton6">
+            <Component class="javax.swing.JButton" name="inventoryButton">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Add Inventory Manager"/>
               </Properties>
@@ -134,7 +134,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="javax.swing.JButton" name="jButton7">
+            <Component class="javax.swing.JButton" name="supervisorButton">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Register Supervisor"/>
               </Properties>
