@@ -4,6 +4,7 @@
  */
 package business;
 
+import catering.system.enterprise.EnterpriseDirectory;
 import catering.system.useraccount.UserAccount;
 import catering.system.useraccount.UserAccountDirectory;
 
@@ -13,7 +14,9 @@ import catering.system.useraccount.UserAccountDirectory;
  */
 public class ApplicationSystem {
     private UserAccountDirectory userAccountDirectory;
+    private EnterpriseDirectory enterpriseDirectory;
     public ApplicationSystem(){
+        this.enterpriseDirectory= new EnterpriseDirectory();
         this.userAccountDirectory=new UserAccountDirectory();
         UserAccount user = this.userAccountDirectory.createUserAccount("admin", "admin", "SystemAdmin");
     }
@@ -29,6 +32,13 @@ public class ApplicationSystem {
     public void setUserAccountDirectory(UserAccountDirectory userAccountDirectory) {
         this.userAccountDirectory = userAccountDirectory;
     }
-     
+
+    public EnterpriseDirectory getEnterpriseDirectory() {
+        return enterpriseDirectory;
+    }
+
+    public void setEnterpriseDirectory(EnterpriseDirectory enterpriseDirectory) {
+        this.enterpriseDirectory = enterpriseDirectory;
+    }
      
 }

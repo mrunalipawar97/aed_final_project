@@ -4,10 +4,33 @@
  */
 package catering.system.enterprise;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author mrunalipawar
  */
 public class EnterpriseDirectory {
+    ArrayList<Enterprise> enterpriseList;
+    
+    public EnterpriseDirectory() {
+        this.enterpriseList = new ArrayList<Enterprise>();
+    }
+
+    public ArrayList<Enterprise> getEnterpriseList() {
+        return enterpriseList;
+    }
+
+    public void setEnterpriseList(ArrayList<Enterprise> enterpriseList) {
+        this.enterpriseList = enterpriseList;
+    }
+    
+    
+    public Enterprise createEnterprise(String name) {
+        Enterprise entName = new Enterprise();
+        entName.setName(name);
+        this.enterpriseList.add(entName);
+        return entName;
+    }
     
 }
