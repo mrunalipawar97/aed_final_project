@@ -2,21 +2,21 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package catering.system.useraccount;
+package catering.system.Useraccount;
 
 import business.ApplicationSystem;
-import catering.system.role.CateringManagerRole;
-import catering.system.role.CateringSystemAdminRole;
-import catering.system.role.ClientRole;
-import catering.system.role.CoordinatorRole;
-import catering.system.role.FoodProdAdminRole;
-import catering.system.role.FoodQualityAdminRole;
-import catering.system.role.FoodWarehouseAdminRole;
-import catering.system.role.InventoryManagerRole;
-import catering.system.role.NutritionAuditorRole;
-import catering.system.role.ServiceEntAdminRole;
-import catering.system.role.ServiceStaffManagerRole;
-import catering.system.role.SuperviserRole;
+import catering.system.Role.CateringManagerRole;
+import catering.system.Role.CateringSystemAdminRole;
+import catering.system.Role.ClientRole;
+import catering.system.Role.CoordinatorRole;
+import catering.system.Role.FoodProdAdminRole;
+import catering.system.Role.FoodQualityAdminRole;
+import catering.system.Role.FoodWarehouseAdminRole;
+import catering.system.Role.InventoryManagerRole;
+import catering.system.Role.NutritionAuditorRole;
+import catering.system.Role.ServiceEntAdminRole;
+import catering.system.Role.ServiceStaffManagerRole;
+import catering.system.Role.SuperviserRole;
 import javax.swing.JFrame;
 
 /**

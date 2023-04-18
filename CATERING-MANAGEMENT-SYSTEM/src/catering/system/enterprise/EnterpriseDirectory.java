@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package catering.system.enterprise;
+package catering.system.Enterprise;
 
 import java.util.ArrayList;
 
@@ -11,6 +11,7 @@ import java.util.ArrayList;
  * @author mrunalipawar
  */
 public class EnterpriseDirectory {
+    
     ArrayList<Enterprise> enterpriseList;
     
     public EnterpriseDirectory() {
@@ -24,7 +25,6 @@ public class EnterpriseDirectory {
     public void setEnterpriseList(ArrayList<Enterprise> enterpriseList) {
         this.enterpriseList = enterpriseList;
     }
-    
     
     public Enterprise createEnterprise(String name) {
         Enterprise ent= new Enterprise();

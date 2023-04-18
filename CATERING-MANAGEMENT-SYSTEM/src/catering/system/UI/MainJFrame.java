@@ -5,8 +5,8 @@
 package catering.system.UI;
 
 import business.ApplicationSystem;
-import catering.system.useraccount.UserAccount;
-import catering.system.useraccount.UserAccountDirectory;
+import catering.system.Useraccount.UserAccount;
+import catering.system.Useraccount.UserAccountDirectory;
 import javax.swing.JOptionPane;
 
 /**

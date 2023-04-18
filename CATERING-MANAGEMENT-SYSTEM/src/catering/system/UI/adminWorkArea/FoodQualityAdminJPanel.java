@@ -2,12 +2,12 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package catering.system.UI.adminWorkArea;
+package catering.system.UI.AdminWorkArea;
 
 import business.ApplicationSystem;
-import catering.system.enterprise.Enterprise;
-import catering.system.useraccount.UserAccount;
-import catering.system.useraccount.UserAccountDirectory;
+import catering.system.Enterprise.Enterprise;
+import catering.system.Useraccount.UserAccount;
+import catering.system.Useraccount.UserAccountDirectory;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;

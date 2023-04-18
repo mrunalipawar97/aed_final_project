@@ -2,11 +2,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package catering.system.UI.adminWorkArea;
+package catering.system.UI.AdminWorkArea;
 
 import business.ApplicationSystem;
 import catering.system.UI.MainJFrame;
-import catering.system.useraccount.UserAccount;
+import catering.system.Useraccount.UserAccount;
 import javax.swing.JPanel;
 
 /**
