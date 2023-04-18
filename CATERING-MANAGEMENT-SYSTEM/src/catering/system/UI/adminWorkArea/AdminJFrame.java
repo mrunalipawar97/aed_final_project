@@ -45,13 +45,11 @@ public class AdminJFrame extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         logoutButton = new javax.swing.JButton();
-        coordinatorButton = new javax.swing.JButton();
-        addOrganizationButton = new javax.swing.JButton();
-        nutritionAuditorButton = new javax.swing.JButton();
-        cateringManagerButton = new javax.swing.JButton();
-        staffButton = new javax.swing.JButton();
-        inventoryButton = new javax.swing.JButton();
-        supervisorButton = new javax.swing.JButton();
+        addServiceAdminButton = new javax.swing.JButton();
+        addFoodQualityAdmin = new javax.swing.JButton();
+        addFoodProdAdmin = new javax.swing.JButton();
+        addFoodWarehouseAdmin = new javax.swing.JButton();
+        viewUsers = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -72,68 +70,50 @@ public class AdminJFrame extends javax.swing.JFrame {
         });
         jPanel2.add(logoutButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 550, 90, 30));
 
-        coordinatorButton.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
-        coordinatorButton.setText("Register Coordinator");
-        coordinatorButton.addActionListener(new java.awt.event.ActionListener() {
+        addServiceAdminButton.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        addServiceAdminButton.setText("Add Service Ent. Admin");
+        addServiceAdminButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                coordinatorButtonActionPerformed(evt);
+                addServiceAdminButtonActionPerformed(evt);
             }
         });
-        jPanel2.add(coordinatorButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 130, 200, 30));
+        jPanel2.add(addServiceAdminButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 150, 200, 30));
 
-        addOrganizationButton.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
-        addOrganizationButton.setText("Register Organization");
-        addOrganizationButton.addActionListener(new java.awt.event.ActionListener() {
+        addFoodQualityAdmin.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        addFoodQualityAdmin.setText("Add Food Quality Ent. Admin");
+        addFoodQualityAdmin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addOrganizationButtonActionPerformed(evt);
+                addFoodQualityAdminActionPerformed(evt);
             }
         });
-        jPanel2.add(addOrganizationButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 250, 200, 30));
+        jPanel2.add(addFoodQualityAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 230, 240, 30));
 
-        nutritionAuditorButton.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
-        nutritionAuditorButton.setText("Register Nutrition Auditor");
-        nutritionAuditorButton.addActionListener(new java.awt.event.ActionListener() {
+        addFoodProdAdmin.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        addFoodProdAdmin.setText("Add Food Prod. Ent. Admin");
+        addFoodProdAdmin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nutritionAuditorButtonActionPerformed(evt);
+                addFoodProdAdminActionPerformed(evt);
             }
         });
-        jPanel2.add(nutritionAuditorButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 310, 200, 30));
+        jPanel2.add(addFoodProdAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 310, 230, 30));
 
-        cateringManagerButton.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
-        cateringManagerButton.setText("Register Catering Manager");
-        cateringManagerButton.addActionListener(new java.awt.event.ActionListener() {
+        addFoodWarehouseAdmin.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        addFoodWarehouseAdmin.setText("Add Food Warehouse Admin");
+        addFoodWarehouseAdmin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cateringManagerButtonActionPerformed(evt);
+                addFoodWarehouseAdminActionPerformed(evt);
             }
         });
-        jPanel2.add(cateringManagerButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 370, 200, 30));
+        jPanel2.add(addFoodWarehouseAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 390, 220, 30));
 
-        staffButton.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
-        staffButton.setText("Register Service Staff Manager");
-        staffButton.addActionListener(new java.awt.event.ActionListener() {
+        viewUsers.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        viewUsers.setText("View Users");
+        viewUsers.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                staffButtonActionPerformed(evt);
+                viewUsersActionPerformed(evt);
             }
         });
-        jPanel2.add(staffButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 430, 200, 30));
-
-        inventoryButton.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
-        inventoryButton.setText("Register Inventory Manager");
-        inventoryButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                inventoryButtonActionPerformed(evt);
-            }
-        });
-        jPanel2.add(inventoryButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 490, 200, 30));
-
-        supervisorButton.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
-        supervisorButton.setText("Register Supervisor");
-        supervisorButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                supervisorButtonActionPerformed(evt);
-            }
-        });
-        jPanel2.add(supervisorButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 190, 200, 30));
+        jPanel2.add(viewUsers, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 460, 220, 30));
 
         jSplitPane1.setLeftComponent(jPanel2);
 
@@ -151,43 +131,33 @@ public class AdminJFrame extends javax.swing.JFrame {
         MainJFrame mj = new MainJFrame(this.system, this.useraccount);
     }//GEN-LAST:event_logoutButtonActionPerformed
 
-    private void coordinatorButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_coordinatorButtonActionPerformed
-        // TODO add your handling code here:
-        jSplitPane1.setRightComponent(new CoordinatorJPanel(system, useraccount));
-    }//GEN-LAST:event_coordinatorButtonActionPerformed
 
-
-    private void addOrganizationButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addOrganizationButtonActionPerformed
+    private void addServiceAdminButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addServiceAdminButtonActionPerformed
 
         // TODO add your handling code here:
-        jSplitPane1.setRightComponent(new OrganizationJPanel(system, useraccount));
-    }//GEN-LAST:event_addOrganizationButtonActionPerformed
+        jSplitPane1.setRightComponent(new ServiceEntAdminJPanel(system, useraccount));
+    }//GEN-LAST:event_addServiceAdminButtonActionPerformed
 
 
-    private void nutritionAuditorButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nutritionAuditorButtonActionPerformed
+    private void addFoodProdAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addFoodProdAdminActionPerformed
         // TODO add your handling code here:
-        jSplitPane1.setRightComponent(new NutritionAuditorJPanel(system, useraccount));
-    }//GEN-LAST:event_nutritionAuditorButtonActionPerformed
+        jSplitPane1.setRightComponent(new FoodProdAdminJPanel(system, useraccount));
+    }//GEN-LAST:event_addFoodProdAdminActionPerformed
 
-    private void cateringManagerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cateringManagerButtonActionPerformed
+    private void addFoodWarehouseAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addFoodWarehouseAdminActionPerformed
         // TODO add your handling code here:
-        jSplitPane1.setRightComponent(new CateringManagerJPanel(system, useraccount));
-    }//GEN-LAST:event_cateringManagerButtonActionPerformed
+        jSplitPane1.setRightComponent(new FoodWarehouseAdminJPanel(system, useraccount));
+    }//GEN-LAST:event_addFoodWarehouseAdminActionPerformed
 
-    private void staffButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_staffButtonActionPerformed
+    private void addFoodQualityAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addFoodQualityAdminActionPerformed
         // TODO add your handling code here:
-        jSplitPane1.setRightComponent(new ServiceStaffManagerJPanel(system, useraccount));
-    }//GEN-LAST:event_staffButtonActionPerformed
+        jSplitPane1.setRightComponent(new FoodQualityAdminJPanel(system, useraccount));
+    }//GEN-LAST:event_addFoodQualityAdminActionPerformed
 
-    private void inventoryButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inventoryButtonActionPerformed
+    private void viewUsersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewUsersActionPerformed
         // TODO add your handling code here:
-        jSplitPane1.setRightComponent(new InventoryManagerJPanel(system, useraccount));
-    }//GEN-LAST:event_inventoryButtonActionPerformed
-
-    private void supervisorButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_supervisorButtonActionPerformed
-        // TODO add your handling code here:
-        jSplitPane1.setRightComponent(new SupervisorJPanel(system, useraccount));
-    }//GEN-LAST:event_supervisorButtonActionPerformed
+        jSplitPane1.setRightComponent(new ViewUsersJPanel(system, useraccount));
+    }//GEN-LAST:event_viewUsersActionPerformed
 
     /**
      * @param args the command line arguments
@@ -225,17 +195,15 @@ public class AdminJFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton addOrganizationButton;
-    private javax.swing.JButton cateringManagerButton;
-    private javax.swing.JButton coordinatorButton;
-    private javax.swing.JButton inventoryButton;
+    private javax.swing.JButton addFoodProdAdmin;
+    private javax.swing.JButton addFoodQualityAdmin;
+    private javax.swing.JButton addFoodWarehouseAdmin;
+    private javax.swing.JButton addServiceAdminButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JSplitPane jSplitPane1;
     private javax.swing.JButton logoutButton;
-    private javax.swing.JButton nutritionAuditorButton;
-    private javax.swing.JButton staffButton;
-    private javax.swing.JButton supervisorButton;
+    private javax.swing.JButton viewUsers;
     // End of variables declaration//GEN-END:variables
 }

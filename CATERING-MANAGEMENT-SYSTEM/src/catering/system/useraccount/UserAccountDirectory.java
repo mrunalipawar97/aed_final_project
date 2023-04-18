@@ -29,6 +29,15 @@ public class UserAccountDirectory {
      public String[] getAllRoles() {
        return Role.getRoles();
     }
+
+    public ArrayList<UserAccount> getUserAccountlist() {
+        return userAccountlist;
+    }
+
+    public void setUserAccountlist(ArrayList<UserAccount> userAccountlist) {
+        this.userAccountlist = userAccountlist;
+    }
+     
     
     public UserAccount createUserAccount(String username, String password, String role){
         UserAccount user = new UserAccount(username, password, role);
@@ -60,6 +69,15 @@ public class UserAccountDirectory {
         
         for (UserAccount u : this.userAccountlist) {
             if(u.getUsername().equals(username) && u.getPassword().equals(password)){
+                return true;
+            }
+        }
+        return false;
+    }
+     public Boolean roleExists(String role) {
+        
+        for (UserAccount u : this.userAccountlist) {
+            if(u.getRole().equals(role)){
                 return true;
             }
         }

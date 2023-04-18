@@ -9,5 +9,18 @@ package catering.system.enterprise;
  * @author mrunalipawar
  */
 public class Enterprise {
+    String name;
+    
+    public Enterprise(){
+        super();
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
     
 }
