@@ -4,9 +4,9 @@
  */
 package business;
 
-import catering.system.Enterprise.EnterpriseDirectory;
-import catering.system.Useraccount.UserAccount;
-import catering.system.Useraccount.UserAccountDirectory;
+import catering.system.enterprise.EnterpriseDirectory;
+import catering.system.useraccount.UserAccount;
+import catering.system.useraccount.UserAccountDirectory;
 
 /**
  *
