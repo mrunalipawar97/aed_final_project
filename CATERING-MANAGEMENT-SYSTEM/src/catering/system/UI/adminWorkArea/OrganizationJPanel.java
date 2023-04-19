@@ -2,11 +2,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package catering.system.UI.adminWorkArea;
+package catering.system.UI.AdminWorkArea;
 
 import business.ApplicationSystem;
 import catering.system.UI.MainJFrame;
-import catering.system.useraccount.UserAccount;
+import catering.system.Users.UserAccount;
 import com.opencsv.CSVReader;
 import java.io.BufferedReader;
 import java.io.FileReader;
