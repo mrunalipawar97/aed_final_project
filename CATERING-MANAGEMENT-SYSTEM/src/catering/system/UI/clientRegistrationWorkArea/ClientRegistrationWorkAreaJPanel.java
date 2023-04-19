@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package catering.system.UI.clientRegistrationWorkArea;
+package catering.system.UI.ClientRegistrationWorkArea;
 
 import business.ApplicationSystem;
 import business.Validation;
@@ -10,13 +10,13 @@ import catering.system.Enterprise.Enterprise;
 import catering.system.Organization.Organization;
 import catering.system.Users.UserAccount;
 import catering.system.Users.UserAccountDirectory;
-import catering.system.client.Client;
-import catering.system.validations.ValidateDateOfBirth;
-import catering.system.validations.ValidateEmailTextField;
-import catering.system.validations.ValidateNumbers;
-import catering.system.validations.ValidatePasswords;
-import catering.system.validations.ValidatePhoneNumber;
-import catering.system.validations.ValidateStrings;
+import catering.system.Client.Client;
+import catering.system.Validations.ValidateDateOfBirth;
+import catering.system.Validations.ValidateEmailTextField;
+import catering.system.Validations.ValidateNumbers;
+import catering.system.Validations.ValidatePasswords;
+import catering.system.Validations.ValidatePhoneNumber;
+import catering.system.Validations.ValidateStrings;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
