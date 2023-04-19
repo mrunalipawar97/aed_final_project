@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package catering.system.client;
+package catering.system.Client;
 
 import catering.system.Organization.Organization;
 import catering.system.Users.Person;
