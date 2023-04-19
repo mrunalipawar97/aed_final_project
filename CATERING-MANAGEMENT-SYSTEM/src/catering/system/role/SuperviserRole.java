@@ -5,7 +5,7 @@
 package catering.system.Role;
 
 import business.ApplicationSystem;
-import catering.system.UI.adminWorkArea.SupervisorJPanel;
+import catering.system.UI.AdminWorkArea.SupervisorJPanel;
 import catering.system.Users.UserAccount;
 import javax.swing.JFrame;
 import javax.swing.JPanel;

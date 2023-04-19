@@ -5,7 +5,7 @@
 package catering.system.Role;
 
 import business.ApplicationSystem;
-import catering.system.UI.foodQualityAdminWorkArea.FoodQualityAdminJFrame;
+import catering.system.UI.FoodQualityAdminWorkArea.FoodQualityAdminJFrame;
 import catering.system.Users.UserAccount;
 import javax.swing.JFrame;
 

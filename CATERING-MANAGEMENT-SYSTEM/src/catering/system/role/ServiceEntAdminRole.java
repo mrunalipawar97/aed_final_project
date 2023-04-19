@@ -6,7 +6,7 @@ package catering.system.Role;
 
 import business.ApplicationSystem;
 import catering.system.Enterprise.Enterprise;
-import catering.system.UI.serviceEntAdminWorkArea.ServiceEntAdminJFrame;
+import catering.system.UI.ServiceEntAdminWorkArea.ServiceEntAdminJFrame;
 import catering.system.Users.UserAccount;
 import java.util.ArrayList;
 import javax.swing.JFrame;
