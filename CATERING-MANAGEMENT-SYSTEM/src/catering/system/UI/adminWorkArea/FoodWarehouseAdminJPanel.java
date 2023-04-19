@@ -65,7 +65,6 @@ public class FoodWarehouseAdminJPanel extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        passwordField = new javax.swing.JTextField();
         nameField = new javax.swing.JTextField();
         usernameField = new javax.swing.JTextField();
         addAdminButton = new javax.swing.JButton();
@@ -75,6 +74,7 @@ public class FoodWarehouseAdminJPanel extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         adminTable = new javax.swing.JTable();
         deleteAdminButton = new javax.swing.JButton();
+        passwordField = new javax.swing.JPasswordField();
 
         setBackground(new java.awt.Color(204, 204, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -87,7 +87,6 @@ public class FoodWarehouseAdminJPanel extends javax.swing.JPanel {
 
         jLabel3.setText("Admin Name:");
         add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 110, -1, -1));
-        add(passwordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 210, 270, 30));
 
         nameField.setEnabled(false);
         add(nameField, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 50, 270, 30));
@@ -135,6 +134,7 @@ public class FoodWarehouseAdminJPanel extends javax.swing.JPanel {
             }
         });
         add(deleteAdminButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 470, -1, -1));
+        add(passwordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 203, 270, 30));
     }// </editor-fold>//GEN-END:initComponents
 
     private void addAdminButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addAdminButtonActionPerformed
@@ -203,7 +203,7 @@ public class FoodWarehouseAdminJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField nameField;
-    private javax.swing.JTextField passwordField;
+    private javax.swing.JPasswordField passwordField;
     private javax.swing.JTextField usernameField;
     // End of variables declaration//GEN-END:variables
 }

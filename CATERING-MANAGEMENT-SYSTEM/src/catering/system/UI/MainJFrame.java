@@ -49,11 +49,11 @@ public class MainJFrame extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        passwordField = new javax.swing.JTextField();
         usernameField = new javax.swing.JTextField();
         loginBtn = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        passwordField = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -68,7 +68,6 @@ public class MainJFrame extends javax.swing.JFrame {
 
         jLabel3.setText("USERNAME:");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 190, -1, -1));
-        jPanel1.add(passwordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 230, 290, 30));
         jPanel1.add(usernameField, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 180, 290, 30));
 
         loginBtn.setText("Login");
@@ -85,6 +84,7 @@ public class MainJFrame extends javax.swing.JFrame {
         jButton1.setText("Register  Yourself As Client");
         jButton1.setActionCommand("Register yourself as Client");
         jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 380, -1, -1));
+        jPanel1.add(passwordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 230, 290, 30));
 
         getContentPane().add(jPanel1, java.awt.BorderLayout.CENTER);
 
@@ -149,7 +149,7 @@ public class MainJFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton loginBtn;
-    private javax.swing.JTextField passwordField;
+    private javax.swing.JPasswordField passwordField;
     private javax.swing.JTextField usernameField;
     // End of variables declaration//GEN-END:variables
 }

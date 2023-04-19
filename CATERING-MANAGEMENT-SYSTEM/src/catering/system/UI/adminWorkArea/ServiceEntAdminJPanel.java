@@ -65,7 +65,6 @@ public class ServiceEntAdminJPanel extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        passwordField = new javax.swing.JTextField();
         nameField = new javax.swing.JTextField();
         usernameField = new javax.swing.JTextField();
         addAdminButton = new javax.swing.JButton();
@@ -74,6 +73,7 @@ public class ServiceEntAdminJPanel extends javax.swing.JPanel {
         deleteAdminButton = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         adminNameField = new javax.swing.JTextField();
+        passwordField = new javax.swing.JPasswordField();
 
         setBackground(new java.awt.Color(204, 204, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -86,7 +86,6 @@ public class ServiceEntAdminJPanel extends javax.swing.JPanel {
 
         jLabel3.setText("Admin Name:");
         add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 110, -1, -1));
-        add(passwordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 210, 270, 30));
 
         nameField.setEnabled(false);
         add(nameField, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 40, 270, 30));
@@ -131,6 +130,7 @@ public class ServiceEntAdminJPanel extends javax.swing.JPanel {
         jLabel4.setText("Admin Username:");
         add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 160, -1, -1));
         add(adminNameField, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 100, 270, 30));
+        add(passwordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 210, 270, 30));
     }// </editor-fold>//GEN-END:initComponents
 
     private void addAdminButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addAdminButtonActionPerformed
@@ -197,7 +197,7 @@ public class ServiceEntAdminJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField nameField;
-    private javax.swing.JTextField passwordField;
+    private javax.swing.JPasswordField passwordField;
     private javax.swing.JTextField usernameField;
     // End of variables declaration//GEN-END:variables
 }
