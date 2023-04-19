@@ -6,7 +6,7 @@ package catering.system.UI.adminWorkArea;
 
 import business.ApplicationSystem;
 import catering.system.UI.MainJFrame;
-import catering.system.useraccount.UserAccount;
+import catering.system.Users.UserAccount;
 import com.opencsv.CSVReader;
 import java.io.BufferedReader;
 import java.io.FileReader;

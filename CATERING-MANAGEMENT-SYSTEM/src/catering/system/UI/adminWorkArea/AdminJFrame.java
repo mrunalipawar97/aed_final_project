@@ -6,7 +6,7 @@ package catering.system.UI.adminWorkArea;
 
 import business.ApplicationSystem;
 import catering.system.UI.MainJFrame;
-import catering.system.useraccount.UserAccount;
+import catering.system.Users.UserAccount;
 import javax.swing.JPanel;
 
 /**
@@ -14,6 +14,7 @@ import javax.swing.JPanel;
  * @author nishipancholi
  */
 public class AdminJFrame extends javax.swing.JFrame {
+
     private ApplicationSystem system;
     private UserAccount useraccount;
     private JPanel userProcessContainer;
@@ -28,8 +29,8 @@ public class AdminJFrame extends javax.swing.JFrame {
     public AdminJFrame(ApplicationSystem system, UserAccount useraccount) {
         initComponents();
         this.setVisible(true);
-        this.system=system;
-        this.useraccount=useraccount;
+        this.system = system;
+        this.useraccount = useraccount;
     }
 
     /**

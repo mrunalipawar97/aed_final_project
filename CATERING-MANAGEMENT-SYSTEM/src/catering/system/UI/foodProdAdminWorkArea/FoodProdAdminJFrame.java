@@ -6,7 +6,7 @@ package catering.system.UI.foodProdAdminWorkArea;
 
 import business.ApplicationSystem;
 import catering.system.UI.MainJFrame;
-import catering.system.useraccount.UserAccount;
+import catering.system.Users.UserAccount;
 
 /**
  *

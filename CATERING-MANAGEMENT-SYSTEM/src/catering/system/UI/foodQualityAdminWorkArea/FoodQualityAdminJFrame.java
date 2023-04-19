@@ -5,7 +5,7 @@
 package catering.system.UI.foodQualityAdminWorkArea;
 
 import business.ApplicationSystem;
-import catering.system.useraccount.UserAccount;
+import catering.system.Users.UserAccount;
 
 /**
  *

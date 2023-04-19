@@ -5,10 +5,10 @@
 package catering.system.UI.serviceEntAdminWorkArea;
 
 import business.ApplicationSystem;
-import catering.system.enterprise.Enterprise;
-import catering.system.organization.Organization;
-import catering.system.organization.OrganizationDirectory;
-import catering.system.useraccount.UserAccount;
+import catering.system.Enterprise.Enterprise;
+import catering.system.Organization.Organization;
+import catering.system.Organization.OrganizationDirectory;
+import catering.system.Users.UserAccount;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;

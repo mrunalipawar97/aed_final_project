@@ -2,12 +2,12 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package catering.system.role;
+package catering.system.Role;
 
 import business.ApplicationSystem;
+import catering.system.Enterprise.Enterprise;
 import catering.system.UI.serviceEntAdminWorkArea.ServiceEntAdminJFrame;
-import catering.system.enterprise.Enterprise;
-import catering.system.useraccount.UserAccount;
+import catering.system.Users.UserAccount;
 import java.util.ArrayList;
 import javax.swing.JFrame;
 

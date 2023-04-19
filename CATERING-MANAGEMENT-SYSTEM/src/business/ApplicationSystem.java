@@ -4,24 +4,27 @@
  */
 package business;
 
-import catering.system.enterprise.EnterpriseDirectory;
-import catering.system.useraccount.UserAccount;
-import catering.system.useraccount.UserAccountDirectory;
+import catering.system.Enterprise.EnterpriseDirectory;
+import catering.system.Users.UserAccount;
+import catering.system.Users.UserAccountDirectory;
 
 /**
  *
  * @author mrunalipawar
  */
 public class ApplicationSystem {
+
     private UserAccountDirectory userAccountDirectory;
     private EnterpriseDirectory enterpriseDirectory;
-    public ApplicationSystem(){
-        this.enterpriseDirectory= new EnterpriseDirectory();
-        this.userAccountDirectory=new UserAccountDirectory();
+
+    public ApplicationSystem() {
+        this.enterpriseDirectory = new EnterpriseDirectory();
+        this.userAccountDirectory = new UserAccountDirectory();
         UserAccount user = this.userAccountDirectory.createUserAccount("admin", "admin", "SystemAdmin");
     }
-     public static ApplicationSystem getApplicationSystemInstance() {
-        
+
+    public static ApplicationSystem getApplicationSystemInstance() {
+
         return new ApplicationSystem();
     }
 
@@ -40,5 +43,5 @@ public class ApplicationSystem {
     public void setEnterpriseDirectory(EnterpriseDirectory enterpriseDirectory) {
         this.enterpriseDirectory = enterpriseDirectory;
     }
-     
+
 }

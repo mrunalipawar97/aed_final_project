@@ -5,8 +5,8 @@
 package catering.system.UI;
 
 import business.ApplicationSystem;
-import catering.system.useraccount.UserAccount;
-import catering.system.useraccount.UserAccountDirectory;
+import catering.system.Users.UserAccount;
+import catering.system.Users.UserAccountDirectory;
 import javax.swing.JOptionPane;
 
 /**
@@ -14,6 +14,7 @@ import javax.swing.JOptionPane;
  * @author nishipancholi
  */
 public class MainJFrame extends javax.swing.JFrame {
+
     private ApplicationSystem system;
     private UserAccountDirectory useraccountDirectory;
 
@@ -25,7 +26,7 @@ public class MainJFrame extends javax.swing.JFrame {
         this.system = ApplicationSystem.getApplicationSystemInstance();
         this.useraccountDirectory = system.getUserAccountDirectory();
     }
-    
+
     public MainJFrame(ApplicationSystem system, UserAccount useraccount) {
         initComponents();
         this.setVisible(true);
@@ -97,9 +98,9 @@ public class MainJFrame extends javax.swing.JFrame {
         if (this.useraccountDirectory.accountExists(username, password)) {
 
             UserAccount user = this.useraccountDirectory.authenticateUser(username, password);
-           
+
             this.setVisible(false);
-            user.getWorkArea(user.getRole(),system, user);
+            user.getWorkArea(user.getRole(), system, user);
         } else {
             JOptionPane.showMessageDialog(null, "Invalid credentials");
         }

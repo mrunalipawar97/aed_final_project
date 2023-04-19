@@ -5,7 +5,7 @@
 package catering.system.UI.adminWorkArea;
 
 import business.ApplicationSystem;
-import catering.system.useraccount.UserAccount;
+import catering.system.Users.UserAccount;
 import javax.swing.table.DefaultTableModel;
 
 /**

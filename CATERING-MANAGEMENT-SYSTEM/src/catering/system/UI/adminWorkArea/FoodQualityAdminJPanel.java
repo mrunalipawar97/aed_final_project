@@ -5,9 +5,9 @@
 package catering.system.UI.adminWorkArea;
 
 import business.ApplicationSystem;
-import catering.system.enterprise.Enterprise;
-import catering.system.useraccount.UserAccount;
-import catering.system.useraccount.UserAccountDirectory;
+import catering.system.Enterprise.Enterprise;
+import catering.system.Users.UserAccount;
+import catering.system.Users.UserAccountDirectory;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
