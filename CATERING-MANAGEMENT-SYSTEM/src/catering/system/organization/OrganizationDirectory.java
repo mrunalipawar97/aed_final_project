@@ -4,10 +4,34 @@
  */
 package catering.system.organization;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author mrunalipawar
  */
 public class OrganizationDirectory {
+        private ArrayList<Organization> organizationList;
+    
+    public OrganizationDirectory(){
+        this.organizationList= new ArrayList<>();
+    }
+
+    public ArrayList<Organization> getOrganizationList() {
+        return organizationList;
+    }
+
+    public void setOrganizationList(ArrayList<Organization> organizationList) {
+        this.organizationList = organizationList;
+    }
+    
+    public Organization addOrganization(String type, String name){
+       Organization org= new Organization();
+       org.setType(type);
+       org.setName(name);
+       
+       this.organizationList.add(org);
+       return org;
+    }
     
 }
