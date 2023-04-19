@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package catering.system.UI.ServiceEntAdminWorkArea;
+package catering.system.UI.serviceEntAdminWorkArea;
 
 import business.ApplicationSystem;
 import catering.system.Enterprise.Enterprise;
@@ -44,8 +44,8 @@ public class AddOrganizationJPanel extends javax.swing.JPanel {
         ArrayList<Organization> orgDir=this.currentEnterprise.getOrganizationDirectory().getOrganizationList();
         for(Organization org:orgDir){
                 Object[] row = new Object[2];
-                row[0] = org;
-                row[1] = org.getName();
+                row[0] = org.getType();
+                row[1] = org;
                 
                 tableModel.addRow(row);
         }  
@@ -98,7 +98,7 @@ public class AddOrganizationJPanel extends javax.swing.JPanel {
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Object.class, java.lang.String.class
+                java.lang.String.class, java.lang.Object.class
             };
 
             public Class getColumnClass(int columnIndex) {

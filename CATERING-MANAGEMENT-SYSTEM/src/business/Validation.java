@@ -4,6 +4,8 @@
  */
 package business;
 
+import java.util.Calendar;
+import java.util.Date;
 import javax.swing.JOptionPane;
 
 /**
@@ -19,4 +21,28 @@ public class Validation {
             return true;
         }
     }
+    
+    public static boolean validateString(String name)
+    {
+        return true;
+    }
+    
+    public static int calculateAge(Date dateOfBirth)
+    {
+       try
+       {     
+        Calendar dob = Calendar.getInstance();
+        dob.setTime(dateOfBirth);
+        Calendar today = Calendar.getInstance();
+        int age = today.get(Calendar.YEAR) - dob.get(Calendar.YEAR);
+        if (today.get(Calendar.DAY_OF_YEAR) <= dob.get(Calendar.DAY_OF_YEAR))
+        age--;
+        return age;
+       }
+       catch(Exception e)
+       {
+        return 0;   
+       }
+    }
+
 }
