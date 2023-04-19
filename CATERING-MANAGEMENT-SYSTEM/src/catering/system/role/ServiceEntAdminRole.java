@@ -6,7 +6,9 @@ package catering.system.role;
 
 import business.ApplicationSystem;
 import catering.system.UI.serviceEntAdminWorkArea.ServiceEntAdminJFrame;
+import catering.system.enterprise.Enterprise;
 import catering.system.useraccount.UserAccount;
+import java.util.ArrayList;
 import javax.swing.JFrame;
 
 /**
@@ -19,7 +21,14 @@ public class ServiceEntAdminRole {
 
     
     public JFrame getWorkArea(ApplicationSystem system, UserAccount useraccount) {
-        return new ServiceEntAdminJFrame(system, useraccount);
+        ArrayList<Enterprise> entList= system.getEnterpriseDirectory().getEnterpriseList();
+        Enterprise enterprise=new Enterprise();
+        for (Enterprise ent:entList){
+            if(ent.getEnterpriseName().equals("Service Enterprise")){
+                enterprise=ent;
+            }
+        }
+        return new ServiceEntAdminJFrame(system, useraccount, enterprise);
 
     }
     

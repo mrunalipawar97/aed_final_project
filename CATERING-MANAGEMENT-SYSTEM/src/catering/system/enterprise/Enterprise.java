@@ -4,6 +4,8 @@
  */
 package catering.system.enterprise;
 
+import catering.system.organization.OrganizationDirectory;
+
 /**
  *
  * @author mrunalipawar
@@ -11,10 +13,12 @@ package catering.system.enterprise;
 public class Enterprise {
     String enterpriseName;
     String entAdminName;
+    private OrganizationDirectory organizationDirectory;
     
     public Enterprise(){
         super();
         this.entAdminName="none";
+        this.organizationDirectory=new OrganizationDirectory();
     }
 
     public String getEnterpriseName() {
@@ -36,4 +40,13 @@ public class Enterprise {
     public void removeAdminName(String entAdminName) {
         
     }
+
+    public OrganizationDirectory getOrganizationDirectory() {
+        return organizationDirectory;
+    }
+
+    public void setOrganizationDirectory(OrganizationDirectory organizationDirectory) {
+        this.organizationDirectory = organizationDirectory;
+    }
+    
 }
