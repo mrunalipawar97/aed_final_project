@@ -183,7 +183,7 @@ public class AddEnterpriseJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         if(!viewEntNameField.getText().isEmpty() && viewEntNameField != null){
             selectedEnterprise.setEnterpriseName(viewEntNameField.getText());
-            JOptionPane.showMessageDialog(null,"Updated IEnterprise Name!"); 
+            JOptionPane.showMessageDialog(null,"Updated Enterprise Name!"); 
             populate();
         }
         else{

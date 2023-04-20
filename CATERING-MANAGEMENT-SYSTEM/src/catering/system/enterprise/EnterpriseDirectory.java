@@ -56,12 +56,10 @@ public class EnterpriseDirectory {
         return false;
     }
     
-    public EnterpriseAdmin createEnterpriseAdmin(String name, UserAccount ua, String phone, String address, Enterprise ent){
+    public EnterpriseAdmin createEnterpriseAdmin(String name, UserAccount ua, Enterprise ent){
         EnterpriseAdmin cust = new EnterpriseAdmin();
         cust.setName(name);
         cust.setAccountDetails(ua);
-        cust.setAddress(address);
-        cust.setPhone(phone);
         ent.setEntAdminName(name);
         enterpriseAdminList.add(cust);
         return cust;

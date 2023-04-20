@@ -16,10 +16,11 @@ public class Enterprise {
     String entAdminName;
     String entType;
     private OrganizationDirectory organizationDirectory;
-    
+    private EnterpriseAdmin admin;
     public Enterprise(){
         super();
         this.organizationDirectory=new OrganizationDirectory();
+        this.admin=new EnterpriseAdmin();
     }
 
     public String getEnterpriseName() {
@@ -41,6 +42,15 @@ public class Enterprise {
     public void removeAdminName(String entAdminName) {
         
     }
+
+    public EnterpriseAdmin getAdmin() {
+        return admin;
+    }
+
+    public void setAdmin(EnterpriseAdmin admin) {
+        this.admin = admin;
+    }
+    
 
     public OrganizationDirectory getOrganizationDirectory() {
         return organizationDirectory;
