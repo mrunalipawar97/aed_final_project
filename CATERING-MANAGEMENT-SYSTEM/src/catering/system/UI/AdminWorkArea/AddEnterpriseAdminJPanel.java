@@ -27,6 +27,7 @@ public class AddEnterpriseAdminJPanel extends javax.swing.JPanel {
     private ApplicationSystem system;
     JPanel container;
     DefaultTableModel entTableModel;
+    private Enterprise selectedEnterprise;
 
     /**
      * Creates new form AddEnterpriseAdminJPanel
@@ -40,6 +41,7 @@ public class AddEnterpriseAdminJPanel extends javax.swing.JPanel {
         this.system=system;
         this.container=container;
         this.entTableModel= (DefaultTableModel) adminTable.getModel();
+        this.selectedEnterprise= new Enterprise();
         populate();
         populateDropdown();
     }
@@ -47,13 +49,15 @@ public class AddEnterpriseAdminJPanel extends javax.swing.JPanel {
     public void populate(){
         entTableModel.setRowCount(0);
         ArrayList<Enterprise> enterpiseList=this.system.getEnterpriseDirectory().getEnterpriseList();
+        ArrayList<EnterpriseAdmin> entAdminList=this.system.getEnterpriseDirectory().getEnterpriseAdminList();
         if(enterpiseList.size()>0){
             for (Enterprise ent:enterpiseList){
                 System.out.println(ent+"ent");
                 if(ent.getEntAdminName()!=null){
-                    Object row[]= new Object[2];
+                    Object row[]= new Object[3];
                     row[0]=ent;
                     row[1]=ent.getEntAdminName();
+                    row[2]=ent.getAdmin().getAccountDetails().getUsername();
 
                     entTableModel.addRow(row);
                 }
@@ -81,40 +85,38 @@ public class AddEnterpriseAdminJPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         entComboBox = new javax.swing.JComboBox();
-        jLabel5 = new javax.swing.JLabel();
         updateRestManagerLabel = new javax.swing.JLabel();
         restManagerText = new javax.swing.JTextField();
         restPwdLabel1 = new javax.swing.JLabel();
         usernameText = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         restPwdText = new javax.swing.JPasswordField();
-        phoneLabel = new javax.swing.JLabel();
-        phoneText = new javax.swing.JTextField();
-        addressLabel = new javax.swing.JLabel();
-        AddressText = new javax.swing.JTextField();
         updateRestManagerLabel1 = new javax.swing.JLabel();
         addAdminButton = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         adminTable = new javax.swing.JTable();
+        jLabel2 = new javax.swing.JLabel();
+        viewAdminButton = new javax.swing.JButton();
+        updateRestManagerLabel2 = new javax.swing.JLabel();
+        updateRestManagerLabel3 = new javax.swing.JLabel();
+        restPwdLabel2 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        adminNameField = new javax.swing.JTextField();
+        adminUsernameField = new javax.swing.JTextField();
+        updtPwdField = new javax.swing.JPasswordField();
+        entTypeField = new javax.swing.JTextField();
+        updateEntAdminButton = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(204, 204, 255));
+        setBackground(new java.awt.Color(153, 153, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        add(entComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 83, 270, 30));
-
-        jLabel5.setBackground(new java.awt.Color(254, 254, 226));
-        jLabel5.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(254, 254, 226));
-        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel5.setText("Add Enterprise Admins");
-        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 10, -1, -1));
+        add(entComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 100, 240, 30));
 
         updateRestManagerLabel.setBackground(new java.awt.Color(254, 254, 226));
         updateRestManagerLabel.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        updateRestManagerLabel.setForeground(new java.awt.Color(254, 254, 226));
         updateRestManagerLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         updateRestManagerLabel.setText("Enterprise Type");
-        add(updateRestManagerLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 90, -1, -1));
+        add(updateRestManagerLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 100, -1, 30));
 
         restManagerText.setForeground(new java.awt.Color(72, 72, 72));
         restManagerText.addActionListener(new java.awt.event.ActionListener() {
@@ -122,74 +124,122 @@ public class AddEnterpriseAdminJPanel extends javax.swing.JPanel {
                 restManagerTextActionPerformed(evt);
             }
         });
-        add(restManagerText, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 123, 280, 30));
+        add(restManagerText, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 150, 240, 30));
 
         restPwdLabel1.setBackground(new java.awt.Color(254, 254, 226));
         restPwdLabel1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        restPwdLabel1.setForeground(new java.awt.Color(254, 254, 226));
         restPwdLabel1.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         restPwdLabel1.setText("Username");
-        add(restPwdLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 160, -1, 60));
+        add(restPwdLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 190, -1, 50));
 
         usernameText.setForeground(new java.awt.Color(72, 72, 72));
-        add(usernameText, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 170, 280, 30));
+        add(usernameText, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 200, 240, 30));
 
         jLabel6.setBackground(new java.awt.Color(254, 254, 226));
         jLabel6.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(254, 254, 226));
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         jLabel6.setText("Password");
-        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 230, -1, -1));
+        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 250, -1, 40));
 
         restPwdText.setForeground(new java.awt.Color(72, 72, 72));
-        add(restPwdText, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 220, 270, 30));
-
-        phoneLabel.setBackground(new java.awt.Color(254, 254, 226));
-        phoneLabel.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        phoneLabel.setForeground(new java.awt.Color(254, 254, 226));
-        phoneLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        phoneLabel.setText("Phone");
-        add(phoneLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 270, -1, -1));
-
-        phoneText.setForeground(new java.awt.Color(72, 72, 72));
-        add(phoneText, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 270, 260, -1));
-
-        addressLabel.setBackground(new java.awt.Color(254, 254, 226));
-        addressLabel.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        addressLabel.setForeground(new java.awt.Color(254, 254, 226));
-        addressLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        addressLabel.setText("Address");
-        add(addressLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 320, -1, -1));
-
-        AddressText.setForeground(new java.awt.Color(72, 72, 72));
-        add(AddressText, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 320, 260, -1));
+        add(restPwdText, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 250, 240, 30));
 
         updateRestManagerLabel1.setBackground(new java.awt.Color(254, 254, 226));
         updateRestManagerLabel1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        updateRestManagerLabel1.setForeground(new java.awt.Color(254, 254, 226));
         updateRestManagerLabel1.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         updateRestManagerLabel1.setText("Name");
-        add(updateRestManagerLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 130, -1, -1));
+        add(updateRestManagerLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 150, -1, 30));
 
+        addAdminButton.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         addAdminButton.setText("Add Admin");
         addAdminButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addAdminButtonActionPerformed(evt);
             }
         });
-        add(addAdminButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 360, -1, -1));
+        add(addAdminButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 310, -1, 30));
 
         adminTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Enterprise Type", "Admin Name"
+                "Enterprise Type", "Admin Name", "User Name"
             }
-        ));
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Object.class, java.lang.String.class, java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
         jScrollPane1.setViewportView(adminTable);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 397, -1, 180));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 100, 470, 200));
+
+        jLabel2.setFont(new java.awt.Font("Helvetica Neue", 1, 36)); // NOI18N
+        jLabel2.setText("Add Enterprise Admins");
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 20, 420, -1));
+
+        viewAdminButton.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        viewAdminButton.setText("View Details");
+        viewAdminButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                viewAdminButtonActionPerformed(evt);
+            }
+        });
+        add(viewAdminButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 340, 110, -1));
+
+        updateRestManagerLabel2.setBackground(new java.awt.Color(254, 254, 226));
+        updateRestManagerLabel2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        updateRestManagerLabel2.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        updateRestManagerLabel2.setText("Enterprise Type");
+        add(updateRestManagerLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 430, -1, 30));
+
+        updateRestManagerLabel3.setBackground(new java.awt.Color(254, 254, 226));
+        updateRestManagerLabel3.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        updateRestManagerLabel3.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        updateRestManagerLabel3.setText("Name");
+        add(updateRestManagerLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 480, -1, 30));
+
+        restPwdLabel2.setBackground(new java.awt.Color(254, 254, 226));
+        restPwdLabel2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        restPwdLabel2.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        restPwdLabel2.setText("Username");
+        add(restPwdLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 520, -1, 50));
+
+        jLabel7.setBackground(new java.awt.Color(254, 254, 226));
+        jLabel7.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        jLabel7.setText("Password");
+        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 580, -1, 40));
+
+        adminNameField.setForeground(new java.awt.Color(72, 72, 72));
+        adminNameField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                adminNameFieldActionPerformed(evt);
+            }
+        });
+        add(adminNameField, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 480, 240, 30));
+
+        adminUsernameField.setForeground(new java.awt.Color(72, 72, 72));
+        add(adminUsernameField, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 530, 240, 30));
+
+        updtPwdField.setForeground(new java.awt.Color(72, 72, 72));
+        add(updtPwdField, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 580, 240, 30));
+
+        entTypeField.setEnabled(false);
+        add(entTypeField, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 430, 240, 30));
+
+        updateEntAdminButton.setText("Update Enterprise Admin");
+        updateEntAdminButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                updateEntAdminButtonActionPerformed(evt);
+            }
+        });
+        add(updateEntAdminButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 630, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void restManagerTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_restManagerTextActionPerformed
@@ -198,7 +248,7 @@ public class AddEnterpriseAdminJPanel extends javax.swing.JPanel {
 
     private void addAdminButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addAdminButtonActionPerformed
         // TODO add your handling code here:
-        Boolean isValid = ValidateStrings.validateFields(usernameText.getText(), AddressText.getText(), phoneText.getText(), restManagerText.getText(), restPwdText.getPassword());
+        Boolean isValid = ValidateStrings.validateFields(usernameText.getText(), restManagerText.getText(), restPwdText.getPassword());
         if (!isValid) {
             return;
         }
@@ -219,27 +269,32 @@ public class AddEnterpriseAdminJPanel extends javax.swing.JPanel {
         String foodProd="Food Production Enterprise";
         String foodQuality="Food Quality Enterprise";
         String foodWarehouse="Food WareHouse Enterprise";
+        
         if(entType.equals(service)){
             System.out.print("hello");
             UserAccount ua = system.getUserAccountDirectory().createUserAccount(usernameText.getText(), pwd, employee, new SeviceEntAdminRole(), "ServiceEntAdmin");
-            EnterpriseAdmin admin=system.getEnterpriseDirectory().createEnterpriseAdmin(restManagerText.getText(), ua, phoneText.getText(),AddressText.getText(),ent); 
+            EnterpriseAdmin admin=system.getEnterpriseDirectory().createEnterpriseAdmin(restManagerText.getText(), ua,ent); 
+            ent.setAdmin(admin);
             System.out.println(admin+"admin");
             System.out.println(ua+"ua");
             JOptionPane.showMessageDialog(this, "Enterprise Admin added successfully");
         }
         else if(entType.equals(foodProd)){
             UserAccount ua = system.getUserAccountDirectory().createUserAccount(usernameText.getText(), pwd, employee, new FoodProdEntAdminRole(), "FoodProdAdmin");
-            EnterpriseAdmin admin=system.getEnterpriseDirectory().createEnterpriseAdmin(restManagerText.getText(), ua, phoneText.getText(),AddressText.getText(),ent);
+            EnterpriseAdmin admin=system.getEnterpriseDirectory().createEnterpriseAdmin(restManagerText.getText(), ua,ent);
+            ent.setAdmin(admin);
             JOptionPane.showMessageDialog(this, "Enterprise Admin added successfully");
         }
         else if(entType.equals(foodQuality)){
             UserAccount ua = system.getUserAccountDirectory().createUserAccount(usernameText.getText(), pwd, employee, new FoodQualityEntAdminRole(), "FoodQualityAdmin");
-            EnterpriseAdmin admin=system.getEnterpriseDirectory().createEnterpriseAdmin(restManagerText.getText(), ua, phoneText.getText(),AddressText.getText(),ent);
+            EnterpriseAdmin admin=system.getEnterpriseDirectory().createEnterpriseAdmin(restManagerText.getText(), ua,ent);
+            ent.setAdmin(admin);
             JOptionPane.showMessageDialog(this, "Enterprise Admin added successfully");
         }
         else if(entType.equals(foodWarehouse)){
             UserAccount ua = system.getUserAccountDirectory().createUserAccount(usernameText.getText(), pwd, employee, new FoodWarehouseEntAdminRole(), "FoodWarehouseAdmin");
-            EnterpriseAdmin admin=system.getEnterpriseDirectory().createEnterpriseAdmin(restManagerText.getText(), ua, phoneText.getText(),AddressText.getText(),ent);
+            EnterpriseAdmin admin=system.getEnterpriseDirectory().createEnterpriseAdmin(restManagerText.getText(), ua,ent);
+            ent.setAdmin(admin);
             JOptionPane.showMessageDialog(this, "Enterprise Admin added successfully");
         }
     
@@ -247,27 +302,69 @@ public class AddEnterpriseAdminJPanel extends javax.swing.JPanel {
         restManagerText.setText("");
         usernameText.setText("");
         restPwdText.setText("");
-        phoneText.setText("");
-        AddressText.setText("");
     }//GEN-LAST:event_addAdminButtonActionPerformed
+
+    private void adminNameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adminNameFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_adminNameFieldActionPerformed
+
+    private void viewAdminButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewAdminButtonActionPerformed
+        // TODO add your handling code here:
+        int selectedRow = adminTable.getSelectedRow();
+        
+        if(selectedRow>=0){
+            
+            selectedEnterprise = (Enterprise) adminTable.getValueAt(selectedRow, 0);
+            entTypeField.setText(selectedEnterprise.getEntType());
+            adminNameField.setText(selectedEnterprise.getEntAdminName());
+            adminUsernameField.setText(selectedEnterprise.getAdmin().getAccountDetails().getUsername());
+            updtPwdField.setText(selectedEnterprise.getAdmin().getAccountDetails().getPassword());
+            
+        }
+        else{
+            JOptionPane.showMessageDialog(null,"Please select row");
+        }
+    }//GEN-LAST:event_viewAdminButtonActionPerformed
+
+    private void updateEntAdminButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateEntAdminButtonActionPerformed
+        // TODO add your handling code here:
+        if(!adminNameField.getText().isEmpty() && adminNameField != null){
+            
+            selectedEnterprise.getAdmin().setName(adminNameField.getText());
+            selectedEnterprise.setEntAdminName(adminNameField.getText());
+            selectedEnterprise.getAdmin().getAccountDetails().setUsername(adminUsernameField.getText());
+            selectedEnterprise.getAdmin().getAccountDetails().setPassword(updtPwdField.getText());
+            JOptionPane.showMessageDialog(null,"Updated Enterprise Name!"); 
+            populate();
+        }
+        else{
+            JOptionPane.showMessageDialog(null,"Any row selection is not done!");
+        }
+    }//GEN-LAST:event_updateEntAdminButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField AddressText;
     private javax.swing.JButton addAdminButton;
-    private javax.swing.JLabel addressLabel;
+    private javax.swing.JTextField adminNameField;
     private javax.swing.JTable adminTable;
+    private javax.swing.JTextField adminUsernameField;
     private javax.swing.JComboBox entComboBox;
-    private javax.swing.JLabel jLabel5;
+    private javax.swing.JTextField entTypeField;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel phoneLabel;
-    private javax.swing.JTextField phoneText;
     private javax.swing.JTextField restManagerText;
     private javax.swing.JLabel restPwdLabel1;
+    private javax.swing.JLabel restPwdLabel2;
     private javax.swing.JPasswordField restPwdText;
+    private javax.swing.JButton updateEntAdminButton;
     private javax.swing.JLabel updateRestManagerLabel;
     private javax.swing.JLabel updateRestManagerLabel1;
+    private javax.swing.JLabel updateRestManagerLabel2;
+    private javax.swing.JLabel updateRestManagerLabel3;
+    private javax.swing.JPasswordField updtPwdField;
     private javax.swing.JTextField usernameText;
+    private javax.swing.JButton viewAdminButton;
     // End of variables declaration//GEN-END:variables
 }

@@ -18,6 +18,6 @@ public class SeviceEntAdminRole extends Role{
     }
     @Override
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, ApplicationSystem business) {
-        return new ServiceEntAdminMainJPanel(userProcessContainer, account, business);
+        return new ServiceEntAdminMainJPanel(userProcessContainer, business);
     }
 }
