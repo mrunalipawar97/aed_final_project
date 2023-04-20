@@ -46,9 +46,9 @@ public class SignUpJPanel extends javax.swing.JPanel {
             clientList.add(system.getClientDirectory().getClientList().get(i));
         }
         
-     for (int i = 0; i < system.getBranchLocation().getBranchLocation().size(); i++) {
-             System.out.println(system.getBranchLocation().getBranchLocation().get(i));
-            jComboBox1.addItem(system.getBranchLocation().getBranchLocation().get(i));
+     for (int i = 0; i < system.getBranchDirectory().getBranchLocation().size(); i++) {
+             System.out.println(system.getBranchDirectory().getBranchLocation().get(i));
+            jComboBox1.addItem(system.getBranchDirectory().getBranchLocation().get(i));
        }
     }
 

@@ -5,7 +5,9 @@
 package catering.system.UI.FoodWarehouseAdminWorkArea;
 
 import business.ApplicationSystem;
+import catering.system.UI.AdminWorkArea.AdminJPanel;
 import catering.system.Users.UserAccount;
+import java.awt.CardLayout;
 import javax.swing.JPanel;
 
 /**
@@ -17,12 +19,18 @@ public class FoodWareHouseAdminMainJPanel extends javax.swing.JPanel {
     /**
      * Creates new form FoodWareHouseAdminMainJPanel
      */
+    
+    JPanel userProcessContainer;
+    private static ApplicationSystem system;
+
     public FoodWareHouseAdminMainJPanel() {
         initComponents();
     }
 
-    public FoodWareHouseAdminMainJPanel(JPanel userProcessContainer, UserAccount account, ApplicationSystem business) {
+    public FoodWareHouseAdminMainJPanel(JPanel userProcessContainer, UserAccount account, ApplicationSystem system) {
         initComponents();
+        this.userProcessContainer = userProcessContainer;
+        this.system = system;
     }
 
     /**
@@ -35,17 +43,75 @@ public class FoodWareHouseAdminMainJPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         addCourseHeaderLabel = new javax.swing.JLabel();
+        inventoryStoreButton = new javax.swing.JButton();
+        inventoryManagerButton = new javax.swing.JButton();
+        btnBack = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(204, 204, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         addCourseHeaderLabel.setFont(new java.awt.Font("Kannada MN", 1, 20)); // NOI18N
         addCourseHeaderLabel.setText("FOOD WAREHOUSE ADMIN PORTAL");
-        add(addCourseHeaderLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 30, 400, -1));
+        add(addCourseHeaderLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 30, 400, -1));
+
+        inventoryStoreButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        inventoryStoreButton.setForeground(new java.awt.Color(51, 51, 51));
+        inventoryStoreButton.setText("Inventory Store");
+        inventoryStoreButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                inventoryStoreButtonActionPerformed(evt);
+            }
+        });
+        add(inventoryStoreButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 300, 178, 46));
+
+        inventoryManagerButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        inventoryManagerButton.setForeground(new java.awt.Color(51, 51, 51));
+        inventoryManagerButton.setText("Inventory Managers");
+        inventoryManagerButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                inventoryManagerButtonActionPerformed(evt);
+            }
+        });
+        add(inventoryManagerButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 220, 180, 46));
+
+        btnBack.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnBack.setForeground(new java.awt.Color(51, 51, 51));
+        btnBack.setText("Back");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
+        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 100, 119, 47));
     }// </editor-fold>//GEN-END:initComponents
+
+    private void inventoryStoreButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inventoryStoreButtonActionPerformed
+        InventoryStoreManagementJPanel inventoryStoreManagementJPanel = new InventoryStoreManagementJPanel(userProcessContainer, system);
+        userProcessContainer.add("InventoryStoreManagementJPanel",inventoryStoreManagementJPanel);
+        CardLayout layout=(CardLayout)userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+    }//GEN-LAST:event_inventoryStoreButtonActionPerformed
+
+    private void inventoryManagerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inventoryManagerButtonActionPerformed
+        // TODO add your handling code here:
+        InventoryManagerManagementJPanel inventoryManagerManagementJPanel= new InventoryManagerManagementJPanel(userProcessContainer, system);
+        userProcessContainer.add("InventoryManagerManagementJPanel",inventoryManagerManagementJPanel);
+        CardLayout layout=(CardLayout)userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+    }//GEN-LAST:event_inventoryManagerButtonActionPerformed
+
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        AdminJPanel dm= new AdminJPanel(userProcessContainer, system);
+        userProcessContainer.add("AdminJPanel",dm);
+        CardLayout layout=(CardLayout)userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+    }//GEN-LAST:event_btnBackActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel addCourseHeaderLabel;
+    private javax.swing.JButton btnBack;
+    private javax.swing.JButton inventoryManagerButton;
+    private javax.swing.JButton inventoryStoreButton;
     // End of variables declaration//GEN-END:variables
 }

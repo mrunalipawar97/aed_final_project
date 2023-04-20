@@ -139,8 +139,6 @@ public class Organization {
         Organization.counter = counter;
     }
 
-    
-    
     @Override
     public String toString() {
         return organizationName;
