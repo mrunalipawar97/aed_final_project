@@ -77,6 +77,8 @@ public class SignUpJPanel extends javax.swing.JPanel {
         Email1 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
         AddBtn = new javax.swing.JButton();
+        orgTypeComboBox = new javax.swing.JComboBox();
+        Email2 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(153, 153, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -145,8 +147,8 @@ public class SignUpJPanel extends javax.swing.JPanel {
         Email.setBackground(new java.awt.Color(46, 31, 39));
         Email.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         Email.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        Email.setText("Email");
-        add(Email, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 390, -1, -1));
+        Email.setText("Client Type");
+        add(Email, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 430, -1, 20));
 
         EmailTxt.setForeground(new java.awt.Color(72, 72, 72));
         add(EmailTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 390, 170, -1));
@@ -155,9 +157,9 @@ public class SignUpJPanel extends javax.swing.JPanel {
         Email1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         Email1.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         Email1.setText("Location");
-        add(Email1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 440, -1, -1));
+        add(Email1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 480, -1, -1));
 
-        add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 440, 170, -1));
+        add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 470, 170, -1));
 
         AddBtn.setBackground(new java.awt.Color(204, 204, 204));
         AddBtn.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -169,6 +171,15 @@ public class SignUpJPanel extends javax.swing.JPanel {
             }
         });
         add(AddBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 510, -1, -1));
+
+        orgTypeComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "School", "Office", "Government", "Hospital" }));
+        add(orgTypeComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 430, 160, -1));
+
+        Email2.setBackground(new java.awt.Color(46, 31, 39));
+        Email2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        Email2.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        Email2.setText("Email");
+        add(Email2, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 390, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
@@ -225,9 +236,10 @@ public class SignUpJPanel extends javax.swing.JPanel {
         char[] ch = restPwdText.getPassword();
         String pwd = new String(ch);
         String name = (String) jComboBox1.getSelectedItem();
+        String orgType= (String) orgTypeComboBox.getSelectedItem();
         Employee employee = system.getEmployeeDirectory().createEmployee(nameText.getText());
         UserAccount ua = system.getUserAccountDirectory().createUserAccount(usernameText.getText(), pwd, employee, new ClientRole(), "customerAdmin");
-        Client cust = system.getClientDirectory().createClient(nameText.getText(), ua, phoneText.getText(), AddressText.getText(), EmailTxt.getText(), name);
+        Client cust = system.getClientDirectory().createClient(nameText.getText(), ua, phoneText.getText(), AddressText.getText(), EmailTxt.getText(), name,orgType);
         clientList.add(cust);
         JOptionPane.showMessageDialog(this, "Customer added successfully");
         
@@ -259,12 +271,14 @@ public class SignUpJPanel extends javax.swing.JPanel {
     private javax.swing.JTextField AddressText;
     private javax.swing.JLabel Email;
     private javax.swing.JLabel Email1;
+    private javax.swing.JLabel Email2;
     private javax.swing.JTextField EmailTxt;
     private javax.swing.JLabel addressLabel;
     private javax.swing.JButton backButton;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JTextField nameText;
+    private javax.swing.JComboBox orgTypeComboBox;
     private javax.swing.JLabel phoneLabel;
     private javax.swing.JTextField phoneText;
     private javax.swing.JLabel restPwdLabel1;
