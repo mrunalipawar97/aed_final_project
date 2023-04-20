@@ -4,6 +4,7 @@
  */
 package catering.system.Enterprise;
 
+import catering.system.Users.UserAccount;
 import java.util.ArrayList;
 
 /**
@@ -11,11 +12,13 @@ import java.util.ArrayList;
  * @author mrunalipawar
  */
 public class EnterpriseDirectory {
+    ArrayList<EnterpriseAdmin> enterpriseAdminList;
     
     ArrayList<Enterprise> enterpriseList;
     
     public EnterpriseDirectory() {
         this.enterpriseList = new ArrayList<Enterprise>();
+        this.enterpriseAdminList = new ArrayList<EnterpriseAdmin>();
     }
 
     public ArrayList<Enterprise> getEnterpriseList() {
@@ -25,13 +28,43 @@ public class EnterpriseDirectory {
     public void setEnterpriseList(ArrayList<Enterprise> enterpriseList) {
         this.enterpriseList = enterpriseList;
     }
+
+    public ArrayList<EnterpriseAdmin> getEnterpriseAdminList() {
+        return enterpriseAdminList;
+    }
+
+    public void setEnterpriseAdminList(ArrayList<EnterpriseAdmin> enterpriseAdminList) {
+        this.enterpriseAdminList = enterpriseAdminList;
+    }
     
-    
-    public Enterprise createEnterprise(String name) {
+    public Enterprise createEnterprise(String name, String type) {
         Enterprise ent= new Enterprise();
         ent.setEnterpriseName(name);
+        ent.setEntType(type);
         this.enterpriseList.add(ent);
         return ent;
+    }
+    
+    public Boolean deleteEnterpriseAdmin(String name) {
+        for(int i = 0; i < enterpriseAdminList.size(); i ++) {
+            if(enterpriseAdminList.get(i).getName().equals(name)) {
+//                system.getUserAccountDirectory().deleteUser(restaurantManagerList.get(i).getAccountDetails().getUsername());
+                enterpriseAdminList.remove(i);
+                return true;
+            }
+        }
+        return false;
+    }
+    
+    public EnterpriseAdmin createEnterpriseAdmin(String name, UserAccount ua, String phone, String address, Enterprise ent){
+        EnterpriseAdmin cust = new EnterpriseAdmin();
+        cust.setName(name);
+        cust.setAccountDetails(ua);
+        cust.setAddress(address);
+        cust.setPhone(phone);
+        ent.setEntAdminName(name);
+        enterpriseAdminList.add(cust);
+        return cust;
     }
     
 }

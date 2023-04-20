@@ -4,17 +4,53 @@
  */
 package catering.system.UI.AdminWorkArea;
 
+import business.ApplicationSystem;
+import catering.system.Enterprise.Enterprise;
+import catering.system.validations.ValidateStrings;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author nishipancholi
  */
 public class AddEnterpriseJPanel extends javax.swing.JPanel {
-
+    private ApplicationSystem system;
+    JPanel container;
+    DefaultTableModel entTableModel;
     /**
      * Creates new form AddEnterpriseJPanel
      */
     public AddEnterpriseJPanel() {
         initComponents();
+    }
+
+    AddEnterpriseJPanel(ApplicationSystem system, JPanel container) {
+        initComponents();
+        this.system=system;
+        this.container=container;
+        this.entTableModel= (DefaultTableModel) entTable.getModel();
+        populate();
+    }
+    
+    public void populate(){
+        entTableModel.setRowCount(0);
+        ArrayList<Enterprise> enterpiseList=this.system.getEnterpriseDirectory().getEnterpriseList();
+        if(enterpiseList.size()>0){
+            for (Enterprise ent:enterpiseList){
+                
+                Object row[]= new Object[2];
+                row[0]=ent;
+                row[1]=ent.getEnterpriseName();
+                
+                entTableModel.addRow(row);
+            }
+        }
+        else{
+            JOptionPane.showMessageDialog(null,"No Enterprise Found");
+        }
     }
 
     /**
@@ -26,10 +62,82 @@ public class AddEnterpriseJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
+        typeComboBox = new javax.swing.JComboBox<>();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        nameField = new javax.swing.JTextField();
+        addEntButton = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        entTable = new javax.swing.JTable();
+
+        setBackground(new java.awt.Color(204, 204, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel1.setText("Enterprise name:");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 190, -1, 20));
+
+        typeComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Service Enterprise", "Food Production Enterprise", "Food Quality Enterprise", "Food WareHouse Enterprise" }));
+        add(typeComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 130, 250, -1));
+
+        jLabel2.setText("Add Enterprise");
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 30, -1, -1));
+
+        jLabel3.setText("Enterprise type:");
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 130, -1, 20));
+        add(nameField, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 190, 240, -1));
+
+        addEntButton.setText("Add Enterprise");
+        addEntButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addEntButtonActionPerformed(evt);
+            }
+        });
+        add(addEntButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 270, -1, -1));
+
+        entTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Enterprise Type", "Enterprise Name"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Object.class, java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(entTable);
+
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 317, -1, 190));
     }// </editor-fold>//GEN-END:initComponents
+
+    private void addEntButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addEntButtonActionPerformed
+        // TODO add your handling code here:
+        String type=(String) typeComboBox.getSelectedItem();
+        String name= nameField.getText();
+        Boolean isNotEmptyNull= ValidateStrings.checkNullEmpty(name);
+        Boolean isValid = ValidateStrings.verifyString(name);
+        if(isValid && isNotEmptyNull){
+            system.getEnterpriseDirectory().createEnterprise(name,type);
+            JOptionPane.showMessageDialog(null, "Enterprise created.");
+            populate();
+        }
+    }//GEN-LAST:event_addEntButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton addEntButton;
+    private javax.swing.JTable entTable;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextField nameField;
+    private javax.swing.JComboBox<String> typeComboBox;
     // End of variables declaration//GEN-END:variables
 }
