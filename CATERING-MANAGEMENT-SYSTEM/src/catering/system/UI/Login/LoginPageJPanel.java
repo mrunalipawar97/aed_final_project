@@ -54,26 +54,27 @@ public class LoginPageJPanel extends javax.swing.JPanel {
         forgotPasswordButton = new javax.swing.JButton();
         loginBtn1 = new javax.swing.JButton();
         signUpButton = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
 
-        setBackground(new java.awt.Color(204, 204, 255));
+        setBackground(new java.awt.Color(153, 153, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Helvetica Neue", 1, 36)); // NOI18N
         jLabel1.setText("MEAL MATE");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 60, 250, 60));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 90, 250, 60));
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gdm_login_photo.png"))); // NOI18N
-        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 140, 150, -1));
+        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 170, 150, -1));
 
         jLabel3.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         jLabel3.setText("USERNAME:");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 300, 100, -1));
-        add(usernameField, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 290, 150, 30));
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 330, 100, -1));
+        add(usernameField, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 320, 150, 30));
 
         jLabel2.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         jLabel2.setText("PASSWORD:");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 350, 100, -1));
-        add(passwordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 350, 150, 30));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 380, 100, -1));
+        add(passwordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 380, 150, 30));
 
         forgotPasswordButton.setBackground(java.awt.Color.lightGray);
         forgotPasswordButton.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
@@ -84,7 +85,7 @@ public class LoginPageJPanel extends javax.swing.JPanel {
                 forgotPasswordButtonActionPerformed(evt);
             }
         });
-        add(forgotPasswordButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 520, 170, 30));
+        add(forgotPasswordButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 550, 170, 30));
 
         loginBtn1.setBackground(java.awt.Color.lightGray);
         loginBtn1.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
@@ -95,7 +96,7 @@ public class LoginPageJPanel extends javax.swing.JPanel {
                 loginBtn1ActionPerformed(evt);
             }
         });
-        add(loginBtn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 420, 170, 30));
+        add(loginBtn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 450, 170, 30));
 
         signUpButton.setBackground(java.awt.Color.lightGray);
         signUpButton.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
@@ -106,15 +107,16 @@ public class LoginPageJPanel extends javax.swing.JPanel {
                 signUpButtonActionPerformed(evt);
             }
         });
-        add(signUpButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 470, 170, 30));
+        add(signUpButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 500, 170, 30));
+        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 110, 610, 440));
     }// </editor-fold>//GEN-END:initComponents
 
     private void forgotPasswordButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_forgotPasswordButtonActionPerformed
         // TODO add your handling code here:
-//        CardLayout layout=(CardLayout)container.getLayout();
-//        ForgotPasswordJPanel fp = new ForgotPasswordJPanel(container, system, logoutJButton);
-//        container.add("workArea",fp);
-//        layout.next(container);
+        CardLayout layout=(CardLayout)container.getLayout();
+        ForgotPasswordJPanel fp = new ForgotPasswordJPanel(container, system, logoutJButton);
+        container.add("workArea",fp);
+        layout.next(container);
         
     }//GEN-LAST:event_forgotPasswordButtonActionPerformed
 
@@ -147,10 +149,10 @@ public class LoginPageJPanel extends javax.swing.JPanel {
 
     private void signUpButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signUpButtonActionPerformed
         // TODO add your handling code here:
-//        CardLayout layout=(CardLayout)container.getLayout();
-//        SignUpJPanel su = new SignUpJPanel(container, system, logoutJButton);
-//        container.add("workArea",su);
-//        layout.next(container);
+        CardLayout layout=(CardLayout)container.getLayout();
+        SignUpJPanel su = new SignUpJPanel(container, system, logoutJButton);
+        container.add("workArea",su);
+        layout.next(container);
     }//GEN-LAST:event_signUpButtonActionPerformed
 
 
@@ -160,6 +162,7 @@ public class LoginPageJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JButton loginBtn1;
     private javax.swing.JPasswordField passwordField;
     private javax.swing.JButton signUpButton;

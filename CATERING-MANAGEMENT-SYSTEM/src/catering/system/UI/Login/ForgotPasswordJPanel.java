@@ -5,8 +5,11 @@
 package catering.system.UI.Login;
 
 import business.ApplicationSystem;
+import catering.system.Organization.ServiceEnterpriseOrganization.Client;
+import java.awt.CardLayout;
 import java.util.ArrayList;
 import javax.swing.JButton;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /**
@@ -18,27 +21,27 @@ public class ForgotPasswordJPanel extends javax.swing.JPanel {
     /**
      * Creates new form ForgotPasswordJPanel
      */
-//    private ArrayList<Client> customerList = new ArrayList<Client>();
-//    JPanel container;
-//    ApplicationSystem system;
-//    JButton logoutJButton;
-//    
-//    public ForgotPasswordJPanel() {
-//        initComponents();
-//    }
-//
-//    ForgotPasswordJPanel(JPanel container, ApplicationSystem system, JButton logoutJButton) {
-//        this.container = container;
-//        this.system = system;
-//        this.logoutJButton = logoutJButton;
-//        
-//        
-//        for (int i = 0; i < system.getCustomerDirectory().getCustomerList().size(); i++) {
-//            customerList.add(system.getCustomerDirectory().getCustomerList().get(i));
-//        }
-//           
-//        initComponents();
-//    }
+    private ArrayList<Client> clientList = new ArrayList<Client>();
+    JPanel container;
+    ApplicationSystem system;
+    JButton logoutJButton;
+    
+    public ForgotPasswordJPanel() {
+        initComponents();
+    }
+
+    ForgotPasswordJPanel(JPanel container, ApplicationSystem system, JButton logoutJButton) {
+        this.container = container;
+        this.system = system;
+        this.logoutJButton = logoutJButton;
+        
+        
+        for (int i = 0; i < system.getClientDirectory().getClientList().size(); i++) {
+            clientList.add(system.getClientDirectory().getClientList().get(i));
+        }
+           
+        initComponents();
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -103,33 +106,36 @@ public class ForgotPasswordJPanel extends javax.swing.JPanel {
 
     private void AddBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddBtn1ActionPerformed
         // TODO add your handling code here:
-//        CardLayout layout=(CardLayout)container.getLayout();
-//        LoginPageJPanel su = new LoginPageJPanel(container, system, logoutJButton);
-//        container.add("workArea",su);
-//        layout.next(container);
+        CardLayout layout=(CardLayout)container.getLayout();
+        LoginPageJPanel su = new LoginPageJPanel(container, system, logoutJButton);
+        container.add("workArea",su);
+        layout.next(container);
     }//GEN-LAST:event_AddBtn1ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-//        int Index = -1;
-//        for (int i = 0; i < customerList.size(); i++){
-//            if(customerList.get(i).getEmail().equals(updateUsernameText.getText())){
-//                System.out.println("Hey " + customerList.get(i).getName() + "\n" +"Did you forget your password?" + "\n" +"Your Password is: " + system.getCustomerDirectory().getCustomerList().get(i).getAccountDetails().getPassword() +"\n" + "If you dont want to change your password or didn't request this, please ignore and delete this message");
+        int Index = -1;
+        for (int i = 0; i < clientList.size(); i++){
+            if(clientList.get(i).getEmail().equals(updateUsernameText.getText())){
+                System.out.println("Hey " + clientList.get(i).getName() + "\n" +"Did you forget your password?" + "\n" +"Your Password is: " + system.getClientDirectory().getClientList().get(i).getAccountDetails().getPassword() +"\n" + "If you dont want to change your password or didn't request this, please ignore and delete this message");
+                
+                
+                //need to add code for mailing (Jeel)
 //                SendMail sendMail = new SendMail(customerList.get(i).getEmail(), "Your Password for HelpingHands","Hey " + customerList.get(i).getName() + "\n" +" Did you forget your password? Your Passwrod is: " +
 //                    system.getCustomerDirectory().getCustomerList().get(i).getAccountDetails().getPassword()
 //                    + "If you don't want to change your password or didn't request this, please ignore and delete this message");
 //                Index = i;
-//                break;
-//            }
-//        }
-//        if(Index >= 0){
-//
-//            CardLayout layout=(CardLayout)container.getLayout();
-//            LoginPage su = new LoginPage(container, system, logoutJButton);
-//            container.add("workArea",su);
-//            layout.next(container);
-//        }else{
-//            JOptionPane.showMessageDialog(this,"Email Id not found, Try Signing up","Error message", JOptionPane.ERROR_MESSAGE);
-//        }
+                break;
+            }
+        }
+        if(Index >= 0){
+
+            CardLayout layout=(CardLayout)container.getLayout();
+            LoginPageJPanel su = new LoginPageJPanel(container, system, logoutJButton);
+            container.add("workArea",su);
+            layout.next(container);
+        }else{
+            JOptionPane.showMessageDialog(this,"Email Id not found, Try Signing up","Error message", JOptionPane.ERROR_MESSAGE);
+        }
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
