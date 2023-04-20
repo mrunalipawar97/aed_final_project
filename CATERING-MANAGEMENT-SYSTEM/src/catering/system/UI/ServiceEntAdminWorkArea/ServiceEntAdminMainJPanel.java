@@ -34,17 +34,18 @@ public class ServiceEntAdminMainJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
+        addCourseHeaderLabel = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(204, 204, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setText("Service Ent Admin");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 40, -1, -1));
+        addCourseHeaderLabel.setFont(new java.awt.Font("Kannada MN", 1, 20)); // NOI18N
+        addCourseHeaderLabel.setText("SERVICE ENTERPRISE ADMIN PORTAL");
+        add(addCourseHeaderLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 30, 400, -1));
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel addCourseHeaderLabel;
     // End of variables declaration//GEN-END:variables
 }
