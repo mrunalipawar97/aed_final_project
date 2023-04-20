@@ -5,9 +5,8 @@
 package catering.system.Role;
 
 import business.ApplicationSystem;
-import catering.system.UI.AdminWorkArea.SupervisorJPanel;
+import catering.system.UI.clientRegistrationWorkArea.ClientWorkAreaJPanel;
 import catering.system.Users.UserAccount;
-import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 /**
@@ -17,16 +16,12 @@ import javax.swing.JPanel;
 public class SuperviserRole {
     
     public SuperviserRole() {
+        
     }
 
-    
-    public JFrame getWorkArea(ApplicationSystem system, UserAccount useraccount) {
-        //return new SupervisorJPanel(system, useraccount);
-       return null;
+    public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, ApplicationSystem business) {
+        return new ClientWorkAreaJPanel(userProcessContainer, account, business);
+        //need to replace with required workarea jpanel
     }
-    
-//    public JPanel createWorkArea(ApplicationSystem appSystem, UserAccount useraccount) {
-//        return new SupervisorJPanel(appSystem,useraccount);
-//    }
     
 }
