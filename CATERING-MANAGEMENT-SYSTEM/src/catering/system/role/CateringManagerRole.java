@@ -5,20 +5,23 @@
 package catering.system.Role;
 
 import business.ApplicationSystem;
+import catering.system.UI.clientRegistrationWorkArea.ClientWorkAreaJPanel;
 import catering.system.Users.UserAccount;
-import javax.swing.JFrame;
+import javax.swing.JPanel;
 
 /**
  *
  * @author mrunalipawar
  */
 public class CateringManagerRole {
-        public CateringManagerRole() {
+    
+    public CateringManagerRole() {
+        
     }
 
-    
-    public JFrame getWorkArea(ApplicationSystem system, UserAccount useraccount) {
-//        return new AdminJFrame(system, useraccount);
-        return null;
+    public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, ApplicationSystem business) {
+        return new ClientWorkAreaJPanel(userProcessContainer, account, business);
+        //need to replace with required workarea jpanel
     }
+
 }

@@ -5,7 +5,6 @@
 package business;
 
 import catering.system.Enterprise.EnterpriseDirectory;
-import catering.system.Users.UserAccount;
 import catering.system.Users.UserAccountDirectory;
 
 /**
@@ -20,7 +19,7 @@ public class ApplicationSystem {
     public ApplicationSystem() {
         this.enterpriseDirectory = new EnterpriseDirectory();
         this.userAccountDirectory = new UserAccountDirectory();
-        UserAccount user = this.userAccountDirectory.createUserAccount("admin", "admin", "SystemAdmin");
+        //UserAccount user = this.userAccountDirectory.createUserAccount("admin", "admin", "SystemAdmin");
     }
 
     public static ApplicationSystem getApplicationSystemInstance() {

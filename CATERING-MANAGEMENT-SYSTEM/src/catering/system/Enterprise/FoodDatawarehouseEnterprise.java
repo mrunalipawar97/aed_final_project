@@ -8,6 +8,6 @@ package catering.system.Enterprise;
  *
  * @author mrunalipawar
  */
-public class HospitalEnterprise {
+public class FoodDatawarehouseEnterprise {
     
 }

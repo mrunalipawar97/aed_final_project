@@ -12,97 +12,50 @@ import catering.system.Role.Role;
  */
 public class UserAccountDirectory {
     
-    ArrayList<UserAccount> userAccountlist;
-    
-    public UserAccountDirectory () {
-        this.userAccountlist = new ArrayList<UserAccount> ();
-    }
-   
+    private ArrayList<UserAccount> userAccountList;
 
-    public UserAccount newUserAccount(Person p) {
-
-        UserAccount ua = new UserAccount(p);
-        userAccountlist.add(ua);
-        return ua;
+    public UserAccountDirectory() {
+        userAccountList = new ArrayList();
     }
 
-     public String[] getAllRoles() {
-       return Role.getRoles();
-    }
-
-    public ArrayList<UserAccount> getUserAccountlist() {
-        return userAccountlist;
-    }
-
-    public void setUserAccountlist(ArrayList<UserAccount> userAccountlist) {
-        this.userAccountlist = userAccountlist;
-    }
-     
-    
-    public UserAccount createUserAccount(String username, String password, String role){
-        UserAccount user = new UserAccount(username, password, role);
-        userAccountlist.add(user);
-        return user;
-        
+    public ArrayList<UserAccount> getUserAccountList() {
+        return userAccountList;
     }
     
-    public UserAccount findbyId(String id) {
-        for(UserAccount u: this.userAccountlist) {
-            if(u.getPerson().getPersonId().equals(id)) {
-                return u;
-            }
-        }
-        return null;  //not found after going through the whole list
-    }
-   
-    
-    public UserAccount getUserAccount(String username, String password, String role) {
-        for (UserAccount u : this.userAccountlist) {
-            if(u.getUsername().equals(username) && u.getPassword().equals(password) && u.getRole().equals(role)){
-                return u;
-            }
-        }
-        return null;
-    }
-    
-    public Boolean accountExists(String username, String password) {
-        
-        for (UserAccount u : this.userAccountlist) {
-            if(u.getUsername().equals(username) && u.getPassword().equals(password)){
-                return true;
-            }
-        }
-        return false;
-    }
-     public Boolean roleExists(String role) {
-        
-        for (UserAccount u : this.userAccountlist) {
-            if(u.getRole().equals(role)){
-                return true;
-            }
-        }
-        return false;
-    }
-    
-    public UserAccount authenticateUser(String name, String password) {
-        for(UserAccount ua: this.userAccountlist) {
-            if(ua.getUsername().equals(name) && ua.getPassword().equals(password)) {
+    public UserAccount authenticateUser(String username, String password){
+        for (UserAccount ua : userAccountList)
+            if (ua.getUsername().equals(username) && ua.getPassword().equals(password)){
                 return ua;
             }
-        }
         return null;
     }
     
-    public UserAccount findByUsername(String name) {
-        for(UserAccount u: this.userAccountlist) {
-            if(u.getUsername().equals(name)) {
-                return u;
+    public UserAccount createUserAccount(String username, String password, Employee employee, Role role, String roleName){
+        UserAccount userAccount = new UserAccount();
+        userAccount.setUsername(username);
+        userAccount.setPassword(password);
+        userAccount.setEmployee(employee);
+        userAccount.setRole(role);        
+        userAccount.setRoleName(roleName);
+        userAccountList.add(userAccount);
+        return userAccount;
+    }
+    
+    public Boolean deleteUser(String name) {
+        for(int i = 0; i < userAccountList.size(); i ++) {
+            if(userAccountList.get(i).getEmployee().getEmpName().equals(name)) {
+                userAccountList.remove(i);
+                return true;
             }
         }
-        return null;
+        return false;
     }
     
-    public void removeUser(UserAccount u){
-        this.userAccountlist.remove(u);
+    public boolean checkIfUsernameIsUnique(String username){
+        for (UserAccount ua : userAccountList){
+            if (ua.getUsername().equals(username))
+                return false;
+        }
+        return true;
     }
 }

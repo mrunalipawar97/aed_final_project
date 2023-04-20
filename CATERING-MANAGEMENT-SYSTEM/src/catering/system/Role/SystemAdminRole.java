@@ -5,22 +5,17 @@
 package catering.system.Role;
 
 import business.ApplicationSystem;
+import catering.system.UI.AdminWorkArea.BranchJPanel;
 import catering.system.Users.UserAccount;
-import javax.swing.JFrame;
+import javax.swing.JPanel;
 
 /**
  *
  * @author mrunalipawar
  */
-public class ServiceStaffManagerRole {
+public class SystemAdminRole extends Role{
     
-    public ServiceStaffManagerRole() {
+    public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, ApplicationSystem system) {
+        return new BranchJPanel(userProcessContainer, system);
     }
-
-    
-    public JFrame getWorkArea(ApplicationSystem system, UserAccount useraccount) {
-//        return new AdminJFrame(system, useraccount);
-        return null;
-    }
-    
 }
