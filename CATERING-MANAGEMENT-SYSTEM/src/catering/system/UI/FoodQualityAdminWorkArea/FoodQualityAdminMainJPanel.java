@@ -4,16 +4,24 @@
  */
 package catering.system.UI.FoodQualityAdminWorkArea;
 
+import business.ApplicationSystem;
+import catering.system.Users.UserAccount;
+import javax.swing.JPanel;
+
 /**
  *
  * @author nishipancholi
  */
-public class FoodProdAdminMainJPanel extends javax.swing.JPanel {
+public class FoodQualityAdminMainJPanel extends javax.swing.JPanel {
 
     /**
      * Creates new form FoodProdAdminMainJPanel
      */
-    public FoodProdAdminMainJPanel() {
+    public FoodQualityAdminMainJPanel() {
+        initComponents();
+    }
+
+    public FoodQualityAdminMainJPanel(JPanel userProcessContainer, UserAccount account, ApplicationSystem business) {
         initComponents();
     }
 
@@ -26,19 +34,17 @@ public class FoodProdAdminMainJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
+        jLabel1 = new javax.swing.JLabel();
+
+        setBackground(new java.awt.Color(204, 204, 255));
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel1.setText("Food Quality Admin");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 30, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }
