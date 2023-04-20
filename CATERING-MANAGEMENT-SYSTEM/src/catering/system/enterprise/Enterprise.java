@@ -11,6 +11,7 @@ import catering.system.Organization.OrganizationDirectory;
  * @author mrunalipawar
  */
 public class Enterprise {
+    
     String enterpriseName;
     String entAdminName;
     private OrganizationDirectory organizationDirectory;
