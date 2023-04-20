@@ -5,6 +5,7 @@
 package business;
 
 import catering.system.Enterprise.EnterpriseDirectory;
+import catering.system.Users.EmployeeDirectory;
 import catering.system.Users.UserAccountDirectory;
 
 /**
@@ -15,11 +16,13 @@ public class ApplicationSystem {
 
     private UserAccountDirectory userAccountDirectory;
     private EnterpriseDirectory enterpriseDirectory;
+    private EmployeeDirectory employeeDirectory;
 
     public ApplicationSystem() {
         this.enterpriseDirectory = new EnterpriseDirectory();
         this.userAccountDirectory = new UserAccountDirectory();
         //UserAccount user = this.userAccountDirectory.createUserAccount("admin", "admin", "SystemAdmin");
+        this.employeeDirectory = new EmployeeDirectory();
     }
 
     public static ApplicationSystem getApplicationSystemInstance() {
@@ -42,5 +45,15 @@ public class ApplicationSystem {
     public void setEnterpriseDirectory(EnterpriseDirectory enterpriseDirectory) {
         this.enterpriseDirectory = enterpriseDirectory;
     }
+
+    public EmployeeDirectory getEmployeeDirectory() {
+        return employeeDirectory;
+    }
+
+    public void setEmployeeDirectory(EmployeeDirectory employeeDirectory) {
+        this.employeeDirectory = employeeDirectory;
+    }
+    
+    
 
 }
