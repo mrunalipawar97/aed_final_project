@@ -4,6 +4,10 @@
  */
 package catering.system.UI.ClientRegistrationWorkArea;
 
+import business.ApplicationSystem;
+import catering.system.Users.UserAccount;
+import javax.swing.JPanel;
+
 /**
  *
  * @author mrunalipawar
@@ -15,6 +19,10 @@ public class ClientWorkAreaJPanel extends javax.swing.JPanel {
      */
     public ClientWorkAreaJPanel() {
         initComponents();
+    }
+
+    public ClientWorkAreaJPanel(JPanel userProcessContainer, UserAccount account, ApplicationSystem business) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     /**

@@ -5,7 +5,7 @@
 package catering.system.Role;
 
 import business.ApplicationSystem;
-import catering.system.UI.clientRegistrationWorkArea.ClientWorkAreaJPanel;
+import catering.system.UI.ClientRegistrationWorkArea.ClientWorkAreaJPanel;
 import catering.system.Users.UserAccount;
 import javax.swing.JPanel;
 
