@@ -14,6 +14,7 @@ public class Enterprise {
     
     String enterpriseName;
     String entAdminName;
+    String entType;
     private OrganizationDirectory organizationDirectory;
     
     public Enterprise(){
@@ -48,6 +49,19 @@ public class Enterprise {
 
     public void setOrganizationDirectory(OrganizationDirectory organizationDirectory) {
         this.organizationDirectory = organizationDirectory;
+    }
+
+    public String getEntType() {
+        return entType;
+    }
+
+    public void setEntType(String entType) {
+        this.entType = entType;
+    }
+    
+    @Override
+    public String toString(){
+        return this.enterpriseName;
     }
     
 }

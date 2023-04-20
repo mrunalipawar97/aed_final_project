@@ -4,17 +4,31 @@
  */
 package catering.system.UI.AdminWorkArea;
 
+import business.ApplicationSystem;
+import catering.system.Users.UserAccount;
+import javax.swing.JButton;
+import javax.swing.JPanel;
+
 /**
  *
  * @author nishipancholi
  */
 public class AdminJPanel extends javax.swing.JPanel {
 
+    private ApplicationSystem system;
+    JPanel container;
+    
     /**
      * Creates new form AdminJPanel
      */
     public AdminJPanel() {
         initComponents();
+    }
+
+    public AdminJPanel(JPanel userProcessContainer, ApplicationSystem system) {
+        initComponents();
+        this.system=system;
+        this.container=userProcessContainer;
     }
 
     /**
@@ -74,7 +88,7 @@ public class AdminJPanel extends javax.swing.JPanel {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        jSplitPane1.setRightComponent(new AddEnterpriseJPanel());
+        jSplitPane1.setRightComponent(new AddEnterpriseJPanel(system,container));
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
