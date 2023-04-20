@@ -6,6 +6,7 @@ package catering.system.UI.AdminWorkArea;
 
 import business.ApplicationSystem;
 import catering.system.Enterprise.Enterprise;
+import catering.system.Enterprise.EnterpriseAdmin;
 import catering.system.Role.FoodProdEntAdminRole;
 import catering.system.Role.FoodQualityEntAdminRole;
 import catering.system.Role.FoodWarehouseEntAdminRole;
@@ -48,15 +49,13 @@ public class AddEnterpriseAdminJPanel extends javax.swing.JPanel {
         ArrayList<Enterprise> enterpiseList=this.system.getEnterpriseDirectory().getEnterpriseList();
         if(enterpiseList.size()>0){
             for (Enterprise ent:enterpiseList){
+                System.out.println(ent+"ent");
                 if(ent.getEntAdminName()!=null){
                     Object row[]= new Object[2];
                     row[0]=ent;
                     row[1]=ent.getEntAdminName();
 
                     entTableModel.addRow(row);
-                }
-                else{
-                   JOptionPane.showMessageDialog(null,"No Admin Found");
                 }
             }
         }
@@ -214,25 +213,36 @@ public class AddEnterpriseAdminJPanel extends javax.swing.JPanel {
         Enterprise ent= (Enterprise) entComboBox.getSelectedItem();
         Employee employee = system.getEmployeeDirectory().createEmployee(restManagerText.getText());
         String entType=ent.getEntType();
-        if(entType.equals("Sevice Enterprise")){
+        System.out.println(ent+"ent");
+        System.out.println(entType+"entType");
+        String service="Service Enterprise";
+        String foodProd="Food Production Enterprise";
+        String foodQuality="Food Quality Enterprise";
+        String foodWarehouse="Food WareHouse Enterprise";
+        if(entType.equals(service)){
+            System.out.print("hello");
             UserAccount ua = system.getUserAccountDirectory().createUserAccount(usernameText.getText(), pwd, employee, new SeviceEntAdminRole(), "ServiceEntAdmin");
-            system.getEnterpriseDirectory().createEnterpriseAdmin(restManagerText.getText(), ua, phoneText.getText(),AddressText.getText(),ent);
+            EnterpriseAdmin admin=system.getEnterpriseDirectory().createEnterpriseAdmin(restManagerText.getText(), ua, phoneText.getText(),AddressText.getText(),ent); 
+            System.out.println(admin+"admin");
+            System.out.println(ua+"ua");
+            JOptionPane.showMessageDialog(this, "Enterprise Admin added successfully");
         }
-        else if(entType.equals("Food Production Enterprise")){
+        else if(entType.equals(foodProd)){
             UserAccount ua = system.getUserAccountDirectory().createUserAccount(usernameText.getText(), pwd, employee, new FoodProdEntAdminRole(), "FoodProdAdmin");
-            system.getEnterpriseDirectory().createEnterpriseAdmin(restManagerText.getText(), ua, phoneText.getText(),AddressText.getText(),ent);
+            EnterpriseAdmin admin=system.getEnterpriseDirectory().createEnterpriseAdmin(restManagerText.getText(), ua, phoneText.getText(),AddressText.getText(),ent);
+            JOptionPane.showMessageDialog(this, "Enterprise Admin added successfully");
         }
-        else if(entType.equals("Food Quality Enterprise")){
+        else if(entType.equals(foodQuality)){
             UserAccount ua = system.getUserAccountDirectory().createUserAccount(usernameText.getText(), pwd, employee, new FoodQualityEntAdminRole(), "FoodQualityAdmin");
-            system.getEnterpriseDirectory().createEnterpriseAdmin(restManagerText.getText(), ua, phoneText.getText(),AddressText.getText(),ent);
+            EnterpriseAdmin admin=system.getEnterpriseDirectory().createEnterpriseAdmin(restManagerText.getText(), ua, phoneText.getText(),AddressText.getText(),ent);
+            JOptionPane.showMessageDialog(this, "Enterprise Admin added successfully");
         }
-        else if(entType.equals("Food WareHouse Enterprise")){
+        else if(entType.equals(foodWarehouse)){
             UserAccount ua = system.getUserAccountDirectory().createUserAccount(usernameText.getText(), pwd, employee, new FoodWarehouseEntAdminRole(), "FoodWarehouseAdmin");
-            system.getEnterpriseDirectory().createEnterpriseAdmin(restManagerText.getText(), ua, phoneText.getText(),AddressText.getText(),ent);
+            EnterpriseAdmin admin=system.getEnterpriseDirectory().createEnterpriseAdmin(restManagerText.getText(), ua, phoneText.getText(),AddressText.getText(),ent);
+            JOptionPane.showMessageDialog(this, "Enterprise Admin added successfully");
         }
     
-        
-        JOptionPane.showMessageDialog(this, "Enterprise Admin added successfully");
         populate();
         restManagerText.setText("");
         usernameText.setText("");
