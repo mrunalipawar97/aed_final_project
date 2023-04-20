@@ -5,7 +5,6 @@
 package catering.system.Role;
 
 import business.ApplicationSystem;
-import javax.swing.JFrame;
 import catering.system.Users.UserAccount;
 import javax.swing.JPanel;
 
