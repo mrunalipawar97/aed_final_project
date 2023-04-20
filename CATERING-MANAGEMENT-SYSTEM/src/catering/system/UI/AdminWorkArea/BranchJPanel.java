@@ -39,14 +39,14 @@ public class BranchJPanel extends javax.swing.JPanel {
 
     public void populateBranchDetails() {
         branchTableModel.setRowCount(0);
-        ArrayList<String> branchlists = this.system.getBranchLocation().getBranchLocation();
+        ArrayList<String> branchlists = this.system.getBranchDirectory().getBranchLocation();
         String defaultValue = "New York";
         Object[] rowData = {defaultValue};
          branchTableModel.addRow(rowData);
         if (!branchlists.isEmpty()) {
-            for (int i = 0; i < system.getBranchLocation().getBranchLocation().size(); i++) {
+            for (int i = 0; i < system.getBranchDirectory().getBranchLocation().size(); i++) {
                 branchTableModel.addRow(new Object[]{
-                    system.getBranchLocation().getBranchLocation().get(i)
+                    system.getBranchDirectory().getBranchLocation().get(i)
                 });
             }
         } else {
@@ -138,14 +138,14 @@ public class BranchJPanel extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "Field cannot be empty. Add a network.", "Error message", JOptionPane.ERROR_MESSAGE);
             return;
         }
-        for (int i = 0; i < system.getBranchLocation().getBranchLocation().size(); i++) {
-            if (system.getBranchLocation().getBranchLocation().get(i).toLowerCase().equals(branchNameTextField.getText().trim().toLowerCase())) {
+        for (int i = 0; i < system.getBranchDirectory().getBranchLocation().size(); i++) {
+            if (system.getBranchDirectory().getBranchLocation().get(i).toLowerCase().equals(branchNameTextField.getText().trim().toLowerCase())) {
                 JOptionPane.showMessageDialog(null, "Branch Already Present", "Error message", JOptionPane.ERROR_MESSAGE);
                 valid = false;
             }
         }
         if (valid) {
-            system.getBranchLocation().createBranchLocation(branchNameTextField.getText().trim());
+            system.getBranchDirectory().createBranchLocation(branchNameTextField.getText().trim());
             System.out.println("Added Branch");
             populateBranchDetails();
         }

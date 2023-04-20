@@ -19,7 +19,7 @@ public class ApplicationSystem {
     private EnterpriseDirectory enterpriseDirectory;
     private EmployeeDirectory employeeDirectory;
     private ClientDirectory clientDirectory;
-    private BranchLocation branchLocation;
+    private BranchLocation branchDirectory;
 
     public ApplicationSystem() {
         this.enterpriseDirectory = new EnterpriseDirectory();
@@ -27,7 +27,7 @@ public class ApplicationSystem {
         //UserAccount user = this.userAccountDirectory.createUserAccount("admin", "admin", "SystemAdmin");
         this.employeeDirectory = new EmployeeDirectory();
         this.clientDirectory = new ClientDirectory();
-        this.branchLocation = new BranchLocation();
+        this.branchDirectory = new BranchLocation();
     }
 
     public static ApplicationSystem getApplicationSystemInstance() {
@@ -67,14 +67,12 @@ public class ApplicationSystem {
         this.clientDirectory = clientDirectory;
     }
 
-    public BranchLocation getBranchLocation() {
-        return branchLocation;
+    public BranchLocation getBranchDirectory() {
+        return branchDirectory;
     }
 
-    public void setBranchLocation(BranchLocation branchLocation) {
-        this.branchLocation = branchLocation;
+    public void setBranchDirectory(BranchLocation branchDirectory) {
+        this.branchDirectory = branchDirectory;
     }
-    
-    
 
 }
