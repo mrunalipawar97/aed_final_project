@@ -2,11 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package catering.system.UI.clientRegistrationWorkArea;
-
-import business.ApplicationSystem;
-import catering.system.Users.UserAccount;
-import javax.swing.JPanel;
+package catering.system.UI.ClientRegistrationWorkArea;
 
 /**
  *
@@ -19,10 +15,6 @@ public class ClientWorkAreaJPanel extends javax.swing.JPanel {
      */
     public ClientWorkAreaJPanel() {
         initComponents();
-    }
-
-    public ClientWorkAreaJPanel(JPanel userProcessContainer, UserAccount account, ApplicationSystem business) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     /**
