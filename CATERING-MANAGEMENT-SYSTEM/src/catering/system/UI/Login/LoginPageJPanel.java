@@ -59,22 +59,22 @@ public class LoginPageJPanel extends javax.swing.JPanel {
         setBackground(new java.awt.Color(153, 153, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Helvetica Neue", 1, 36)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Katari", 1, 36)); // NOI18N
         jLabel1.setText("MEAL MATE");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 90, 250, 60));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 50, 250, 50));
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gdm_login_photo.png"))); // NOI18N
-        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 170, 150, -1));
+        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 130, 150, -1));
 
         jLabel3.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         jLabel3.setText("USERNAME:");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 330, 100, -1));
-        add(usernameField, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 320, 150, 30));
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 290, 100, -1));
+        add(usernameField, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 280, 150, 30));
 
         jLabel2.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         jLabel2.setText("PASSWORD:");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 380, 100, -1));
-        add(passwordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 380, 150, 30));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 340, 100, -1));
+        add(passwordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 340, 150, 30));
 
         forgotPasswordButton.setBackground(java.awt.Color.lightGray);
         forgotPasswordButton.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
@@ -85,7 +85,7 @@ public class LoginPageJPanel extends javax.swing.JPanel {
                 forgotPasswordButtonActionPerformed(evt);
             }
         });
-        add(forgotPasswordButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 550, 170, 30));
+        add(forgotPasswordButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 500, 150, 30));
 
         loginBtn1.setBackground(java.awt.Color.lightGray);
         loginBtn1.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
@@ -96,7 +96,7 @@ public class LoginPageJPanel extends javax.swing.JPanel {
                 loginBtn1ActionPerformed(evt);
             }
         });
-        add(loginBtn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 450, 170, 30));
+        add(loginBtn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 400, 150, 30));
 
         signUpButton.setBackground(java.awt.Color.lightGray);
         signUpButton.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
@@ -107,8 +107,8 @@ public class LoginPageJPanel extends javax.swing.JPanel {
                 signUpButtonActionPerformed(evt);
             }
         });
-        add(signUpButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 500, 170, 30));
-        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 110, 610, 440));
+        add(signUpButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 450, 150, 30));
+        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 30, 830, 530));
     }// </editor-fold>//GEN-END:initComponents
 
     private void forgotPasswordButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_forgotPasswordButtonActionPerformed

@@ -98,7 +98,7 @@ public class AdminJPanel extends javax.swing.JPanel {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        jSplitPane1.setRightComponent(new BranchJPanel());
+        jSplitPane1.setRightComponent(new BranchJPanel(container, system));
     }//GEN-LAST:event_jButton2ActionPerformed
 
 
