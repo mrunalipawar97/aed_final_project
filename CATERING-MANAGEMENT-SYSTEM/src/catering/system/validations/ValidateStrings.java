@@ -15,6 +15,31 @@ import javax.swing.JTextField;
  * @author jeelkanzaria
  */
 public class ValidateStrings extends InputVerifier{
+    public static boolean checkNullEmpty(String fieldName) {
+        if (fieldName != null && fieldName.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Please fill out the field, it cannot be null or empty!");
+            return false;
+        } else {
+            return true;
+        }
+    }
+    
+    public static boolean verifyString(String text) {
+     
+        String pattern = "^[0-9]*[a-zA-Z][a-zA-Z0-9]*$";
+        if (text.length() > 0) {
+            if (text.toLowerCase().startsWith(" ") || text.length() == 0 || text.matches(pattern) != true) {
+                JOptionPane.showMessageDialog(null, "Please enter valid string. Special characters are not allowed", "Error", JOptionPane.ERROR_MESSAGE);
+                return false;
+            } else {
+                return true;
+            }
+        }
+        else
+        {
+            return true;
+        }
+    }
     
     @Override
     public boolean verify(JComponent input) {

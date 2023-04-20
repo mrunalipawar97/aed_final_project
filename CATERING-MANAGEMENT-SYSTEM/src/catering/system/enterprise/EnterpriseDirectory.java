@@ -27,9 +27,10 @@ public class EnterpriseDirectory {
     }
     
     
-    public Enterprise createEnterprise(String name) {
+    public Enterprise createEnterprise(String name, String type) {
         Enterprise ent= new Enterprise();
         ent.setEnterpriseName(name);
+        ent.setEntType(type);
         this.enterpriseList.add(ent);
         return ent;
     }
