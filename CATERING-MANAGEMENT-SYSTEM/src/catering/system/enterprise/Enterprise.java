@@ -19,7 +19,6 @@ public class Enterprise {
     
     public Enterprise(){
         super();
-        this.entAdminName="none";
         this.organizationDirectory=new OrganizationDirectory();
     }
 
@@ -61,7 +60,7 @@ public class Enterprise {
     
     @Override
     public String toString(){
-        return this.enterpriseName;
+        return this.entType;
     }
     
 }

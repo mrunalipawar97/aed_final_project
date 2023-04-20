@@ -4,6 +4,10 @@
  */
 package catering.system.UI.FoodProdAdminWorkArea;
 
+import business.ApplicationSystem;
+import catering.system.Users.UserAccount;
+import javax.swing.JPanel;
+
 /**
  *
  * @author nishipancholi
@@ -14,6 +18,10 @@ public class FoodProdAdminMainJPanel extends javax.swing.JPanel {
      * Creates new form FoodProdAdminMainJPanel
      */
     public FoodProdAdminMainJPanel() {
+        initComponents();
+    }
+
+    public FoodProdAdminMainJPanel(JPanel userProcessContainer, UserAccount account, ApplicationSystem business) {
         initComponents();
     }
 

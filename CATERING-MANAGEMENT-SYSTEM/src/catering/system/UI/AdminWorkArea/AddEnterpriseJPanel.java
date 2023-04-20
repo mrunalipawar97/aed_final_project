@@ -43,7 +43,7 @@ public class AddEnterpriseJPanel extends javax.swing.JPanel {
                 
                 Object row[]= new Object[2];
                 row[0]=ent;
-                row[1]=ent.getEntType();
+                row[1]=ent.getEnterpriseName();
                 
                 entTableModel.addRow(row);
             }
@@ -100,7 +100,7 @@ public class AddEnterpriseJPanel extends javax.swing.JPanel {
 
             },
             new String [] {
-                "Enterprise Name", "Enterprise Type"
+                "Enterprise Type", "Enterprise Name"
             }
         ) {
             Class[] types = new Class [] {

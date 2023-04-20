@@ -4,16 +4,24 @@
  */
 package catering.system.UI.FoodQualityAdminWorkArea;
 
+import business.ApplicationSystem;
+import catering.system.Users.UserAccount;
+import javax.swing.JPanel;
+
 /**
  *
  * @author nishipancholi
  */
-public class FoodProdAdminMainJPanel extends javax.swing.JPanel {
+public class FoodQualityAdminMainJPanel extends javax.swing.JPanel {
 
     /**
      * Creates new form FoodProdAdminMainJPanel
      */
-    public FoodProdAdminMainJPanel() {
+    public FoodQualityAdminMainJPanel() {
+        initComponents();
+    }
+
+    public FoodQualityAdminMainJPanel(JPanel userProcessContainer, UserAccount account, ApplicationSystem business) {
         initComponents();
     }
 
