@@ -5,7 +5,6 @@
 package catering.system.Users;
 
 import catering.system.Organization.Organization;
-import java.util.ArrayList;
 import java.util.Date;
 
 /**
@@ -13,6 +12,7 @@ import java.util.Date;
  * @author mrunalipawar
  */
 public class Person {
+
     private String firstName;
     private String name;
     private String lastName;
@@ -33,18 +33,20 @@ public class Person {
     private String role;
     private Organization organization;
     private String email;
-    
-    public Person()
-    {
-     StringBuffer sb = new StringBuffer();
+
+    public Person() {
+        
+        StringBuffer sb = new StringBuffer();
         sb.append("PER");
         sb.append(count);
         personId = sb.toString();
-        count++; 
+        count++;
     }
 
-    public boolean isMatch(String id){
-        if(getPersonId().equals(id)) return true;
+    public boolean isMatch(String id) {
+        if(getPersonId().equals(id)) {
+            return true;
+        }
         return false;
     }
 
@@ -203,6 +205,5 @@ public class Person {
     public void setEmail(String email) {
         this.email = email;
     }
-    
-    
+
 }

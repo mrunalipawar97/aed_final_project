@@ -12,25 +12,24 @@ import java.util.ArrayList;
  */
 public class EmployeeDirectory {
     
-    private ArrayList<Employee> employeeList;
+    private ArrayList<Employee> employeeLists;
 
     public EmployeeDirectory() {
-        employeeList = new ArrayList();
+        employeeLists = new ArrayList();
     }
 
-    public ArrayList<Employee> getEmployeeList() {
-        return employeeList;
+    public ArrayList<Employee> getEmployeeLists() {
+        return employeeLists;
     }
 
-    public void setEmployeeList(ArrayList<Employee> employeeList) {
-        this.employeeList = employeeList;
+    public void setEmployeeLists(ArrayList<Employee> employeeLists) {
+        this.employeeLists = employeeLists;
     }
-
     
     public Employee createEmployee(String name){
         Employee employee = new Employee();
         employee.setEmpName(name);
-        employeeList.add(employee);
+        employeeLists.add(employee);
         return employee;
     }   
 }

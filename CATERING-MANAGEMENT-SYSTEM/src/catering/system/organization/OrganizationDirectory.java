@@ -25,11 +25,10 @@ public class OrganizationDirectory {
         this.organizationList = organizationList;
     }
     
-    public Organization addOrganization(String type, String name){
+    public Organization addOrganization(int id, String name){
        Organization org= new Organization();
-       org.setType(type);
-       org.setName(name);
-       
+       org.setOrganizationId(id);
+       org.setOrganizationName(name);
        this.organizationList.add(org);
        return org;
     }
