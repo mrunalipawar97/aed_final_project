@@ -36,7 +36,7 @@ public class ClientDirectory {
         }
     }
     
-    public Client createClient(String name, UserAccount ua, String phone, String address, String Email, String location){
+    public Client createClient(String name, UserAccount ua, String phone, String address, String Email, String location, String orgType){
         Client cust = new Client();
         cust.setName(name);
         cust.setAccountDetails(ua);
@@ -44,6 +44,7 @@ public class ClientDirectory {
         cust.setPhone(phone);
         cust.setEmail(Email);
         cust.setLocation(location);
+        cust.setClientType(orgType);
         clientList.add(cust);
         return cust;
     }

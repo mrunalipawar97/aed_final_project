@@ -28,6 +28,7 @@ public class Client {
     private String cardNo;
     private String cardCVV;
     private String cardED;
+    private String clientType;
     
     private UserAccount accountDetails = new UserAccount();
     
@@ -154,6 +155,14 @@ public class Client {
 
     public void setAccountDetails(UserAccount accountDetails) {
         this.accountDetails = accountDetails;
+    }
+
+    public String getClientType() {
+        return clientType;
+    }
+
+    public void setClientType(String clientType) {
+        this.clientType = clientType;
     }
     
 }
