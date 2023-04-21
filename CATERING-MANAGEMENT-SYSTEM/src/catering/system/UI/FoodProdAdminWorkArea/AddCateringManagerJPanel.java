@@ -21,6 +21,7 @@ import javax.swing.table.DefaultTableModel;
  * @author nishipancholi
  */
 public class AddCateringManagerJPanel extends javax.swing.JPanel {
+
     JPanel userProcessContainer;
     ApplicationSystem system;
     DefaultTableModel cateringManagerTableModel;
@@ -35,34 +36,33 @@ public class AddCateringManagerJPanel extends javax.swing.JPanel {
 
     AddCateringManagerJPanel(ApplicationSystem system, JPanel userProcessContainer) {
         initComponents();
-        this.system=system;
-        this.userProcessContainer=userProcessContainer;
-        this.cateringManagerTableModel= (DefaultTableModel) cateringManagerTable.getModel();
-        this.selectedCateringManager= new CateringManager();
+        this.system = system;
+        this.userProcessContainer = userProcessContainer;
+        this.cateringManagerTableModel = (DefaultTableModel) cateringManagerTable.getModel();
+        this.selectedCateringManager = new CateringManager();
         populate();
     }
-    
-    public void populate(){
+
+    public void populate() {
         cateringManagerTableModel.setRowCount(0);
-        ArrayList<CateringManager> enterpiseList=this.system.getEnterpriseDirectory().getCateringManagerList();
-        System.out.println(enterpiseList+"entList");
-        if(enterpiseList==null){
-            JOptionPane.showMessageDialog(null,"Add minimum one Catering Manager");
-        }
-        else{
-        if(enterpiseList.size()>0){
-            for (CateringManager ent:enterpiseList){
-                    Object row[]= new Object[3];
-                    row[0]=ent;
-                    row[1]=ent.getAccountDetails().getUsername();
-                    row[2]=ent.getAccountDetails().getPassword();
+        ArrayList<CateringManager> enterpiseList = this.system.getEnterpriseDirectory().getCateringManagerList();
+        System.out.println(enterpiseList + "entList");
+        if (enterpiseList == null) {
+            JOptionPane.showMessageDialog(null, "Add minimum one Catering Manager");
+        } else {
+            if (enterpiseList.size() > 0) {
+                for (CateringManager ent : enterpiseList) {
+                    Object row[] = new Object[4];
+                    row[0] = ent;
+                    row[1] = ent.getAccountDetails().getUsername();
+                    row[2] = ent.getAddress();
+                    row[3] = ent.getPhone();
 
                     cateringManagerTableModel.addRow(row);
+                }
+            } else {
+                JOptionPane.showMessageDialog(null, "No Catering Manager Found");
             }
-        }
-        else{
-            JOptionPane.showMessageDialog(null,"No Catering Manager Found");
-        }
         }
     }
 
@@ -196,11 +196,11 @@ public class AddCateringManagerJPanel extends javax.swing.JPanel {
 
             },
             new String [] {
-                "Catering Manager Name", "Username"
+                "Catering Manager Name", "Username", "Address", "Phone"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Object.class, java.lang.String.class
+                java.lang.Object.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -209,7 +209,7 @@ public class AddCateringManagerJPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(cateringManagerTable);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 50, -1, 170));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 50, 500, 160));
 
         viewAdminButton.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         viewAdminButton.setText("View Details");
@@ -293,9 +293,9 @@ public class AddCateringManagerJPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-        FoodProdAdminMainJPanel dm= new FoodProdAdminMainJPanel(userProcessContainer, system);
-        userProcessContainer.add("manageSupervisorJPanel",dm);
-        CardLayout layout=(CardLayout)userProcessContainer.getLayout();
+        FoodProdAdminMainJPanel dm = new FoodProdAdminMainJPanel(userProcessContainer, system);
+        userProcessContainer.add("manageSupervisorJPanel", dm);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);
     }//GEN-LAST:event_btnBackActionPerformed
 
@@ -314,8 +314,8 @@ public class AddCateringManagerJPanel extends javax.swing.JPanel {
             return;
         }
         for (int i = 0; i < system.getUserAccountDirectory().getUserAccountList().size(); i++) {
-            if(system.getUserAccountDirectory().getUserAccountList().get(i).getUsername().equals(usernameText.getText())){
-                JOptionPane.showMessageDialog(null,"Username Already Present", "Error message" ,JOptionPane.ERROR_MESSAGE);
+            if (system.getUserAccountDirectory().getUserAccountList().get(i).getUsername().equals(usernameText.getText())) {
+                JOptionPane.showMessageDialog(null, "Username Already Present", "Error message", JOptionPane.ERROR_MESSAGE);
                 return;
             }
         }
@@ -323,7 +323,7 @@ public class AddCateringManagerJPanel extends javax.swing.JPanel {
         String pwd = new String(ch);
         Employee employee = system.getEmployeeDirectory().createEmployee(restManagerText.getText());
         UserAccount ua = system.getUserAccountDirectory().createUserAccount(usernameText.getText(), pwd, employee, new CateringManagerRole(), "CateringManager");
-        CateringManager rest = system.getEnterpriseDirectory().createCateringManager(restManagerText.getText(), ua, phoneText.getText(),AddressText.getText());
+        CateringManager rest = system.getEnterpriseDirectory().createCateringManager(restManagerText.getText(), ua, phoneText.getText(), AddressText.getText());
         JOptionPane.showMessageDialog(null, "Catering Manager added successfully");
         populate();
         restManagerText.setText("");
@@ -337,7 +337,7 @@ public class AddCateringManagerJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         int selectedRow = cateringManagerTable.getSelectedRow();
 
-        if(selectedRow>=0){
+        if (selectedRow >= 0) {
 
             selectedCateringManager = (CateringManager) cateringManagerTable.getValueAt(selectedRow, 0);
             nameUpdateField.setText(selectedCateringManager.getName());
@@ -346,9 +346,8 @@ public class AddCateringManagerJPanel extends javax.swing.JPanel {
             addressUpdateField.setText(selectedCateringManager.getAddress());
             phoneUpdateField.setText(selectedCateringManager.getPhone());
 
-        }
-        else{
-            JOptionPane.showMessageDialog(null,"Please select row");
+        } else {
+            JOptionPane.showMessageDialog(null, "Please select row");
         }
     }//GEN-LAST:event_viewAdminButtonActionPerformed
 
@@ -359,41 +358,39 @@ public class AddCateringManagerJPanel extends javax.swing.JPanel {
     private void updateSupervisorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateSupervisorActionPerformed
         // TODO add your handling code here:
         Boolean isValid = ValidateStrings.validateStringFields(usernameUpdateField.getText(), addressUpdateField.getText(), phoneUpdateField.getText(), nameUpdateField.getText(), passwordUpdateField.getPassword());
-        if(!isValid){
+        if (!isValid) {
             return;
         }
         int selectedRow = cateringManagerTable.getSelectedRow();
-        if(selectedRow>=0){
-            this.selectedCateringManager= (CateringManager) cateringManagerTable.getValueAt(selectedRow,0);
+        if (selectedRow >= 0) {
+            this.selectedCateringManager = (CateringManager) cateringManagerTable.getValueAt(selectedRow, 0);
             selectedCateringManager.setName(nameUpdateField.getText());
             selectedCateringManager.setAddress(addressUpdateField.getText());
             selectedCateringManager.setPhone(phoneUpdateField.getText());
             selectedCateringManager.getAccountDetails().setUsername(usernameUpdateField.getText());
             selectedCateringManager.getAccountDetails().setPassword(passwordUpdateField.getText());
-            JOptionPane.showMessageDialog(null,"Updated Catering Manager!");
+            JOptionPane.showMessageDialog(null, "Updated Catering Manager!");
             populate();
             nameUpdateField.setText("");
             addressUpdateField.setText("");
             usernameUpdateField.setText("");
             passwordUpdateField.setText("");
             phoneUpdateField.setText("");
-        }
-        else{
-            JOptionPane.showMessageDialog(null,"Any row selection is not done!");
+        } else {
+            JOptionPane.showMessageDialog(null, "Any row selection is not done!");
         }
     }//GEN-LAST:event_updateSupervisorActionPerformed
 
     private void deleteSupervisorButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteSupervisorButtonActionPerformed
         // TODO add your handling code here:
         int selectedRow = cateringManagerTable.getSelectedRow();
-        if(selectedRow>=0){
-            this.selectedCateringManager= (CateringManager) cateringManagerTable.getValueAt(selectedRow,0);
+        if (selectedRow >= 0) {
+            this.selectedCateringManager = (CateringManager) cateringManagerTable.getValueAt(selectedRow, 0);
             this.system.getEnterpriseDirectory().deleteSupervisor(selectedCateringManager.getName());
-            JOptionPane.showMessageDialog(null,"Catering Manager Deleted!");
+            JOptionPane.showMessageDialog(null, "Catering Manager Deleted!");
             populate();
-        }
-        else{
-            JOptionPane.showMessageDialog(null,"Any row selection is not done!");
+        } else {
+            JOptionPane.showMessageDialog(null, "Any row selection is not done!");
         }
     }//GEN-LAST:event_deleteSupervisorButtonActionPerformed
 

@@ -8,6 +8,8 @@ import catering.system.FoodProdOrganization.CateringManager;
 import catering.system.FoodProdOrganization.Coordinator;
 import catering.system.FoodProdOrganization.Menu;
 import catering.system.FoodProdOrganization.Supervisor;
+import catering.system.FoodWarehouseOrganization.InventoryManager;
+import catering.system.FoodWarehouseOrganization.InventoryManagerDirectory;
 import catering.system.Users.UserAccount;
 import java.util.ArrayList;
 import java.util.Date;
@@ -21,9 +23,9 @@ public class EnterpriseDirectory {
     ArrayList<Supervisor> supervisorList;
     ArrayList<CateringManager> cateringManagerList;
     ArrayList<Coordinator> coordinatorList;
-    
     ArrayList<Enterprise> enterpriseList;
     ArrayList<Menu> menuList;
+    InventoryManagerDirectory inventoryManagerDirectory;
     
     public EnterpriseDirectory() {
         this.enterpriseList = new ArrayList<Enterprise>();
@@ -32,6 +34,7 @@ public class EnterpriseDirectory {
         this.cateringManagerList = new ArrayList<CateringManager>();
         this.coordinatorList = new ArrayList<Coordinator>();
         this.menuList = new ArrayList<Menu>();
+        this.inventoryManagerDirectory = new InventoryManagerDirectory();
     }
 
     public ArrayList<Enterprise> getEnterpriseList() {
@@ -78,14 +81,18 @@ public class EnterpriseDirectory {
         this.menuList = menuList;
     }
     
-    
-
     public void setCoordinatorList(ArrayList<Coordinator> coordinatorList) {
         this.coordinatorList = coordinatorList;
     }
-    
-    
-    
+
+    public InventoryManagerDirectory getInventoryManagerDirectory() {
+        return inventoryManagerDirectory;
+    }
+
+    public void setInventoryManagerDirectory(InventoryManagerDirectory inventoryManagerDirectory) {
+        this.inventoryManagerDirectory = inventoryManagerDirectory;
+    }
+
     public Enterprise createEnterprise(String name, String type) {
         Enterprise ent= new Enterprise();
         ent.setEnterpriseName(name);
@@ -199,4 +206,6 @@ public class EnterpriseDirectory {
         menuList.add(cust);
         return cust;
     }
+    
+    
 }
