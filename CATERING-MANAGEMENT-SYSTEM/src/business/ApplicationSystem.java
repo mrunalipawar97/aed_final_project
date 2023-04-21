@@ -5,6 +5,7 @@
 package business;
 
 import catering.system.Enterprise.EnterpriseDirectory;
+import catering.system.FoodQualityOrganization.NutritionAuditorDirectory;
 import catering.system.FoodWarehouseOrganization.InventoryDirectory;
 import catering.system.FoodWarehouseOrganization.InventoryManagerDirectory;
 import catering.system.OrderManagement.InventoryOrderDirectory;
@@ -27,6 +28,7 @@ public class ApplicationSystem {
     private InventoryDirectory inventoryDirectory;
     private InventoryManagerDirectory inventoryManagerDirectory; 
     private InventoryOrderDirectory inventoryOrderDirectory;
+    private NutritionAuditorDirectory nutritionAuditorDirectory;
 
     public ApplicationSystem() {
         this.enterpriseDirectory = new EnterpriseDirectory();
@@ -38,6 +40,7 @@ public class ApplicationSystem {
         this.inventoryDirectory = new InventoryDirectory();
         this.inventoryManagerDirectory = new InventoryManagerDirectory();
         this.inventoryOrderDirectory = new InventoryOrderDirectory();
+        this.nutritionAuditorDirectory = new NutritionAuditorDirectory();
     }
 
     public static ApplicationSystem getApplicationSystemInstance() {
@@ -109,4 +112,13 @@ public class ApplicationSystem {
         this.inventoryOrderDirectory = inventoryOrderDirectory;
     }
 
+    public NutritionAuditorDirectory getNutritionAuditorDirectory() {
+        return nutritionAuditorDirectory;
+    }
+
+    public void setNutritionAuditorDirectory(NutritionAuditorDirectory nutritionAuditorDirectory) {
+        this.nutritionAuditorDirectory = nutritionAuditorDirectory;
+    }
+
+    
 }
