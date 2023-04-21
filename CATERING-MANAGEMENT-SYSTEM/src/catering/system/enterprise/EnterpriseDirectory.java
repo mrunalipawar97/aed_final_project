@@ -10,6 +10,7 @@ import catering.system.FoodProdOrganization.Menu;
 import catering.system.FoodProdOrganization.Supervisor;
 import catering.system.FoodWarehouseOrganization.InventoryManager;
 import catering.system.FoodWarehouseOrganization.InventoryManagerDirectory;
+import catering.system.OrderManagement.ClientOrderDirectory;
 import catering.system.Users.UserAccount;
 import java.util.ArrayList;
 import java.util.Date;
@@ -26,6 +27,7 @@ public class EnterpriseDirectory {
     ArrayList<Enterprise> enterpriseList;
     ArrayList<Menu> menuList;
     InventoryManagerDirectory inventoryManagerDirectory;
+    ClientOrderDirectory clientOrderDirectory;
     
     public EnterpriseDirectory() {
         this.enterpriseList = new ArrayList<Enterprise>();
@@ -35,6 +37,7 @@ public class EnterpriseDirectory {
         this.coordinatorList = new ArrayList<Coordinator>();
         this.menuList = new ArrayList<Menu>();
         this.inventoryManagerDirectory = new InventoryManagerDirectory();
+        this.clientOrderDirectory= new ClientOrderDirectory();
     }
 
     public ArrayList<Enterprise> getEnterpriseList() {
@@ -85,6 +88,7 @@ public class EnterpriseDirectory {
         this.coordinatorList = coordinatorList;
     }
 
+
     public InventoryManagerDirectory getInventoryManagerDirectory() {
         return inventoryManagerDirectory;
     }
@@ -93,6 +97,15 @@ public class EnterpriseDirectory {
         this.inventoryManagerDirectory = inventoryManagerDirectory;
     }
 
+    public ClientOrderDirectory getClientOrderDirectory() {
+        return clientOrderDirectory;
+    }
+
+    public void setClientOrderDirectory(ClientOrderDirectory clientOrderDirectory) {
+        this.clientOrderDirectory = clientOrderDirectory;
+    }
+    
+  
     public Enterprise createEnterprise(String name, String type) {
         Enterprise ent= new Enterprise();
         ent.setEnterpriseName(name);
