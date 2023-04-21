@@ -5,6 +5,9 @@
 package business;
 
 import catering.system.Enterprise.EnterpriseDirectory;
+import catering.system.FoodWarehouseOrganization.InventoryDirectory;
+import catering.system.FoodWarehouseOrganization.InventoryManagerDirectory;
+import catering.system.OrderManagement.InventoryOrderDirectory;
 import catering.system.Organization.ServiceEnterpriseOrganization.ClientDirectory;
 import catering.system.Users.EmployeeDirectory;
 import catering.system.Users.UserAccountDirectory;
@@ -20,6 +23,10 @@ public class ApplicationSystem {
     private EmployeeDirectory employeeDirectory;
     private ClientDirectory clientDirectory;
     private BranchLocation branchDirectory;
+    
+    private InventoryDirectory inventoryDirectory;
+    private InventoryManagerDirectory inventoryManagerDirectory; 
+    private InventoryOrderDirectory inventoryOrderDirectory;
 
     public ApplicationSystem() {
         this.enterpriseDirectory = new EnterpriseDirectory();
@@ -28,6 +35,9 @@ public class ApplicationSystem {
         this.employeeDirectory = new EmployeeDirectory();
         this.clientDirectory = new ClientDirectory();
         this.branchDirectory = new BranchLocation();
+        this.inventoryDirectory = new InventoryDirectory();
+        this.inventoryManagerDirectory = new InventoryManagerDirectory();
+        this.inventoryOrderDirectory = new InventoryOrderDirectory();
     }
 
     public static ApplicationSystem getApplicationSystemInstance() {
@@ -73,6 +83,30 @@ public class ApplicationSystem {
 
     public void setBranchDirectory(BranchLocation branchDirectory) {
         this.branchDirectory = branchDirectory;
+    }
+
+    public InventoryDirectory getInventoryDirectory() {
+        return inventoryDirectory;
+    }
+
+    public void setInventoryDirectory(InventoryDirectory inventoryDirectory) {
+        this.inventoryDirectory = inventoryDirectory;
+    }
+
+    public InventoryManagerDirectory getInventoryManagerDirectory() {
+        return inventoryManagerDirectory;
+    }
+
+    public void setInventoryManagerDirectory(InventoryManagerDirectory inventoryManagerDirectory) {
+        this.inventoryManagerDirectory = inventoryManagerDirectory;
+    }
+
+    public InventoryOrderDirectory getInventoryOrderDirectory() {
+        return inventoryOrderDirectory;
+    }
+
+    public void setInventoryOrderDirectory(InventoryOrderDirectory inventoryOrderDirectory) {
+        this.inventoryOrderDirectory = inventoryOrderDirectory;
     }
 
 }

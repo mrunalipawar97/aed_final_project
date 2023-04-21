@@ -14,10 +14,12 @@ import javax.swing.JPanel;
  * @author nishipancholi
  */
 public class FoodWarehouseEntAdminRole extends Role {
+
     public FoodWarehouseEntAdminRole() {
     }
+
     @Override
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, ApplicationSystem business) {
-        return new FoodWareHouseAdminMainJPanel(userProcessContainer, account, business);
+        return new FoodWareHouseAdminMainJPanel(userProcessContainer, business);
     }
 }
