@@ -40,7 +40,7 @@ public class ClientWorkAreaJPanel extends javax.swing.JPanel {
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setText("client welcome");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 100, -1, -1));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 20, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
 
