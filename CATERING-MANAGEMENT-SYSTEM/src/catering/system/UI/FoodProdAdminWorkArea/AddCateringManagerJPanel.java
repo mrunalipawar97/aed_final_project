@@ -5,10 +5,8 @@
 package catering.system.UI.FoodProdAdminWorkArea;
 
 import business.ApplicationSystem;
-import catering.system.Enterprise.Enterprise;
-import catering.system.Enterprise.EnterpriseAdmin;
-import catering.system.FoodProdOrganization.Supervisor;
-import catering.system.Role.SuperviserRole;
+import catering.system.FoodProdOrganization.CateringManager;
+import catering.system.Role.CateringManagerRole;
 import catering.system.Users.Employee;
 import catering.system.Users.UserAccount;
 import catering.system.validations.ValidateStrings;
@@ -22,49 +20,48 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author nishipancholi
  */
-public class AddSupervisorJPanel extends javax.swing.JPanel {
+public class AddCateringManagerJPanel extends javax.swing.JPanel {
     JPanel userProcessContainer;
     ApplicationSystem system;
-    DefaultTableModel supervisorTableModel;
-    Supervisor selectedSupervisor;
+    DefaultTableModel cateringManagerTableModel;
+    CateringManager selectedCateringManager;
 
     /**
-     * Creates new form AddSupervisorJPanel
+     * Creates new form AddCateringManagerJPanel
      */
-    public AddSupervisorJPanel() {
+    public AddCateringManagerJPanel() {
         initComponents();
     }
 
-    AddSupervisorJPanel(ApplicationSystem system, JPanel userProcessContainer) {
+    AddCateringManagerJPanel(ApplicationSystem system, JPanel userProcessContainer) {
         initComponents();
         this.system=system;
         this.userProcessContainer=userProcessContainer;
-        this.supervisorTableModel= (DefaultTableModel) supervisorTable.getModel();
-        this.selectedSupervisor= new Supervisor();
+        this.cateringManagerTableModel= (DefaultTableModel) cateringManagerTable.getModel();
+        this.selectedCateringManager= new CateringManager();
         populate();
     }
-
     
     public void populate(){
-        supervisorTableModel.setRowCount(0);
-        ArrayList<Supervisor> enterpiseList=this.system.getEnterpriseDirectory().getSupervisorList();
+        cateringManagerTableModel.setRowCount(0);
+        ArrayList<CateringManager> enterpiseList=this.system.getEnterpriseDirectory().getCateringManagerList();
         System.out.println(enterpiseList+"entList");
         if(enterpiseList==null){
-            JOptionPane.showMessageDialog(null,"Add minimum one supervisor");
+            JOptionPane.showMessageDialog(null,"Add minimum one Catering Manager");
         }
         else{
         if(enterpiseList.size()>0){
-            for (Supervisor ent:enterpiseList){
+            for (CateringManager ent:enterpiseList){
                     Object row[]= new Object[3];
                     row[0]=ent;
                     row[1]=ent.getAccountDetails().getUsername();
                     row[2]=ent.getAccountDetails().getPassword();
 
-                    supervisorTableModel.addRow(row);
+                    cateringManagerTableModel.addRow(row);
             }
         }
         else{
-            JOptionPane.showMessageDialog(null,"No Supervisor Found");
+            JOptionPane.showMessageDialog(null,"No Catering Manager Found");
         }
         }
     }
@@ -92,7 +89,7 @@ public class AddSupervisorJPanel extends javax.swing.JPanel {
         addressLabel1 = new javax.swing.JLabel();
         addManagerButton = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        supervisorTable = new javax.swing.JTable();
+        cateringManagerTable = new javax.swing.JTable();
         viewAdminButton = new javax.swing.JButton();
         nameUpdateField = new javax.swing.JTextField();
         usernameUpdateField = new javax.swing.JTextField();
@@ -110,7 +107,7 @@ public class AddSupervisorJPanel extends javax.swing.JPanel {
         setBackground(new java.awt.Color(204, 204, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setText("Add Supervisor");
+        jLabel1.setText("Add Catering Manager");
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 10, -1, -1));
 
         btnBack.setBackground(new java.awt.Color(255, 204, 204));
@@ -194,12 +191,12 @@ public class AddSupervisorJPanel extends javax.swing.JPanel {
         });
         add(addManagerButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 270, -1, -1));
 
-        supervisorTable.setModel(new javax.swing.table.DefaultTableModel(
+        cateringManagerTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Supervisor Name", "Username"
+                "Catering Manager Name", "Username"
             }
         ) {
             Class[] types = new Class [] {
@@ -210,7 +207,7 @@ public class AddSupervisorJPanel extends javax.swing.JPanel {
                 return types [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(supervisorTable);
+        jScrollPane1.setViewportView(cateringManagerTable);
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 50, -1, 170));
 
@@ -278,7 +275,7 @@ public class AddSupervisorJPanel extends javax.swing.JPanel {
         addressLabel2.setText("Address");
         add(addressLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, -1, -1));
 
-        updateSupervisor.setText("Update Supervisor");
+        updateSupervisor.setText("Update Catering Manager");
         updateSupervisor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 updateSupervisorActionPerformed(evt);
@@ -286,7 +283,7 @@ public class AddSupervisorJPanel extends javax.swing.JPanel {
         });
         add(updateSupervisor, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 510, -1, -1));
 
-        deleteSupervisorButton.setText("Delete Supervisor");
+        deleteSupervisorButton.setText("Delete Catering Manager");
         deleteSupervisorButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 deleteSupervisorButtonActionPerformed(evt);
@@ -324,11 +321,10 @@ public class AddSupervisorJPanel extends javax.swing.JPanel {
         }
         char[] ch = restPwdText.getPassword();
         String pwd = new String(ch);
-//        String netwrokname = (String) netwrokCombo.getSelectedItem();
         Employee employee = system.getEmployeeDirectory().createEmployee(restManagerText.getText());
-        UserAccount ua = system.getUserAccountDirectory().createUserAccount(usernameText.getText(), pwd, employee, new SuperviserRole(), "Supervisor");
-        Supervisor rest = system.getEnterpriseDirectory().createSupervisor(restManagerText.getText(), ua, phoneText.getText(),AddressText.getText());
-        JOptionPane.showMessageDialog(null, "Supervisor added successfully");
+        UserAccount ua = system.getUserAccountDirectory().createUserAccount(usernameText.getText(), pwd, employee, new CateringManagerRole(), "CateringManager");
+        CateringManager rest = system.getEnterpriseDirectory().createCateringManager(restManagerText.getText(), ua, phoneText.getText(),AddressText.getText());
+        JOptionPane.showMessageDialog(null, "Catering Manager added successfully");
         populate();
         restManagerText.setText("");
         usernameText.setText("");
@@ -339,16 +335,16 @@ public class AddSupervisorJPanel extends javax.swing.JPanel {
 
     private void viewAdminButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewAdminButtonActionPerformed
         // TODO add your handling code here:
-        int selectedRow = supervisorTable.getSelectedRow();
+        int selectedRow = cateringManagerTable.getSelectedRow();
 
         if(selectedRow>=0){
 
-            selectedSupervisor = (Supervisor) supervisorTable.getValueAt(selectedRow, 0);
-            nameUpdateField.setText(selectedSupervisor.getName());
-            usernameUpdateField.setText(selectedSupervisor.getAccountDetails().getUsername());
-            passwordUpdateField.setText(selectedSupervisor.getAccountDetails().getPassword());
-            addressUpdateField.setText(selectedSupervisor.getAddress());
-            phoneUpdateField.setText(selectedSupervisor.getPhone());
+            selectedCateringManager = (CateringManager) cateringManagerTable.getValueAt(selectedRow, 0);
+            nameUpdateField.setText(selectedCateringManager.getName());
+            usernameUpdateField.setText(selectedCateringManager.getAccountDetails().getUsername());
+            passwordUpdateField.setText(selectedCateringManager.getAccountDetails().getPassword());
+            addressUpdateField.setText(selectedCateringManager.getAddress());
+            phoneUpdateField.setText(selectedCateringManager.getPhone());
 
         }
         else{
@@ -364,17 +360,17 @@ public class AddSupervisorJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         Boolean isValid = ValidateStrings.validateStringFields(usernameUpdateField.getText(), addressUpdateField.getText(), phoneUpdateField.getText(), nameUpdateField.getText(), passwordUpdateField.getPassword());
         if(!isValid){
-           return; 
+            return;
         }
-        int selectedRow = supervisorTable.getSelectedRow();
+        int selectedRow = cateringManagerTable.getSelectedRow();
         if(selectedRow>=0){
-            this.selectedSupervisor= (Supervisor) supervisorTable.getValueAt(selectedRow,0);
-            selectedSupervisor.setName(nameUpdateField.getText());
-            selectedSupervisor.setAddress(addressUpdateField.getText());
-            selectedSupervisor.setPhone(phoneUpdateField.getText());
-            selectedSupervisor.getAccountDetails().setUsername(usernameUpdateField.getText());
-            selectedSupervisor.getAccountDetails().setPassword(passwordUpdateField.getText());
-            JOptionPane.showMessageDialog(null,"Updated Supervisor!"); 
+            this.selectedCateringManager= (CateringManager) cateringManagerTable.getValueAt(selectedRow,0);
+            selectedCateringManager.setName(nameUpdateField.getText());
+            selectedCateringManager.setAddress(addressUpdateField.getText());
+            selectedCateringManager.setPhone(phoneUpdateField.getText());
+            selectedCateringManager.getAccountDetails().setUsername(usernameUpdateField.getText());
+            selectedCateringManager.getAccountDetails().setPassword(passwordUpdateField.getText());
+            JOptionPane.showMessageDialog(null,"Updated Catering Manager!");
             populate();
             nameUpdateField.setText("");
             addressUpdateField.setText("");
@@ -389,11 +385,11 @@ public class AddSupervisorJPanel extends javax.swing.JPanel {
 
     private void deleteSupervisorButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteSupervisorButtonActionPerformed
         // TODO add your handling code here:
-        int selectedRow = supervisorTable.getSelectedRow();
+        int selectedRow = cateringManagerTable.getSelectedRow();
         if(selectedRow>=0){
-            this.selectedSupervisor= (Supervisor) supervisorTable.getValueAt(selectedRow,0);
-            this.system.getEnterpriseDirectory().deleteSupervisor(selectedSupervisor.getName());
-            JOptionPane.showMessageDialog(null,"Supervisor Deleted!"); 
+            this.selectedCateringManager= (CateringManager) cateringManagerTable.getValueAt(selectedRow,0);
+            this.system.getEnterpriseDirectory().deleteSupervisor(selectedCateringManager.getName());
+            JOptionPane.showMessageDialog(null,"Catering Manager Deleted!");
             populate();
         }
         else{
@@ -409,6 +405,7 @@ public class AddSupervisorJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel addressLabel2;
     private javax.swing.JPasswordField addressUpdateField;
     private javax.swing.JButton btnBack;
+    private javax.swing.JTable cateringManagerTable;
     private javax.swing.JButton deleteSupervisorButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel6;
@@ -426,7 +423,6 @@ public class AddSupervisorJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel restPwdLabel3;
     private javax.swing.JLabel restPwdLabel4;
     private javax.swing.JPasswordField restPwdText;
-    private javax.swing.JTable supervisorTable;
     private javax.swing.JButton updateSupervisor;
     private javax.swing.JTextField usernameText;
     private javax.swing.JTextField usernameUpdateField;
