@@ -5,7 +5,7 @@
 package catering.system.Role;
 
 import business.ApplicationSystem;
-import catering.system.UI.ClientRegistrationWorkArea.ClientWorkAreaJPanel;
+import catering.system.UI.FoodProdAdminWorkArea.SupervisorMainJPanel;
 import catering.system.Users.UserAccount;
 import javax.swing.JPanel;
 
@@ -21,8 +21,7 @@ public class SuperviserRole extends Role {
 
     @Override
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, ApplicationSystem business) {
-        return new ClientWorkAreaJPanel(userProcessContainer, account, business);
-        //need to replace with required workarea jpanel
+        return new SupervisorMainJPanel(userProcessContainer, business);
     }
     
 }
