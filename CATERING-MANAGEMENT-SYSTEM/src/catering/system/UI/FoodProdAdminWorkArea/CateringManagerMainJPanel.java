@@ -11,16 +11,16 @@ import javax.swing.JPanel;
  *
  * @author nishipancholi
  */
-public class SupervisorMainJPanel extends javax.swing.JPanel {
+public class CateringManagerMainJPanel extends javax.swing.JPanel {
 
     /**
-     * Creates new form SupervisorMainJPanel
+     * Creates new form CateringManagerMainJPanel
      */
-    public SupervisorMainJPanel() {
+    public CateringManagerMainJPanel() {
         initComponents();
     }
 
-    public SupervisorMainJPanel(JPanel userProcessContainer, ApplicationSystem business) {
+    public CateringManagerMainJPanel(JPanel userProcessContainer, ApplicationSystem business) {
         initComponents();
     }
 
@@ -38,8 +38,8 @@ public class SupervisorMainJPanel extends javax.swing.JPanel {
         setBackground(new java.awt.Color(204, 204, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setText("Supervisor");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 70, -1, -1));
+        jLabel1.setText("Catering Manager");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 50, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
 

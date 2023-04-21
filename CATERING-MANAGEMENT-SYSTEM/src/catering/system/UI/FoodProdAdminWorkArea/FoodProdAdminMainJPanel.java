@@ -44,7 +44,9 @@ public class FoodProdAdminMainJPanel extends javax.swing.JPanel {
         jSplitPane1 = new javax.swing.JSplitPane();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
+        addSupervisorButton = new javax.swing.JButton();
+        addCoordinatorButton = new javax.swing.JButton();
+        addCateringManagerButton = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(204, 204, 255));
         setLayout(new java.awt.BorderLayout());
@@ -56,27 +58,57 @@ public class FoodProdAdminMainJPanel extends javax.swing.JPanel {
         jPanel2.setBackground(new java.awt.Color(255, 204, 204));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton1.setText("Add Supervisor");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        addSupervisorButton.setText("Add Supervisor");
+        addSupervisorButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                addSupervisorButtonActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, -1, -1));
+        jPanel2.add(addSupervisorButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, -1, -1));
+
+        addCoordinatorButton.setText("Add Coordinator");
+        addCoordinatorButton.setActionCommand("Add Coordinator");
+        addCoordinatorButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addCoordinatorButtonActionPerformed(evt);
+            }
+        });
+        jPanel2.add(addCoordinatorButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 270, -1, -1));
+
+        addCateringManagerButton.setText("Add Catering Manager");
+        addCateringManagerButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addCateringManagerButtonActionPerformed(evt);
+            }
+        });
+        jPanel2.add(addCateringManagerButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 210, -1, -1));
 
         jSplitPane1.setLeftComponent(jPanel2);
 
         add(jSplitPane1, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void addSupervisorButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addSupervisorButtonActionPerformed
         // TODO add your handling code here:
         jSplitPane1.setRightComponent(new AddSupervisorJPanel(system,userProcessContainer));
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_addSupervisorButtonActionPerformed
+
+    private void addCoordinatorButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addCoordinatorButtonActionPerformed
+        // TODO add your handling code here:
+        
+        jSplitPane1.setRightComponent(new AddCoordinatorJPanel(system,userProcessContainer));
+    }//GEN-LAST:event_addCoordinatorButtonActionPerformed
+
+    private void addCateringManagerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addCateringManagerButtonActionPerformed
+        // TODO add your handling code here:
+        jSplitPane1.setRightComponent(new AddCateringManagerJPanel(system,userProcessContainer));
+    }//GEN-LAST:event_addCateringManagerButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton addCateringManagerButton;
+    private javax.swing.JButton addCoordinatorButton;
+    private javax.swing.JButton addSupervisorButton;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JSplitPane jSplitPane1;
