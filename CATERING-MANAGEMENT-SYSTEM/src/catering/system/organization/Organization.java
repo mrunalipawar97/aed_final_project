@@ -5,6 +5,7 @@
 package catering.system.Organization;
 
 import business.BranchLocation;
+import catering.system.FoodQualityOrganization.NutritionAuditorDirectory;
 import catering.system.Organization.ServiceEnterpriseOrganization.ClientDirectory;
 import catering.system.Users.EmployeeDirectory;
 import catering.system.Users.UserAccountDirectory;
@@ -27,6 +28,8 @@ public class Organization {
     private UserAccountDirectory userAccountDirectory;
     
     private BranchLocation createBranch;
+    
+    private NutritionAuditorDirectory nutritionAuditorDirectory;
     
     private int organizationId;
     
@@ -71,6 +74,8 @@ public class Organization {
         userAccountDirectory = new UserAccountDirectory();
         
         createBranch = new BranchLocation();
+        
+        nutritionAuditorDirectory = new NutritionAuditorDirectory();
         
         organizationId = ++counter;
     }
@@ -138,6 +143,16 @@ public class Organization {
     public static void setCounter(int counter) {
         Organization.counter = counter;
     }
+
+    public NutritionAuditorDirectory getNutritionAuditorDirectory() {
+        return nutritionAuditorDirectory;
+    }
+
+    public void setNutritionAuditorDirectory(NutritionAuditorDirectory nutritionAuditorDirectory) {
+        this.nutritionAuditorDirectory = nutritionAuditorDirectory;
+    }
+    
+    
 
     @Override
     public String toString() {

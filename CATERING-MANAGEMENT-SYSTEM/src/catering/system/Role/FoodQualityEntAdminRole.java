@@ -18,7 +18,7 @@ public class FoodQualityEntAdminRole extends Role {
     }
     @Override
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, ApplicationSystem business) {
-        return new FoodQualityAdminMainJPanel(userProcessContainer, account, business);
+        return new FoodQualityAdminMainJPanel(userProcessContainer, business);
 
     }
 }

@@ -5,6 +5,8 @@
 package business;
 
 import catering.system.Enterprise.EnterpriseDirectory;
+import catering.system.FoodQualityOrganization.NutritionAuditor;
+import catering.system.FoodQualityOrganization.NutritionAuditorDirectory;
 import catering.system.Organization.ServiceEnterpriseOrganization.ClientDirectory;
 import catering.system.Users.EmployeeDirectory;
 import catering.system.Users.UserAccountDirectory;
@@ -20,6 +22,7 @@ public class ApplicationSystem {
     private EmployeeDirectory employeeDirectory;
     private ClientDirectory clientDirectory;
     private BranchLocation branchDirectory;
+    private NutritionAuditorDirectory nutritionAuditorDirectory;
 
     public ApplicationSystem() {
         this.enterpriseDirectory = new EnterpriseDirectory();
@@ -28,6 +31,7 @@ public class ApplicationSystem {
         this.employeeDirectory = new EmployeeDirectory();
         this.clientDirectory = new ClientDirectory();
         this.branchDirectory = new BranchLocation();
+        this.nutritionAuditorDirectory = new NutritionAuditorDirectory();
     }
 
     public static ApplicationSystem getApplicationSystemInstance() {
@@ -75,4 +79,13 @@ public class ApplicationSystem {
         this.branchDirectory = branchDirectory;
     }
 
+    public NutritionAuditorDirectory getNutritionAuditorDirectory() {
+        return nutritionAuditorDirectory;
+    }
+
+    public void setNutritionAuditorDirectory(NutritionAuditorDirectory nutritionAuditorDirectory) {
+        this.nutritionAuditorDirectory = nutritionAuditorDirectory;
+    }
+
+    
 }

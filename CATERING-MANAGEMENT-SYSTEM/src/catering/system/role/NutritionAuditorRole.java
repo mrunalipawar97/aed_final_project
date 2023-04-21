@@ -6,6 +6,7 @@ package catering.system.Role;
 
 import business.ApplicationSystem;
 import catering.system.UI.ClientRegistrationWorkArea.ClientWorkAreaJPanel;
+import catering.system.UI.FoodQualityAdminWorkArea.FoodQualityAdminMainJPanel;
 import catering.system.Users.UserAccount;
 import javax.swing.JPanel;
 
@@ -13,13 +14,15 @@ import javax.swing.JPanel;
  *
  * @author mrunalipawar
  */
-public class NutritionAuditorRole {
+public class NutritionAuditorRole extends Role{
     
     public NutritionAuditorRole() {
     }
 
+    
+    @Override
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, ApplicationSystem business) {
-        return new ClientWorkAreaJPanel(userProcessContainer, account, business);
+        return new FoodQualityAdminMainJPanel(userProcessContainer, business);
         //need to replace with required workarea jpanel
     }
 }
