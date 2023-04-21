@@ -8,6 +8,7 @@ import catering.system.FoodProdOrganization.CateringManager;
 import catering.system.FoodProdOrganization.Coordinator;
 import catering.system.FoodProdOrganization.Menu;
 import catering.system.FoodProdOrganization.Supervisor;
+import catering.system.OrderManagement.ClientOrderDirectory;
 import catering.system.Users.UserAccount;
 import java.util.ArrayList;
 import java.util.Date;
@@ -24,6 +25,7 @@ public class EnterpriseDirectory {
     
     ArrayList<Enterprise> enterpriseList;
     ArrayList<Menu> menuList;
+    ClientOrderDirectory clientOrderDirectory;
     
     public EnterpriseDirectory() {
         this.enterpriseList = new ArrayList<Enterprise>();
@@ -32,6 +34,7 @@ public class EnterpriseDirectory {
         this.cateringManagerList = new ArrayList<CateringManager>();
         this.coordinatorList = new ArrayList<Coordinator>();
         this.menuList = new ArrayList<Menu>();
+        this.clientOrderDirectory= new ClientOrderDirectory();
     }
 
     public ArrayList<Enterprise> getEnterpriseList() {
@@ -82,6 +85,14 @@ public class EnterpriseDirectory {
 
     public void setCoordinatorList(ArrayList<Coordinator> coordinatorList) {
         this.coordinatorList = coordinatorList;
+    }
+
+    public ClientOrderDirectory getClientOrderDirectory() {
+        return clientOrderDirectory;
+    }
+
+    public void setClientOrderDirectory(ClientOrderDirectory clientOrderDirectory) {
+        this.clientOrderDirectory = clientOrderDirectory;
     }
     
     
