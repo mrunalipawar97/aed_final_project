@@ -25,6 +25,7 @@ public class ClientWorkAreaJPanel extends javax.swing.JPanel {
     ApplicationSystem system;
     UserAccount ua;
     Menu selectedMenu;
+    int quantity;
     
 
     /**
@@ -78,9 +79,10 @@ public class ClientWorkAreaJPanel extends javax.swing.JPanel {
         System.out.println(applications);
         if(applications.size()>0){
             for (ClientOrder app:applications){
-                Object row[]= new Object[2];
+                Object row[]= new Object[3];
                 row[0]=app;
                 row[1]=app.getPrice();
+                row[2]=app.getStatus();
                 
                 orderTableModel.addRow(row);
             }
@@ -172,11 +174,11 @@ public class ClientWorkAreaJPanel extends javax.swing.JPanel {
 
             },
             new String [] {
-                "Order Id", "Paid Money"
+                "Order Id", "Paid Money", "Order Status"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Object.class, java.lang.String.class
+                java.lang.Object.class, java.lang.String.class, java.lang.String.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -204,6 +206,7 @@ public class ClientWorkAreaJPanel extends javax.swing.JPanel {
             
             selectedMenu = (Menu) menuTable.getValueAt(selectedRow, 1);
             int price=Integer.valueOf(QualityField.getText());
+            this.quantity= price;
             if(selectedMenu.getBatch()<price){
                 JOptionPane.showMessageDialog(null,"Sorry we do not have enough quantity of batches");
             }
@@ -233,6 +236,9 @@ public class ClientWorkAreaJPanel extends javax.swing.JPanel {
         }
         ClientOrder corder=this.system.getEnterpriseDirectory().getClientOrderDirectory().createOrder(selectedMenu, Float.valueOf(priceField.getText()), selectedClient);
         System.out.print(corder+"corder");
+        int batch = selectedMenu.getBatch();
+        int newBatch= batch-quantity;
+        selectedMenu.setBatch(newBatch);
         JOptionPane.showMessageDialog(null,"Payment Done");
         populateOrder();
     }//GEN-LAST:event_jButton1ActionPerformed
