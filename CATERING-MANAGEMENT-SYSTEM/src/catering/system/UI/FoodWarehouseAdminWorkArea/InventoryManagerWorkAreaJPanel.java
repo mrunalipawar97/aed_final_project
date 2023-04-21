@@ -5,7 +5,9 @@
 package catering.system.UI.FoodWarehouseAdminWorkArea;
 
 import business.ApplicationSystem;
+import catering.system.FoodWarehouseOrganization.InventoryManager;
 import catering.system.Users.UserAccount;
+import java.awt.CardLayout;
 import javax.swing.JPanel;
 
 /**
@@ -17,14 +19,32 @@ public class InventoryManagerWorkAreaJPanel extends javax.swing.JPanel {
     /**
      * Creates new form InventoryManagerWorkAreaJPanel
      */
+    
+    JPanel userProcessContainer;
+    ApplicationSystem system;
+    UserAccount userAccount;
+    InventoryManager im;
+    
     public InventoryManagerWorkAreaJPanel() {
         initComponents();
     }
 
-    public InventoryManagerWorkAreaJPanel(JPanel userProcessContainer, UserAccount account, ApplicationSystem business) {
+    public InventoryManagerWorkAreaJPanel(JPanel userProcessContainer, ApplicationSystem system) {
         initComponents();
+        this.system = system;
+        this.userProcessContainer = userProcessContainer;
+        nameLable.setText("Welcome Inventory Manager ");
     }
 
+    
+    public InventoryManager findManager() {
+        for (int i = 0; i < system.getEnterpriseDirectory().getInventoryManagerDirectory().getInventoryManagerList().size(); i++) {
+            if (system.getEnterpriseDirectory().getInventoryManagerDirectory().getInventoryManagerList().get(i).getAccountDetails().getUsername().equals(this.userAccount.getUsername())) {
+                return system.getEnterpriseDirectory().getInventoryManagerDirectory().getInventoryManagerList().get(i);
+            }
+        }
+        return null;
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -34,11 +54,116 @@ public class InventoryManagerWorkAreaJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setBackground(new java.awt.Color(255, 102, 102));
+        nameLable = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
+        AddInventoryButton = new javax.swing.JButton();
+        jPanel4 = new javax.swing.JPanel();
+        jLabel6 = new javax.swing.JLabel();
+        ViewInventoryOrdersButton = new javax.swing.JButton();
+
+        setBackground(new java.awt.Color(204, 204, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        add(nameLable, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 30, 340, 30));
+
+        jPanel3.setBackground(new java.awt.Color(255, 204, 204));
+
+        AddInventoryButton.setBackground(new java.awt.Color(255, 255, 204));
+        AddInventoryButton.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
+        AddInventoryButton.setForeground(new java.awt.Color(51, 51, 51));
+        AddInventoryButton.setText("Add Inventory");
+        AddInventoryButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AddInventoryButtonActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(39, 39, 39)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap(23, Short.MAX_VALUE)
+                .addComponent(AddInventoryButton, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap(22, Short.MAX_VALUE)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(AddInventoryButton, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20))
+        );
+
+        add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, 260, 220));
+
+        jPanel4.setBackground(new java.awt.Color(255, 204, 204));
+
+        ViewInventoryOrdersButton.setBackground(new java.awt.Color(255, 255, 204));
+        ViewInventoryOrdersButton.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
+        ViewInventoryOrdersButton.setForeground(new java.awt.Color(51, 51, 51));
+        ViewInventoryOrdersButton.setText("View Inventory Orders");
+        ViewInventoryOrdersButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ViewInventoryOrdersButtonActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap(20, Short.MAX_VALUE)
+                .addComponent(ViewInventoryOrdersButton, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20))
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(28, 28, 28)
+                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addGap(28, 28, 28)
+                .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, 53, Short.MAX_VALUE)
+                .addGap(78, 78, 78)
+                .addComponent(ViewInventoryOrdersButton, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20))
+        );
+
+        add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 180, -1, 220));
     }// </editor-fold>//GEN-END:initComponents
+
+    private void AddInventoryButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddInventoryButtonActionPerformed
+        // TODO add your handling code here:
+        AddInventoryJPanel hos= new AddInventoryJPanel(userProcessContainer,system);
+        userProcessContainer.add("manageServiceEntJPanel",hos);
+        CardLayout layout=(CardLayout)userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+    }//GEN-LAST:event_AddInventoryButtonActionPerformed
+
+    private void ViewInventoryOrdersButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ViewInventoryOrdersButtonActionPerformed
+        ViewInventoryOrdersJPanel dm= new ViewInventoryOrdersJPanel(userProcessContainer,system);
+        userProcessContainer.add("manageServiceEntJPanel",dm);
+        CardLayout layout=(CardLayout)userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+    }//GEN-LAST:event_ViewInventoryOrdersButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton AddInventoryButton;
+    private javax.swing.JButton ViewInventoryOrdersButton;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JLabel nameLable;
     // End of variables declaration//GEN-END:variables
 }

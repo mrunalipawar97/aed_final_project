@@ -5,7 +5,7 @@
 package catering.system.Role;
 
 import business.ApplicationSystem;
-import catering.system.UI.ClientRegistrationWorkArea.ClientWorkAreaJPanel;
+import catering.system.UI.FoodWarehouseAdminWorkArea.InventoryManagerWorkAreaJPanel;
 import catering.system.Users.UserAccount;
 import javax.swing.JPanel;
 
@@ -20,7 +20,7 @@ public class InventoryManagerRole extends Role {
 
     @Override
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, ApplicationSystem business) {
-        return new ClientWorkAreaJPanel(userProcessContainer, account, business);
+        return new InventoryManagerWorkAreaJPanel(userProcessContainer, business);
         //need to replace with required workarea jpanel
     }
 
