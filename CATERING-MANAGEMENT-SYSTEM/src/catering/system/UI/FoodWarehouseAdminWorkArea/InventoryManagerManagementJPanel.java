@@ -28,10 +28,10 @@ public class InventoryManagerManagementJPanel extends javax.swing.JPanel {
      */
     
     JPanel userProcessContainer;
-    private static ApplicationSystem system;
-    private ArrayList<InventoryManager> managersList;
+    private ApplicationSystem system;
+//    private ArrayList<InventoryManager> managersList;
 
-    DefaultTableModel managerTablemodel;
+    DefaultTableModel managerTableModel;
 
     public InventoryManagerManagementJPanel() {
         initComponents();
@@ -40,10 +40,77 @@ public class InventoryManagerManagementJPanel extends javax.swing.JPanel {
     public InventoryManagerManagementJPanel(JPanel userProcessContainer, ApplicationSystem system) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
-        managersList = new ArrayList<InventoryManager>();
         this.system = system;
+        this.managerTableModel= (DefaultTableModel) managerListTable.getModel();
+//        for (int i = 0; i < system.getBranchDirectory().getBranchLocation().size(); i++) {
+//            locationCombobox.addItem(system.getBranchDirectory().getBranchLocation().get(i));
+//        }
+//        managerTableModel = new DefaultTableModel();
+//        managerListTable.setModel(managerTableModel);
+//        managerTableModel.addColumn("Name");
+//        managerTableModel.addColumn("Address");
+//        managerTableModel.addColumn("Phone");
+//        managerTableModel.addColumn("Location");
+//        viewInventoryManagerList();
+//        showUpdateList();
+        populate();
     }
+//
+//    public void viewInventoryManagerList() {
+//        Object[] rowData = {"Mrunali", "75 saint Ap st", "9090909090", "NewYork"};
+//        managerTableModel.addRow(rowData);
+//        
+//        /*for (int i = 0; i < system.getInventoryManagerDirectory().getInventoryManagerList().size(); i++) {
+//            managersList.add(system.getInventoryManagerDirectory().getInventoryManagerList().get(i));
+//        }*/
+//        if (managersList.size() > 0) {
+//            for (int i = 0; i < managersList.size(); i++) {
+//                managerTableModel.addRow(new Object[]{
+//                    managersList.get(i).getName(),
+//                    managersList.get(i).getAddress(),                    
+//                    managersList.get(i).getPhone(),
+//                    managersList.get(i).getLocation()
+//                });
+//            }
+//        }else {
+//           JOptionPane.showMessageDialog(null, "Initial");
+//        }
+//    }
 
+//    public void showUpdateList() {
+//        for (int i = 0; i < managersList.size(); i++) {
+//            managerListCombo.addItem(managersList.get(i).getName());
+//        }
+//    }
+    
+    public void reset() {
+        managerListCombo.setSelectedIndex(0);
+        updateStoreManagerText.setText("");
+        updateUsernameTextField.setText("");
+        updatePasswordTextField.setText("");
+        updatePhoneTextField.setText("");
+        updateAddressTextField.setText("");
+    }
+    
+    public void populate(){
+        managerTableModel.setRowCount(0);
+        ArrayList<InventoryManager> manList=this.system.getInventoryManagerDirectory().getInventoryManagerList();
+        System.out.println("manList"+manList);
+        if(manList.size()>0){
+            for (InventoryManager intMan:manList){
+                
+                Object row[]= new Object[3];
+                row[0]=intMan;
+                row[1]=intMan.getAddress();
+                row[2]= intMan.getPhone();
+                
+                managerTableModel.addRow(row);
+            }
+        }
+        else{
+            JOptionPane.showMessageDialog(null,"No Manager Found");
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -235,17 +302,14 @@ public class InventoryManagerManagementJPanel extends javax.swing.JPanel {
 
         managerListTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+
             },
             new String [] {
                 "Name", "Address", "Phone"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.Object.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
                 false, false, false
@@ -260,6 +324,11 @@ public class InventoryManagerManagementJPanel extends javax.swing.JPanel {
             }
         });
         jScrollPane1.setViewportView(managerListTable);
+        if (managerListTable.getColumnModel().getColumnCount() > 0) {
+            managerListTable.getColumnModel().getColumn(0).setResizable(false);
+            managerListTable.getColumnModel().getColumn(1).setResizable(false);
+            managerListTable.getColumnModel().getColumn(2).setResizable(false);
+        }
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 560, -1, 118));
 
@@ -323,57 +392,62 @@ public class InventoryManagerManagementJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_updatePasswordTextFieldActionPerformed
 
     private void managerListComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_managerListComboActionPerformed
-        // TODO add your handling code here:
-        if (managerListCombo.getSelectedItem() != "None") {
-            String selectedItem = (String) managerListCombo.getSelectedItem();
-            for (int i = 0; i < managersList.size(); i++) {
-                char[] ch = updatePasswordTextField.getPassword();
-                String opassword = new String(ch);
-                if (managersList.get(i).getName().equalsIgnoreCase(selectedItem)) {
-                    updateUsernameTextField.setText(managersList.get(i).getAccountDetails().getUsername());
-                    updatePasswordTextField.setText(managersList.get(i).getAccountDetails().getPassword());
-                    updatePhoneTextField.setText(managersList.get(i).getPhone());
-                    updateStoreManagerText.setText(managersList.get(i).getName());
-                    updateAddressTextField.setText(managersList.get(i).getAddress());
-                    break;
-                }
-            }
-        }else{
-            updateUsernameTextField.setText("");
-            updatePasswordTextField.setText("");
-            updatePhoneTextField.setText("");
-            updateStoreManagerText.setText("");
-            updateAddressTextField.setText("");
-        }
+//        // TODO add your handling code here:
+//        if (managerListCombo.getSelectedItem() != "None") {
+//            String selectedItem = (String) managerListCombo.getSelectedItem();
+//            for (int i = 0; i < managersList.size(); i++) {
+//                char[] ch = updatePasswordTextField.getPassword();
+//                String opassword = new String(ch);
+//                if (managersList.get(i).getName().equalsIgnoreCase(selectedItem)) {
+//                    updateUsernameTextField.setText(managersList.get(i).getAccountDetails().getUsername());
+//                    updatePasswordTextField.setText(managersList.get(i).getAccountDetails().getPassword());
+//                    updatePhoneTextField.setText(managersList.get(i).getPhone());
+//                    updateStoreManagerText.setText(managersList.get(i).getName());
+//                    updateAddressTextField.setText(managersList.get(i).getAddress());
+//                    break;
+//                }
+//            }
+//        }else{
+//            updateUsernameTextField.setText("");
+//            updatePasswordTextField.setText("");
+//            updatePhoneTextField.setText("");
+//            updateStoreManagerText.setText("");
+//            updateAddressTextField.setText("");
+//        }
     }//GEN-LAST:event_managerListComboActionPerformed
 
     private void addManagerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addManagerButtonActionPerformed
         // TODO add your handling code here:
         Boolean isValid = validateFields(usernameTextField.getText(), addressTextField.getText(), phoneTextField.getText(), storeManagerTextField.getText(), passwordTextField.getPassword(), (String) locationCombobox.getSelectedItem());
+        System.out.println(isValid+"isValid");
         if (!isValid) {
             return;
         }
         for (int i = 0; i < system.getUserAccountDirectory().getUserAccountList().size(); i++) {
-            if(/*"groceryAdmin".equals(ecosystem.getUserAccountDirectory().getUserAccountList().get(i).getRoleName()) &&*/ system.getUserAccountDirectory().getUserAccountList().get(i).getUsername().equals(usernameTextField.getText())){
+            if(system.getUserAccountDirectory().getUserAccountList().get(i).getUsername().equals(usernameTextField.getText())){
                 JOptionPane.showMessageDialog(null,"Username Already Present", "Error message" ,JOptionPane.ERROR_MESSAGE);
                 return;
             }
         }
         char[] ch = passwordTextField.getPassword();
         String pwd = new String(ch);
-        String netwrokname = (String) locationCombobox.getSelectedItem();
+        String locationName = (String) locationCombobox.getSelectedItem();
         Employee employee = system.getEmployeeDirectory().createEmployee(storeManagerTextField.getText());
+        System.out.println(employee+"employee");
         UserAccount ua = system.getUserAccountDirectory().createUserAccount(usernameTextField.getText(), pwd, employee, new InventoryManagerRole(), "InventoryManager");
-        InventoryManager inventoryManager = system.getInventoryManagerDirectory().createInventoryManager(storeManagerTextField.getText(), ua, phoneTextField.getText(), addressTextField.getText(), netwrokname);
-        managersList.add(inventoryManager);
+        System.out.println(ua+"ua");
+        InventoryManager inventoryManager = system.getInventoryManagerDirectory().createInventoryManager(storeManagerTextField.getText(), ua, phoneTextField.getText(), addressTextField.getText(), locationName);
+        System.out.println(inventoryManager+"inventoryManager");
+//        managersList.add(inventoryManager);
         JOptionPane.showMessageDialog(this, "Inventory Store Manager added successfully");
         managerListCombo.addItem(storeManagerTextField.getText());
-        managerTablemodel.addRow(new Object[]{
-            storeManagerTextField.getText(),
-            addressTextField.getText(),
-            phoneTextField.getText(),
-            netwrokname
-        });
+//        managerTableModel.addRow(new Object[]{
+//            storeManagerTextField.getText(),
+//            addressTextField.getText(),
+//            phoneTextField.getText(),
+//            locationName
+//        });
+        populate();
         storeManagerTextField.setText("");
         usernameTextField.setText("");
         passwordTextField.setText("");
@@ -388,77 +462,77 @@ public class InventoryManagerManagementJPanel extends javax.swing.JPanel {
     private void updateManagerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateManagerButtonActionPerformed
         // TODO add your handling code here:
         //        Boolean isValid = validateFields(updateUsernameText.getText(), updateAddressText.getText(), updatePhoneText.getText(), updateRestManagerText.getText(), updateRestPwdText.getPassword());
-        if(managerListCombo.getSelectedItem() == null || managerListCombo.getSelectedIndex() == 0) {
-            JOptionPane.showMessageDialog(null,"Select a value from dropdown","Error message", JOptionPane.ERROR_MESSAGE);
-            return;
-        } else if (!validateFields(updateUsernameTextField.getText(), updateAddressTextField.getText(), updatePhoneTextField.getText(), updateStoreManagerText.getText(), updatePasswordTextField.getPassword(),"no")) {
-            return;
-        }
-        if (managerListCombo.getSelectedItem() != null) {
-            String selectedItem = (String) managerListCombo.getSelectedItem();
-            for (int i = 0; i < managersList.size(); i++) {
-                char[] ch = updatePasswordTextField.getPassword();
-                String pwd = new String(ch);
-                if (managersList.get(i).getName().equalsIgnoreCase(selectedItem)) {
-                    managersList.get(i).setAddress(updateAddressTextField.getText());
-                    managersList.get(i).setPhone(updatePhoneTextField.getText());
-                    managersList.get(i).getAccountDetails().setPassword(pwd);
-                    managersList.get(i).getAccountDetails().setUsername(updateUsernameTextField.getText());
-                    managersList.get(i).setName(updateStoreManagerText.getText());
-                    JOptionPane.showMessageDialog(this, "Grocery Store Manager updated successfully");
-                }
-            }
-        }
-        String selectedItem = (String) managerListCombo.getSelectedItem();
-        managerListCombo.getSelectedIndex();
-        for (int i = 0; i < managerListTable.getRowCount(); i++) {
-            if (((String) managerListTable.getValueAt(i, 0)).equals(selectedItem)) {
-                managerListCombo.addItem(updateStoreManagerText.getText());
-                managerTablemodel.addRow(new Object[]{
-                    updateStoreManagerText.getText(),
-                    updateAddressTextField.getText(),
-                    updatePhoneTextField.getText()
-                });
-                managerTablemodel.removeRow(i);
-                managerListCombo.removeItemAt(i + 1);
-
-            }//end of if block
-        }
-        reset();
+//        if(managerListCombo.getSelectedItem() == null || managerListCombo.getSelectedIndex() == 0) {
+//            JOptionPane.showMessageDialog(null,"Select a value from dropdown","Error message", JOptionPane.ERROR_MESSAGE);
+//            return;
+//        } else if (!validateFields(updateUsernameTextField.getText(), updateAddressTextField.getText(), updatePhoneTextField.getText(), updateStoreManagerText.getText(), updatePasswordTextField.getPassword(),"no")) {
+//            return;
+//        }
+//        if (managerListCombo.getSelectedItem() != null) {
+//            String selectedItem = (String) managerListCombo.getSelectedItem();
+//            for (int i = 0; i < managersList.size(); i++) {
+//                char[] ch = updatePasswordTextField.getPassword();
+//                String pwd = new String(ch);
+//                if (managersList.get(i).getName().equalsIgnoreCase(selectedItem)) {
+//                    managersList.get(i).setAddress(updateAddressTextField.getText());
+//                    managersList.get(i).setPhone(updatePhoneTextField.getText());
+//                    managersList.get(i).getAccountDetails().setPassword(pwd);
+//                    managersList.get(i).getAccountDetails().setUsername(updateUsernameTextField.getText());
+//                    managersList.get(i).setName(updateStoreManagerText.getText());
+//                    JOptionPane.showMessageDialog(this, "Grocery Store Manager updated successfully");
+//                }
+//            }
+//        }
+//        String selectedItem = (String) managerListCombo.getSelectedItem();
+//        managerListCombo.getSelectedIndex();
+//        for (int i = 0; i < managerListTable.getRowCount(); i++) {
+//            if (((String) managerListTable.getValueAt(i, 0)).equals(selectedItem)) {
+//                managerListCombo.addItem(updateStoreManagerText.getText());
+//                managerTableModel.addRow(new Object[]{
+//                    updateStoreManagerText.getText(),
+//                    updateAddressTextField.getText(),
+//                    updatePhoneTextField.getText()
+//                });
+//                managerTableModel.removeRow(i);
+//                managerListCombo.removeItemAt(i + 1);
+//
+//            }//end of if block
+//        }
+//        reset();
     }//GEN-LAST:event_updateManagerButtonActionPerformed
 
     private void deleteManagerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteManagerButtonActionPerformed
         // TODO add your handling code here:
-        boolean flag = false;
-
-        String selectedItem = (String) managerListCombo.getSelectedItem();
-        managerListCombo.getSelectedIndex();
-        if(managerListCombo.getSelectedItem() == null || managerListCombo.getSelectedIndex() == 0) {
-            JOptionPane.showMessageDialog(null,"Select a value from dropdown","Error message", JOptionPane.ERROR_MESSAGE);
-            return;
-        } else if (!validateFields(updateUsernameTextField.getText(), updateAddressTextField.getText(), updatePhoneTextField.getText(), updateStoreManagerText.getText(), updatePasswordTextField.getPassword(),"no")) {
-            return;
-        }
-        if (flag == false) {
-            Boolean isDelete = system.getUserAccountDirectory().deleteUser(selectedItem);
-            system.getInventoryManagerDirectory().deleteInventoryManager(selectedItem);
-            //            Boolean isDelete = ecosystem.getGroceryManagerDirectory().deleteGroceryManager(selectedItem, ecosystem);
-            for (int i = 0; i < managerListTable.getRowCount(); i++) {
-                if (((String) managerListTable.getValueAt(i, 0)).equals(selectedItem)) {
-                    managerTablemodel.removeRow(i);
-                    managerListCombo.removeItemAt(i + 1);
-                    updateStoreManagerText.setText("");
-                    updateUsernameTextField.setText("");
-                    updatePasswordTextField.setText("");
-                    updatePhoneTextField.setText("");
-                    updateAddressTextField.setText("");
-                }//end of if block
-            }
-            if (isDelete) {
-                JOptionPane.showMessageDialog(this, "Grocery Store Manager deleted successfully");
-            }
-        }
-        reset();
+//        boolean flag = false;
+//
+//        String selectedItem = (String) managerListCombo.getSelectedItem();
+//        managerListCombo.getSelectedIndex();
+//        if(managerListCombo.getSelectedItem() == null || managerListCombo.getSelectedIndex() == 0) {
+//            JOptionPane.showMessageDialog(null,"Select a value from dropdown","Error message", JOptionPane.ERROR_MESSAGE);
+//            return;
+//        } else if (!validateFields(updateUsernameTextField.getText(), updateAddressTextField.getText(), updatePhoneTextField.getText(), updateStoreManagerText.getText(), updatePasswordTextField.getPassword(),"no")) {
+//            return;
+//        }
+//        if (flag == false) {
+//            Boolean isDelete = system.getUserAccountDirectory().deleteUser(selectedItem);
+//            system.getInventoryManagerDirectory().deleteInventoryManager(selectedItem);
+//            //            Boolean isDelete = ecosystem.getGroceryManagerDirectory().deleteGroceryManager(selectedItem, ecosystem);
+//            for (int i = 0; i < managerListTable.getRowCount(); i++) {
+//                if (((String) managerListTable.getValueAt(i, 0)).equals(selectedItem)) {
+//                    managerTableModel.removeRow(i);
+//                    managerListCombo.removeItemAt(i + 1);
+//                    updateStoreManagerText.setText("");
+//                    updateUsernameTextField.setText("");
+//                    updatePasswordTextField.setText("");
+//                    updatePhoneTextField.setText("");
+//                    updateAddressTextField.setText("");
+//                }//end of if block
+//            }
+//            if (isDelete) {
+//                JOptionPane.showMessageDialog(this, "Grocery Store Manager deleted successfully");
+//            }
+//        }
+//        reset();
     }//GEN-LAST:event_deleteManagerButtonActionPerformed
 
     public Boolean validateFields(String username, String address, String phone, String name, char[] pwd, String netwrok) {
@@ -488,14 +562,6 @@ public class InventoryManagerManagementJPanel extends javax.swing.JPanel {
         return true;
     }
     
-     public void reset() {
-        managerListCombo.setSelectedIndex(0);
-        updateStoreManagerText.setText("");
-        updateUsernameTextField.setText("");
-        updatePasswordTextField.setText("");
-        updatePhoneTextField.setText("");
-        updateAddressTextField.setText("");
-    }
     
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
 

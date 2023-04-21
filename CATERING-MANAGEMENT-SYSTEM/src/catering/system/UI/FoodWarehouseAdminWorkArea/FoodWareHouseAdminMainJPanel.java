@@ -95,7 +95,7 @@ public class FoodWareHouseAdminMainJPanel extends javax.swing.JPanel {
     private void inventoryManagerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inventoryManagerButtonActionPerformed
         // TODO add your handling code here:
         InventoryManagerManagementJPanel inventoryManagerManagementJPanel= new InventoryManagerManagementJPanel(userProcessContainer, system);
-        userProcessContainer.add("InventoryManagerManagementJPanel",inventoryManagerManagementJPanel);
+        userProcessContainer.add("InventoryStoreManagementJPanel",inventoryManagerManagementJPanel);
         CardLayout layout=(CardLayout)userProcessContainer.getLayout();
         layout.next(userProcessContainer);
     }//GEN-LAST:event_inventoryManagerButtonActionPerformed
