@@ -13,11 +13,12 @@ import javax.swing.JPanel;
  *
  * @author mrunalipawar
  */
-public class NutritionAuditorRole {
+public class NutritionAuditorRole extends Role {
     
     public NutritionAuditorRole() {
     }
 
+    @Override
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, ApplicationSystem business) {
         return new ClientWorkAreaJPanel(userProcessContainer, account, business);
         //need to replace with required workarea jpanel

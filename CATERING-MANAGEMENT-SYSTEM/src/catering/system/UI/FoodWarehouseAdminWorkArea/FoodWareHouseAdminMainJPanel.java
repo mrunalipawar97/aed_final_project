@@ -6,7 +6,7 @@ package catering.system.UI.FoodWarehouseAdminWorkArea;
 
 import business.ApplicationSystem;
 import catering.system.UI.AdminWorkArea.AdminJPanel;
-import catering.system.Users.UserAccount;
+
 import java.awt.CardLayout;
 import javax.swing.JPanel;
 
@@ -27,7 +27,7 @@ public class FoodWareHouseAdminMainJPanel extends javax.swing.JPanel {
         initComponents();
     }
 
-    public FoodWareHouseAdminMainJPanel(JPanel userProcessContainer, UserAccount account, ApplicationSystem system) {
+    public FoodWareHouseAdminMainJPanel(JPanel userProcessContainer, ApplicationSystem system) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.system = system;

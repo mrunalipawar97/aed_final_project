@@ -13,12 +13,13 @@ import javax.swing.JPanel;
  *
  * @author mrunalipawar
  */
-public class LogisticManagerRole {
+public class LogisticManagerRole extends Role {
     
     public LogisticManagerRole() {
         
     }
 
+    @Override
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, ApplicationSystem business) {
         return new ClientWorkAreaJPanel(userProcessContainer, account, business);
         //need to replace with required workarea jpanel

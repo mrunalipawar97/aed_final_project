@@ -13,9 +13,11 @@ import javax.swing.JPanel;
  *
  * @author nishipancholi
  */
-public class SeviceEntAdminRole extends Role{
+public class SeviceEntAdminRole extends Role {
+
     public SeviceEntAdminRole() {
     }
+
     @Override
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, ApplicationSystem business) {
         return new ServiceEntAdminMainJPanel(userProcessContainer, business);

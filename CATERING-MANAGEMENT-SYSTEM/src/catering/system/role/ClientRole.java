@@ -19,6 +19,7 @@ public class ClientRole extends Role {
 
     }
 
+    @Override
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, ApplicationSystem business) {
         return new ClientWorkAreaJPanel(userProcessContainer, account, business);
     }

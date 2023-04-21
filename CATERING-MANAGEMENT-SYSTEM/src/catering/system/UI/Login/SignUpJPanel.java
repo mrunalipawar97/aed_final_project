@@ -6,7 +6,6 @@ package catering.system.UI.Login;
 
 import business.ApplicationSystem;
 import catering.system.Organization.ServiceEnterpriseOrganization.Client;
-import catering.system.Organization.ServiceEnterpriseOrganization.EmailReceipt;
 import catering.system.Role.ClientRole;
 import catering.system.Users.Employee;
 import catering.system.Users.UserAccount;

@@ -14,8 +14,10 @@ import javax.swing.JPanel;
  * @author nishipancholi
  */
 public class FoodQualityEntAdminRole extends Role {
-        public FoodQualityEntAdminRole() {
+
+    public FoodQualityEntAdminRole() {
     }
+
     @Override
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, ApplicationSystem business) {
         return new FoodQualityAdminMainJPanel(userProcessContainer, account, business);
