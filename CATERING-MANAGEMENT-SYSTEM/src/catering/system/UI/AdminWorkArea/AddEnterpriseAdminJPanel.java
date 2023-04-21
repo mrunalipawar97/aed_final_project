@@ -328,7 +328,8 @@ public class AddEnterpriseAdminJPanel extends javax.swing.JPanel {
 
     private void updateEntAdminButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateEntAdminButtonActionPerformed
         // TODO add your handling code here:
-        if(!adminNameField.getText().isEmpty() && adminNameField != null){
+        int selectedRow = adminTable.getSelectedRow();
+        if(selectedRow>=0){
             
             selectedEnterprise.getAdmin().setName(adminNameField.getText());
             selectedEnterprise.setEntAdminName(adminNameField.getText());

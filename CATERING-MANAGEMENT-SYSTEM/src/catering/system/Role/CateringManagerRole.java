@@ -5,23 +5,21 @@
 package catering.system.Role;
 
 import business.ApplicationSystem;
-import catering.system.UI.FoodProdAdminWorkArea.SupervisorMainJPanel;
+import catering.system.UI.FoodProdAdminWorkArea.CateringManagerMainJPanel;
 import catering.system.Users.UserAccount;
 import javax.swing.JPanel;
 
 /**
  *
- * @author mrunalipawar
+ * @author nishipancholi
  */
-public class SuperviserRole extends Role {
-    
-    public SuperviserRole() {
+public class CateringManagerRole extends Role{
+    public CateringManagerRole() {
         
     }
 
     @Override
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, ApplicationSystem business) {
-        return new SupervisorMainJPanel(userProcessContainer, business);
+        return new CateringManagerMainJPanel(userProcessContainer, business);
     }
-    
 }

@@ -2,26 +2,25 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package catering.system.UI.ClientRegistrationWorkArea;
+package catering.system.UI.FoodProdAdminWorkArea;
 
 import business.ApplicationSystem;
-import catering.system.Users.UserAccount;
 import javax.swing.JPanel;
 
 /**
  *
- * @author mrunalipawar
+ * @author nishipancholi
  */
-public class ClientWorkAreaJPanel extends javax.swing.JPanel {
+public class CoordinatorMainJPanel extends javax.swing.JPanel {
 
     /**
-     * Creates new form ClientWorkAreaJPanel
+     * Creates new form CoordinatorMainJPanel
      */
-    public ClientWorkAreaJPanel() {
+    public CoordinatorMainJPanel() {
         initComponents();
     }
 
-    public ClientWorkAreaJPanel(JPanel userProcessContainer, UserAccount account, ApplicationSystem business) {
+    public CoordinatorMainJPanel(JPanel userProcessContainer, ApplicationSystem business) {
         initComponents();
     }
 
@@ -39,8 +38,8 @@ public class ClientWorkAreaJPanel extends javax.swing.JPanel {
         setBackground(new java.awt.Color(204, 204, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setText("client welcome");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 20, -1, -1));
+        jLabel1.setText("Co-ordinator");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 30, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
 
