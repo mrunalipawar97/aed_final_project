@@ -240,6 +240,7 @@ public class ClientWorkAreaJPanel extends javax.swing.JPanel {
         int newBatch= batch-quantity;
         selectedMenu.setBatch(newBatch);
         JOptionPane.showMessageDialog(null,"Payment Done");
+        populate();
         populateOrder();
     }//GEN-LAST:event_jButton1ActionPerformed
 
