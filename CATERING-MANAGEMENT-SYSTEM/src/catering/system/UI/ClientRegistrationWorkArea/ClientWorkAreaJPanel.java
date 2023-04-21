@@ -5,14 +5,27 @@
 package catering.system.UI.ClientRegistrationWorkArea;
 
 import business.ApplicationSystem;
+import catering.system.FoodProdOrganization.Menu;
+import catering.system.OrderManagement.ClientOrder;
+import catering.system.Organization.ServiceEnterpriseOrganization.Client;
 import catering.system.Users.UserAccount;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author mrunalipawar
  */
 public class ClientWorkAreaJPanel extends javax.swing.JPanel {
+    DefaultTableModel viewTableModel;
+    DefaultTableModel orderTableModel;
+    ApplicationSystem system;
+    UserAccount ua;
+    Menu selectedMenu;
+    
 
     /**
      * Creates new form ClientWorkAreaJPanel
@@ -23,6 +36,58 @@ public class ClientWorkAreaJPanel extends javax.swing.JPanel {
 
     public ClientWorkAreaJPanel(JPanel userProcessContainer, UserAccount account, ApplicationSystem business) {
         initComponents();
+        this.viewTableModel= (DefaultTableModel) menuTable.getModel();
+        this.orderTableModel= (DefaultTableModel) orderTable.getModel();
+        this.system=business;
+        this.ua=account;
+        this.selectedMenu=new Menu();
+        populate();
+        populateOrder();
+        
+    }
+    
+    public void populate()
+    {
+        viewTableModel.setRowCount(0);
+        ArrayList<Menu> applications=this.system.getEnterpriseDirectory().getMenuList();
+        System.out.println(applications);
+        if(applications.size()>0){
+            for (Menu app:applications){
+                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+                String date = sdf.format(app.getDate());
+                Object row[]= new Object[6];
+                row[0]=date;
+                row[1]=app;
+                row[2]=app.getLunch();
+                row[3]=app.getDinner();
+                row[4]=app.getBatch();
+                row[5]=app.getPrice();
+                
+                viewTableModel.addRow(row);
+            }
+        }
+        else{
+            System.out.println("Empty Menu");
+        }
+    }
+    
+    public void populateOrder()
+    {
+        orderTableModel.setRowCount(0);
+        ArrayList<ClientOrder> applications=this.system.getEnterpriseDirectory().getClientOrderDirectory().getClientorderList();
+        System.out.println(applications);
+        if(applications.size()>0){
+            for (ClientOrder app:applications){
+                Object row[]= new Object[2];
+                row[0]=app;
+                row[1]=app.getPrice();
+                
+                orderTableModel.addRow(row);
+            }
+        }
+        else{
+            System.out.println("Empty Menu");
+        }
     }
 
     /**
@@ -35,16 +100,159 @@ public class ClientWorkAreaJPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        menuTable = new javax.swing.JTable();
+        priceField = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        QualityField = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        placeOrderButton = new javax.swing.JButton();
+        jTextField1 = new javax.swing.JTextField();
+        jTextField2 = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        orderTable = new javax.swing.JTable();
+        jButton1 = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(204, 204, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setText("client welcome");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 20, -1, -1));
+        jLabel1.setText(" welcome");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 30, -1, -1));
+
+        menuTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Date", "Breakfast", "Lunch", "Dinner", "Batch", "Price"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.Object.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Float.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(menuTable);
+
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 500, 190));
+
+        priceField.setEnabled(false);
+        add(priceField, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 350, 250, -1));
+
+        jLabel2.setText("CVV:");
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 420, -1, 20));
+        add(QualityField, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 270, 250, -1));
+
+        jLabel3.setText("Quantity:");
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 270, -1, 20));
+
+        placeOrderButton.setText("Place Order");
+        placeOrderButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                placeOrderButtonActionPerformed(evt);
+            }
+        });
+        add(placeOrderButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 300, -1, -1));
+        add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 420, 250, -1));
+        add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 390, 250, -1));
+
+        jLabel4.setText("Price:");
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 360, -1, 20));
+
+        jLabel5.setText("Card Number:");
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 390, -1, 20));
+
+        orderTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Order Id", "Paid Money"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Object.class, java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jScrollPane2.setViewportView(orderTable);
+
+        add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 70, -1, 190));
+
+        jButton1.setText("Make Payment");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 470, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
+
+    private void placeOrderButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_placeOrderButtonActionPerformed
+        // TODO add your handling code here:
+        int selectedRow = menuTable.getSelectedRow();
+        
+        if(selectedRow>=0){
+            
+            selectedMenu = (Menu) menuTable.getValueAt(selectedRow, 1);
+            int price=Integer.valueOf(QualityField.getText());
+            if(selectedMenu.getBatch()<price){
+                JOptionPane.showMessageDialog(null,"Sorry we do not have enough quantity of batches");
+            }
+            else{
+                float pricePerBatch=selectedMenu.getPrice();
+                float totalPrice=pricePerBatch*price;
+                priceField.setText(String.valueOf(totalPrice));
+                JOptionPane.showMessageDialog(null,"Please Proceed to Payment to Place Order");
+                QualityField.setText("");
+            }
+            
+            
+        }
+        else{
+            JOptionPane.showMessageDialog(null,"Please select row");
+        }
+    }//GEN-LAST:event_placeOrderButtonActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        ArrayList<Client> clientList=this.system.getClientDirectory().getClientList();
+        Client selectedClient= new Client();
+        for(Client c:clientList){
+            if(ua==c.getAccountDetails()){
+                selectedClient=c;
+            }
+        }
+        ClientOrder corder=this.system.getEnterpriseDirectory().getClientOrderDirectory().createOrder(selectedMenu, Float.valueOf(priceField.getText()), selectedClient);
+        System.out.print(corder+"corder");
+        JOptionPane.showMessageDialog(null,"Payment Done");
+        populateOrder();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField QualityField;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTable menuTable;
+    private javax.swing.JTable orderTable;
+    private javax.swing.JButton placeOrderButton;
+    private javax.swing.JTextField priceField;
     // End of variables declaration//GEN-END:variables
 }
