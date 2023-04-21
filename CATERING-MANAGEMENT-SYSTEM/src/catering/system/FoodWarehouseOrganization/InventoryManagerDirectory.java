@@ -16,7 +16,7 @@ public class InventoryManagerDirectory {
     private ArrayList<InventoryManager> inventoryManagerList;
     
     public InventoryManagerDirectory() {
-        inventoryManagerList = new ArrayList();
+        inventoryManagerList = new ArrayList<InventoryManager>();
     }
 
     public ArrayList<InventoryManager> getInventoryManagerList() {
@@ -38,14 +38,15 @@ public class InventoryManagerDirectory {
         return false;
     }
     
-    public InventoryManager createInventoryManager(String name, UserAccount ua, String phone, String address, String location){
+    public InventoryManager createInventoryManager(String name, UserAccount ua, String phone, String address){
         InventoryManager im = new InventoryManager();
         im.setName(name);
         im.setAccountDetails(ua);
         im.setAddress(address);
         im.setPhone(phone);
-        im.setLocation(location);
+        //im.setLocation(location);
         inventoryManagerList.add(im);
         return im;
     }
+    
 }

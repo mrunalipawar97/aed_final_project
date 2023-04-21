@@ -49,7 +49,6 @@ public class AddMenuJPanel extends javax.swing.JPanel {
 
         btnBack = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        jDateChooser1 = new com.toedter.calendar.JDateChooser();
         breakfastField = new javax.swing.JTextField();
         lunchField = new javax.swing.JTextField();
         dinnerField = new javax.swing.JTextField();
@@ -64,6 +63,7 @@ public class AddMenuJPanel extends javax.swing.JPanel {
         menuTable = new javax.swing.JTable();
         priceField = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
+        jDateChooser1 = new com.toedter.calendar.JDateChooser();
 
         setBackground(new java.awt.Color(204, 204, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -81,7 +81,6 @@ public class AddMenuJPanel extends javax.swing.JPanel {
 
         jLabel1.setText("Add Menu");
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 90, -1, -1));
-        add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 140, 220, -1));
         add(breakfastField, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 180, 220, -1));
         add(lunchField, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 230, 220, -1));
         add(dinnerField, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 280, 220, -1));
@@ -133,6 +132,7 @@ public class AddMenuJPanel extends javax.swing.JPanel {
 
         jLabel7.setText("Batch:");
         add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 330, -1, -1));
+        add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 140, 210, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     public void populate()

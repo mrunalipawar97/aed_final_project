@@ -5,10 +5,12 @@
 package catering.system.UI.FoodWarehouseAdminWorkArea;
 
 import business.ApplicationSystem;
+import catering.system.FoodProdOrganization.CateringManager;
 import catering.system.FoodWarehouseOrganization.InventoryManager;
 import catering.system.Role.InventoryManagerRole;
 import catering.system.Users.Employee;
 import catering.system.Users.UserAccount;
+import catering.system.validations.ValidateStrings;
 import java.awt.CardLayout;
 import java.util.ArrayList;
 import java.util.regex.Matcher;
@@ -28,10 +30,10 @@ public class InventoryManagerManagementJPanel extends javax.swing.JPanel {
      */
     
     JPanel userProcessContainer;
-    private static ApplicationSystem system;
-    private ArrayList<InventoryManager> managersList;
-
-    DefaultTableModel managerTablemodel;
+    private ApplicationSystem system;
+    //private ArrayList<InventoryManager> managersList;
+    InventoryManager selectedInventoryManager;
+    DefaultTableModel inventoryManagerTableModel;
 
     public InventoryManagerManagementJPanel() {
         initComponents();
@@ -40,10 +42,59 @@ public class InventoryManagerManagementJPanel extends javax.swing.JPanel {
     public InventoryManagerManagementJPanel(JPanel userProcessContainer, ApplicationSystem system) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
-        managersList = new ArrayList<InventoryManager>();
         this.system = system;
+        this.inventoryManagerTableModel= (DefaultTableModel) managerListTable.getModel();
+        this.selectedInventoryManager= new InventoryManager();
+        populateManagerDetails();
+        //showUpdateList();
     }
 
+    
+    
+    public void showUpdateList() {
+        ArrayList<InventoryManager> managerList = this.system.getEnterpriseDirectory().getInventoryManagerDirectory().getInventoryManagerList();
+        System.out.println("managerList"+managerList);
+        for (int i = 0; i < managerList.size(); i++) {
+            //managerListCombo.addItem(managerList.get(i).getName());
+        }
+    }
+
+    
+    /*public void reset() {
+        managerListCombo.setSelectedIndex(0);
+        updateStoreManagerText.setText("");
+        updateUsernameTextField.setText("");
+        updatePasswordTextField.setText("");
+        updatePhoneTextField.setText("");
+        updateAddressTextField.setText("");
+    }*/
+    
+    public void populateManagerDetails(){
+       
+        inventoryManagerTableModel.setRowCount(0);
+        ArrayList<InventoryManager> managerList = this.system.getEnterpriseDirectory().getInventoryManagerDirectory().getInventoryManagerList();
+        System.out.println("managerList"+managerList);
+        if(managerList == null){
+            
+            JOptionPane.showMessageDialog(null,"Add minimum one Inventory Manager");
+        
+        }else {
+            if(managerList.size() > 0){
+                for (InventoryManager inventoryManager : managerList){
+
+                    Object row[]= new Object[4];
+                    row[0]=inventoryManager;
+                    row[1]=inventoryManager.getAccountDetails().getUsername();
+                    row[2]=inventoryManager.getAddress();
+                    row[3]= inventoryManager.getPhone();
+                    inventoryManagerTableModel.addRow(row);
+                }
+            }
+            else{
+                JOptionPane.showMessageDialog(null,"No Inventory Manager Found");
+            }
+        }    
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -60,33 +111,30 @@ public class InventoryManagerManagementJPanel extends javax.swing.JPanel {
         usernameTextField = new javax.swing.JTextField();
         passwordJLable = new javax.swing.JLabel();
         passwordTextField = new javax.swing.JPasswordField();
-        updateUsernameTextField = new javax.swing.JTextField();
-        updateStoreManagerText = new javax.swing.JTextField();
-        jLabel7 = new javax.swing.JLabel();
-        updateManagerNameJLabel = new javax.swing.JLabel();
-        updatePasswordTextField = new javax.swing.JPasswordField();
-        selectManagerLabel = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        managerListCombo = new javax.swing.JComboBox<>();
-        restPwdLabel2 = new javax.swing.JLabel();
         addManagerButton = new javax.swing.JButton();
         phoneJLabel = new javax.swing.JLabel();
         phoneTextField = new javax.swing.JTextField();
         addressJLabel = new javax.swing.JLabel();
         addressTextField = new javax.swing.JTextField();
-        phoneLabel1 = new javax.swing.JLabel();
-        updatePhoneTextField = new javax.swing.JTextField();
-        addressLabel1 = new javax.swing.JLabel();
-        updateAddressTextField = new javax.swing.JTextField();
         viewInventoryManagerJLabel = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         managerListTable = new javax.swing.JTable();
-        locationJLabel = new javax.swing.JLabel();
-        locationCombobox = new javax.swing.JComboBox<>();
         title = new javax.swing.JLabel();
-        updateManagerButton = new javax.swing.JButton();
         deleteManagerButton = new javax.swing.JButton();
         backButton = new javax.swing.JButton();
+        viewAdminButton = new javax.swing.JButton();
+        restPwdLabel1 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        restPwdLabel2 = new javax.swing.JLabel();
+        phoneLabel = new javax.swing.JLabel();
+        addressLabel1 = new javax.swing.JLabel();
+        updateAddressTextField = new javax.swing.JTextField();
+        updateUsernameTextField = new javax.swing.JTextField();
+        updatePasswordTextField = new javax.swing.JPasswordField();
+        updateCateringManagerButton = new javax.swing.JButton();
+        updatePhoneTextField = new javax.swing.JTextField();
+        updateNameTextField = new javax.swing.JTextField();
 
         setBackground(new java.awt.Color(255, 218, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -124,63 +172,11 @@ public class InventoryManagerManagementJPanel extends javax.swing.JPanel {
         passwordTextField.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         add(passwordTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 270, 170, 30));
 
-        updateUsernameTextField.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        add(updateUsernameTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 280, 153, 30));
-
-        updateStoreManagerText.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        updateStoreManagerText.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                updateStoreManagerTextActionPerformed(evt);
-            }
-        });
-        add(updateStoreManagerText, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 233, 153, 30));
-
-        jLabel7.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        jLabel7.setText("Password");
-        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 330, 70, 30));
-
-        updateManagerNameJLabel.setBackground(new java.awt.Color(255, 255, 255));
-        updateManagerNameJLabel.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        updateManagerNameJLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        updateManagerNameJLabel.setText("Name");
-        add(updateManagerNameJLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 230, 70, 30));
-
-        updatePasswordTextField.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        updatePasswordTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                updatePasswordTextFieldActionPerformed(evt);
-            }
-        });
-        add(updatePasswordTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 330, 153, 30));
-
-        selectManagerLabel.setBackground(new java.awt.Color(255, 255, 255));
-        selectManagerLabel.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        selectManagerLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        selectManagerLabel.setText("Select Manager");
-        add(selectManagerLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 180, 119, 30));
-
         jLabel8.setBackground(new java.awt.Color(255, 255, 255));
         jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel8.setText("Update / Delete a Inventory Manager");
         add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 140, 280, 20));
-
-        managerListCombo.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        managerListCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None" }));
-        managerListCombo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                managerListComboActionPerformed(evt);
-            }
-        });
-        add(managerListCombo, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 183, 153, 30));
-
-        restPwdLabel2.setBackground(new java.awt.Color(255, 255, 255));
-        restPwdLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        restPwdLabel2.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        restPwdLabel2.setText("Username");
-        add(restPwdLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 277, 100, 30));
 
         addManagerButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         addManagerButton.setText("Add");
@@ -189,7 +185,7 @@ public class InventoryManagerManagementJPanel extends javax.swing.JPanel {
                 addManagerButtonActionPerformed(evt);
             }
         });
-        add(addManagerButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 460, 120, 40));
+        add(addManagerButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 420, 120, 40));
 
         phoneJLabel.setBackground(new java.awt.Color(255, 255, 255));
         phoneJLabel.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -209,24 +205,6 @@ public class InventoryManagerManagementJPanel extends javax.swing.JPanel {
         addressTextField.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         add(addressTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 360, 170, 30));
 
-        phoneLabel1.setBackground(new java.awt.Color(255, 255, 255));
-        phoneLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        phoneLabel1.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        phoneLabel1.setText("Phone");
-        add(phoneLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 380, 58, 30));
-
-        updatePhoneTextField.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        add(updatePhoneTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 380, 153, 30));
-
-        addressLabel1.setBackground(new java.awt.Color(255, 255, 255));
-        addressLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        addressLabel1.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        addressLabel1.setText("Address");
-        add(addressLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 433, 85, 20));
-
-        updateAddressTextField.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        add(updateAddressTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 430, 153, 30));
-
         viewInventoryManagerJLabel.setBackground(new java.awt.Color(255, 255, 255));
         viewInventoryManagerJLabel.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         viewInventoryManagerJLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -235,20 +213,17 @@ public class InventoryManagerManagementJPanel extends javax.swing.JPanel {
 
         managerListTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+
             },
             new String [] {
-                "Name", "Address", "Phone"
+                "Name", "Username", "Address", "Phone"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.Object.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false
+                false, true, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -260,38 +235,19 @@ public class InventoryManagerManagementJPanel extends javax.swing.JPanel {
             }
         });
         jScrollPane1.setViewportView(managerListTable);
+        if (managerListTable.getColumnModel().getColumnCount() > 0) {
+            managerListTable.getColumnModel().getColumn(0).setResizable(false);
+            managerListTable.getColumnModel().getColumn(2).setResizable(false);
+            managerListTable.getColumnModel().getColumn(3).setResizable(false);
+        }
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 560, -1, 118));
-
-        locationJLabel.setBackground(new java.awt.Color(255, 255, 255));
-        locationJLabel.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        locationJLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        locationJLabel.setText("Location");
-        add(locationJLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 413, 85, 20));
-
-        locationCombobox.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        locationCombobox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None" }));
-        locationCombobox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                locationComboboxActionPerformed(evt);
-            }
-        });
-        add(locationCombobox, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 410, 170, 30));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 570, 600, 118));
 
         title.setBackground(new java.awt.Color(255, 255, 255));
         title.setFont(new java.awt.Font("Lucida Grande", 1, 24)); // NOI18N
         title.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         title.setText("Manage Grocery Store Manager");
         add(title, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 30, 700, 60));
-
-        updateManagerButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        updateManagerButton.setText("Update");
-        updateManagerButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                updateManagerButtonActionPerformed(evt);
-            }
-        });
-        add(updateManagerButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 480, 101, 44));
 
         deleteManagerButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         deleteManagerButton.setForeground(new java.awt.Color(51, 51, 51));
@@ -301,7 +257,7 @@ public class InventoryManagerManagementJPanel extends javax.swing.JPanel {
                 deleteManagerButtonActionPerformed(evt);
             }
         });
-        add(deleteManagerButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 480, 111, 44));
+        add(deleteManagerButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 420, 111, 44));
 
         backButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         backButton.setForeground(new java.awt.Color(51, 51, 51));
@@ -312,68 +268,108 @@ public class InventoryManagerManagementJPanel extends javax.swing.JPanel {
             }
         });
         add(backButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, 111, 45));
-    }// </editor-fold>//GEN-END:initComponents
 
-    private void updateStoreManagerTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateStoreManagerTextActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_updateStoreManagerTextActionPerformed
-
-    private void updatePasswordTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updatePasswordTextFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_updatePasswordTextFieldActionPerformed
-
-    private void managerListComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_managerListComboActionPerformed
-        // TODO add your handling code here:
-        if (managerListCombo.getSelectedItem() != "None") {
-            String selectedItem = (String) managerListCombo.getSelectedItem();
-            for (int i = 0; i < managersList.size(); i++) {
-                char[] ch = updatePasswordTextField.getPassword();
-                String opassword = new String(ch);
-                if (managersList.get(i).getName().equalsIgnoreCase(selectedItem)) {
-                    updateUsernameTextField.setText(managersList.get(i).getAccountDetails().getUsername());
-                    updatePasswordTextField.setText(managersList.get(i).getAccountDetails().getPassword());
-                    updatePhoneTextField.setText(managersList.get(i).getPhone());
-                    updateStoreManagerText.setText(managersList.get(i).getName());
-                    updateAddressTextField.setText(managersList.get(i).getAddress());
-                    break;
-                }
+        viewAdminButton.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        viewAdminButton.setText("View Details");
+        viewAdminButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                viewAdminButtonActionPerformed(evt);
             }
-        }else{
-            updateUsernameTextField.setText("");
-            updatePasswordTextField.setText("");
-            updatePhoneTextField.setText("");
-            updateStoreManagerText.setText("");
-            updateAddressTextField.setText("");
-        }
-    }//GEN-LAST:event_managerListComboActionPerformed
+        });
+        add(viewAdminButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 420, 110, 40));
+
+        restPwdLabel1.setBackground(new java.awt.Color(255, 255, 255));
+        restPwdLabel1.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+        restPwdLabel1.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        restPwdLabel1.setText("Name");
+        add(restPwdLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 200, -1, -1));
+
+        jLabel6.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel6.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        jLabel6.setText("Password");
+        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 280, -1, -1));
+
+        restPwdLabel2.setBackground(new java.awt.Color(255, 255, 255));
+        restPwdLabel2.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+        restPwdLabel2.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        restPwdLabel2.setText("Username");
+        add(restPwdLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 240, -1, -1));
+
+        phoneLabel.setBackground(new java.awt.Color(255, 255, 255));
+        phoneLabel.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+        phoneLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        phoneLabel.setText("Phone");
+        add(phoneLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 320, -1, -1));
+
+        addressLabel1.setBackground(new java.awt.Color(255, 255, 255));
+        addressLabel1.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+        addressLabel1.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        addressLabel1.setText("Address");
+        add(addressLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 360, -1, -1));
+
+        updateAddressTextField.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+        updateAddressTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                updateAddressTextFieldActionPerformed(evt);
+            }
+        });
+        add(updateAddressTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 360, 240, 30));
+
+        updateUsernameTextField.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+        add(updateUsernameTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 230, 240, 30));
+
+        updatePasswordTextField.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+        add(updatePasswordTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 270, 240, 30));
+
+        updateCateringManagerButton.setText("Update");
+        updateCateringManagerButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                updateCateringManagerButtonActionPerformed(evt);
+            }
+        });
+        add(updateCateringManagerButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 420, 110, 50));
+
+        updatePhoneTextField.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+        updatePhoneTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                updatePhoneTextFieldActionPerformed(evt);
+            }
+        });
+        add(updatePhoneTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 320, 240, 30));
+
+        updateNameTextField.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+        updateNameTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                updateNameTextFieldActionPerformed(evt);
+            }
+        });
+        add(updateNameTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 190, 240, 30));
+    }// </editor-fold>//GEN-END:initComponents
 
     private void addManagerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addManagerButtonActionPerformed
         // TODO add your handling code here:
-        Boolean isValid = validateFields(usernameTextField.getText(), addressTextField.getText(), phoneTextField.getText(), storeManagerTextField.getText(), passwordTextField.getPassword(), (String) locationCombobox.getSelectedItem());
+       
+        Boolean isValid = ValidateStrings.validateStringFields(usernameTextField.getText(), addressTextField.getText(), phoneTextField.getText(), storeManagerTextField.getText(), passwordTextField.getPassword());
+        System.out.println(isValid+"isValid");
         if (!isValid) {
             return;
         }
         for (int i = 0; i < system.getUserAccountDirectory().getUserAccountList().size(); i++) {
-            if(/*"groceryAdmin".equals(ecosystem.getUserAccountDirectory().getUserAccountList().get(i).getRoleName()) &&*/ system.getUserAccountDirectory().getUserAccountList().get(i).getUsername().equals(usernameTextField.getText())){
+            if(system.getUserAccountDirectory().getUserAccountList().get(i).getUsername().equals(usernameTextField.getText())){
                 JOptionPane.showMessageDialog(null,"Username Already Present", "Error message" ,JOptionPane.ERROR_MESSAGE);
                 return;
             }
         }
         char[] ch = passwordTextField.getPassword();
         String pwd = new String(ch);
-        String netwrokname = (String) locationCombobox.getSelectedItem();
+        //String locationName = (String) locationCombobox.getSelectedItem();
         Employee employee = system.getEmployeeDirectory().createEmployee(storeManagerTextField.getText());
         UserAccount ua = system.getUserAccountDirectory().createUserAccount(usernameTextField.getText(), pwd, employee, new InventoryManagerRole(), "InventoryManager");
-        InventoryManager inventoryManager = system.getInventoryManagerDirectory().createInventoryManager(storeManagerTextField.getText(), ua, phoneTextField.getText(), addressTextField.getText(), netwrokname);
-        managersList.add(inventoryManager);
-        JOptionPane.showMessageDialog(this, "Inventory Store Manager added successfully");
-        managerListCombo.addItem(storeManagerTextField.getText());
-        managerTablemodel.addRow(new Object[]{
-            storeManagerTextField.getText(),
-            addressTextField.getText(),
-            phoneTextField.getText(),
-            netwrokname
-        });
+        InventoryManager inventoryManager = system.getEnterpriseDirectory().getInventoryManagerDirectory().createInventoryManager(storeManagerTextField.getText(), ua, phoneTextField.getText(), addressTextField.getText());
+        JOptionPane.showMessageDialog(null, "Inventory Manager added successfully");
+        //managerListCombo.addItem(storeManagerTextField.getText());
+        populateManagerDetails();
         storeManagerTextField.setText("");
         usernameTextField.setText("");
         passwordTextField.setText("");
@@ -381,122 +377,19 @@ public class InventoryManagerManagementJPanel extends javax.swing.JPanel {
         addressTextField.setText("");
     }//GEN-LAST:event_addManagerButtonActionPerformed
 
-    private void locationComboboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_locationComboboxActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_locationComboboxActionPerformed
-
-    private void updateManagerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateManagerButtonActionPerformed
-        // TODO add your handling code here:
-        //        Boolean isValid = validateFields(updateUsernameText.getText(), updateAddressText.getText(), updatePhoneText.getText(), updateRestManagerText.getText(), updateRestPwdText.getPassword());
-        if(managerListCombo.getSelectedItem() == null || managerListCombo.getSelectedIndex() == 0) {
-            JOptionPane.showMessageDialog(null,"Select a value from dropdown","Error message", JOptionPane.ERROR_MESSAGE);
-            return;
-        } else if (!validateFields(updateUsernameTextField.getText(), updateAddressTextField.getText(), updatePhoneTextField.getText(), updateStoreManagerText.getText(), updatePasswordTextField.getPassword(),"no")) {
-            return;
-        }
-        if (managerListCombo.getSelectedItem() != null) {
-            String selectedItem = (String) managerListCombo.getSelectedItem();
-            for (int i = 0; i < managersList.size(); i++) {
-                char[] ch = updatePasswordTextField.getPassword();
-                String pwd = new String(ch);
-                if (managersList.get(i).getName().equalsIgnoreCase(selectedItem)) {
-                    managersList.get(i).setAddress(updateAddressTextField.getText());
-                    managersList.get(i).setPhone(updatePhoneTextField.getText());
-                    managersList.get(i).getAccountDetails().setPassword(pwd);
-                    managersList.get(i).getAccountDetails().setUsername(updateUsernameTextField.getText());
-                    managersList.get(i).setName(updateStoreManagerText.getText());
-                    JOptionPane.showMessageDialog(this, "Grocery Store Manager updated successfully");
-                }
-            }
-        }
-        String selectedItem = (String) managerListCombo.getSelectedItem();
-        managerListCombo.getSelectedIndex();
-        for (int i = 0; i < managerListTable.getRowCount(); i++) {
-            if (((String) managerListTable.getValueAt(i, 0)).equals(selectedItem)) {
-                managerListCombo.addItem(updateStoreManagerText.getText());
-                managerTablemodel.addRow(new Object[]{
-                    updateStoreManagerText.getText(),
-                    updateAddressTextField.getText(),
-                    updatePhoneTextField.getText()
-                });
-                managerTablemodel.removeRow(i);
-                managerListCombo.removeItemAt(i + 1);
-
-            }//end of if block
-        }
-        reset();
-    }//GEN-LAST:event_updateManagerButtonActionPerformed
-
     private void deleteManagerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteManagerButtonActionPerformed
         // TODO add your handling code here:
-        boolean flag = false;
-
-        String selectedItem = (String) managerListCombo.getSelectedItem();
-        managerListCombo.getSelectedIndex();
-        if(managerListCombo.getSelectedItem() == null || managerListCombo.getSelectedIndex() == 0) {
-            JOptionPane.showMessageDialog(null,"Select a value from dropdown","Error message", JOptionPane.ERROR_MESSAGE);
-            return;
-        } else if (!validateFields(updateUsernameTextField.getText(), updateAddressTextField.getText(), updatePhoneTextField.getText(), updateStoreManagerText.getText(), updatePasswordTextField.getPassword(),"no")) {
-            return;
+        int selectedRow = managerListTable.getSelectedRow();
+        if (selectedRow >= 0) {
+            this.selectedInventoryManager = (InventoryManager) managerListTable.getValueAt(selectedRow, 0);
+            this.system.getEnterpriseDirectory().getInventoryManagerDirectory().deleteInventoryManager(selectedInventoryManager.getName());
+            JOptionPane.showMessageDialog(null, "Catering Manager Deleted!");
+            populateManagerDetails();
+        } else {
+            JOptionPane.showMessageDialog(null, "Any row selection is not done!");
         }
-        if (flag == false) {
-            Boolean isDelete = system.getUserAccountDirectory().deleteUser(selectedItem);
-            system.getInventoryManagerDirectory().deleteInventoryManager(selectedItem);
-            //            Boolean isDelete = ecosystem.getGroceryManagerDirectory().deleteGroceryManager(selectedItem, ecosystem);
-            for (int i = 0; i < managerListTable.getRowCount(); i++) {
-                if (((String) managerListTable.getValueAt(i, 0)).equals(selectedItem)) {
-                    managerTablemodel.removeRow(i);
-                    managerListCombo.removeItemAt(i + 1);
-                    updateStoreManagerText.setText("");
-                    updateUsernameTextField.setText("");
-                    updatePasswordTextField.setText("");
-                    updatePhoneTextField.setText("");
-                    updateAddressTextField.setText("");
-                }//end of if block
-            }
-            if (isDelete) {
-                JOptionPane.showMessageDialog(this, "Grocery Store Manager deleted successfully");
-            }
-        }
-        reset();
     }//GEN-LAST:event_deleteManagerButtonActionPerformed
 
-    public Boolean validateFields(String username, String address, String phone, String name, char[] pwd, String netwrok) {
-        String passregex = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$";
-        Pattern pattern = Pattern.compile(passregex);
-        Matcher matcher = pattern.matcher(String.valueOf(pwd));
-        if(username.isEmpty() || phone.isEmpty() || name.isEmpty() || address.isEmpty()) {
-            JOptionPane.showMessageDialog(null,"Fields cannot be empty","Error message", JOptionPane.ERROR_MESSAGE);
-            return false;
-        } else if (pwd.length < 8) {
-            JOptionPane.showMessageDialog(null,"Password cannot be less than 8","Error message", JOptionPane.ERROR_MESSAGE);
-            return false;
-        } else if(phone.length() != 10) {
-            JOptionPane.showMessageDialog(null, "PhoneNumber must be of 10 digits","Error message", JOptionPane.ERROR_MESSAGE);
-            return false;
-        }else if(!phone.matches("^[0-9]+$")) {
-            JOptionPane.showMessageDialog(null, "Phone Number must have digits only","Error message", JOptionPane.ERROR_MESSAGE);
-            return false;
-        }else if(!matcher.matches()){
-            JOptionPane.showMessageDialog(null, "Enter valid password with atleast on number, one lowercase letter, one uppercase letter,one special char and atleast 8 digits");
-            return false;
-        }
-        else if(netwrok == "None"){
-            JOptionPane.showMessageDialog(null, "Netwrok cannot be None");
-            return false;
-        }
-        return true;
-    }
-    
-     public void reset() {
-        managerListCombo.setSelectedIndex(0);
-        updateStoreManagerText.setText("");
-        updateUsernameTextField.setText("");
-        updatePasswordTextField.setText("");
-        updatePhoneTextField.setText("");
-        updateAddressTextField.setText("");
-    }
-    
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
 
         FoodWareHouseAdminMainJPanel dm= new FoodWareHouseAdminMainJPanel(userProcessContainer, system);
@@ -504,6 +397,62 @@ public class InventoryManagerManagementJPanel extends javax.swing.JPanel {
         CardLayout layout=(CardLayout)userProcessContainer.getLayout();
         layout.next(userProcessContainer);
     }//GEN-LAST:event_backButtonActionPerformed
+
+    private void viewAdminButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewAdminButtonActionPerformed
+        // TODO add your handling code here:
+        int selectedRow = managerListTable.getSelectedRow();
+
+        if (selectedRow >= 0) {
+
+            selectedInventoryManager = (InventoryManager) managerListTable.getValueAt(selectedRow, 0);
+            updateNameTextField.setText(selectedInventoryManager.getName());
+            updateUsernameTextField.setText(selectedInventoryManager.getAccountDetails().getUsername());
+            updatePasswordTextField.setText(selectedInventoryManager.getAccountDetails().getPassword());
+            updateAddressTextField.setText(selectedInventoryManager.getAddress());
+            updatePhoneTextField.setText(selectedInventoryManager.getPhone());
+
+        } else {
+            JOptionPane.showMessageDialog(null, "Please select a row");
+        }
+    }//GEN-LAST:event_viewAdminButtonActionPerformed
+
+    private void updateAddressTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateAddressTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_updateAddressTextFieldActionPerformed
+
+    private void updateCateringManagerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateCateringManagerButtonActionPerformed
+        // TODO add your handling code here:
+        Boolean isValid = ValidateStrings.validateStringFields(updateUsernameTextField.getText(), updateAddressTextField.getText(), updatePhoneTextField.getText(), updateAddressTextField.getText(), updatePasswordTextField.getPassword());
+        if (!isValid) {
+            return;
+        }
+        int selectedRow = managerListTable.getSelectedRow();
+        if (selectedRow >= 0) {
+            this.selectedInventoryManager = (InventoryManager) managerListTable.getValueAt(selectedRow, 0);
+            selectedInventoryManager.setName(updateNameTextField.getText());
+            selectedInventoryManager.setAddress(updateAddressTextField.getText());
+            selectedInventoryManager.setPhone(updatePhoneTextField.getText());
+            selectedInventoryManager.getAccountDetails().setUsername(updateUsernameTextField.getText());
+            selectedInventoryManager.getAccountDetails().setPassword(updatePasswordTextField.getText());
+            JOptionPane.showMessageDialog(null, "Updated Catering Manager!");
+            populateManagerDetails();
+            updateNameTextField.setText("");
+            updateAddressTextField.setText("");
+            updateUsernameTextField.setText("");
+            updatePasswordTextField.setText("");
+            updatePhoneTextField.setText("");
+        } else {
+            JOptionPane.showMessageDialog(null, "Any row selection is not done!");
+        }
+    }//GEN-LAST:event_updateCateringManagerButtonActionPerformed
+
+    private void updatePhoneTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updatePhoneTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_updatePhoneTextFieldActionPerformed
+
+    private void updateNameTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateNameTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_updateNameTextFieldActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -514,32 +463,29 @@ public class InventoryManagerManagementJPanel extends javax.swing.JPanel {
     private javax.swing.JTextField addressTextField;
     private javax.swing.JButton backButton;
     private javax.swing.JButton deleteManagerButton;
-    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JComboBox<String> locationCombobox;
-    private javax.swing.JLabel locationJLabel;
-    private javax.swing.JComboBox<String> managerListCombo;
     private javax.swing.JTable managerListTable;
     private javax.swing.JLabel managerNameJLabel;
     private javax.swing.JLabel passwordJLable;
     private javax.swing.JPasswordField passwordTextField;
     private javax.swing.JLabel phoneJLabel;
-    private javax.swing.JLabel phoneLabel1;
+    private javax.swing.JLabel phoneLabel;
     private javax.swing.JTextField phoneTextField;
+    private javax.swing.JLabel restPwdLabel1;
     private javax.swing.JLabel restPwdLabel2;
-    private javax.swing.JLabel selectManagerLabel;
     private javax.swing.JTextField storeManagerTextField;
     private javax.swing.JLabel title;
     private javax.swing.JTextField updateAddressTextField;
-    private javax.swing.JButton updateManagerButton;
-    private javax.swing.JLabel updateManagerNameJLabel;
+    private javax.swing.JButton updateCateringManagerButton;
+    private javax.swing.JTextField updateNameTextField;
     private javax.swing.JPasswordField updatePasswordTextField;
     private javax.swing.JTextField updatePhoneTextField;
-    private javax.swing.JTextField updateStoreManagerText;
     private javax.swing.JTextField updateUsernameTextField;
     private javax.swing.JLabel usernameJLabel;
     private javax.swing.JTextField usernameTextField;
+    private javax.swing.JButton viewAdminButton;
     private javax.swing.JLabel viewInventoryManagerJLabel;
     // End of variables declaration//GEN-END:variables
 }

@@ -8,6 +8,8 @@ import catering.system.FoodProdOrganization.CateringManager;
 import catering.system.FoodProdOrganization.Coordinator;
 import catering.system.FoodProdOrganization.Menu;
 import catering.system.FoodProdOrganization.Supervisor;
+import catering.system.FoodWarehouseOrganization.InventoryManager;
+import catering.system.FoodWarehouseOrganization.InventoryManagerDirectory;
 import catering.system.OrderManagement.ClientOrderDirectory;
 import catering.system.Users.UserAccount;
 import java.util.ArrayList;
@@ -22,9 +24,9 @@ public class EnterpriseDirectory {
     ArrayList<Supervisor> supervisorList;
     ArrayList<CateringManager> cateringManagerList;
     ArrayList<Coordinator> coordinatorList;
-    
     ArrayList<Enterprise> enterpriseList;
     ArrayList<Menu> menuList;
+    InventoryManagerDirectory inventoryManagerDirectory;
     ClientOrderDirectory clientOrderDirectory;
     
     public EnterpriseDirectory() {
@@ -34,6 +36,7 @@ public class EnterpriseDirectory {
         this.cateringManagerList = new ArrayList<CateringManager>();
         this.coordinatorList = new ArrayList<Coordinator>();
         this.menuList = new ArrayList<Menu>();
+        this.inventoryManagerDirectory = new InventoryManagerDirectory();
         this.clientOrderDirectory= new ClientOrderDirectory();
     }
 
@@ -81,10 +84,17 @@ public class EnterpriseDirectory {
         this.menuList = menuList;
     }
     
-    
-
     public void setCoordinatorList(ArrayList<Coordinator> coordinatorList) {
         this.coordinatorList = coordinatorList;
+    }
+
+
+    public InventoryManagerDirectory getInventoryManagerDirectory() {
+        return inventoryManagerDirectory;
+    }
+
+    public void setInventoryManagerDirectory(InventoryManagerDirectory inventoryManagerDirectory) {
+        this.inventoryManagerDirectory = inventoryManagerDirectory;
     }
 
     public ClientOrderDirectory getClientOrderDirectory() {
@@ -95,8 +105,7 @@ public class EnterpriseDirectory {
         this.clientOrderDirectory = clientOrderDirectory;
     }
     
-    
-    
+  
     public Enterprise createEnterprise(String name, String type) {
         Enterprise ent= new Enterprise();
         ent.setEnterpriseName(name);
@@ -210,4 +219,6 @@ public class EnterpriseDirectory {
         menuList.add(cust);
         return cust;
     }
+    
+    
 }
