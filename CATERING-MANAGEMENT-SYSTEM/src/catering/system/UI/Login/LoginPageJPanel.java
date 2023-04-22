@@ -56,12 +56,12 @@ public class LoginPageJPanel extends javax.swing.JPanel {
         signUpButton = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
 
-        setBackground(new java.awt.Color(153, 153, 255));
+        setBackground(new java.awt.Color(255, 203, 162));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Katari", 1, 36)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Katari", 1, 48)); // NOI18N
         jLabel1.setText("MEAL MATE");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 50, 250, 50));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 50, 310, 50));
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gdm_login_photo.png"))); // NOI18N
         add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 130, 150, -1));

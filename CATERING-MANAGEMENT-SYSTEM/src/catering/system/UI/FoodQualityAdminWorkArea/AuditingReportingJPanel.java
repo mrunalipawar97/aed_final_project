@@ -57,7 +57,7 @@ public class AuditingReportingJPanel extends javax.swing.JPanel {
         add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 131, -1));
 
         jLabel1.setText("Auditing Reporting");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(207, 130, 180, -1));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 30, 180, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed

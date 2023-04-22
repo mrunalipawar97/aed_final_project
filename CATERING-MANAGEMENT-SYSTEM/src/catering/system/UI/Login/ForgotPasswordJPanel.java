@@ -58,7 +58,7 @@ public class ForgotPasswordJPanel extends javax.swing.JPanel {
         jButton1 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(204, 204, 255));
+        setBackground(new java.awt.Color(255, 203, 162));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         restPwdLabel2.setBackground(new java.awt.Color(254, 254, 226));
@@ -75,7 +75,6 @@ public class ForgotPasswordJPanel extends javax.swing.JPanel {
         });
         add(updateUsernameText, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 250, 171, -1));
 
-        AddBtn1.setBackground(new java.awt.Color(127, 195, 126));
         AddBtn1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         AddBtn1.setForeground(new java.awt.Color(51, 51, 51));
         AddBtn1.setText("Back");
@@ -86,7 +85,6 @@ public class ForgotPasswordJPanel extends javax.swing.JPanel {
         });
         add(AddBtn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 50, 117, 49));
 
-        jButton1.setBackground(new java.awt.Color(127, 195, 126));
         jButton1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jButton1.setText("Send Email");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
