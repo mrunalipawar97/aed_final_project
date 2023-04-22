@@ -33,7 +33,7 @@ public class CoordinatorMainJPanel extends javax.swing.JPanel {
 
     public CoordinatorMainJPanel(JPanel userProcessContainer, UserAccount account, ApplicationSystem business) {
         initComponents();
-         initComponents();
+        nameLable.setText("Welcome Coordinator Manager ");
         this.orderTableModel= (DefaultTableModel) orderTable.getModel();
         this.system=business;
         this.account=account;
@@ -88,6 +88,12 @@ public class CoordinatorMainJPanel extends javax.swing.JPanel {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+
+        nameLable = new javax.swing.JLabel();
+
+        setBackground(new java.awt.Color(204, 204, 255));
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        add(nameLable, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 30, 340, 30));
 
         jLabel1 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -148,6 +154,8 @@ public class CoordinatorMainJPanel extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+
+    private javax.swing.JLabel nameLable;
     private javax.swing.JButton assignButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane2;
