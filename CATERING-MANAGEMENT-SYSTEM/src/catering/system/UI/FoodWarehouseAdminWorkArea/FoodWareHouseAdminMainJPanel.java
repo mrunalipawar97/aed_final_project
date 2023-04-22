@@ -5,7 +5,6 @@
 package catering.system.UI.FoodWarehouseAdminWorkArea;
 
 import business.ApplicationSystem;
-import catering.system.UI.AdminWorkArea.AdminJPanel;
 
 import java.awt.CardLayout;
 import javax.swing.JPanel;
