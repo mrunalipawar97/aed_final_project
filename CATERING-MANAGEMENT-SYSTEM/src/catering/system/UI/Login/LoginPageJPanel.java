@@ -76,16 +76,16 @@ public class LoginPageJPanel extends javax.swing.JPanel {
         add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 340, 100, -1));
         add(passwordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 340, 150, 30));
 
-        forgotPasswordButton.setBackground(java.awt.Color.lightGray);
+        forgotPasswordButton.setBackground(new java.awt.Color(255, 203, 162));
         forgotPasswordButton.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         forgotPasswordButton.setText("FORGOT PASSWORD ?");
-        forgotPasswordButton.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        forgotPasswordButton.setBorder(null);
         forgotPasswordButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 forgotPasswordButtonActionPerformed(evt);
             }
         });
-        add(forgotPasswordButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 500, 150, 30));
+        add(forgotPasswordButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 500, 160, 30));
 
         loginBtn1.setBackground(java.awt.Color.lightGray);
         loginBtn1.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N

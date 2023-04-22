@@ -32,6 +32,7 @@ public class SupervisorMainJPanel extends javax.swing.JPanel {
 
     public SupervisorMainJPanel(JPanel userProcessContainer, ApplicationSystem business) {
         initComponents();
+        nameLable.setText("Welcome Supervisor ");
         this.orderTableModel= (DefaultTableModel) orderTable.getModel();
         this.system=business;
         this.coord= new Coordinator();
@@ -94,6 +95,11 @@ public class SupervisorMainJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        nameLable = new javax.swing.JLabel();
+
+        setBackground(new java.awt.Color(204, 204, 255));
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        add(nameLable, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 30, 340, 30));
         jLabel1 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         orderTable = new javax.swing.JTable();
@@ -186,6 +192,7 @@ public class SupervisorMainJPanel extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel nameLable;
     private javax.swing.JButton assignButton;
     private javax.swing.JComboBox assignComboBox;
     private javax.swing.JLabel jLabel1;

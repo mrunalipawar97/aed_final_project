@@ -13,6 +13,7 @@ import javax.swing.JPanel;
  * @author nishipancholi
  */
 public class CateringManagerMainJPanel extends javax.swing.JPanel {
+
     JPanel userProcessContainer;
     ApplicationSystem system;
 
@@ -25,8 +26,9 @@ public class CateringManagerMainJPanel extends javax.swing.JPanel {
 
     public CateringManagerMainJPanel(JPanel userProcessContainer, ApplicationSystem business) {
         initComponents();
-        this.system=business;
-        this.userProcessContainer=userProcessContainer;
+        this.system = business;
+        this.userProcessContainer = userProcessContainer;
+        nameLable.setText("Welcome Catering Manager ");
     }
 
     /**
@@ -38,23 +40,23 @@ public class CateringManagerMainJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         AddMenuButton = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
-        ViewOrdersButton = new javax.swing.JButton();
+        placeInventoryOrderButton = new javax.swing.JButton();
+        jPanel5 = new javax.swing.JPanel();
+        jLabel7 = new javax.swing.JLabel();
+        ViewOrdersButton1 = new javax.swing.JButton();
+        nameLable = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(204, 204, 255));
+        setBackground(new java.awt.Color(255, 203, 162));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setText("Catering Manager");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 50, -1, -1));
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
-        jPanel3.setBackground(new java.awt.Color(255, 204, 204));
-
-        AddMenuButton.setBackground(new java.awt.Color(255, 255, 204));
+        AddMenuButton.setBackground(new java.awt.Color(255, 203, 162));
         AddMenuButton.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
         AddMenuButton.setForeground(new java.awt.Color(51, 51, 51));
         AddMenuButton.setText("Add Menu");
@@ -89,15 +91,15 @@ public class CateringManagerMainJPanel extends javax.swing.JPanel {
 
         add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 180, 260, 220));
 
-        jPanel4.setBackground(new java.awt.Color(255, 204, 204));
+        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
 
-        ViewOrdersButton.setBackground(new java.awt.Color(255, 255, 204));
-        ViewOrdersButton.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
-        ViewOrdersButton.setForeground(new java.awt.Color(51, 51, 51));
-        ViewOrdersButton.setText("View Orders");
-        ViewOrdersButton.addActionListener(new java.awt.event.ActionListener() {
+        placeInventoryOrderButton.setBackground(new java.awt.Color(255, 203, 162));
+        placeInventoryOrderButton.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
+        placeInventoryOrderButton.setForeground(new java.awt.Color(51, 51, 51));
+        placeInventoryOrderButton.setText("Inventory Orders");
+        placeInventoryOrderButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ViewOrdersButtonActionPerformed(evt);
+                placeInventoryOrderButtonActionPerformed(evt);
             }
         });
 
@@ -107,7 +109,7 @@ public class CateringManagerMainJPanel extends javax.swing.JPanel {
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap(20, Short.MAX_VALUE)
-                .addComponent(ViewOrdersButton, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(placeInventoryOrderButton, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20))
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGap(28, 28, 28)
@@ -120,36 +122,85 @@ public class CateringManagerMainJPanel extends javax.swing.JPanel {
                 .addGap(28, 28, 28)
                 .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, 53, Short.MAX_VALUE)
                 .addGap(78, 78, 78)
-                .addComponent(ViewOrdersButton, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(placeInventoryOrderButton, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20))
         );
 
-        add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 180, -1, 220));
+        add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 180, -1, 220));
+
+        jPanel5.setBackground(new java.awt.Color(255, 255, 255));
+
+        ViewOrdersButton1.setBackground(new java.awt.Color(255, 203, 162));
+        ViewOrdersButton1.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
+        ViewOrdersButton1.setForeground(new java.awt.Color(51, 51, 51));
+        ViewOrdersButton1.setText("View Orders");
+        ViewOrdersButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ViewOrdersButton1ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addContainerGap(20, Short.MAX_VALUE)
+                .addComponent(ViewOrdersButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20))
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(28, 28, 28)
+                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                .addGap(28, 28, 28)
+                .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, 53, Short.MAX_VALUE)
+                .addGap(78, 78, 78)
+                .addComponent(ViewOrdersButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20))
+        );
+
+        add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 180, -1, 220));
+        add(nameLable, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 30, 340, 30));
     }// </editor-fold>//GEN-END:initComponents
 
     private void AddMenuButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddMenuButtonActionPerformed
         // TODO add your handling code here:
-        AddMenuJPanel hos= new AddMenuJPanel(userProcessContainer, system);
-        userProcessContainer.add("manageServiceEntJPanel",hos);
-        CardLayout layout=(CardLayout)userProcessContainer.getLayout();
+        AddMenuJPanel addMenu = new AddMenuJPanel(userProcessContainer, system);
+        userProcessContainer.add("manageServiceEntJPanel", addMenu);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);
     }//GEN-LAST:event_AddMenuButtonActionPerformed
 
-    private void ViewOrdersButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ViewOrdersButtonActionPerformed
-        ViewOrdersCateringManagerJPanel dm= new ViewOrdersCateringManagerJPanel(userProcessContainer, system);
-        userProcessContainer.add("manageServiceEntJPanel",dm);
-        CardLayout layout=(CardLayout)userProcessContainer.getLayout();
+    private void placeInventoryOrderButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_placeInventoryOrderButtonActionPerformed
+        PlaceInventoryOrderJPanel placeInventoryOrderJPanel = new PlaceInventoryOrderJPanel(userProcessContainer, system);
+        userProcessContainer.add("manageServiceEntJPanel", placeInventoryOrderJPanel);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);
-    }//GEN-LAST:event_ViewOrdersButtonActionPerformed
+    }//GEN-LAST:event_placeInventoryOrderButtonActionPerformed
+
+    private void ViewOrdersButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ViewOrdersButton1ActionPerformed
+        // TODO add your handling code here:
+        ViewOrdersCateringManagerJPanel dm = new ViewOrdersCateringManagerJPanel(userProcessContainer, system);
+        userProcessContainer.add("manageServiceEntJPanel", dm);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+    }//GEN-LAST:event_ViewOrdersButton1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AddMenuButton;
-    private javax.swing.JButton ViewOrdersButton;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton ViewOrdersButton1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JLabel nameLable;
+    private javax.swing.JButton placeInventoryOrderButton;
     // End of variables declaration//GEN-END:variables
 }

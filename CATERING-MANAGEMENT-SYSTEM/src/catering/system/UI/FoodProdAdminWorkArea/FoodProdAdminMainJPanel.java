@@ -64,16 +64,15 @@ public class FoodProdAdminMainJPanel extends javax.swing.JPanel {
                 addSupervisorButtonActionPerformed(evt);
             }
         });
-        jPanel2.add(addSupervisorButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, -1, -1));
+        jPanel2.add(addSupervisorButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, 160, 40));
 
         addCoordinatorButton.setText("Add Coordinator");
-        addCoordinatorButton.setActionCommand("Add Coordinator");
         addCoordinatorButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addCoordinatorButtonActionPerformed(evt);
             }
         });
-        jPanel2.add(addCoordinatorButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 270, -1, -1));
+        jPanel2.add(addCoordinatorButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 280, 160, 40));
 
         addCateringManagerButton.setText("Add Catering Manager");
         addCateringManagerButton.addActionListener(new java.awt.event.ActionListener() {
@@ -81,7 +80,7 @@ public class FoodProdAdminMainJPanel extends javax.swing.JPanel {
                 addCateringManagerButtonActionPerformed(evt);
             }
         });
-        jPanel2.add(addCateringManagerButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 210, -1, -1));
+        jPanel2.add(addCateringManagerButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, 160, 40));
 
         jSplitPane1.setLeftComponent(jPanel2);
 
