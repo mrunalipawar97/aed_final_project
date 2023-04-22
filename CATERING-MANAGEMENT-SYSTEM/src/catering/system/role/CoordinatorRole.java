@@ -21,7 +21,7 @@ public class CoordinatorRole extends Role {
 
     @Override
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, ApplicationSystem business) {
-        return new CoordinatorMainJPanel(userProcessContainer, business);
+        return new CoordinatorMainJPanel(userProcessContainer,account, business);
     }
 
 }
