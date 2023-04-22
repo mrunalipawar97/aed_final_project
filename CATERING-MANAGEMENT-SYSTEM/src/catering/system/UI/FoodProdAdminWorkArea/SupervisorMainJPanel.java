@@ -22,6 +22,7 @@ public class SupervisorMainJPanel extends javax.swing.JPanel {
 
     public SupervisorMainJPanel(JPanel userProcessContainer, ApplicationSystem business) {
         initComponents();
+        nameLable.setText("Welcome Supervisor ");
     }
 
     /**
@@ -33,17 +34,15 @@ public class SupervisorMainJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
+        nameLable = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(204, 204, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel1.setText("Supervisor");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 70, -1, -1));
+        add(nameLable, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 30, 340, 30));
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel nameLable;
     // End of variables declaration//GEN-END:variables
 }

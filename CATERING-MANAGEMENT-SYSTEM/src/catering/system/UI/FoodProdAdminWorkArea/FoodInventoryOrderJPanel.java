@@ -125,10 +125,9 @@ public class FoodInventoryOrderJPanel extends javax.swing.JPanel {
 
         enterpriseLabel.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         enterpriseLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        enterpriseLabel.setText("Grocery Store List");
+        enterpriseLabel.setText("Inventory Store List");
         enterpriseLabel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        showMenuButton.setBackground(new java.awt.Color(127, 195, 126));
         showMenuButton.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         showMenuButton.setText("Show Menu");
         showMenuButton.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
