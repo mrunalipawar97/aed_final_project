@@ -3,7 +3,7 @@
 <Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JPanelFormInfo">
   <Properties>
     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-      <Color blue="ff" green="99" red="99" type="rgb"/>
+      <Color blue="a2" green="cb" red="ff" type="rgb"/>
     </Property>
   </Properties>
   <AuxValues>
@@ -26,13 +26,13 @@
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Katari" size="36" style="1"/>
+          <Font name="Katari" size="48" style="1"/>
         </Property>
         <Property name="text" type="java.lang.String" value="MEAL MATE"/>
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="60" y="50" width="250" height="50"/>
+          <AbsoluteConstraints x="60" y="50" width="310" height="50"/>
         </Constraint>
       </Constraints>
     </Component>

@@ -5,7 +5,6 @@
 package catering.system.UI.FoodQualityAdminWorkArea;
 
 import business.ApplicationSystem;
-import catering.system.Users.UserAccount;
 import java.awt.CardLayout;
 import javax.swing.JPanel;
 
@@ -18,17 +17,17 @@ public class FoodQualityAdminMainJPanel extends javax.swing.JPanel {
     /**
      * Creates new form FoodProdAdminMainJPanel
      */
-    JPanel container;
+    JPanel userProcessContainer;
     ApplicationSystem system;
     
     public FoodQualityAdminMainJPanel() {
         initComponents();
     }
 
-    public FoodQualityAdminMainJPanel(JPanel userProcessContainer, ApplicationSystem business) {
+    public FoodQualityAdminMainJPanel(JPanel userProcessContainer, ApplicationSystem system) {
         initComponents();
-        this.container = userProcessContainer;
-        this.system = business;
+        this.userProcessContainer = userProcessContainer;
+        this.system = system;
     }
 
     /**
@@ -41,15 +40,12 @@ public class FoodQualityAdminMainJPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         addCourseHeaderLabel = new javax.swing.JLabel();
-        jPanel5 = new javax.swing.JPanel();
-        jLabel7 = new javax.swing.JLabel();
-        auditingButton = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
         addNutritionAuditorButton = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
-        feedbackButton = new javax.swing.JButton();
+        auditorReportPortalButton = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(204, 204, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -57,41 +53,6 @@ public class FoodQualityAdminMainJPanel extends javax.swing.JPanel {
         addCourseHeaderLabel.setFont(new java.awt.Font("Kannada MN", 1, 20)); // NOI18N
         addCourseHeaderLabel.setText("FOOD QUALITY ADMIN PORTAL");
         add(addCourseHeaderLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 30, 350, -1));
-
-        jPanel5.setBackground(new java.awt.Color(255, 204, 204));
-
-        auditingButton.setBackground(new java.awt.Color(255, 255, 204));
-        auditingButton.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
-        auditingButton.setForeground(new java.awt.Color(51, 51, 51));
-        auditingButton.setText("Auditing/Reporting");
-        auditingButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                auditingButtonActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                .addContainerGap(20, Short.MAX_VALUE)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(auditingButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(20, 20, 20))
-        );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(auditingButton, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(23, 23, 23))
-        );
-
-        add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 70, -1, 200));
 
         jPanel6.setBackground(new java.awt.Color(255, 204, 204));
 
@@ -131,17 +92,17 @@ public class FoodQualityAdminMainJPanel extends javax.swing.JPanel {
                 .addGap(14, 14, 14))
         );
 
-        add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 70, 260, 200));
+        add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 130, 260, 200));
 
         jPanel3.setBackground(new java.awt.Color(255, 204, 204));
 
-        feedbackButton.setBackground(new java.awt.Color(255, 255, 204));
-        feedbackButton.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
-        feedbackButton.setForeground(new java.awt.Color(51, 51, 51));
-        feedbackButton.setText("Feedback");
-        feedbackButton.addActionListener(new java.awt.event.ActionListener() {
+        auditorReportPortalButton.setBackground(new java.awt.Color(255, 255, 204));
+        auditorReportPortalButton.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
+        auditorReportPortalButton.setForeground(new java.awt.Color(51, 51, 51));
+        auditorReportPortalButton.setText("Auditor Report Portal");
+        auditorReportPortalButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                feedbackButtonActionPerformed(evt);
+                auditorReportPortalButtonActionPerformed(evt);
             }
         });
 
@@ -155,55 +116,45 @@ public class FoodQualityAdminMainJPanel extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addContainerGap(23, Short.MAX_VALUE)
-                .addComponent(feedbackButton, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(auditorReportPortalButton, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(22, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(feedbackButton, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(auditorReportPortalButton, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20))
         );
 
-        add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 350, 260, 220));
+        add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 130, 260, 200));
     }// </editor-fold>//GEN-END:initComponents
 
-    private void auditingButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_auditingButtonActionPerformed
-        AuditingReportingJPanel ar= new AuditingReportingJPanel(container, system);
-        container.add("auditingReportingJPanel",ar);
-        CardLayout layout=(CardLayout)container.getLayout();
-        layout.next(container);
-    }//GEN-LAST:event_auditingButtonActionPerformed
-
     private void addNutritionAuditorButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addNutritionAuditorButtonActionPerformed
-        NutritionAuditorJPanel na= new NutritionAuditorJPanel(container, system);
-        container.add("nutritionAuditorJPanel",na);
-        CardLayout layout=(CardLayout)container.getLayout();
-        layout.next(container);
+        NutritionAuditorJPanel na= new NutritionAuditorJPanel(userProcessContainer, system);
+        userProcessContainer.add("nutritionAuditorJPanel",na);
+        CardLayout layout=(CardLayout)userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
     }//GEN-LAST:event_addNutritionAuditorButtonActionPerformed
 
-    private void feedbackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_feedbackButtonActionPerformed
+    private void auditorReportPortalButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_auditorReportPortalButtonActionPerformed
         // TODO add your handling code here:
-        AuditorFeedbackJPanel feedback= new AuditorFeedbackJPanel(container, system);
-        container.add("auditorFeedbackJPanel",feedback);
-        CardLayout layout=(CardLayout)container.getLayout();
-        layout.next(container);
-    }//GEN-LAST:event_feedbackButtonActionPerformed
+        AuditorFeedbackJPanel feedback= new AuditorFeedbackJPanel(userProcessContainer, system);
+        userProcessContainer.add("auditorFeedbackJPanel",feedback);
+        CardLayout layout=(CardLayout)userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+    }//GEN-LAST:event_auditorReportPortalButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel addCourseHeaderLabel;
     private javax.swing.JButton addNutritionAuditorButton;
-    private javax.swing.JButton auditingButton;
-    private javax.swing.JButton feedbackButton;
+    private javax.swing.JButton auditorReportPortalButton;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     // End of variables declaration//GEN-END:variables
 }

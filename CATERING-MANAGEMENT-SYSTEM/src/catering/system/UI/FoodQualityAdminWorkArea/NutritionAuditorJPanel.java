@@ -6,15 +6,12 @@ package catering.system.UI.FoodQualityAdminWorkArea;
 
 import business.ApplicationSystem;
 import catering.system.FoodQualityOrganization.NutritionAuditor;
-import catering.system.FoodWarehouseOrganization.InventoryManager;
 import catering.system.Role.NutritionAuditorRole;
 import catering.system.Users.Employee;
 import catering.system.Users.UserAccount;
 import catering.system.validations.ValidateStrings;
 import java.awt.CardLayout;
 import java.util.ArrayList;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
