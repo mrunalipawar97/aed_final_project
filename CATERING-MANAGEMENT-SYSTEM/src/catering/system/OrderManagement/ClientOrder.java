@@ -19,15 +19,16 @@ public class ClientOrder {
     String status;
     Client client;
     Coordinator coord;
-    int count=0;
+    private static int counter=0;
 
     public ClientOrder(){
         this.menu=new Menu();
         this.client=new Client();
         this.coord=new Coordinator();
         this.status="Order placed";
-        this.orderId="OrderId"+count;
-        count++;
+        this.counter++;
+        this.orderId="OrderId"+this.counter;
+
     }
 
     public float getPrice() {
@@ -50,15 +51,15 @@ public class ClientOrder {
         this.orderId = orderId;
     }
 
-    public int getCount() {
-        return count;
+    public static int getCounter() {
+        return counter;
     }
 
-    public void setCount(int count) {
-        this.count = count;
+    public static void setCounter(int counter) {
+        ClientOrder.counter = counter;
     }
+
     
-
     public void setStatus(String status) {
         this.status = status;
     }

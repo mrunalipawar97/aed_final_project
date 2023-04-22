@@ -5,8 +5,13 @@
 package catering.system.UI.ServiceEntAdminWorkArea;
 
 import business.ApplicationSystem;
+import catering.system.Organization.ServiceEnterpriseOrganization.Client;
+import catering.system.Users.UserAccount;
 import java.awt.CardLayout;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -15,6 +20,7 @@ import javax.swing.JPanel;
 public class SchoolClientsJPanel extends javax.swing.JPanel {
     JPanel userProcessContainer;
     ApplicationSystem system;
+    DefaultTableModel viewTableModel;
 
     /**
      * Creates new form ManageSchoolClientsJPanel
@@ -27,6 +33,35 @@ public class SchoolClientsJPanel extends javax.swing.JPanel {
         initComponents();
         this.userProcessContainer=userProcessContainer;
         this.system=system;
+        this.viewTableModel= (DefaultTableModel) clientTable.getModel();
+        populate();
+    }
+    
+    public void populate()
+    {
+        viewTableModel.setRowCount(0);
+        ArrayList<Client> applications=this.system.getClientDirectory().getClientList();
+        System.out.println(applications);
+        String type="School";
+        if(applications.size()>0){
+            for (Client c:applications){
+                String clientType=c.getClientType();
+                if(clientType.equals(type)){
+                    Object row[]= new Object[4];
+                    row[0]=c;
+                    row[1]=c.getLocation();
+                    row[2]=c.getAccountDetails();
+                    row[3]=c.getClientType();
+
+
+                    viewTableModel.addRow(row);
+                
+                }
+            }
+        }
+        else{
+            System.out.println("Empty Menu");
+        }
     }
 
     /**
@@ -40,6 +75,9 @@ public class SchoolClientsJPanel extends javax.swing.JPanel {
 
         jLabel1 = new javax.swing.JLabel();
         btnBack = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        clientTable = new javax.swing.JTable();
+        deleteClientButton = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(204, 204, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -57,6 +95,37 @@ public class SchoolClientsJPanel extends javax.swing.JPanel {
             }
         });
         add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 131, -1));
+
+        clientTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Client Name", "Address", "Username", "Type"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Object.class, java.lang.String.class, java.lang.Object.class, java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(clientTable);
+
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 120, -1, 270));
+
+        deleteClientButton.setText("Delete Client");
+        deleteClientButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteClientButtonActionPerformed(evt);
+            }
+        });
+        add(deleteClientButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 410, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
@@ -66,9 +135,32 @@ public class SchoolClientsJPanel extends javax.swing.JPanel {
         layout.next(userProcessContainer);
     }//GEN-LAST:event_btnBackActionPerformed
 
+    private void deleteClientButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteClientButtonActionPerformed
+        // TODO add your handling code here:
+        int selectedRow = clientTable.getSelectedRow();
+        if(selectedRow>=0){
+            Client c= (Client) clientTable.getValueAt(selectedRow,0);
+            ArrayList<UserAccount> uaList=this.system.getUserAccountDirectory().getUserAccountList();
+            for(UserAccount ua:uaList){
+                if(ua==c.getAccountDetails()){
+                    this.system.getUserAccountDirectory().deleteUser(c.getName());
+                }
+            }
+            this.system.getClientDirectory().deleteClient(c.getName());
+            JOptionPane.showMessageDialog(null,"Client Deleted!");
+            populate();
+        }
+        else{
+            JOptionPane.showMessageDialog(null,"Any row selection is not done!");
+        }
+    }//GEN-LAST:event_deleteClientButtonActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
+    private javax.swing.JTable clientTable;
+    private javax.swing.JButton deleteClientButton;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }
