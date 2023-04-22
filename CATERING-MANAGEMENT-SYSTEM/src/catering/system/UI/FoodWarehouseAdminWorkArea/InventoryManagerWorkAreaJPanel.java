@@ -62,13 +62,13 @@ public class InventoryManagerWorkAreaJPanel extends javax.swing.JPanel {
         jLabel6 = new javax.swing.JLabel();
         ViewInventoryOrdersButton = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(204, 204, 255));
+        setBackground(new java.awt.Color(255, 203, 162));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         add(nameLable, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 30, 340, 30));
 
-        jPanel3.setBackground(new java.awt.Color(255, 204, 204));
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
-        AddInventoryButton.setBackground(new java.awt.Color(255, 255, 204));
+        AddInventoryButton.setBackground(new java.awt.Color(255, 203, 162));
         AddInventoryButton.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
         AddInventoryButton.setForeground(new java.awt.Color(51, 51, 51));
         AddInventoryButton.setText("Add Inventory");
@@ -101,11 +101,11 @@ public class InventoryManagerWorkAreaJPanel extends javax.swing.JPanel {
                 .addGap(20, 20, 20))
         );
 
-        add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, 260, 220));
+        add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 180, 260, 220));
 
-        jPanel4.setBackground(new java.awt.Color(255, 204, 204));
+        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
 
-        ViewInventoryOrdersButton.setBackground(new java.awt.Color(255, 255, 204));
+        ViewInventoryOrdersButton.setBackground(new java.awt.Color(255, 203, 162));
         ViewInventoryOrdersButton.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
         ViewInventoryOrdersButton.setForeground(new java.awt.Color(51, 51, 51));
         ViewInventoryOrdersButton.setText("View Inventory Orders");
@@ -138,7 +138,7 @@ public class InventoryManagerWorkAreaJPanel extends javax.swing.JPanel {
                 .addGap(20, 20, 20))
         );
 
-        add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 180, -1, 220));
+        add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 180, -1, 220));
     }// </editor-fold>//GEN-END:initComponents
 
     private void AddInventoryButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddInventoryButtonActionPerformed
