@@ -42,6 +42,23 @@ public class ClientOrder {
         return status;
     }
 
+    public String getOrderId() {
+        return orderId;
+    }
+
+    public void setOrderId(String orderId) {
+        this.orderId = orderId;
+    }
+
+    public int getCount() {
+        return count;
+    }
+
+    public void setCount(int count) {
+        this.count = count;
+    }
+    
+
     public void setStatus(String status) {
         this.status = status;
     }
