@@ -5,7 +5,6 @@
 package catering.system.UI.FoodWarehouseAdminWorkArea;
 
 import business.ApplicationSystem;
-import catering.system.FoodProdOrganization.CateringManager;
 import catering.system.FoodWarehouseOrganization.InventoryManager;
 import catering.system.Role.InventoryManagerRole;
 import catering.system.Users.Employee;
@@ -13,8 +12,6 @@ import catering.system.Users.UserAccount;
 import catering.system.validations.ValidateStrings;
 import java.awt.CardLayout;
 import java.util.ArrayList;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
@@ -60,14 +57,13 @@ public class InventoryManagerManagementJPanel extends javax.swing.JPanel {
     }
 
     
-    /*public void reset() {
-        managerListCombo.setSelectedIndex(0);
-        updateStoreManagerText.setText("");
+    public void reset() {
+        updateNameTextField.setText("");
         updateUsernameTextField.setText("");
         updatePasswordTextField.setText("");
         updatePhoneTextField.setText("");
         updateAddressTextField.setText("");
-    }*/
+    }
     
     public void populateManagerDetails(){
        

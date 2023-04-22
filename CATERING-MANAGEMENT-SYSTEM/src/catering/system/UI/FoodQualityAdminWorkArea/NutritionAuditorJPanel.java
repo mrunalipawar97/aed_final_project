@@ -6,9 +6,11 @@ package catering.system.UI.FoodQualityAdminWorkArea;
 
 import business.ApplicationSystem;
 import catering.system.FoodQualityOrganization.NutritionAuditor;
+import catering.system.FoodWarehouseOrganization.InventoryManager;
 import catering.system.Role.NutritionAuditorRole;
 import catering.system.Users.Employee;
 import catering.system.Users.UserAccount;
+import catering.system.validations.ValidateStrings;
 import java.awt.CardLayout;
 import java.util.ArrayList;
 import java.util.regex.Matcher;
@@ -28,62 +30,56 @@ public class NutritionAuditorJPanel extends javax.swing.JPanel {
      */
     JPanel userProcessContainer;
     ApplicationSystem system;
-    private ArrayList<NutritionAuditor> nutritionList = new ArrayList<NutritionAuditor>();
-    DefaultTableModel model;
+    //private ArrayList<NutritionAuditor> nutritionList;  
+    NutritionAuditor selectedNutritionAuditor;
+    DefaultTableModel nutritionAuditorTableModel;
     
     public NutritionAuditorJPanel() {
         initComponents();
     }
 
-    NutritionAuditorJPanel(JPanel container, ApplicationSystem system) {
-      initComponents();
-        this.userProcessContainer = container;
+    NutritionAuditorJPanel(JPanel userProcessContainer, ApplicationSystem system) {
+        initComponents();
+        this.userProcessContainer = userProcessContainer;
         this.system = system;
-        System.out.println(system);
-        System.out.println(system);
-        for (int i = 0; i < system.getNutritionAuditorDirectory().getNutritionAuditorList().size(); i++) {
-            nutritionList.add(system.getNutritionAuditorDirectory().getNutritionAuditorList().get(i));
-        }
+        this.nutritionAuditorTableModel= (DefaultTableModel) nutritionAuditorTable.getModel();
+        this.selectedNutritionAuditor = new NutritionAuditor();
+        populateNutritionManagerDetails();
         
-        for (int i = 0; i < system.getBranchDirectory().getBranchLocation().size(); i++) {
-            auditorLocationComboBox.addItem(system.getBranchDirectory().getBranchLocation().get(i));
-        }
-        model = new DefaultTableModel();
-        auditorListTable.setModel(model);
-        model.addColumn("Name");
-        model.addColumn("Address");
-        model.addColumn("Phone");
-        model.addColumn("Location");
-        viewNutritionAuditorList();
-        //showUpdateList();
     }
     
-    public void viewNutritionAuditorList() {
-        if (nutritionList.size() > 0) {
-            for (int i = 0; i < nutritionList.size(); i++) {
-                model.addRow(new Object[]{
-                    nutritionList.get(i).getAuditorName(),
-                    nutritionList.get(i).getAddress(),                    
-                    nutritionList.get(i).getPhone(),
-                    nutritionList.get(i).getLocation()
-                });
-            }
-        }
-    }
+    public void populateNutritionManagerDetails(){
+       
+        nutritionAuditorTableModel.setRowCount(0);
+        ArrayList<NutritionAuditor> nutritionAuditorList = this.system.getEnterpriseDirectory().getNutritionAuditorDirectory().getNutritionAuditorList();
+        System.out.println("nutritionAuditorList : "+nutritionAuditorList);
+        if(nutritionAuditorList == null){
+            
+            JOptionPane.showMessageDialog(null,"Add minimum one Nutrition Auditor");
+        }else {
+            if(nutritionAuditorList.size() > 0){
+                for (NutritionAuditor nutritionAuditorManager : nutritionAuditorList){
 
-//    public void showUpdateList() {
-//        for (int i = 0; i < nutritionList.size(); i++) {
-//            nutritionList.addItem(nutritionList.get(i).getAuditorName());
-//        }
-//    }
+                    Object row[]= new Object[4];
+                    row[0]=nutritionAuditorManager;
+                    row[1]=nutritionAuditorManager.getAccountDetails().getUsername();
+                    row[2]=nutritionAuditorManager.getAddress();
+                    row[3]= nutritionAuditorManager.getPhone();
+                    nutritionAuditorTableModel.addRow(row);
+                }
+            }
+            else{
+                JOptionPane.showMessageDialog(null,"No Nutrition Auditor Manager Found");
+            }
+        }    
+    }
     
     public void reset() {
-        auditorListComboBox.setSelectedIndex(0);
-        viewauditorNameField.setText("");
-        viewauditorPhoneField.setText("");
-        viewauditorUsername.setText("");
-        viewauditorPasswordField.setText("");
-        viewauditorAddressField.setText("");
+        updateNameTextField.setText("");
+        updatePhoneTextField.setText("");
+        updateUsernameTextField.setText("");
+        updatePasswordTextField.setText("");
+        updateAddressTextField.setText("");
     }
 
     /**
@@ -96,40 +92,38 @@ public class NutritionAuditorJPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         btnBack = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        auditorNameField = new javax.swing.JTextField();
+        auditorNameTextField = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        auditorUsername = new javax.swing.JTextField();
-        auditorPasswordField = new javax.swing.JPasswordField();
+        auditorUsernameTextField = new javax.swing.JTextField();
+        auditorPasswordTextField = new javax.swing.JPasswordField();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        auditorPhoneField = new javax.swing.JTextField();
-        auditorAddressField = new javax.swing.JTextField();
+        auditorPhoneTextField = new javax.swing.JTextField();
+        auditorAddressTextField = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         addAuditorButton = new javax.swing.JButton();
-        jLabel7 = new javax.swing.JLabel();
-        auditorLocationComboBox = new javax.swing.JComboBox<>();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        viewauditorNameField = new javax.swing.JTextField();
+        updateNameTextField = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
-        viewauditorUsername = new javax.swing.JTextField();
-        viewauditorPasswordField = new javax.swing.JPasswordField();
+        updateUsernameTextField = new javax.swing.JTextField();
+        updatePasswordTextField = new javax.swing.JPasswordField();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
-        viewauditorPhoneField = new javax.swing.JTextField();
-        viewauditorAddressField = new javax.swing.JTextField();
+        updatePhoneTextField = new javax.swing.JTextField();
+        updateAddressTextField = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         deleteButton = new javax.swing.JButton();
-        updateButton1 = new javax.swing.JButton();
-        jLabel14 = new javax.swing.JLabel();
-        auditorListComboBox = new javax.swing.JComboBox<>();
+        updateButton = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        auditorListTable = new javax.swing.JTable();
+        nutritionAuditorTable = new javax.swing.JTable();
+        viewNutritionAuditorJLabel = new javax.swing.JLabel();
+        title = new javax.swing.JLabel();
+        viewAdminButton = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(153, 153, 255));
+        setBackground(new java.awt.Color(204, 204, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnBack.setBackground(new java.awt.Color(255, 204, 204));
@@ -141,28 +135,24 @@ public class NutritionAuditorJPanel extends javax.swing.JPanel {
                 btnBackActionPerformed(evt);
             }
         });
-        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 131, -1));
-
-        jLabel1.setFont(new java.awt.Font("Helvetica Neue", 1, 24)); // NOI18N
-        jLabel1.setText("Manage Nutrition Auditor");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 50, 400, -1));
+        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 131, 40));
 
         jLabel2.setText("Auditor Name");
         add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 150, 110, 30));
-        add(auditorNameField, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 150, 170, 30));
+        add(auditorNameTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 150, 170, 30));
 
         jLabel3.setText("Username ");
         add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 200, 70, 30));
-        add(auditorUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 200, 170, 30));
-        add(auditorPasswordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 250, 170, 30));
+        add(auditorUsernameTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 200, 170, 30));
+        add(auditorPasswordTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 250, 170, 30));
 
         jLabel4.setText("Password ");
         add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 250, 70, 30));
 
         jLabel5.setText("Phone No");
         add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 300, 70, 30));
-        add(auditorPhoneField, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 300, 170, 30));
-        add(auditorAddressField, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 350, 170, 30));
+        add(auditorPhoneTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 300, 170, 30));
+        add(auditorAddressTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 350, 170, 30));
 
         jLabel6.setText("Address");
         add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 350, 70, 30));
@@ -174,40 +164,35 @@ public class NutritionAuditorJPanel extends javax.swing.JPanel {
                 addAuditorButtonActionPerformed(evt);
             }
         });
-        add(addAuditorButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 460, -1, -1));
-
-        jLabel7.setText("Location");
-        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 400, 70, 30));
-
-        add(auditorLocationComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 400, 170, 30));
+        add(addAuditorButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 410, 110, 30));
 
         jLabel8.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         jLabel8.setText("Add Nutrition Auditor");
         add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 100, 200, 30));
 
         jLabel9.setText("Auditor Name");
-        add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 200, 110, 30));
-        add(viewauditorNameField, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 200, 170, 30));
+        add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 160, 110, 30));
+        add(updateNameTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 160, 170, 30));
 
         jLabel10.setText("Username ");
-        add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 250, 70, 30));
-        add(viewauditorUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 250, 170, 30));
-        add(viewauditorPasswordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 300, 170, 30));
+        add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 210, 70, 30));
+        add(updateUsernameTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 210, 170, 30));
+        add(updatePasswordTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 270, 170, 30));
 
         jLabel11.setText("Password ");
-        add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 300, 70, 30));
+        add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 270, 70, 30));
 
         jLabel12.setText("Phone No");
-        add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 350, 70, 30));
-        add(viewauditorPhoneField, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 350, 170, 30));
-        add(viewauditorAddressField, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 400, 170, 30));
+        add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 320, 70, 30));
+        add(updatePhoneTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 320, 170, 30));
+        add(updateAddressTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 380, 170, 30));
 
         jLabel13.setText("Address");
-        add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 400, 70, 30));
+        add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 380, 70, 30));
 
         jLabel15.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
-        jLabel15.setText("Update Nutrition Auditor");
-        add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 100, 200, 30));
+        jLabel15.setText("Update / Delete Nutrition Auditor");
+        add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 100, 230, 30));
 
         deleteButton.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         deleteButton.setText("Delete");
@@ -216,43 +201,30 @@ public class NutritionAuditorJPanel extends javax.swing.JPanel {
                 deleteButtonActionPerformed(evt);
             }
         });
-        add(deleteButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 470, 100, -1));
+        add(deleteButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 440, 110, 40));
 
-        updateButton1.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
-        updateButton1.setText("Update");
-        updateButton1.addActionListener(new java.awt.event.ActionListener() {
+        updateButton.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        updateButton.setText("Update");
+        updateButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                updateButton1ActionPerformed(evt);
+                updateButtonActionPerformed(evt);
             }
         });
-        add(updateButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 470, 100, -1));
+        add(updateButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 440, 100, 40));
 
-        jLabel14.setText("Select Auditor");
-        add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 150, 90, 30));
-
-        auditorListComboBox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                auditorListComboBoxActionPerformed(evt);
-            }
-        });
-        add(auditorListComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 153, 170, 30));
-
-        auditorListTable.setModel(new javax.swing.table.DefaultTableModel(
+        nutritionAuditorTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+
             },
             new String [] {
-                "Name", "Address", "Phone"
+                "Name", "Username", "Address", "Phone"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.Object.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false
+                false, true, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -263,9 +235,30 @@ public class NutritionAuditorJPanel extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(auditorListTable);
+        jScrollPane1.setViewportView(nutritionAuditorTable);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 520, -1, 118));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 570, 600, 118));
+
+        viewNutritionAuditorJLabel.setBackground(new java.awt.Color(255, 255, 255));
+        viewNutritionAuditorJLabel.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        viewNutritionAuditorJLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        viewNutritionAuditorJLabel.setText("View Nutrition Auditor ");
+        add(viewNutritionAuditorJLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 540, 210, -1));
+
+        title.setBackground(new java.awt.Color(255, 255, 255));
+        title.setFont(new java.awt.Font("Lucida Grande", 1, 24)); // NOI18N
+        title.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        title.setText("Manage Nutrition Auditor");
+        add(title, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 20, 530, 50));
+
+        viewAdminButton.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        viewAdminButton.setText("View Details");
+        viewAdminButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                viewAdminButtonActionPerformed(evt);
+            }
+        });
+        add(viewAdminButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 440, 110, 40));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
@@ -275,205 +268,126 @@ public class NutritionAuditorJPanel extends javax.swing.JPanel {
         layout.next(userProcessContainer);
     }//GEN-LAST:event_btnBackActionPerformed
 
-    private void updateButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateButton1ActionPerformed
+    private void updateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateButtonActionPerformed
         // TODO add your handling code here:
-        if(auditorListComboBox.getSelectedItem() == null || auditorListComboBox.getSelectedIndex() == 0) {
-            JOptionPane.showMessageDialog(null,"Select a value from dropdown","Error message", JOptionPane.ERROR_MESSAGE);
-            return;
-        } else if (!validateFields(viewauditorUsername.getText(), viewauditorAddressField.getText(), viewauditorPhoneField.getText(), viewauditorNameField.getText(), viewauditorPasswordField.getPassword(),"no")) {
+        Boolean isValid = ValidateStrings.validateStringFields(updateUsernameTextField.getText(), updateAddressTextField.getText(), updatePhoneTextField.getText(), updateAddressTextField.getText(), updatePasswordTextField.getPassword());
+        if (!isValid) {
             return;
         }
-        if (auditorListComboBox.getSelectedItem() != null) {
-            String selectedItem = (String) auditorListComboBox.getSelectedItem();
-            
-            for (int i = 0; i < nutritionList.size(); i++) {
-                char[] ch = viewauditorPasswordField.getPassword();
-                
-                String pwd = new String(ch);
-                
-                if (nutritionList.get(i).getAuditorName().equalsIgnoreCase(selectedItem)) {
-                    nutritionList.get(i).setAddress(viewauditorAddressField.getText());
-                    nutritionList.get(i).setPhone(viewauditorPhoneField.getText());
-                    nutritionList.get(i).getAccountDetails().setPassword(pwd);                    
-                    nutritionList.get(i).getAccountDetails().setUsername(viewauditorUsername.getText());
-                    nutritionList.get(i).setAuditorName(viewauditorNameField.getText());
-                    JOptionPane.showMessageDialog(this, "Nutrition Auditor updated successfully");
-                }
-            }
+        int selectedRow = nutritionAuditorTable.getSelectedRow();
+        if (selectedRow >= 0) {
+            this.selectedNutritionAuditor = (NutritionAuditor) nutritionAuditorTable.getValueAt(selectedRow, 0);
+            selectedNutritionAuditor.setAuditorName(updateNameTextField.getText());
+            selectedNutritionAuditor.setAddress(updateAddressTextField.getText());
+            selectedNutritionAuditor.setPhone(updatePhoneTextField.getText());
+            selectedNutritionAuditor.getAccountDetails().setUsername(updateUsernameTextField.getText());
+            selectedNutritionAuditor.getAccountDetails().setPassword(updatePasswordTextField.getText());
+            JOptionPane.showMessageDialog(null, "Updated Nutrition Auditor!");
+            populateNutritionManagerDetails();
+            updateNameTextField.setText("");
+            updateAddressTextField.setText("");
+            updateUsernameTextField.setText("");
+            updatePasswordTextField.setText("");
+            updatePhoneTextField.setText("");
+        } else {
+            JOptionPane.showMessageDialog(null, "Any row selection is not done!");
         }
-        String selectedItem = (String) auditorListComboBox.getSelectedItem();
-        auditorListComboBox.getSelectedIndex();
-        for (int i = 0; i < auditorListTable.getRowCount(); i++) {
-            if (((String) auditorListTable.getValueAt(i, 0)).equals(selectedItem)) {
-                auditorListComboBox.addItem(viewauditorNameField.getText());
-                model.addRow(new Object[]{
-                    viewauditorNameField.getText(),
-                    viewauditorAddressField.getText(),
-                    viewauditorPhoneField.getText()
-                });
-                model.removeRow(i);
-                auditorListComboBox.removeItemAt(i + 1);
-
-            }//end of if block
-        }
-        reset();
-    }//GEN-LAST:event_updateButton1ActionPerformed
+    }//GEN-LAST:event_updateButtonActionPerformed
 
     private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
         // TODO add your handling code here:
-        boolean flag = false;
-
-        String selectedItem = (String) auditorListComboBox.getSelectedItem();
-        auditorListComboBox.getSelectedIndex();
-        if(auditorListComboBox.getSelectedItem() == null || auditorListComboBox.getSelectedIndex() == 0) {
-            JOptionPane.showMessageDialog(null,"Select a value from dropdown","Error message", JOptionPane.ERROR_MESSAGE);
-            return;
-        } else if (!validateFields(viewauditorUsername.getText(), viewauditorAddressField.getText(), viewauditorPhoneField.getText(), viewauditorNameField.getText(), viewauditorPasswordField.getPassword(),"no")) {
-            return;
+        int selectedRow = nutritionAuditorTable.getSelectedRow();
+        if (selectedRow >= 0) {
+            this.selectedNutritionAuditor = (NutritionAuditor) nutritionAuditorTable.getValueAt(selectedRow, 0);
+            this.system.getEnterpriseDirectory().getNutritionAuditorDirectory().deleteNutritionAuditorManager(selectedNutritionAuditor.getAuditorName());
+            JOptionPane.showMessageDialog(null, "Catering Manager Deleted!");
+            populateNutritionManagerDetails();
+        } else {
+            JOptionPane.showMessageDialog(null, "Any row selection is not done!");
         }
-        if (flag == false) {
-             Boolean isDelete = system.getUserAccountDirectory().deleteUser(selectedItem);
-             system.getNutritionAuditorDirectory().deletenutritionAuditorManager(selectedItem);
-//            Boolean isDelete = ecosystem.getGroceryManagerDirectory().deleteGroceryManager(selectedItem, ecosystem);            
-            for (int i = 0; i < auditorListTable.getRowCount(); i++) {
-                if (((String) auditorListTable.getValueAt(i, 0)).equals(selectedItem)) {
-                    model.removeRow(i);
-                    auditorListComboBox.removeItemAt(i + 1);
-                    viewauditorAddressField.setText("");
-                    viewauditorNameField.setText("");
-                    viewauditorPasswordField.setText("");
-                    viewauditorPhoneField.setText("");
-                    viewauditorUsername.setText("");
-                }//end of if block
-            }
-            if (isDelete) {
-                JOptionPane.showMessageDialog(this, "Nutrition Auditor deleted successfully");
-            }
-        }
-        reset();
     }//GEN-LAST:event_deleteButtonActionPerformed
 
     private void addAuditorButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addAuditorButtonActionPerformed
         // TODO add your handling code here:
-        Boolean isValid = validateFields(auditorUsername.getText(), auditorAddressField.getText(), auditorPhoneField.getText(), auditorNameField.getText(), auditorPasswordField.getPassword(), (String) auditorLocationComboBox.getSelectedItem());
+        
+        Boolean isValid = ValidateStrings.validateStringFields(auditorUsernameTextField.getText(), auditorAddressTextField.getText(), auditorPhoneTextField.getText(), auditorNameTextField.getText(), auditorPasswordTextField.getPassword());
+        System.out.println(isValid+"isValid");
         if (!isValid) {
             return;
         }
         for (int i = 0; i < system.getUserAccountDirectory().getUserAccountList().size(); i++) {
-            if(/*"groceryAdmin".equals(ecosystem.getUserAccountDirectory().getUserAccountList().get(i).getRoleName()) &&*/ system.getUserAccountDirectory().getUserAccountList().get(i).getUsername().equals(auditorUsername.getText())){
+            if(system.getUserAccountDirectory().getUserAccountList().get(i).getUsername().equals(auditorUsernameTextField.getText())){
                 JOptionPane.showMessageDialog(null,"Username Already Present", "Error message" ,JOptionPane.ERROR_MESSAGE);
                 return;
             }
         }
-        char[] ch = auditorPasswordField.getPassword();
+        char[] ch = auditorPasswordTextField.getPassword();
         String pwd = new String(ch);
-        String locationName = (String) auditorLocationComboBox.getSelectedItem();
-        Employee employee = system.getEmployeeDirectory().createEmployee(auditorNameField.getText());
-        UserAccount ua = system.getUserAccountDirectory().createUserAccount(auditorUsername.getText(), pwd, employee, new NutritionAuditorRole(), "NutritionAuditor");
-        NutritionAuditor nutri = system.getNutritionAuditorDirectory().createNutritionAuditor(auditorNameField.getText(), ua, auditorPhoneField.getText(), auditorAddressField.getText(), locationName);
-        nutritionList.add(nutri);
-        JOptionPane.showMessageDialog(this, "Nutrition Auditor added successfully");
-        auditorListComboBox.addItem(auditorNameField.getText());
-        model.addRow(new Object[]{
-            auditorNameField.getText(),
-            auditorAddressField.getText(),
-            auditorPhoneField.getText(),
-            locationName
-        });
-        auditorNameField.setText("");
-        auditorUsername.setText("");
-        auditorPasswordField.setText("");
-        auditorPhoneField.setText("");
-        auditorAddressField.setText("");
+        //String locationName = (String) locationCombobox.getSelectedItem();
+        Employee employee = system.getEmployeeDirectory().createEmployee(auditorNameTextField.getText());
+        UserAccount ua = system.getUserAccountDirectory().createUserAccount(auditorUsernameTextField.getText(), pwd, employee, new NutritionAuditorRole(), "NutritionAuditor");
+        NutritionAuditor nutritionAuditor = system.getEnterpriseDirectory().getNutritionAuditorDirectory().createNutritionAuditor(auditorNameTextField.getText(), ua, auditorPhoneTextField.getText(), auditorAddressTextField.getText());
+        JOptionPane.showMessageDialog(null, "Inventory Manager added successfully");
+        //managerListCombo.addItem(storeManagerTextField.getText());
+        populateNutritionManagerDetails();
+        
+        auditorNameTextField.setText("");
+        auditorUsernameTextField.setText("");
+        auditorPasswordTextField.setText("");
+        auditorPhoneTextField.setText("");
+        auditorAddressTextField.setText("");
     }//GEN-LAST:event_addAuditorButtonActionPerformed
 
-    private void auditorListComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_auditorListComboBoxActionPerformed
+    private void viewAdminButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewAdminButtonActionPerformed
         // TODO add your handling code here:
-        if (auditorListComboBox.getSelectedItem() != "None") {
-            String selectedItem = (String) auditorListComboBox.getSelectedItem();
-            for (int i = 0; i < nutritionList.size(); i++) {
-                char[] ch = viewauditorPasswordField.getPassword();
-                
-                String pwd = new String(ch);
-                
-                if (nutritionList.get(i).getAuditorName().equalsIgnoreCase(selectedItem)) {
-                    viewauditorUsername.setText(nutritionList.get(i).getAccountDetails().getUsername());
-                    viewauditorPasswordField.setText(nutritionList.get(i).getAccountDetails().getPassword());
-                    viewauditorPhoneField.setText(nutritionList.get(i).getPhone());
-                    viewauditorNameField.setText(nutritionList.get(i).getAuditorName());
-                    viewauditorAddressField.setText(nutritionList.get(i).getAddress());
-                    break;
-                }
-            }
-        }else{
-        viewauditorUsername.setText("");
-        viewauditorPasswordField.setText("");
-        viewauditorPhoneField.setText("");
-        viewauditorNameField.setText("");
-        viewauditorAddressField.setText("");
-        }
-    }//GEN-LAST:event_auditorListComboBoxActionPerformed
+        int selectedRow = nutritionAuditorTable.getSelectedRow();
 
-    public Boolean validateFields(String username, String address, String phone, String name, char[] pwd, String netwrok) {
-        String passregex = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$";
-        Pattern pattern = Pattern.compile(passregex);
-        Matcher matcher = pattern.matcher(String.valueOf(pwd));
-        if(username.isEmpty() || phone.isEmpty() || name.isEmpty() || address.isEmpty()) {
-            JOptionPane.showMessageDialog(null,"Fields cannot be empty","Error message", JOptionPane.ERROR_MESSAGE);
-            return false;
-        } else if (pwd.length < 8) {
-            JOptionPane.showMessageDialog(null,"Password cannot be less than 8","Error message", JOptionPane.ERROR_MESSAGE);
-            return false;
-        } else if(phone.length() != 10) {
-            JOptionPane.showMessageDialog(null, "PhoneNumber must be of 10 digits","Error message", JOptionPane.ERROR_MESSAGE);
-            return false;
-        }else if(!phone.matches("^[0-9]+$")) {
-            JOptionPane.showMessageDialog(null, "Phone Number must have digits only","Error message", JOptionPane.ERROR_MESSAGE);
-            return false;
-        }else if(!matcher.matches()){
-            JOptionPane.showMessageDialog(null, "Enter valid password with atleast on number, one lowercase letter, one uppercase letter,one special char and atleast 8 digits");
-            return false;
+        if (selectedRow >= 0) {
+
+            selectedNutritionAuditor = (NutritionAuditor) nutritionAuditorTable.getValueAt(selectedRow, 0);
+            updateNameTextField.setText(selectedNutritionAuditor.getAuditorName());
+            updateUsernameTextField.setText(selectedNutritionAuditor.getAccountDetails().getUsername());
+            updatePasswordTextField.setText(selectedNutritionAuditor.getAccountDetails().getPassword());
+            updateAddressTextField.setText(selectedNutritionAuditor.getAddress());
+            updatePhoneTextField.setText(selectedNutritionAuditor.getPhone());
+
+        } else {
+            JOptionPane.showMessageDialog(null, "Please select a row");
         }
-        else if(netwrok == "None"){
-            JOptionPane.showMessageDialog(null, "Netwrok cannot be None");
-            return false;
-        }
-        return true;
-    }
+    }//GEN-LAST:event_viewAdminButtonActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addAuditorButton;
-    private javax.swing.JTextField auditorAddressField;
-    private javax.swing.JComboBox<String> auditorListComboBox;
-    private javax.swing.JTable auditorListTable;
-    private javax.swing.JComboBox<String> auditorLocationComboBox;
-    private javax.swing.JTextField auditorNameField;
-    private javax.swing.JPasswordField auditorPasswordField;
-    private javax.swing.JTextField auditorPhoneField;
-    private javax.swing.JTextField auditorUsername;
+    private javax.swing.JTextField auditorAddressTextField;
+    private javax.swing.JTextField auditorNameTextField;
+    private javax.swing.JPasswordField auditorPasswordTextField;
+    private javax.swing.JTextField auditorPhoneTextField;
+    private javax.swing.JTextField auditorUsernameTextField;
     private javax.swing.JButton btnBack;
     private javax.swing.JButton deleteButton;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JButton updateButton1;
-    private javax.swing.JTextField viewauditorAddressField;
-    private javax.swing.JTextField viewauditorNameField;
-    private javax.swing.JPasswordField viewauditorPasswordField;
-    private javax.swing.JTextField viewauditorPhoneField;
-    private javax.swing.JTextField viewauditorUsername;
+    private javax.swing.JTable nutritionAuditorTable;
+    private javax.swing.JLabel title;
+    private javax.swing.JTextField updateAddressTextField;
+    private javax.swing.JButton updateButton;
+    private javax.swing.JTextField updateNameTextField;
+    private javax.swing.JPasswordField updatePasswordTextField;
+    private javax.swing.JTextField updatePhoneTextField;
+    private javax.swing.JTextField updateUsernameTextField;
+    private javax.swing.JButton viewAdminButton;
+    private javax.swing.JLabel viewNutritionAuditorJLabel;
     // End of variables declaration//GEN-END:variables
 }
