@@ -12,6 +12,7 @@ import java.util.ArrayList;
  * @author jeelkanzaria
  */
 public class NutritionAuditorDirectory {
+    
     private ArrayList<NutritionAuditor> nutritionAuditorList;
     
     public NutritionAuditorDirectory() {
@@ -26,10 +27,9 @@ public class NutritionAuditorDirectory {
         this.nutritionAuditorList = nutritionAuditorList;
     }
 
-    public Boolean deletenutritionAuditorManager(String name) {
-        for(int i = 0; i < nutritionAuditorList.size(); i ++) {
+    public Boolean deleteNutritionAuditorManager(String name) {
+        for(int i = 0; i < nutritionAuditorList.size(); i++) {
             if(nutritionAuditorList.get(i).getAuditorName().equals(name)) {
-//                system.getUserAccountDirectory().deleteUser(groceryManagerList.get(i).getAccountDetails().getUsername());
                 nutritionAuditorList.remove(i);
                 return true;
             }
@@ -37,14 +37,13 @@ public class NutritionAuditorDirectory {
         return false;
     }
     
-    public NutritionAuditor createNutritionAuditor(String name, UserAccount ua, String phone, String address, String location){
+    public NutritionAuditor createNutritionAuditor(String name, UserAccount ua, String phone, String address){
         NutritionAuditor nut = new NutritionAuditor();
         nut.setAuditorName(name);
         nut.setAccountDetails(ua);
         nut.setPhone(phone);
         nut.setAddress(address);
-        nut.setLocation(location);
-        
+        //nut.setLocation(location);
         nutritionAuditorList.add(nut);
         return nut;
     }

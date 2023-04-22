@@ -90,7 +90,8 @@ public class NutritionAuditor {
         this.Location = Location;
     }
 
-    
-    
-    
+    @Override
+    public String toString(){
+        return this.auditorName;
+    }
 }
