@@ -37,6 +37,80 @@ public class InventoryOrderDirectory {
         isAccept = false;
     }
 
+    public ArrayList<InventoryOrder> getInventoryOrderList() {
+        return inventoryOrderList;
+    }
+
+    public void setInventoryOrderList(ArrayList<InventoryOrder> inventoryOrderList) {
+        this.inventoryOrderList = inventoryOrderList;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public static int getCount() {
+        return count;
+    }
+
+    public static void setCount(int count) {
+        InventoryOrderDirectory.count = count;
+    }
+
+    public Boolean getIsAccept() {
+        return isAccept;
+    }
+
+    public void setIsAccept(Boolean isAccept) {
+        this.isAccept = isAccept;
+    }
+
+    public String getComment() {
+        return comment;
+    }
+
+    public void setComment(String comment) {
+        this.comment = comment;
+    }
+
+    public String getFeedbackComment() {
+        return feedbackComment;
+    }
+
+    public void setFeedbackComment(String feedbackComment) {
+        this.feedbackComment = feedbackComment;
+    }
+
+    public UserAccount getClientDetails() {
+        return clientDetails;
+    }
+
+    public void setClientDetails(UserAccount clientDetails) {
+        this.clientDetails = clientDetails;
+    }
+
+    public Inventory getInventory() {
+        return inventory;
+    }
+
+    public void setInventory(Inventory inventory) {
+        this.inventory = inventory;
+    }
+    
+    
+
    
     public void deleteOrder(String name) {
         for (int i = 0; i < inventoryOrderList.size(); i++) {
