@@ -79,12 +79,15 @@ public class ClientWorkAreaJPanel extends javax.swing.JPanel {
         System.out.println(applications);
         if(applications.size()>0){
             for (ClientOrder app:applications){
-                Object row[]= new Object[3];
-                row[0]=app;
-                row[1]=app.getPrice();
-                row[2]=app.getStatus();
-                
-                orderTableModel.addRow(row);
+                if(ua==app.getClient().getAccountDetails()){
+                    Object row[]= new Object[4];
+                    row[0]=app;
+                    row[1]=app.getPrice();
+                    row[2]=app.getStatus();
+                    row[3]=app.getClient().getClientType();
+
+                    orderTableModel.addRow(row);
+                }
             }
         }
         else{
@@ -174,11 +177,11 @@ public class ClientWorkAreaJPanel extends javax.swing.JPanel {
 
             },
             new String [] {
-                "Order Id", "Paid Money", "Order Status"
+                "Order Id", "Paid Money", "Order Status", "Client Type"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Object.class, java.lang.String.class, java.lang.String.class
+                java.lang.Object.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
 
             public Class getColumnClass(int columnIndex) {
