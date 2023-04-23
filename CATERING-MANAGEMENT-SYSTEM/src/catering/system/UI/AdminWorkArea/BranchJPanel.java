@@ -147,7 +147,7 @@ public class BranchJPanel extends javax.swing.JPanel {
                 valid = false;
             }
         }
-        if (valid&&isNameValid) {
+        if (valid && isNameValid) {
             system.getBranchDirectory().createBranchLocation(branchNameTextField.getText().trim());
             System.out.println("Added Branch");
             populateBranchDetails();
