@@ -52,7 +52,7 @@ public class FoodQualityAdminMainJPanel extends javax.swing.JPanel {
 
         addCourseHeaderLabel.setFont(new java.awt.Font("Helvetica Neue", 1, 36)); // NOI18N
         addCourseHeaderLabel.setText("Food Quality Admin Portal");
-        add(addCourseHeaderLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 60, 480, -1));
+        add(addCourseHeaderLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 60, 480, -1));
 
         jPanel6.setBackground(new java.awt.Color(255, 255, 255));
 

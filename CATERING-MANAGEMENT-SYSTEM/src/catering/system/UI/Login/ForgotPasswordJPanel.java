@@ -79,6 +79,7 @@ public class ForgotPasswordJPanel extends javax.swing.JPanel {
         AddBtn1.setBackground(new java.awt.Color(255, 203, 162));
         AddBtn1.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         AddBtn1.setText("Back");
+        AddBtn1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         AddBtn1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 AddBtn1ActionPerformed(evt);
@@ -89,6 +90,7 @@ public class ForgotPasswordJPanel extends javax.swing.JPanel {
         jButton1.setBackground(new java.awt.Color(255, 203, 162));
         jButton1.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         jButton1.setText("Send Email");
+        jButton1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);

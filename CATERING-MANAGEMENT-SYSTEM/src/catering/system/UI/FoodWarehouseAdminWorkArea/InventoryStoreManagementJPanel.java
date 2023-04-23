@@ -156,7 +156,7 @@ public class InventoryStoreManagementJPanel extends javax.swing.JPanel {
         setBackground(new java.awt.Color(255, 180, 153));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Add Item");
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 100, 120, 21));
@@ -164,7 +164,7 @@ public class InventoryStoreManagementJPanel extends javax.swing.JPanel {
         storeNameJLabel.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         storeNameJLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         storeNameJLabel.setText("Name");
-        add(storeNameJLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 140, 50, 30));
+        add(storeNameJLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 140, 50, 30));
 
         storeNameText.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
         storeNameText.addActionListener(new java.awt.event.ActionListener() {
@@ -174,8 +174,10 @@ public class InventoryStoreManagementJPanel extends javax.swing.JPanel {
         });
         add(storeNameText, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 140, 150, 30));
 
+        addStoreButton.setBackground(new java.awt.Color(255, 203, 162));
         addStoreButton.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         addStoreButton.setText("Add ");
+        addStoreButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         addStoreButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addStoreButtonActionPerformed(evt);
@@ -183,10 +185,10 @@ public class InventoryStoreManagementJPanel extends javax.swing.JPanel {
         });
         add(addStoreButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 350, 130, 30));
 
-        jLabel4.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("View Items");
-        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 450, 110, 24));
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 460, 110, 24));
 
         storeListTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -213,27 +215,28 @@ public class InventoryStoreManagementJPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(storeListTable);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 480, 540, 188));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 490, 540, 188));
 
-        btnBack.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnBack.setForeground(new java.awt.Color(51, 51, 51));
+        btnBack.setBackground(new java.awt.Color(255, 203, 162));
+        btnBack.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         btnBack.setText("Back");
+        btnBack.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackActionPerformed(evt);
             }
         });
-        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 133, 40));
+        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 133, 40));
 
-        jLabel5.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText("Update Item");
-        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 80, 120, 30));
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 100, 120, 30));
 
         selectManagerLabel.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         selectManagerLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         selectManagerLabel.setText("Select Item");
-        add(selectManagerLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 120, 105, 30));
+        add(selectManagerLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 140, 105, 30));
 
         updateStoreListCombobox.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
         updateStoreListCombobox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None" }));
@@ -242,26 +245,28 @@ public class InventoryStoreManagementJPanel extends javax.swing.JPanel {
                 updateStoreListComboboxActionPerformed(evt);
             }
         });
-        add(updateStoreListCombobox, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 120, 150, 30));
+        add(updateStoreListCombobox, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 140, 150, 30));
 
         updateRestManagerLabel.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         updateRestManagerLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         updateRestManagerLabel.setText("Manager Name");
-        add(updateRestManagerLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 220, 129, 30));
+        add(updateRestManagerLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 240, 129, 30));
 
+        updateButton.setBackground(new java.awt.Color(255, 203, 162));
         updateButton.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         updateButton.setText("Update");
+        updateButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         updateButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 updateButtonActionPerformed(evt);
             }
         });
-        add(updateButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 370, 133, 30));
+        add(updateButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 400, 133, 30));
 
         restNameLabel1.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         restNameLabel1.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         restNameLabel1.setText("Name");
-        add(restNameLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 168, 73, 30));
+        add(restNameLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 190, 73, 30));
 
         updateStoreNameText.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
         updateStoreNameText.addActionListener(new java.awt.event.ActionListener() {
@@ -269,7 +274,7 @@ public class InventoryStoreManagementJPanel extends javax.swing.JPanel {
                 updateStoreNameTextActionPerformed(evt);
             }
         });
-        add(updateStoreNameText, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 170, 150, 30));
+        add(updateStoreNameText, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 190, 150, 30));
 
         updateManagerListCombobox.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
         updateManagerListCombobox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None" }));
@@ -278,7 +283,7 @@ public class InventoryStoreManagementJPanel extends javax.swing.JPanel {
                 updateManagerListComboboxActionPerformed(evt);
             }
         });
-        add(updateManagerListCombobox, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 220, 150, 30));
+        add(updateManagerListCombobox, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 240, 150, 30));
 
         ManagerJLabel.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         ManagerJLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
@@ -297,12 +302,12 @@ public class InventoryStoreManagementJPanel extends javax.swing.JPanel {
         phoneJLabel.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         phoneJLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         phoneJLabel.setText("Phone");
-        add(phoneJLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 250, 50, 30));
+        add(phoneJLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 240, 50, 30));
 
         locationJLabel.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         locationJLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         locationJLabel.setText("Location");
-        add(locationJLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 300, 70, 30));
+        add(locationJLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 290, 70, 30));
 
         locationTextField.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
         locationTextField.addActionListener(new java.awt.event.ActionListener() {
@@ -310,20 +315,20 @@ public class InventoryStoreManagementJPanel extends javax.swing.JPanel {
                 locationTextFieldActionPerformed(evt);
             }
         });
-        add(locationTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 300, 150, 30));
+        add(locationTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 290, 150, 30));
 
         phoneTextField.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
-        add(phoneTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 250, 150, 30));
+        add(phoneTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 240, 150, 30));
 
         jLabel7.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         jLabel7.setText("Phone");
-        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 270, 80, 30));
+        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 290, 80, 30));
 
         jLabel8.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         jLabel8.setText("Location");
-        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 320, 60, 30));
+        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 340, 60, 30));
 
         updatePhoneTextField.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
         updatePhoneTextField.addActionListener(new java.awt.event.ActionListener() {
@@ -331,7 +336,7 @@ public class InventoryStoreManagementJPanel extends javax.swing.JPanel {
                 updatePhoneTextFieldActionPerformed(evt);
             }
         });
-        add(updatePhoneTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 270, 150, 30));
+        add(updatePhoneTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 290, 150, 30));
 
         updateLocationTextField.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
         updateLocationTextField.addActionListener(new java.awt.event.ActionListener() {
@@ -339,23 +344,23 @@ public class InventoryStoreManagementJPanel extends javax.swing.JPanel {
                 updateLocationTextFieldActionPerformed(evt);
             }
         });
-        add(updateLocationTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 320, 150, 30));
+        add(updateLocationTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 340, 150, 30));
 
         title.setBackground(new java.awt.Color(255, 255, 255));
-        title.setFont(new java.awt.Font("Lucida Grande", 1, 24)); // NOI18N
+        title.setFont(new java.awt.Font("Helvetica Neue", 1, 36)); // NOI18N
         title.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         title.setText("Manage Inventory Store");
         add(title, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 20, 510, 50));
 
-        jLabel2.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Delete Item");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 450, 110, 30));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 100, 110, 30));
 
         deleteNameLabel.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         deleteNameLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         deleteNameLabel.setText("Name");
-        add(deleteNameLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 490, 52, 30));
+        add(deleteNameLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 140, 52, 30));
 
         storeListCombobox.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
         storeListCombobox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None" }));
@@ -364,16 +369,18 @@ public class InventoryStoreManagementJPanel extends javax.swing.JPanel {
                 storeListComboboxActionPerformed(evt);
             }
         });
-        add(storeListCombobox, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 490, 164, 30));
+        add(storeListCombobox, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 140, 164, 30));
 
+        deleteStoreButton.setBackground(new java.awt.Color(255, 203, 162));
         deleteStoreButton.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         deleteStoreButton.setText("Delete");
+        deleteStoreButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         deleteStoreButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 deleteStoreButtonActionPerformed(evt);
             }
         });
-        add(deleteStoreButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 540, 133, 30));
+        add(deleteStoreButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 200, 133, 30));
     }// </editor-fold>//GEN-END:initComponents
 
     private void storeNameTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_storeNameTextActionPerformed

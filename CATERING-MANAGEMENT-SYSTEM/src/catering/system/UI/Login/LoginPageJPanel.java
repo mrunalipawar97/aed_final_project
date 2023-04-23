@@ -76,7 +76,7 @@ public class LoginPageJPanel extends javax.swing.JPanel {
         loginBtn1.setBackground(new java.awt.Color(255, 203, 162));
         loginBtn1.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         loginBtn1.setText("LOGIN");
-        loginBtn1.setBorder(null);
+        loginBtn1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         loginBtn1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 loginBtn1ActionPerformed(evt);
@@ -87,7 +87,7 @@ public class LoginPageJPanel extends javax.swing.JPanel {
         forgotPasswordButton.setBackground(new java.awt.Color(255, 203, 162));
         forgotPasswordButton.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         forgotPasswordButton.setText("FORGOT PASSWORD ?");
-        forgotPasswordButton.setBorder(null);
+        forgotPasswordButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         forgotPasswordButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 forgotPasswordButtonActionPerformed(evt);
@@ -98,7 +98,7 @@ public class LoginPageJPanel extends javax.swing.JPanel {
         signUpButton.setBackground(new java.awt.Color(255, 203, 162));
         signUpButton.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         signUpButton.setText("Register Yourself As Client");
-        signUpButton.setBorder(null);
+        signUpButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         signUpButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 signUpButtonActionPerformed(evt);

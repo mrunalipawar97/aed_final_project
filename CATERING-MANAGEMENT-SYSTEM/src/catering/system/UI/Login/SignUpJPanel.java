@@ -88,14 +88,15 @@ public class SignUpJPanel extends javax.swing.JPanel {
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         backButton.setBackground(new java.awt.Color(255, 203, 162));
-        backButton.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        backButton.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         backButton.setText("Back");
+        backButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         backButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 backButtonActionPerformed(evt);
             }
         });
-        add(backButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 58, 90, 40));
+        add(backButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 58, 100, 40));
 
         updateRestManagerLabel.setBackground(new java.awt.Color(46, 31, 39));
         updateRestManagerLabel.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
@@ -165,8 +166,9 @@ public class SignUpJPanel extends javax.swing.JPanel {
         add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 490, 170, 30));
 
         AddBtn.setBackground(new java.awt.Color(255, 203, 162));
-        AddBtn.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        AddBtn.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         AddBtn.setText("Add");
+        AddBtn.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         AddBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 AddBtnActionPerformed(evt);
