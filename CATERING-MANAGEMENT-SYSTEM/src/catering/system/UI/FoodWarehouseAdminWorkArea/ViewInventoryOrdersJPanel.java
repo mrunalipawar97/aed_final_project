@@ -89,10 +89,10 @@ public class ViewInventoryOrdersJPanel extends javax.swing.JPanel {
         setBackground(new java.awt.Color(255, 180, 153));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        backButton.setBackground(new java.awt.Color(255, 204, 204));
-        backButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        backButton.setForeground(new java.awt.Color(51, 51, 51));
+        backButton.setBackground(new java.awt.Color(255, 203, 162));
+        backButton.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         backButton.setText("Back");
+        backButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         backButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 backButtonActionPerformed(evt);
@@ -103,31 +103,33 @@ public class ViewInventoryOrdersJPanel extends javax.swing.JPanel {
         viewOrdersJLable.setFont(new java.awt.Font("Kannada Sangam MN", 1, 18)); // NOI18N
         viewOrdersJLable.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         viewOrdersJLable.setText("View Orders");
-        add(viewOrdersJLable, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 140, 189, -1));
+        add(viewOrdersJLable, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 130, 189, -1));
 
-        rejectButton.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        rejectButton.setBackground(new java.awt.Color(255, 203, 162));
+        rejectButton.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         rejectButton.setText("Reject");
-        rejectButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        rejectButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         rejectButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rejectButtonActionPerformed(evt);
             }
         });
-        add(rejectButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 400, 113, 35));
+        add(rejectButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 390, 113, 35));
 
-        acceptButton.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        acceptButton.setBackground(new java.awt.Color(255, 203, 162));
+        acceptButton.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         acceptButton.setText("Accept");
-        acceptButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        acceptButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         acceptButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 acceptButtonActionPerformed(evt);
             }
         });
-        add(acceptButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 400, 131, 35));
+        add(acceptButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 390, 131, 35));
 
-        addCourseHeaderLabel.setFont(new java.awt.Font("Kannada MN", 1, 24)); // NOI18N
-        addCourseHeaderLabel.setText("FOOD WAREHOUSE ORDERS");
-        add(addCourseHeaderLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 40, 430, -1));
+        addCourseHeaderLabel.setFont(new java.awt.Font("Helvetica Neue", 3, 36)); // NOI18N
+        addCourseHeaderLabel.setText("Food Warehouse Orders");
+        add(addCourseHeaderLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 40, 430, -1));
 
         orderListTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -147,7 +149,7 @@ public class ViewInventoryOrdersJPanel extends javax.swing.JPanel {
         });
         jScrollPane3.setViewportView(orderListTable);
 
-        add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 170, 590, 190));
+        add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 160, 590, 190));
     }// </editor-fold>//GEN-END:initComponents
 
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed

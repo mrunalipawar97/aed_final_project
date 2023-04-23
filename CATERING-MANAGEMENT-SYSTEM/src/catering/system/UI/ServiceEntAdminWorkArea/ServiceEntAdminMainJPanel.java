@@ -65,8 +65,9 @@ public class ServiceEntAdminMainJPanel extends javax.swing.JPanel {
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Govern.png"))); // NOI18N
 
         manageGovernmentButton.setBackground(new java.awt.Color(255, 203, 162));
-        manageGovernmentButton.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        manageGovernmentButton.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         manageGovernmentButton.setText("Government");
+        manageGovernmentButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         manageGovernmentButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 manageGovernmentButtonActionPerformed(evt);
@@ -102,8 +103,9 @@ public class ServiceEntAdminMainJPanel extends javax.swing.JPanel {
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
 
         ManageOfficesButton.setBackground(new java.awt.Color(255, 203, 162));
-        ManageOfficesButton.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        ManageOfficesButton.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         ManageOfficesButton.setText("Offices");
+        ManageOfficesButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         ManageOfficesButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ManageOfficesButtonActionPerformed(evt);
@@ -136,8 +138,9 @@ public class ServiceEntAdminMainJPanel extends javax.swing.JPanel {
         jPanel5.setBackground(new java.awt.Color(255, 255, 255));
 
         ManageSchoolsButton.setBackground(new java.awt.Color(255, 203, 162));
-        ManageSchoolsButton.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        ManageSchoolsButton.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         ManageSchoolsButton.setText("Schools");
+        ManageSchoolsButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         ManageSchoolsButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ManageSchoolsButtonActionPerformed(evt);
@@ -173,8 +176,9 @@ public class ServiceEntAdminMainJPanel extends javax.swing.JPanel {
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Hospital1.png"))); // NOI18N
 
         ManageHospitalButton.setBackground(new java.awt.Color(255, 203, 162));
-        ManageHospitalButton.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        ManageHospitalButton.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         ManageHospitalButton.setText("Hospitals");
+        ManageHospitalButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         ManageHospitalButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ManageHospitalButtonActionPerformed(evt);

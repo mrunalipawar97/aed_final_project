@@ -88,8 +88,8 @@ public class InventoryManagerWorkAreaJPanel extends javax.swing.JPanel {
         setBackground(new java.awt.Color(255, 180, 153));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        nameLable.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
-        add(nameLable, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 30, 440, 30));
+        nameLable.setFont(new java.awt.Font("Helvetica Neue", 3, 36)); // NOI18N
+        add(nameLable, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 20, 720, 50));
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -108,25 +108,26 @@ public class InventoryManagerWorkAreaJPanel extends javax.swing.JPanel {
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(39, 39, 39)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(23, Short.MAX_VALUE)
-                .addComponent(AddInventoryButton, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20))
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(39, 39, 39)
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(84, 84, 84)
+                        .addComponent(AddInventoryButton, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(89, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(22, Short.MAX_VALUE)
+                .addContainerGap(112, Short.MAX_VALUE)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(AddInventoryButton, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20))
         );
 
-        add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 370, 260, 220));
+        add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 370, 390, 310));
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -145,25 +146,25 @@ public class InventoryManagerWorkAreaJPanel extends javax.swing.JPanel {
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap(20, Short.MAX_VALUE)
-                .addComponent(ViewInventoryOrdersButton, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20))
-            .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGap(28, 28, 28)
                 .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(171, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(ViewInventoryOrdersButton, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(84, 84, 84))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                 .addGap(28, 28, 28)
-                .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, 53, Short.MAX_VALUE)
-                .addGap(78, 78, 78)
+                .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, 143, Short.MAX_VALUE)
+                .addGap(76, 76, 76)
                 .addComponent(ViewInventoryOrdersButton, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20))
+                .addGap(22, 22, 22))
         );
 
-        add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 370, -1, 220));
+        add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 370, 400, 310));
 
         updatestorepanel.setBackground(new java.awt.Color(255, 180, 153));
 
@@ -171,22 +172,19 @@ public class InventoryManagerWorkAreaJPanel extends javax.swing.JPanel {
 
         phoneText.setForeground(new java.awt.Color(72, 72, 72));
 
-        phoneLabel.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        phoneLabel.setForeground(new java.awt.Color(72, 72, 72));
+        phoneLabel.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         phoneLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         phoneLabel.setText("Phone");
 
-        nameLabel.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        nameLabel.setForeground(new java.awt.Color(72, 72, 72));
+        nameLabel.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         nameLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         nameLabel.setText("Inventory Store Name");
 
-        jLabel5.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText("Inventory Store Information");
 
-        locationLabel.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        locationLabel.setForeground(new java.awt.Color(72, 72, 72));
+        locationLabel.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         locationLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         locationLabel.setText("Location");
 
@@ -198,10 +196,10 @@ public class InventoryManagerWorkAreaJPanel extends javax.swing.JPanel {
         });
 
         updateButton.setBackground(new java.awt.Color(255, 203, 162));
-        updateButton.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        updateButton.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         updateButton.setForeground(new java.awt.Color(51, 51, 51));
         updateButton.setText("Update");
-        updateButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        updateButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         updateButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 updateButtonActionPerformed(evt);
@@ -256,7 +254,7 @@ public class InventoryManagerWorkAreaJPanel extends javax.swing.JPanel {
                 .addContainerGap(29, Short.MAX_VALUE))
         );
 
-        add(updatestorepanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 70, 540, 280));
+        add(updatestorepanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 50, 540, 280));
     }// </editor-fold>//GEN-END:initComponents
 
     private void AddInventoryButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddInventoryButtonActionPerformed
