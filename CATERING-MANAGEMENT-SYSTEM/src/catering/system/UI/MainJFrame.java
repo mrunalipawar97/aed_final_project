@@ -11,6 +11,9 @@ import catering.system.UI.Login.LoginPageJPanel;
 import catering.system.Users.UserAccount;
 import catering.system.Users.UserAccountDirectory;
 import java.awt.CardLayout;
+import java.awt.Dimension;
+import java.awt.event.ComponentAdapter;
+import java.awt.event.ComponentEvent;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
@@ -42,6 +45,17 @@ public class MainJFrame extends javax.swing.JFrame {
 
         this.system = system;
         this.useraccountDirectory = system.getUserAccountDirectory();
+        
+        jPanel1.addComponentListener(new ComponentAdapter() {
+    @Override
+    public void componentResized(ComponentEvent e) {
+        // Get the new size of the panel
+        Dimension size = e.getComponent().getSize();
+
+        // Resize the label to the size of the panel
+        jLabel2.setSize(size.width, size.height);
+    }
+});
 
     }
 
@@ -57,13 +71,14 @@ public class MainJFrame extends javax.swing.JFrame {
         jSplitPane1 = new javax.swing.JSplitPane();
         jPanel1 = new javax.swing.JPanel();
         logoutJButton = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
         container = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jSplitPane1.setOrientation(javax.swing.JSplitPane.VERTICAL_SPLIT);
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 204));
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         logoutJButton.setBackground(new java.awt.Color(255, 203, 162));
@@ -76,7 +91,10 @@ public class MainJFrame extends javax.swing.JFrame {
                 logoutJButtonActionPerformed(evt);
             }
         });
-        jPanel1.add(logoutJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 20, 125, 45));
+        jPanel1.add(logoutJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(1290, 30, 125, 45));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/resize.gif"))); // NOI18N
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1480, 110));
 
         jSplitPane1.setLeftComponent(jPanel1);
 
@@ -143,6 +161,7 @@ public class MainJFrame extends javax.swing.JFrame {
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel container;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JSplitPane jSplitPane1;
     private javax.swing.JButton logoutJButton;
