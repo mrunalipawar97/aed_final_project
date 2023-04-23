@@ -78,26 +78,27 @@ public class SignUpJPanel extends javax.swing.JPanel {
         AddBtn = new javax.swing.JButton();
         orgTypeComboBox = new javax.swing.JComboBox();
         Email2 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
 
-        setBackground(new java.awt.Color(153, 153, 255));
+        setBackground(new java.awt.Color(255, 180, 153));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        backButton.setBackground(new java.awt.Color(204, 204, 204));
-        backButton.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        backButton.setForeground(new java.awt.Color(51, 51, 51));
+        backButton.setBackground(new java.awt.Color(255, 203, 162));
+        backButton.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         backButton.setText("Back");
         backButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 backButtonActionPerformed(evt);
             }
         });
-        add(backButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, -1, -1));
+        add(backButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 58, 90, 40));
 
         updateRestManagerLabel.setBackground(new java.awt.Color(46, 31, 39));
         updateRestManagerLabel.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         updateRestManagerLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         updateRestManagerLabel.setText("Name");
-        add(updateRestManagerLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 140, 40, -1));
+        add(updateRestManagerLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 130, 60, -1));
 
         nameText.setForeground(new java.awt.Color(72, 72, 72));
         nameText.addActionListener(new java.awt.event.ActionListener() {
@@ -105,80 +106,86 @@ public class SignUpJPanel extends javax.swing.JPanel {
                 nameTextActionPerformed(evt);
             }
         });
-        add(nameText, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 140, 170, -1));
+        add(nameText, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 130, 170, 30));
 
         restPwdLabel1.setBackground(new java.awt.Color(46, 31, 39));
         restPwdLabel1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         restPwdLabel1.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         restPwdLabel1.setText("Username");
-        add(restPwdLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 190, 100, 20));
+        add(restPwdLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 180, 100, 20));
 
         usernameText.setForeground(new java.awt.Color(72, 72, 72));
-        add(usernameText, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 190, 170, -1));
+        add(usernameText, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 180, 170, 30));
 
         jLabel6.setBackground(new java.awt.Color(46, 31, 39));
         jLabel6.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         jLabel6.setText("Password");
-        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 240, 100, -1));
+        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 230, 100, -1));
 
         restPwdText.setForeground(new java.awt.Color(72, 72, 72));
-        add(restPwdText, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 240, 170, -1));
+        add(restPwdText, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 230, 170, 30));
 
         phoneLabel.setBackground(new java.awt.Color(46, 31, 39));
         phoneLabel.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         phoneLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         phoneLabel.setText("Phone");
-        add(phoneLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 290, 90, -1));
+        add(phoneLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 280, 90, -1));
 
         phoneText.setForeground(new java.awt.Color(72, 72, 72));
-        add(phoneText, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 290, 170, -1));
+        add(phoneText, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 280, 170, 30));
 
         addressLabel.setBackground(new java.awt.Color(46, 31, 39));
         addressLabel.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         addressLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         addressLabel.setText("Address");
-        add(addressLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 340, -1, -1));
+        add(addressLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 330, 80, -1));
 
         AddressText.setForeground(new java.awt.Color(72, 72, 72));
-        add(AddressText, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 340, 170, -1));
+        add(AddressText, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 330, 170, 30));
 
         Email.setBackground(new java.awt.Color(46, 31, 39));
         Email.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         Email.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         Email.setText("Client Type");
-        add(Email, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 430, -1, 20));
+        add(Email, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 430, -1, 30));
 
         EmailTxt.setForeground(new java.awt.Color(72, 72, 72));
-        add(EmailTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 390, 170, -1));
+        add(EmailTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 380, 170, 30));
 
         Email1.setBackground(new java.awt.Color(46, 31, 39));
         Email1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         Email1.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         Email1.setText("Location");
-        add(Email1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 480, -1, -1));
+        add(Email1, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 480, 70, 40));
 
-        add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 470, 170, -1));
+        add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 490, 170, 30));
 
-        AddBtn.setBackground(new java.awt.Color(204, 204, 204));
-        AddBtn.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        AddBtn.setForeground(new java.awt.Color(51, 51, 51));
+        AddBtn.setBackground(new java.awt.Color(255, 203, 162));
+        AddBtn.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         AddBtn.setText("Add");
         AddBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 AddBtnActionPerformed(evt);
             }
         });
-        add(AddBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 510, -1, -1));
+        add(AddBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 550, 110, 40));
 
         orgTypeComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "School", "Office", "Government", "Hospital" }));
-        add(orgTypeComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 430, 160, -1));
+        add(orgTypeComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 430, 170, 30));
 
         Email2.setBackground(new java.awt.Color(46, 31, 39));
         Email2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         Email2.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         Email2.setText("Email");
-        add(Email2, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 390, -1, -1));
+        add(Email2, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 380, 60, 30));
+
+        jLabel1.setFont(new java.awt.Font("Helvetica Neue", 3, 36)); // NOI18N
+        jLabel1.setText("Add Client Details");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 40, 360, 30));
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 100, 470, 520));
     }// </editor-fold>//GEN-END:initComponents
 
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
@@ -275,7 +282,9 @@ public class SignUpJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel addressLabel;
     private javax.swing.JButton backButton;
     private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField nameText;
     private javax.swing.JComboBox orgTypeComboBox;
     private javax.swing.JLabel phoneLabel;
