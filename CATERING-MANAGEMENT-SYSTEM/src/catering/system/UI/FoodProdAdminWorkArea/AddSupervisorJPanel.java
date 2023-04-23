@@ -115,9 +115,8 @@ public class AddSupervisorJPanel extends javax.swing.JPanel {
         jLabel1.setText("Supervisor Work Area");
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 10, -1, -1));
 
-        btnBack.setBackground(new java.awt.Color(255, 102, 102));
-        btnBack.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnBack.setForeground(new java.awt.Color(255, 255, 255));
+        btnBack.setBackground(new java.awt.Color(255, 203, 162));
+        btnBack.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         btnBack.setText("Back");
         btnBack.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnBack.addActionListener(new java.awt.event.ActionListener() {
@@ -125,7 +124,7 @@ public class AddSupervisorJPanel extends javax.swing.JPanel {
                 btnBackActionPerformed(evt);
             }
         });
-        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 170, 40));
+        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 170, 40));
 
         restManagerText.setForeground(new java.awt.Color(72, 72, 72));
         restManagerText.addActionListener(new java.awt.event.ActionListener() {
@@ -133,41 +132,37 @@ public class AddSupervisorJPanel extends javax.swing.JPanel {
                 restManagerTextActionPerformed(evt);
             }
         });
-        add(restManagerText, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 70, 280, -1));
+        add(restManagerText, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 100, 240, 30));
 
         restPwdLabel1.setBackground(new java.awt.Color(254, 254, 226));
-        restPwdLabel1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        restPwdLabel1.setForeground(new java.awt.Color(254, 254, 226));
+        restPwdLabel1.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         restPwdLabel1.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         restPwdLabel1.setText("Name");
-        add(restPwdLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 320, -1, -1));
+        add(restPwdLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 390, -1, -1));
 
         usernameText.setForeground(new java.awt.Color(72, 72, 72));
-        add(usernameText, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 110, 280, -1));
+        add(usernameText, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 150, 240, 30));
 
         jLabel6.setBackground(new java.awt.Color(254, 254, 226));
-        jLabel6.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(254, 254, 226));
+        jLabel6.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         jLabel6.setText("Password");
-        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 400, -1, -1));
+        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 490, -1, -1));
 
         restPwdText.setForeground(new java.awt.Color(72, 72, 72));
-        add(restPwdText, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 150, 280, -1));
+        add(restPwdText, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 200, 240, 30));
 
         restPwdLabel2.setBackground(new java.awt.Color(254, 254, 226));
-        restPwdLabel2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        restPwdLabel2.setForeground(new java.awt.Color(254, 254, 226));
+        restPwdLabel2.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         restPwdLabel2.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         restPwdLabel2.setText("Username");
-        add(restPwdLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 360, -1, -1));
+        add(restPwdLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 440, -1, -1));
 
         phoneLabel.setBackground(new java.awt.Color(254, 254, 226));
-        phoneLabel.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        phoneLabel.setForeground(new java.awt.Color(254, 254, 226));
+        phoneLabel.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         phoneLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         phoneLabel.setText("Phone");
-        add(phoneLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 440, -1, -1));
+        add(phoneLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 540, -1, -1));
 
         phoneText.setForeground(new java.awt.Color(72, 72, 72));
         phoneText.addActionListener(new java.awt.event.ActionListener() {
@@ -175,21 +170,19 @@ public class AddSupervisorJPanel extends javax.swing.JPanel {
                 phoneTextActionPerformed(evt);
             }
         });
-        add(phoneText, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 190, 280, -1));
+        add(phoneText, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 250, 240, 30));
 
         AddressText.setForeground(new java.awt.Color(72, 72, 72));
-        add(AddressText, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 230, 270, -1));
+        add(AddressText, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 300, 240, 30));
 
         addressLabel1.setBackground(new java.awt.Color(254, 254, 226));
-        addressLabel1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        addressLabel1.setForeground(new java.awt.Color(254, 254, 226));
+        addressLabel1.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         addressLabel1.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         addressLabel1.setText("Address");
-        add(addressLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 480, -1, -1));
+        add(addressLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 588, -1, 20));
 
-        addManagerButton.setBackground(new java.awt.Color(255, 102, 102));
-        addManagerButton.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        addManagerButton.setForeground(new java.awt.Color(255, 255, 255));
+        addManagerButton.setBackground(new java.awt.Color(255, 203, 162));
+        addManagerButton.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         addManagerButton.setText("Add");
         addManagerButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         addManagerButton.addActionListener(new java.awt.event.ActionListener() {
@@ -197,7 +190,7 @@ public class AddSupervisorJPanel extends javax.swing.JPanel {
                 addManagerButtonActionPerformed(evt);
             }
         });
-        add(addManagerButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 270, 120, 40));
+        add(addManagerButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 350, 120, 40));
 
         supervisorTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -217,11 +210,10 @@ public class AddSupervisorJPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(supervisorTable);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 50, -1, 170));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 100, -1, 170));
 
-        viewAdminButton.setBackground(new java.awt.Color(255, 102, 102));
-        viewAdminButton.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
-        viewAdminButton.setForeground(new java.awt.Color(255, 255, 255));
+        viewAdminButton.setBackground(new java.awt.Color(255, 203, 162));
+        viewAdminButton.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         viewAdminButton.setText("View Details");
         viewAdminButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         viewAdminButton.addActionListener(new java.awt.event.ActionListener() {
@@ -229,7 +221,7 @@ public class AddSupervisorJPanel extends javax.swing.JPanel {
                 viewAdminButtonActionPerformed(evt);
             }
         });
-        add(viewAdminButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 230, 170, 50));
+        add(viewAdminButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 300, 170, 40));
 
         nameUpdateField.setForeground(new java.awt.Color(72, 72, 72));
         nameUpdateField.addActionListener(new java.awt.event.ActionListener() {
@@ -237,52 +229,46 @@ public class AddSupervisorJPanel extends javax.swing.JPanel {
                 nameUpdateFieldActionPerformed(evt);
             }
         });
-        add(nameUpdateField, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 310, 240, 30));
+        add(nameUpdateField, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 380, 240, 30));
 
         usernameUpdateField.setForeground(new java.awt.Color(72, 72, 72));
-        add(usernameUpdateField, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 350, 240, 30));
+        add(usernameUpdateField, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 430, 240, 30));
 
         passwordUpdateField.setForeground(new java.awt.Color(72, 72, 72));
-        add(passwordUpdateField, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 390, 240, 30));
+        add(passwordUpdateField, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 480, 240, 30));
 
         restPwdLabel3.setBackground(new java.awt.Color(254, 254, 226));
-        restPwdLabel3.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        restPwdLabel3.setForeground(new java.awt.Color(254, 254, 226));
+        restPwdLabel3.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         restPwdLabel3.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         restPwdLabel3.setText("Name");
-        add(restPwdLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, -1, -1));
+        add(restPwdLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 110, -1, -1));
 
         restPwdLabel4.setBackground(new java.awt.Color(254, 254, 226));
-        restPwdLabel4.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        restPwdLabel4.setForeground(new java.awt.Color(254, 254, 226));
+        restPwdLabel4.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         restPwdLabel4.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         restPwdLabel4.setText("Username");
-        add(restPwdLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, -1, -1));
+        add(restPwdLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, -1, -1));
 
         jLabel7.setBackground(new java.awt.Color(254, 254, 226));
-        jLabel7.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(254, 254, 226));
+        jLabel7.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         jLabel7.setText("Password");
-        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, -1, -1));
+        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 210, -1, -1));
 
         phoneLabel1.setBackground(new java.awt.Color(254, 254, 226));
-        phoneLabel1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        phoneLabel1.setForeground(new java.awt.Color(254, 254, 226));
+        phoneLabel1.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         phoneLabel1.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         phoneLabel1.setText("Phone");
-        add(phoneLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, -1, -1));
+        add(phoneLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(42, 260, 60, -1));
 
         addressLabel2.setBackground(new java.awt.Color(254, 254, 226));
-        addressLabel2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        addressLabel2.setForeground(new java.awt.Color(254, 254, 226));
+        addressLabel2.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         addressLabel2.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         addressLabel2.setText("Address");
-        add(addressLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 230, -1, -1));
+        add(addressLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 300, -1, 30));
 
-        updateSupervisor.setBackground(new java.awt.Color(255, 102, 102));
-        updateSupervisor.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
-        updateSupervisor.setForeground(new java.awt.Color(255, 255, 255));
+        updateSupervisor.setBackground(new java.awt.Color(255, 203, 162));
+        updateSupervisor.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         updateSupervisor.setText("Update Supervisor");
         updateSupervisor.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         updateSupervisor.addActionListener(new java.awt.event.ActionListener() {
@@ -290,11 +276,10 @@ public class AddSupervisorJPanel extends javax.swing.JPanel {
                 updateSupervisorActionPerformed(evt);
             }
         });
-        add(updateSupervisor, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 510, 200, 50));
+        add(updateSupervisor, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 630, 200, 40));
 
-        deleteSupervisorButton.setBackground(new java.awt.Color(255, 102, 102));
-        deleteSupervisorButton.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
-        deleteSupervisorButton.setForeground(new java.awt.Color(255, 255, 255));
+        deleteSupervisorButton.setBackground(new java.awt.Color(255, 203, 162));
+        deleteSupervisorButton.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         deleteSupervisorButton.setText("Delete Supervisor");
         deleteSupervisorButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         deleteSupervisorButton.addActionListener(new java.awt.event.ActionListener() {
@@ -302,9 +287,9 @@ public class AddSupervisorJPanel extends javax.swing.JPanel {
                 deleteSupervisorButtonActionPerformed(evt);
             }
         });
-        add(deleteSupervisorButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 230, 160, 50));
-        add(addressUpdateField, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 470, 240, 30));
-        add(phoneUpdateField, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 430, 240, 30));
+        add(deleteSupervisorButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 300, 160, 40));
+        add(addressUpdateField, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 580, 240, 30));
+        add(phoneUpdateField, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 530, 240, 30));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed

@@ -55,9 +55,11 @@ public class NutritionAuditorWorkAreaJPanel extends javax.swing.JPanel {
         jLabel3 = new javax.swing.JLabel();
         feedbackPortalButton = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(255, 203, 162));
+        setBackground(new java.awt.Color(255, 180, 153));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        add(nameLable, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 40, 340, 30));
+
+        nameLable.setFont(new java.awt.Font("Helvetica Neue", 3, 36)); // NOI18N
+        add(nameLable, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 40, 470, 30));
 
         jPanel5.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -76,23 +78,25 @@ public class NutritionAuditorWorkAreaJPanel extends javax.swing.JPanel {
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                .addContainerGap(20, Short.MAX_VALUE)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(auditingButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(193, Short.MAX_VALUE)
+                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20))
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(107, 107, 107)
+                .addComponent(auditingButton, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(139, 139, 139)
                 .addComponent(auditingButton, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(23, 23, 23))
+                .addGap(32, 32, 32))
         );
 
-        add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, -1, 200));
+        add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, 430, 330));
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -113,11 +117,11 @@ public class NutritionAuditorWorkAreaJPanel extends javax.swing.JPanel {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(39, 39, 39)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(190, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(23, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(feedbackPortalButton, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20))
+                .addGap(87, 87, 87))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -129,7 +133,7 @@ public class NutritionAuditorWorkAreaJPanel extends javax.swing.JPanel {
                 .addGap(20, 20, 20))
         );
 
-        add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 130, 260, 200));
+        add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 130, 410, 330));
     }// </editor-fold>//GEN-END:initComponents
 
     private void auditingButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_auditingButtonActionPerformed

@@ -116,7 +116,6 @@ public class SchoolClientsJPanel extends javax.swing.JPanel {
                 return types [columnIndex];
             }
         });
-        clientTable.setEnabled(false);
         jScrollPane1.setViewportView(clientTable);
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 190, -1, 270));

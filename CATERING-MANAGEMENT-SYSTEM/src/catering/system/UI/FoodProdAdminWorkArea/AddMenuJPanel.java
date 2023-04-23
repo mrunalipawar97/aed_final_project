@@ -75,9 +75,8 @@ public class AddMenuJPanel extends javax.swing.JPanel {
         setBackground(new java.awt.Color(255, 180, 153));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnBack.setBackground(new java.awt.Color(255, 102, 102));
-        btnBack.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnBack.setForeground(new java.awt.Color(255, 255, 255));
+        btnBack.setBackground(new java.awt.Color(255, 203, 162));
+        btnBack.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         btnBack.setText("Back");
         btnBack.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnBack.addActionListener(new java.awt.event.ActionListener() {
@@ -89,35 +88,34 @@ public class AddMenuJPanel extends javax.swing.JPanel {
 
         jLabel1.setFont(new java.awt.Font("Helvetica Neue", 3, 36)); // NOI18N
         jLabel1.setText("Menu Creation");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 10, -1, -1));
-        add(breakfastField, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 180, 220, -1));
-        add(lunchField, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 230, 220, -1));
-        add(dinnerField, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 280, 220, -1));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 80, -1, -1));
+        add(breakfastField, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 250, 220, 30));
+        add(lunchField, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 300, 220, 30));
+        add(dinnerField, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 350, 220, 30));
 
-        jLabel2.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
-        jLabel2.setText("Choose Date:");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 140, -1, -1));
+        jLabel2.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        jLabel2.setText("Choose Date");
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 200, -1, 30));
 
-        jLabel3.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
-        jLabel3.setText("Price Per Batch:");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 380, -1, -1));
-        add(batchField, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 330, 220, -1));
+        jLabel3.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        jLabel3.setText("Price Per Batch");
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 460, -1, 20));
+        add(batchField, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 400, 220, 30));
 
-        jLabel4.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
-        jLabel4.setText("Breakfast:");
-        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 180, -1, -1));
+        jLabel4.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        jLabel4.setText("Breakfast");
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 250, 70, 30));
 
-        jLabel5.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
-        jLabel5.setText("Lunch:");
-        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 230, -1, -1));
+        jLabel5.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        jLabel5.setText("Lunch");
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 310, 50, 20));
 
-        jLabel6.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
-        jLabel6.setText("Dinner:");
-        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 280, -1, -1));
+        jLabel6.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        jLabel6.setText("Dinner");
+        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 360, -1, 20));
 
-        addMenuButton.setBackground(new java.awt.Color(255, 102, 102));
-        addMenuButton.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
-        addMenuButton.setForeground(new java.awt.Color(255, 255, 255));
+        addMenuButton.setBackground(new java.awt.Color(255, 203, 162));
+        addMenuButton.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         addMenuButton.setText("Add Menu");
         addMenuButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         addMenuButton.addActionListener(new java.awt.event.ActionListener() {
@@ -125,7 +123,7 @@ public class AddMenuJPanel extends javax.swing.JPanel {
                 addMenuButtonActionPerformed(evt);
             }
         });
-        add(addMenuButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 440, 180, 50));
+        add(addMenuButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 520, 180, 50));
 
         menuTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -145,13 +143,13 @@ public class AddMenuJPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(menuTable);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 130, 500, 310));
-        add(priceField, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 380, 210, 20));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 200, 500, 310));
+        add(priceField, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 450, 220, 30));
 
-        jLabel7.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
-        jLabel7.setText("Batch:");
-        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 330, -1, -1));
-        add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 140, 210, -1));
+        jLabel7.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        jLabel7.setText("Batch");
+        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 410, -1, -1));
+        add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 200, 220, 30));
     }// </editor-fold>//GEN-END:initComponents
 
     public void populate()

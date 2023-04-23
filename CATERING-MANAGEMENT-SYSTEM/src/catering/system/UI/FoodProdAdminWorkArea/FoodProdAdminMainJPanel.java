@@ -43,6 +43,7 @@ public class FoodProdAdminMainJPanel extends javax.swing.JPanel {
 
         jSplitPane1 = new javax.swing.JSplitPane();
         jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         addSupervisorButton = new javax.swing.JButton();
         addCoordinatorButton = new javax.swing.JButton();
@@ -53,14 +54,17 @@ public class FoodProdAdminMainJPanel extends javax.swing.JPanel {
 
         jPanel1.setBackground(new java.awt.Color(255, 180, 153));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Meal_meate_1.gif"))); // NOI18N
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 50, 940, 580));
+
         jSplitPane1.setRightComponent(jPanel1);
 
-        jPanel2.setBackground(new java.awt.Color(255, 204, 204));
+        jPanel2.setBackground(new java.awt.Color(245, 234, 212));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        addSupervisorButton.setBackground(new java.awt.Color(255, 102, 102));
-        addSupervisorButton.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
-        addSupervisorButton.setForeground(new java.awt.Color(255, 255, 255));
+        addSupervisorButton.setBackground(new java.awt.Color(255, 203, 162));
+        addSupervisorButton.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         addSupervisorButton.setText("Add Supervisor");
         addSupervisorButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         addSupervisorButton.addActionListener(new java.awt.event.ActionListener() {
@@ -70,9 +74,8 @@ public class FoodProdAdminMainJPanel extends javax.swing.JPanel {
         });
         jPanel2.add(addSupervisorButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 190, 50));
 
-        addCoordinatorButton.setBackground(new java.awt.Color(255, 102, 102));
-        addCoordinatorButton.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
-        addCoordinatorButton.setForeground(new java.awt.Color(255, 255, 255));
+        addCoordinatorButton.setBackground(new java.awt.Color(255, 203, 162));
+        addCoordinatorButton.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         addCoordinatorButton.setText("Add Coordinator");
         addCoordinatorButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         addCoordinatorButton.addActionListener(new java.awt.event.ActionListener() {
@@ -80,11 +83,10 @@ public class FoodProdAdminMainJPanel extends javax.swing.JPanel {
                 addCoordinatorButtonActionPerformed(evt);
             }
         });
-        jPanel2.add(addCoordinatorButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 360, 190, 60));
+        jPanel2.add(addCoordinatorButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 340, 190, 50));
 
-        addCateringManagerButton.setBackground(new java.awt.Color(255, 102, 102));
-        addCateringManagerButton.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
-        addCateringManagerButton.setForeground(new java.awt.Color(255, 255, 255));
+        addCateringManagerButton.setBackground(new java.awt.Color(255, 203, 162));
+        addCateringManagerButton.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         addCateringManagerButton.setText("Add Catering Manager");
         addCateringManagerButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         addCateringManagerButton.addActionListener(new java.awt.event.ActionListener() {
@@ -92,7 +94,7 @@ public class FoodProdAdminMainJPanel extends javax.swing.JPanel {
                 addCateringManagerButtonActionPerformed(evt);
             }
         });
-        jPanel2.add(addCateringManagerButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 220, 200, 60));
+        jPanel2.add(addCateringManagerButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 220, 190, 50));
 
         jSplitPane1.setLeftComponent(jPanel2);
 
@@ -120,6 +122,7 @@ public class FoodProdAdminMainJPanel extends javax.swing.JPanel {
     private javax.swing.JButton addCateringManagerButton;
     private javax.swing.JButton addCoordinatorButton;
     private javax.swing.JButton addSupervisorButton;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JSplitPane jSplitPane1;

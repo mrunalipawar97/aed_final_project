@@ -84,7 +84,7 @@ public class OfficeClientsJPanel extends javax.swing.JPanel {
 
         jLabel1.setFont(new java.awt.Font("Helvetica Neue", 3, 36)); // NOI18N
         jLabel1.setText("Manage Office Clients");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 60, -1, -1));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 30, -1, -1));
 
         btnBack.setBackground(new java.awt.Color(255, 203, 162));
         btnBack.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
@@ -115,10 +115,9 @@ public class OfficeClientsJPanel extends javax.swing.JPanel {
                 return types [columnIndex];
             }
         });
-        clientTable.setEnabled(false);
         jScrollPane1.setViewportView(clientTable);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 120, -1, 270));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 130, -1, 270));
 
         deleteClientButton.setBackground(new java.awt.Color(255, 203, 162));
         deleteClientButton.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N

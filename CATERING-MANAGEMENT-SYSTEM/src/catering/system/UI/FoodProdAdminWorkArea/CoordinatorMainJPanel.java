@@ -97,7 +97,9 @@ public class CoordinatorMainJPanel extends javax.swing.JPanel {
 
         setBackground(new java.awt.Color(255, 180, 153));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        add(nameLable, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 30, 340, 30));
+
+        nameLable.setFont(new java.awt.Font("Helvetica Neue", 3, 24)); // NOI18N
+        add(nameLable, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 490, 30));
 
         orderTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -117,11 +119,10 @@ public class CoordinatorMainJPanel extends javax.swing.JPanel {
         });
         jScrollPane2.setViewportView(orderTable);
 
-        add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 180, 460, 190));
+        add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 210, 460, 200));
 
-        assignButton.setBackground(new java.awt.Color(255, 102, 102));
-        assignButton.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
-        assignButton.setForeground(new java.awt.Color(255, 255, 255));
+        assignButton.setBackground(new java.awt.Color(255, 203, 162));
+        assignButton.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         assignButton.setText("Move to Delivered");
         assignButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         assignButton.addActionListener(new java.awt.event.ActionListener() {
@@ -129,11 +130,11 @@ public class CoordinatorMainJPanel extends javax.swing.JPanel {
                 assignButtonActionPerformed(evt);
             }
         });
-        add(assignButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 420, 250, 60));
+        add(assignButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 450, 230, 50));
 
-        jLabel1.setFont(new java.awt.Font("Helvetica Neue", 3, 48)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Helvetica Neue", 3, 36)); // NOI18N
         jLabel1.setText("View Delivery and Transit Orders");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 60, 770, 70));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 70, 710, 70));
     }// </editor-fold>//GEN-END:initComponents
 
     private void assignButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_assignButtonActionPerformed

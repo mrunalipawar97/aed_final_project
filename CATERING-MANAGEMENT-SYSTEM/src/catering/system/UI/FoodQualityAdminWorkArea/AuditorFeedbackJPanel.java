@@ -109,10 +109,11 @@ public class AuditorFeedbackJPanel extends javax.swing.JPanel {
         setBackground(new java.awt.Color(255, 180, 153));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnBack.setBackground(new java.awt.Color(255, 204, 204));
-        btnBack.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnBack.setBackground(new java.awt.Color(255, 203, 162));
+        btnBack.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         btnBack.setForeground(new java.awt.Color(51, 51, 51));
         btnBack.setText("Back");
+        btnBack.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackActionPerformed(evt);
@@ -120,12 +121,12 @@ public class AuditorFeedbackJPanel extends javax.swing.JPanel {
         });
         add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 131, 40));
 
-        jLabel1.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Helvetica Neue", 1, 36)); // NOI18N
         jLabel1.setText("Auditing Report for Food Menu");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 40, 340, 50));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 40, 570, 50));
 
         barChartJPanel.setLayout(new java.awt.BorderLayout());
-        add(barChartJPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, 650, 300));
+        add(barChartJPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 140, 650, 350));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
