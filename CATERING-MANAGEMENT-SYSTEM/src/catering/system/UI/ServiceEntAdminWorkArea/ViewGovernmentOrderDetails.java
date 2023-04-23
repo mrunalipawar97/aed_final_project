@@ -128,7 +128,7 @@ public class ViewGovernmentOrderDetails extends javax.swing.JPanel {
 
         jLabel1.setFont(new java.awt.Font("Helvetica Neue", 3, 36)); // NOI18N
         jLabel1.setText("Government Order Details");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 40, -1, -1));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 100, 500, -1));
 
         btnBack.setBackground(new java.awt.Color(255, 203, 162));
         btnBack.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
@@ -141,7 +141,7 @@ public class ViewGovernmentOrderDetails extends javax.swing.JPanel {
         add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 131, 40));
 
         barChartJPanel.setLayout(new java.awt.BorderLayout());
-        add(barChartJPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 120, 650, 420));
+        add(barChartJPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 180, 690, 440));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
