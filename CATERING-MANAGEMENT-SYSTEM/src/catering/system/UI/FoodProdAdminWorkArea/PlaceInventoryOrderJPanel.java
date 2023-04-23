@@ -60,7 +60,7 @@ public class PlaceInventoryOrderJPanel extends javax.swing.JPanel {
         viewOrderTableModel.addColumn("Price");
         this.finalOrderTableModel= (DefaultTableModel) finalOrderTable.getModel();
         this.cartOrderTableModel = (DefaultTableModel) orderCartTable.getModel();
-        orderDirectory = new InventoryOrderDirectory();
+        orderDirectory = this.system.getInventoryOrderDirectory();
         showInventoryItemTable();
         System.out.println(orderDirectory.getInventoryOrderList().size() + " size initial ");
         showInventoryCartTable();
@@ -91,7 +91,7 @@ public class PlaceInventoryOrderJPanel extends javax.swing.JPanel {
         if (orderDirectory.getInventoryOrderList().size() > 0) {
             for (int i = 0; i < orderDirectory.getInventoryOrderList().size(); i++) {
                 cartOrderTableModel.addRow(new Object[]{
-                    orderDirectory.getInventoryOrderList().get(i).getOrderItem(),
+                    orderDirectory.getInventoryOrderList().get(i).getInventory().getName(),
                     orderDirectory.getInventoryOrderList().get(i).getOrderPrice(),
                     orderDirectory.getInventoryOrderList().get(i).getOrderQuantity()
                 });

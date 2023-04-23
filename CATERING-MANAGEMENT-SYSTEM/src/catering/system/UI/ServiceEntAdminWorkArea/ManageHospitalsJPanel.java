@@ -47,11 +47,12 @@ public class ManageHospitalsJPanel extends javax.swing.JPanel {
         jLabel8 = new javax.swing.JLabel();
         orderDetailsButton = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(204, 204, 255));
+        setBackground(new java.awt.Color(255, 180, 153));
+        setPreferredSize(new java.awt.Dimension(1210, 580));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnBack.setBackground(new java.awt.Color(255, 204, 204));
-        btnBack.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnBack.setBackground(new java.awt.Color(255, 203, 162));
+        btnBack.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         btnBack.setForeground(new java.awt.Color(51, 51, 51));
         btnBack.setText("Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
@@ -59,17 +60,18 @@ public class ManageHospitalsJPanel extends javax.swing.JPanel {
                 btnBackActionPerformed(evt);
             }
         });
-        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 131, -1));
+        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 131, 40));
 
-        jLabel1.setText("hospitals");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 90, -1, -1));
+        jLabel1.setFont(new java.awt.Font("Helvetica Neue", 3, 36)); // NOI18N
+        jLabel1.setText("Hospital Portal");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 80, 330, -1));
 
-        jPanel5.setBackground(new java.awt.Color(255, 204, 204));
+        jPanel5.setBackground(new java.awt.Color(255, 255, 255));
 
-        manageClientsButton.setBackground(new java.awt.Color(255, 255, 204));
-        manageClientsButton.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
+        manageClientsButton.setBackground(new java.awt.Color(255, 203, 162));
+        manageClientsButton.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         manageClientsButton.setForeground(new java.awt.Color(51, 51, 51));
-        manageClientsButton.setText("Manage Clients");
+        manageClientsButton.setText("Manage Hospital Clients");
         manageClientsButton.setActionCommand("View Clients");
         manageClientsButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -81,31 +83,35 @@ public class ManageHospitalsJPanel extends javax.swing.JPanel {
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                .addContainerGap(20, Short.MAX_VALUE)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(manageClientsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20))
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(68, 68, 68)
+                .addComponent(manageClientsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(55, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(146, 146, 146)
                 .addComponent(manageClientsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(23, 23, 23))
+                .addGap(25, 25, 25))
         );
 
-        add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 170, -1, 200));
+        add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 230, 370, 330));
 
-        jPanel6.setBackground(new java.awt.Color(255, 204, 204));
+        jPanel6.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel6.setPreferredSize(new java.awt.Dimension(390, 320));
 
         jLabel8.setBackground(new java.awt.Color(0, 108, 103));
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Graph.png"))); // NOI18N
 
-        orderDetailsButton.setBackground(new java.awt.Color(255, 255, 204));
-        orderDetailsButton.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
+        orderDetailsButton.setBackground(new java.awt.Color(255, 203, 162));
+        orderDetailsButton.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         orderDetailsButton.setForeground(new java.awt.Color(51, 51, 51));
         orderDetailsButton.setText("View Order Details");
         orderDetailsButton.addActionListener(new java.awt.event.ActionListener() {
@@ -119,25 +125,23 @@ public class ManageHospitalsJPanel extends javax.swing.JPanel {
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
-                .addContainerGap(14, Short.MAX_VALUE)
-                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29))
-            .addGroup(jPanel6Layout.createSequentialGroup()
-                .addGap(44, 44, 44)
-                .addComponent(orderDetailsButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addGap(53, 53, 53)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(orderDetailsButton, javax.swing.GroupLayout.DEFAULT_SIZE, 264, Short.MAX_VALUE))
+                .addContainerGap(53, Short.MAX_VALUE))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
-                .addContainerGap(31, Short.MAX_VALUE)
-                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(31, 31, 31)
+                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
                 .addComponent(orderDetailsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(22, 22, 22))
         );
 
-        add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 170, 260, 200));
+        add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 230, 370, 330));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
