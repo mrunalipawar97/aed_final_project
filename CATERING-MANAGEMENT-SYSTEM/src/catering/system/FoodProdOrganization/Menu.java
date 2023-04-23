@@ -17,9 +17,27 @@ public class Menu {
     String dinner;
     int batch;
     float price;
+    String status;
+    int healthScore;
+
+    public int getHealthScore() {
+        return healthScore;
+    }
+
+    public void setHealthScore(int healthScore) {
+        this.healthScore = healthScore;
+    }
 
     public Date getDate() {
         return date;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     public void setDate(Date date) {
@@ -70,6 +88,5 @@ public class Menu {
     public String toString(){
         return this.breakfast;
     }
-    
-    
+
 }

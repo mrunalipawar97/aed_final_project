@@ -108,7 +108,7 @@ public class ViewInventoryOrdersJPanel extends javax.swing.JPanel {
         });
         jScrollPane3.setViewportView(orderListTable);
 
-        add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 190, 550, 180));
+        add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 190, 550, 180));
 
         rejectButton.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         rejectButton.setText("Reject");

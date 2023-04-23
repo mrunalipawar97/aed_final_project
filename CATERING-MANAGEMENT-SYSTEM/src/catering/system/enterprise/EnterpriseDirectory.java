@@ -8,6 +8,7 @@ import catering.system.FoodProdOrganization.CateringManager;
 import catering.system.FoodProdOrganization.Coordinator;
 import catering.system.FoodProdOrganization.Menu;
 import catering.system.FoodProdOrganization.Supervisor;
+import catering.system.FoodQualityOrganization.AuditingReport;
 import catering.system.FoodQualityOrganization.NutritionAuditorDirectory;
 import catering.system.FoodWarehouseOrganization.InventoryDirectory;
 import catering.system.FoodWarehouseOrganization.InventoryManagerDirectory;
@@ -33,6 +34,7 @@ public class EnterpriseDirectory {
     NutritionAuditorDirectory nutritionAuditorDirectory;
     InventoryDirectory inventoryDirectory;
     InventoryOrderDirectory inventoryOrderDirectory;
+    ArrayList<AuditingReport> auditorReportList;
     
     public EnterpriseDirectory() {
         this.enterpriseList = new ArrayList<Enterprise>();
@@ -41,6 +43,7 @@ public class EnterpriseDirectory {
         this.cateringManagerList = new ArrayList<CateringManager>();
         this.coordinatorList = new ArrayList<Coordinator>();
         this.menuList = new ArrayList<Menu>();
+        this.auditorReportList = new ArrayList<AuditingReport>();
         this.inventoryManagerDirectory = new InventoryManagerDirectory();
         this.clientOrderDirectory= new ClientOrderDirectory();
         this.nutritionAuditorDirectory = new NutritionAuditorDirectory();
