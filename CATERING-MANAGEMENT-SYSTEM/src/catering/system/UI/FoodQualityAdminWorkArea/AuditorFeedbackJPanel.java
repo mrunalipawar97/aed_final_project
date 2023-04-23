@@ -5,8 +5,18 @@
 package catering.system.UI.FoodQualityAdminWorkArea;
 
 import business.ApplicationSystem;
+import catering.system.FoodProdOrganization.Menu;
+import java.awt.BorderLayout;
 import java.awt.CardLayout;
+import java.awt.Color;
+import java.util.ArrayList;
 import javax.swing.JPanel;
+import org.jfree.chart.ChartFactory;
+import org.jfree.chart.ChartPanel;
+import org.jfree.chart.JFreeChart;
+import org.jfree.chart.plot.CategoryPlot;
+import org.jfree.chart.plot.PlotOrientation;
+import org.jfree.data.category.DefaultCategoryDataset;
 
 /**
  *
@@ -19,15 +29,68 @@ public class AuditorFeedbackJPanel extends javax.swing.JPanel {
      */
     JPanel userProcessContainer;
     ApplicationSystem system;
-    
+    private static int healthyCounter;
+    private static int unHealthyCounter;
+    private static int moderatelyHealthyCounter;
+
     public AuditorFeedbackJPanel() {
         initComponents();
     }
 
     AuditorFeedbackJPanel(JPanel container, ApplicationSystem system) {
-      initComponents(); 
-      this.userProcessContainer = container;
+        initComponents();
+        this.userProcessContainer = container;
         this.system = system;
+        this.healthyCounter = 0;
+        this.unHealthyCounter = 0;
+        this.moderatelyHealthyCounter = 0;
+        generateChart();
+    }
+
+    public void generateChart() {
+        String healthyStatus = "Healthy";
+        String unHealthyStatus = "Unhealthy";
+        String moderatelyHealthyStatus = "Moderately Healthy";
+
+        ArrayList<Menu> applications = this.system.getEnterpriseDirectory().getMenuList();
+        System.out.println(applications);
+        if (applications.size() > 0) {
+            for (Menu app : applications) {
+                System.out.println(app.getStatus() + "app.getStatus()");
+                if (healthyStatus.equalsIgnoreCase(app.getStatus())) {
+                    this.healthyCounter = this.healthyCounter + 1;
+                    System.out.println(this.healthyCounter + "healthyCounter");
+                } else if (unHealthyStatus.equalsIgnoreCase(app.getStatus())) {
+                    this.unHealthyCounter = this.unHealthyCounter + 1;
+                    System.out.println(this.unHealthyCounter + "unHealthyCounter");
+                } else if (moderatelyHealthyStatus.equalsIgnoreCase(app.getStatus())) {
+                    this.moderatelyHealthyCounter = this.moderatelyHealthyCounter + 1;
+                    System.out.println(this.moderatelyHealthyCounter + "moderatelyHealthyCounter");
+                } else {
+                    System.out.println("Invalid status or no status present");
+                }
+            }
+        } else {
+            System.out.println("No status present");
+        }
+        System.out.println(this.healthyCounter + "healthyCounter");
+        System.out.println(this.unHealthyCounter + "unHealthyCounter");
+        System.out.println(this.moderatelyHealthyCounter + "moderatelyHealthyCounter");
+
+        DefaultCategoryDataset barChartData = new DefaultCategoryDataset();
+        barChartData.setValue(healthyCounter, "Health Status Count", "Healthy");
+        barChartData.setValue(unHealthyCounter, "Health Status Count", "UnHealthy");
+        barChartData.setValue(moderatelyHealthyCounter, "Health Status Count", "Moderately Healthy");
+
+        JFreeChart barChart = ChartFactory.createBarChart("Auditing Report Graph", "Health Score Status", "Health Score Count", barChartData, PlotOrientation.VERTICAL, false, true, false);
+        CategoryPlot barChrt = barChart.getCategoryPlot();
+        barChrt.setRangeGridlinePaint(Color.CYAN);
+
+        ChartPanel barPanel = new ChartPanel(barChart);
+        barChartJPanel.removeAll();
+        barChartJPanel.add(barPanel, BorderLayout.CENTER);
+        barChartJPanel.validate();
+
     }
 
     /**
@@ -41,6 +104,7 @@ public class AuditorFeedbackJPanel extends javax.swing.JPanel {
 
         btnBack = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        barChartJPanel = new javax.swing.JPanel();
 
         setBackground(new java.awt.Color(255, 180, 153));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -54,21 +118,26 @@ public class AuditorFeedbackJPanel extends javax.swing.JPanel {
                 btnBackActionPerformed(evt);
             }
         });
-        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 131, -1));
+        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 131, 40));
 
-        jLabel1.setText("Feedback Report");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 50, 180, -1));
+        jLabel1.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        jLabel1.setText("Auditing Report for Food Menu");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 40, 340, 50));
+
+        barChartJPanel.setLayout(new java.awt.BorderLayout());
+        add(barChartJPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, 650, 300));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-        FoodQualityAdminMainJPanel dm= new FoodQualityAdminMainJPanel(userProcessContainer, system);
-        userProcessContainer.add("foodQualityAdminJPanel",dm);
-        CardLayout layout=(CardLayout)userProcessContainer.getLayout();
+        FoodQualityAdminMainJPanel dm = new FoodQualityAdminMainJPanel(userProcessContainer, system);
+        userProcessContainer.add("foodQualityAdminJPanel", dm);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);
     }//GEN-LAST:event_btnBackActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel barChartJPanel;
     private javax.swing.JButton btnBack;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables

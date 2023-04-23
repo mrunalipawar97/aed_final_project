@@ -141,7 +141,7 @@ public class NutritionAuditorWorkAreaJPanel extends javax.swing.JPanel {
 
     private void feedbackPortalButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_feedbackPortalButtonActionPerformed
         // TODO add your handling code here:
-        AuditorFeedbackJPanel feedback= new AuditorFeedbackJPanel(userProcessContainer, system);
+        AuditorFeedbackJPanel feedback = new AuditorFeedbackJPanel(userProcessContainer, system);
         userProcessContainer.add("auditorFeedbackJPanel",feedback);
         CardLayout layout=(CardLayout)userProcessContainer.getLayout();
         layout.next(userProcessContainer);

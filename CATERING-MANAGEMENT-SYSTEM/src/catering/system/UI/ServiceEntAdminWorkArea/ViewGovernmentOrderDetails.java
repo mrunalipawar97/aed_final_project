@@ -50,7 +50,7 @@ public class ViewGovernmentOrderDetails extends javax.swing.JPanel {
     
     
     public void generateChart(){
-        String govrn="Government";
+        String govrn = "Government";
         String inKitchen="In Kitchen";
         String inTransit="In Transit";
         String orderPlaced="Order placed";
@@ -104,9 +104,7 @@ public class ViewGovernmentOrderDetails extends javax.swing.JPanel {
         ChartPanel barPanel= new ChartPanel(barChart);
         barChartJPanel.removeAll();
         barChartJPanel.add(barPanel,BorderLayout.CENTER);
-        barChartJPanel.validate();
-        
-        
+        barChartJPanel.validate(); 
         
     }
 
