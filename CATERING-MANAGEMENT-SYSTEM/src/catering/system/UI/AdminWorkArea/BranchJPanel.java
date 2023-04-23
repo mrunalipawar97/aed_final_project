@@ -5,7 +5,7 @@
 package catering.system.UI.AdminWorkArea;
 
 import business.ApplicationSystem;
-import business.BranchLocation;
+import catering.system.validations.Validate;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -23,12 +23,14 @@ public class BranchJPanel extends javax.swing.JPanel {
     private ApplicationSystem system;
     JPanel container;
     DefaultTableModel branchTableModel;
+    Validate validate;
 
     public BranchJPanel(JPanel userProcessContainer, ApplicationSystem system) {
         initComponents();
         this.system = system;
         this.container = userProcessContainer;
         this.branchTableModel = new DefaultTableModel();
+        this.validate=new Validate();
 
         branchJTable.setModel(branchTableModel);
         branchTableModel.addColumn("BRANCH NAME");
@@ -40,9 +42,9 @@ public class BranchJPanel extends javax.swing.JPanel {
     public void populateBranchDetails() {
         branchTableModel.setRowCount(0);
         ArrayList<String> branchlists = this.system.getBranchDirectory().getBranchLocation();
-        String defaultValue = "New York";
-        Object[] rowData = {defaultValue};
-         branchTableModel.addRow(rowData);
+//        String defaultValue = "New York";
+//        Object[] rowData = {defaultValue};
+//         branchTableModel.addRow(rowData);
         if (!branchlists.isEmpty()) {
             for (int i = 0; i < system.getBranchDirectory().getBranchLocation().size(); i++) {
                 branchTableModel.addRow(new Object[]{
@@ -134,6 +136,7 @@ public class BranchJPanel extends javax.swing.JPanel {
 
     private void AddBranchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddBranchButtonActionPerformed
         boolean valid = true;
+        Boolean isNameValid= this.validate.checkName(branchNameTextField.getText());
         if (branchNameTextField.getText().trim().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Field cannot be empty. Add a network.", "Error message", JOptionPane.ERROR_MESSAGE);
             return;
@@ -144,7 +147,7 @@ public class BranchJPanel extends javax.swing.JPanel {
                 valid = false;
             }
         }
-        if (valid) {
+        if (valid&&isNameValid) {
             system.getBranchDirectory().createBranchLocation(branchNameTextField.getText().trim());
             System.out.println("Added Branch");
             populateBranchDetails();
