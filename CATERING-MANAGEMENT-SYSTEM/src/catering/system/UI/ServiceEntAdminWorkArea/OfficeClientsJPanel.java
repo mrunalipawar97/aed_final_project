@@ -115,6 +115,7 @@ public class OfficeClientsJPanel extends javax.swing.JPanel {
                 return types [columnIndex];
             }
         });
+        clientTable.setEnabled(false);
         jScrollPane1.setViewportView(clientTable);
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 120, -1, 270));
