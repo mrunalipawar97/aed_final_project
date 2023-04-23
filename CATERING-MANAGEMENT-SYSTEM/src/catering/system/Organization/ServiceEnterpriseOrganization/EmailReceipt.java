@@ -32,8 +32,8 @@ public class EmailReceipt {
 
     public void notifyUserForLogin(String to) {
         
-        final String username = "mealmate97@gmail.com";
-        final String password = "dcuonvcnechhhdab";
+        final String username = "pawarmrunali97@gmail.com";
+        final String password = "Mrun@123";
         String toAddress = to;
         Properties props = new Properties();
         props.put("mail.smtp.starttls.enable", "true");

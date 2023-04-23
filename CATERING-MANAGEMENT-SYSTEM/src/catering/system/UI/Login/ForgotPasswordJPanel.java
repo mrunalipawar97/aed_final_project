@@ -9,6 +9,8 @@ import catering.system.Organization.ServiceEnterpriseOrganization.Client;
 import catering.system.Organization.ServiceEnterpriseOrganization.EmailReceipt;
 import java.awt.CardLayout;
 import java.util.ArrayList;
+import java.util.Properties;
+import javax.mail.Session;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -139,7 +141,7 @@ public class ForgotPasswordJPanel extends javax.swing.JPanel {
         for (int i = 0; i < clientList.size(); i++){
               if(clientList.get(i).getEmail().equals(to)){
                   System.out.println("Hey " + clientList.get(i).getName() + "\n" +"Did you forget your password?" + "\n" +"Your Password is: " + clientList.get(i).getAccountDetails().getPassword() +"\n" + "If you dont want to change your password or didn't request this, please ignore and delete this message");
-                  EmailReceipt sendMail = new EmailReceipt(clientList.get(i).getEmail(), "Your Password for Client account","Hey " + clientList.get(i).getName() + "\n" +" Did you forget your password? Your Passwrod is: " + 
+                  EmailReceipt sendMail = new EmailReceipt(clientList.get(i).getEmail(), "Your Password for HelpingHands","Hey " + clientList.get(i).getName() + "\n" +" Did you forget your password? Your Passwrod is: " + 
                          clientList.get(i).getAccountDetails().getPassword() 
                   + "If you don't want to change your password or didn't request this, please ignore and delete this message");
                     Index = i;
