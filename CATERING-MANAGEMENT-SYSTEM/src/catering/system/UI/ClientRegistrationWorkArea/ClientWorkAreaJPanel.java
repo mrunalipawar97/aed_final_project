@@ -267,15 +267,23 @@ public class ClientWorkAreaJPanel extends javax.swing.JPanel {
         }
         boolean isCardnoValid= valid.checkNoNegativeZero(cardnoField.getText());
         boolean isCvvValid= valid.checkNoNegativeZero(cvvField.getText());
+        boolean isCardnoLengthValid= valid.isValidCardNumber(cardnoField.getText());
+        boolean isCvvLengthValid= valid.isValidCvvNumber(cvvField.getText());
+        
         if(isCardnoValid && isCvvValid){
-            ClientOrder corder=this.system.getEnterpriseDirectory().getClientOrderDirectory().createOrder(selectedMenu, Float.valueOf(priceField.getText()), selectedClient);
-            System.out.print(corder+"corder");
-            int batch = selectedMenu.getBatch();
-            int newBatch= batch-quantity;
-            selectedMenu.setBatch(newBatch);
-            JOptionPane.showMessageDialog(null,"Payment Done");
-            populate();
-            populateOrder();
+            if(isCardnoLengthValid && isCvvLengthValid){
+                ClientOrder corder=this.system.getEnterpriseDirectory().getClientOrderDirectory().createOrder(selectedMenu, Float.valueOf(priceField.getText()), selectedClient);
+                System.out.print(corder+"corder");
+                int batch = selectedMenu.getBatch();
+                int newBatch= batch-quantity;
+                selectedMenu.setBatch(newBatch);
+                JOptionPane.showMessageDialog(null,"Payment Done");
+                populate();
+                populateOrder();
+                cardnoField.setText("");
+                cvvField.setText("");
+                priceField.setText("");
+            }
         }
         }
         catch(NumberFormatException e){
