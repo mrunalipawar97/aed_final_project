@@ -42,14 +42,32 @@ public class ViewInventoryOrdersJPanel extends javax.swing.JPanel {
         this.userProcessContainer = userProcessContainer;
         inventory = new Inventory();
         //this.viewOrdersTableModel = (DefaultTableModel) orderListTable.getModel();
-        this.viewOrdersTableModel = new DefaultTableModel();
-        this.orderListTable.setModel(viewOrdersTableModel);
+        this.viewOrdersTableModel= (DefaultTableModel) orderListTable.getModel();
+        populateOrder();
 
-        viewOrdersTableModel.addColumn("Id");
-        viewOrdersTableModel.addColumn("Status");
-        viewOrdersTableModel.addColumn("Name");
-        viewOrdersTableModel.addColumn("Comment");
+    }
+    
+    public void populateOrder()
+    {
+        viewOrdersTableModel.setRowCount(0);
+        ArrayList<InventoryOrder> applications=this.system.getInventoryOrderDirectory().getInventoryOrderList();
+        System.out.println(applications);
+        if(applications.size()>0){
+            for (InventoryOrder app:applications){
+//                if(ua==app.getClient().getAccountDetails()){
+                    Object row[]= new Object[4];
+                    row[0]=app;
+                    row[1]=app.getOrderPrice();
+                    row[2]=app.getStatus();
+                    row[3]=app.getCm().getName();
 
+                    viewOrdersTableModel.addRow(row);
+//                }
+            }
+        }
+        else{
+            System.out.println("Empty Menu");
+        }
     }
 
     /**
@@ -63,11 +81,11 @@ public class ViewInventoryOrdersJPanel extends javax.swing.JPanel {
 
         backButton = new javax.swing.JButton();
         viewOrdersJLable = new javax.swing.JLabel();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        orderListTable = new javax.swing.JTable();
         rejectButton = new javax.swing.JButton();
         acceptButton = new javax.swing.JButton();
         addCourseHeaderLabel = new javax.swing.JLabel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        orderListTable = new javax.swing.JTable();
 
         setBackground(new java.awt.Color(204, 204, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -87,28 +105,6 @@ public class ViewInventoryOrdersJPanel extends javax.swing.JPanel {
         viewOrdersJLable.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         viewOrdersJLable.setText("View Orders");
         add(viewOrdersJLable, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 140, 189, -1));
-
-        orderListTable.setBackground(new java.awt.Color(254, 254, 226));
-        orderListTable.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        orderListTable.setGridColor(new java.awt.Color(0, 0, 0));
-        orderListTable.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                orderListTableMouseClicked(evt);
-            }
-        });
-        jScrollPane3.setViewportView(orderListTable);
-
-        add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 190, 550, 180));
 
         rejectButton.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         rejectButton.setText("Reject");
@@ -133,6 +129,26 @@ public class ViewInventoryOrdersJPanel extends javax.swing.JPanel {
         addCourseHeaderLabel.setFont(new java.awt.Font("Kannada MN", 1, 24)); // NOI18N
         addCourseHeaderLabel.setText("FOOD WAREHOUSE ORDERS");
         add(addCourseHeaderLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 40, 430, -1));
+
+        orderListTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Order Id", "Paid Money", "Order Status", "Catering Manager"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Object.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jScrollPane3.setViewportView(orderListTable);
+
+        add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 180, -1, 190));
     }// </editor-fold>//GEN-END:initComponents
 
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
@@ -141,32 +157,6 @@ public class ViewInventoryOrdersJPanel extends javax.swing.JPanel {
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);
     }//GEN-LAST:event_backButtonActionPerformed
-
-    private void orderListTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_orderListTableMouseClicked
-        // TODO add your handling code here:
-       /* if (orderListTable.getSelectedRow() < 0) {
-            JOptionPane.showMessageDialog(this, "Please select a row");
-            return;
-        }
-        String b = String.valueOf(viewOrdersTableModel.getValueAt(orderListTable.getSelectedRow(), 1));
-        System.out.print(b + " b " + !b.equalsIgnoreCase("Placed"));
-
-        String a = String.valueOf(viewOrdersTableModel.getValueAt(orderListTable.getSelectedRow(), 1));
-        for (int i = viewOrdersTableModel.getRowCount() - 1; i >= 0; i--) {
-            viewOrdersTableModel.removeRow(i);
-        }
-        selectedDir = inventory.getOrderDirectoryList().get(orderListTable.getSelectedRow());
-        ArrayList<InventoryOrder> orderlist = inventory.getOrderDirectoryList().get(orderListTable.getSelectedRow()).getInventoryOrderList();
-        for (int i = 0; i < orderlist.size(); i++) {
-            viewOrdersTableModel.addRow(new Object[]{
-                orderlist.get(i).getOrderItem(),
-                orderlist.get(i).getOrderPrice(),
-                orderlist.get(i).getOrderQuantity(),
-                selectedDir.getClientDetails().getUsername(),
-                selectedDir.getInventory().getName()
-            });
-        }*/
-    }//GEN-LAST:event_orderListTableMouseClicked
 
     private void rejectButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rejectButtonActionPerformed
 
