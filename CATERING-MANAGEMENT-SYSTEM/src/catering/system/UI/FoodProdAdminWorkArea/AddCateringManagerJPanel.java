@@ -398,7 +398,7 @@ public class AddCateringManagerJPanel extends javax.swing.JPanel {
         int selectedRow = cateringManagerTable.getSelectedRow();
         if (selectedRow >= 0) {
             this.selectedCateringManager = (CateringManager) cateringManagerTable.getValueAt(selectedRow, 0);
-            this.system.getEnterpriseDirectory().deleteSupervisor(selectedCateringManager.getName());
+            this.system.getEnterpriseDirectory().deleteCateringManager(selectedCateringManager.getName());
             JOptionPane.showMessageDialog(null, "Catering Manager Deleted!");
             populate();
         } else {

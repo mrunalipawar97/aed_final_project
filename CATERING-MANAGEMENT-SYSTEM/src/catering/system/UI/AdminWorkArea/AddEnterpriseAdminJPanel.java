@@ -366,8 +366,16 @@ public class AddEnterpriseAdminJPanel extends javax.swing.JPanel {
 
     private void updateEntAdminButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateEntAdminButtonActionPerformed
         // TODO add your handling code here:
+        Boolean isNameValid= valid.checkName(adminNameField.getText());
+        Boolean isUsernameValid= valid.checkName(adminUsernameField.getText());
         Boolean isValid = ValidateStrings.validateFields(adminUsernameField.getText(), adminNameField.getText(), updtPwdField.getPassword());
         if (!isValid) {
+            return;
+        }
+        if (!isNameValid) {
+            return;
+        }
+        if (!isUsernameValid) {
             return;
         }
         int selectedRow = adminTable.getSelectedRow();
