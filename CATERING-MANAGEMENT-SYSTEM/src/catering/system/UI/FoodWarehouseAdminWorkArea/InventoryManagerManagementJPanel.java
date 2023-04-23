@@ -132,7 +132,7 @@ public class InventoryManagerManagementJPanel extends javax.swing.JPanel {
         updatePhoneTextField = new javax.swing.JTextField();
         updateNameTextField = new javax.swing.JTextField();
 
-        setBackground(new java.awt.Color(255, 218, 255));
+        setBackground(new java.awt.Color(255, 180, 153));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         AddInventoryManagerLabel.setBackground(new java.awt.Color(255, 255, 255));

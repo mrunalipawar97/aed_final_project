@@ -41,7 +41,6 @@ public class ViewInventoryOrdersJPanel extends javax.swing.JPanel {
         this.ua = ua;
         this.userProcessContainer = userProcessContainer;
         inventory = new Inventory();
-        //this.viewOrdersTableModel = (DefaultTableModel) orderListTable.getModel();
         this.viewOrdersTableModel= (DefaultTableModel) orderListTable.getModel();
         populateOrder();
 
@@ -87,7 +86,7 @@ public class ViewInventoryOrdersJPanel extends javax.swing.JPanel {
         jScrollPane3 = new javax.swing.JScrollPane();
         orderListTable = new javax.swing.JTable();
 
-        setBackground(new java.awt.Color(204, 204, 255));
+        setBackground(new java.awt.Color(255, 180, 153));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         backButton.setBackground(new java.awt.Color(255, 204, 204));
@@ -105,7 +104,6 @@ public class ViewInventoryOrdersJPanel extends javax.swing.JPanel {
         viewOrdersJLable.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         viewOrdersJLable.setText("View Orders");
         add(viewOrdersJLable, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 140, 189, -1));
-
 
         rejectButton.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         rejectButton.setText("Reject");
@@ -149,7 +147,7 @@ public class ViewInventoryOrdersJPanel extends javax.swing.JPanel {
         });
         jScrollPane3.setViewportView(orderListTable);
 
-        add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 180, -1, 190));
+        add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 170, 590, 190));
     }// </editor-fold>//GEN-END:initComponents
 
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
@@ -160,21 +158,33 @@ public class ViewInventoryOrdersJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_backButtonActionPerformed
 
     private void rejectButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rejectButtonActionPerformed
-
+         int selectedRow = orderListTable.getSelectedRow();
+        if(selectedRow >= 0) {
+            InventoryOrder io = (InventoryOrder)orderListTable.getValueAt(selectedRow, 0);
+            ArrayList<InventoryOrder> applications=this.system.getInventoryOrderDirectory().getInventoryOrderList();
+            System.out.println(applications);
+            for (InventoryOrder order : applications){
+                order.setStatus("Rejected");
+            }
+            JOptionPane.showMessageDialog(null,"Invertory order request rejected");
+            populateOrder();
+        }
     }//GEN-LAST:event_rejectButtonActionPerformed
 
     private void acceptButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_acceptButtonActionPerformed
-        // TODO add your handling code here:
-
-         if (selectedDir != null) {
-            selectedDir.setIsAccept(true);
-            selectedDir.setStatus("Accepted");
-            JOptionPane.showMessageDialog(null, "Request Accepted");
-            viewOrderDirList();
-            
-        } else {
-            JOptionPane.showMessageDialog(this, "Select a order first");
+        //TODO add your handling code here:
+        int selectedRow = orderListTable.getSelectedRow();
+        if(selectedRow >= 0) {
+            InventoryOrder io = (InventoryOrder)orderListTable.getValueAt(selectedRow, 0);
+            ArrayList<InventoryOrder> applications=this.system.getInventoryOrderDirectory().getInventoryOrderList();
+            System.out.println(applications);
+            for (InventoryOrder order : applications){
+                order.setStatus("Accepted");
+            }
+            JOptionPane.showMessageDialog(null,"Invertory order request accepted");
+            populateOrder();
         }
+        
     }//GEN-LAST:event_acceptButtonActionPerformed
 
 

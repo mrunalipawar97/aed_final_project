@@ -197,6 +197,7 @@ public class InventoryManagerWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
 
+        updateButton.setBackground(new java.awt.Color(255, 203, 162));
         updateButton.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         updateButton.setForeground(new java.awt.Color(51, 51, 51));
         updateButton.setText("Update");
