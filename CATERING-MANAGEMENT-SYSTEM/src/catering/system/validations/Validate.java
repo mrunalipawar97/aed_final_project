@@ -75,7 +75,7 @@ public class Validate {
             if (Pattern.compile(regexPattern).matcher(fieldName).matches()) {
                 return true;
             } else {
-                JOptionPane.showMessageDialog(null, "Please fill a valid number!");
+                JOptionPane.showMessageDialog(null, "Please fill a valid number and range!");
                 return false;
             }
         }
