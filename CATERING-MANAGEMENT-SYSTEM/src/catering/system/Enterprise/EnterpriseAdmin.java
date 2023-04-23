@@ -18,8 +18,15 @@ public class EnterpriseAdmin {
     private String address;
     private String phone;
     private UserAccount accountDetails;
-    
+    private Enterprise ent;
 
+    public Enterprise getEnt() {
+        return ent;
+    }
+
+    public void setEnt(Enterprise ent) {
+        this.ent = ent;
+    }
     
     public UserAccount getAccountDetails() {
         return accountDetails;
@@ -81,6 +88,11 @@ public class EnterpriseAdmin {
     public static void setCount(int count) {
         EnterpriseAdmin.count = count;
     }
+    
+    @Override
+    public String toString(){
+        return this.getEnt().getEntType();
+    } 
     
     
 }
