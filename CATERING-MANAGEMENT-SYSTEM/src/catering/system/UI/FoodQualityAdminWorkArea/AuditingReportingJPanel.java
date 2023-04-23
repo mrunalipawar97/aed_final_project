@@ -50,12 +50,10 @@ public class AuditingReportingJPanel extends javax.swing.JPanel {
     
     public void giveHealthScore() {
         healthScoreTableModel.setRowCount(0);
-        ArrayList<Menu> applications=this.system.getEnterpriseDirectory().getMenuList();
+        ArrayList<Menu> applications = this.system.getEnterpriseDirectory().getMenuList();
         System.out.println(applications);
         if(applications.size()>0){
             for (Menu app:applications){
-                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-                String date = sdf.format(app.getDate());
                 Object row[]= new Object[5];
                 row[0]=app;
                 row[1]=app.getLunch();
