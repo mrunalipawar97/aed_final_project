@@ -289,7 +289,7 @@ public class AddEnterpriseAdminJPanel extends javax.swing.JPanel {
             }
         }
         if(system.getEnterpriseDirectory().getEnterpriseAdminList().size()>0){
-            for (int i = 0; i < system.getEnterpriseDirectory().getEnterpriseList().size(); i++) {
+            for (int i = 0; i < system.getEnterpriseDirectory().getEnterpriseAdminList().size(); i++) {
                 if(system.getEnterpriseDirectory().getEnterpriseAdminList().get(i).getEnt().getEntType().equals(ent.getEntType())){
                     JOptionPane.showMessageDialog(null,"Enterprise Admin Already Present", "Error message" ,JOptionPane.ERROR_MESSAGE);
                     return;
