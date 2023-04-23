@@ -85,7 +85,7 @@ public class SignUpJPanel extends javax.swing.JPanel {
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         backButton.setBackground(new java.awt.Color(255, 203, 162));
-        backButton.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        backButton.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         backButton.setText("Back");
         backButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -162,7 +162,7 @@ public class SignUpJPanel extends javax.swing.JPanel {
         add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 490, 170, 30));
 
         AddBtn.setBackground(new java.awt.Color(255, 203, 162));
-        AddBtn.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        AddBtn.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         AddBtn.setText("Add");
         AddBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

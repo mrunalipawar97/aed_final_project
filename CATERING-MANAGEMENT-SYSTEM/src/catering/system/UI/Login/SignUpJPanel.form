@@ -29,7 +29,7 @@
           <Color blue="a2" green="cb" red="ff" type="rgb"/>
         </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Segoe UI" size="18" style="1"/>
+          <Font name="Helvetica Neue" size="18" style="1"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Back"/>
       </Properties>
@@ -257,7 +257,7 @@
           <Color blue="a2" green="cb" red="ff" type="rgb"/>
         </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Segoe UI" size="18" style="1"/>
+          <Font name="Helvetica Neue" size="18" style="1"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Add"/>
       </Properties>

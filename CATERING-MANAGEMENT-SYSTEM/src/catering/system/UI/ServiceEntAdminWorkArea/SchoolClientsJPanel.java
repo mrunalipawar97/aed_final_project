@@ -82,11 +82,12 @@ public class SchoolClientsJPanel extends javax.swing.JPanel {
         setBackground(new java.awt.Color(255, 180, 153));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel1.setFont(new java.awt.Font("Helvetica Neue", 3, 36)); // NOI18N
         jLabel1.setText("Manage School Clients");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 80, -1, -1));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 40, -1, -1));
 
         btnBack.setBackground(new java.awt.Color(255, 203, 162));
-        btnBack.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnBack.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         btnBack.setForeground(new java.awt.Color(51, 51, 51));
         btnBack.setText("Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
@@ -94,7 +95,7 @@ public class SchoolClientsJPanel extends javax.swing.JPanel {
                 btnBackActionPerformed(evt);
             }
         });
-        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 131, -1));
+        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 120, 40));
 
         clientTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -117,15 +118,17 @@ public class SchoolClientsJPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(clientTable);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 120, -1, 270));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 120, -1, 270));
 
+        deleteClientButton.setBackground(new java.awt.Color(255, 203, 162));
+        deleteClientButton.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         deleteClientButton.setText("Delete Client");
         deleteClientButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 deleteClientButtonActionPerformed(evt);
             }
         });
-        add(deleteClientButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 410, -1, -1));
+        add(deleteClientButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 410, -1, 40));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed

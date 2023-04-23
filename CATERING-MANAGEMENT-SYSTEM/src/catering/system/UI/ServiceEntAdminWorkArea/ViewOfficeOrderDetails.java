@@ -130,14 +130,14 @@ public class ViewOfficeOrderDetails extends javax.swing.JPanel {
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 50, 350, -1));
 
         btnBack.setBackground(new java.awt.Color(255, 203, 162));
-        btnBack.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnBack.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         btnBack.setText("Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackActionPerformed(evt);
             }
         });
-        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 131, 50));
+        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 131, 40));
 
         barChartJPanel.setLayout(new java.awt.BorderLayout());
         add(barChartJPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 110, 650, 420));
