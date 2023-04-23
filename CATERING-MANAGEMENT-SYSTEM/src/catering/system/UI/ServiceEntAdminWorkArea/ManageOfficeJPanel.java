@@ -51,8 +51,9 @@ public class ManageOfficeJPanel extends javax.swing.JPanel {
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnBack.setBackground(new java.awt.Color(255, 203, 162));
-        btnBack.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        btnBack.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         btnBack.setText("Back");
+        btnBack.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackActionPerformed(evt);
@@ -67,10 +68,11 @@ public class ManageOfficeJPanel extends javax.swing.JPanel {
         jPanel5.setBackground(new java.awt.Color(255, 255, 255));
 
         manageClientsButton.setBackground(new java.awt.Color(255, 203, 162));
-        manageClientsButton.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        manageClientsButton.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         manageClientsButton.setForeground(new java.awt.Color(51, 51, 51));
         manageClientsButton.setText("Manage Office Clients");
         manageClientsButton.setActionCommand("View Clients");
+        manageClientsButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         manageClientsButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 manageClientsButtonActionPerformed(evt);
@@ -110,9 +112,10 @@ public class ManageOfficeJPanel extends javax.swing.JPanel {
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Graph.png"))); // NOI18N
 
         orderDetailsButton.setBackground(new java.awt.Color(255, 203, 162));
-        orderDetailsButton.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        orderDetailsButton.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         orderDetailsButton.setForeground(new java.awt.Color(51, 51, 51));
         orderDetailsButton.setText("View Order Details");
+        orderDetailsButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         orderDetailsButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 orderDetailsButtonActionPerformed(evt);

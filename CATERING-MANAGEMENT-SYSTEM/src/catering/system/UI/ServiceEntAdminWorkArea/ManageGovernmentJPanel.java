@@ -51,9 +51,10 @@ public class ManageGovernmentJPanel extends javax.swing.JPanel {
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnBack.setBackground(new java.awt.Color(255, 203, 162));
-        btnBack.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        btnBack.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         btnBack.setForeground(new java.awt.Color(51, 51, 51));
         btnBack.setText("Back");
+        btnBack.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackActionPerformed(evt);
@@ -69,10 +70,11 @@ public class ManageGovernmentJPanel extends javax.swing.JPanel {
         jPanel5.setPreferredSize(new java.awt.Dimension(390, 320));
 
         manageClientsButton.setBackground(new java.awt.Color(255, 203, 162));
-        manageClientsButton.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        manageClientsButton.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         manageClientsButton.setForeground(new java.awt.Color(51, 51, 51));
         manageClientsButton.setText("Manage Government Clients");
         manageClientsButton.setActionCommand("View Clients");
+        manageClientsButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         manageClientsButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 manageClientsButtonActionPerformed(evt);
@@ -84,14 +86,14 @@ public class ManageGovernmentJPanel extends javax.swing.JPanel {
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
-                .addContainerGap(64, Short.MAX_VALUE)
+                .addContainerGap(81, Short.MAX_VALUE)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
                         .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(20, 20, 20))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                        .addComponent(manageClientsButton)
-                        .addGap(53, 53, 53))))
+                        .addComponent(manageClientsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(69, 69, 69))))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -112,9 +114,10 @@ public class ManageGovernmentJPanel extends javax.swing.JPanel {
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Graph.png"))); // NOI18N
 
         orderDetailsButton.setBackground(new java.awt.Color(255, 203, 162));
-        orderDetailsButton.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        orderDetailsButton.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         orderDetailsButton.setForeground(new java.awt.Color(51, 51, 51));
         orderDetailsButton.setText("View Order Details");
+        orderDetailsButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         orderDetailsButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 orderDetailsButtonActionPerformed(evt);
