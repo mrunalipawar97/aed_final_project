@@ -111,7 +111,7 @@ public class AuditingReportingJPanel extends javax.swing.JPanel {
         healthScorejTable = new javax.swing.JTable();
         jScrollPane3 = new javax.swing.JScrollPane();
         menuTable = new javax.swing.JTable();
-        FeedbackComboBox = new javax.swing.JComboBox<>();
+        FeedbackComboBox = new javax.swing.JComboBox();
         LunchTextField = new javax.swing.JTextField();
         dinnerTextField = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
@@ -141,8 +141,9 @@ public class AuditingReportingJPanel extends javax.swing.JPanel {
         title.setText("Food Menu Rating");
         add(title, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 20, 340, 60));
 
+        healthScoreLabel.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         healthScoreLabel.setText("Rate the Healthiness of Food Items");
-        add(healthScoreLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 420, 230, 30));
+        add(healthScoreLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 420, 280, 30));
 
         healthScorejTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -186,7 +187,7 @@ public class AuditingReportingJPanel extends javax.swing.JPanel {
 
         add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, 500, 190));
 
-        FeedbackComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Healthy", "Unhealthy", "ModeratelyHealthy" }));
+        FeedbackComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" }));
         add(FeedbackComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 300, 220, 30));
 
         LunchTextField.setEnabled(false);
@@ -249,15 +250,16 @@ public class AuditingReportingJPanel extends javax.swing.JPanel {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        String quality = (String) FeedbackComboBox.getSelectedItem();
-        if(quality.equalsIgnoreCase("Healthy")){
-            selectedMenu.setHealthScore(10);
+        String q = (String) FeedbackComboBox.getSelectedItem();
+        int quality=Integer.valueOf(q);
+        if(quality <=10 && quality >=7){
+            selectedMenu.setHealthScore(quality);
             selectedMenu.setStatus("Healthy");
-        }else if(quality.equalsIgnoreCase("Unhealthy")){
-            selectedMenu.setHealthScore(3);
+        }else if(quality < 5 && quality >= 1){
+            selectedMenu.setHealthScore(quality);
             selectedMenu.setStatus("Unhealthy");
         }else {
-            selectedMenu.setHealthScore(5);
+            selectedMenu.setHealthScore(quality);
             selectedMenu.setStatus("Moderately Healthy");
         }
         JOptionPane.showMessageDialog(null,"Health Score added");
@@ -266,7 +268,7 @@ public class AuditingReportingJPanel extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> FeedbackComboBox;
+    private javax.swing.JComboBox FeedbackComboBox;
     private javax.swing.JTextField LunchTextField;
     private javax.swing.JTextField breakfastTextField;
     private javax.swing.JButton btnBack;
