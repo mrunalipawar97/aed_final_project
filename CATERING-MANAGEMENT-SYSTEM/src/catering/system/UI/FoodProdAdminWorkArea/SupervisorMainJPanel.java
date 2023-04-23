@@ -82,7 +82,7 @@ public class SupervisorMainJPanel extends javax.swing.JPanel {
             }
         }
         else{
-            System.out.println("Empty Pet List");
+            System.out.println("Empty List");
         }
     }
 
@@ -96,11 +96,6 @@ public class SupervisorMainJPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         nameLable = new javax.swing.JLabel();
-
-        setBackground(new java.awt.Color(204, 204, 255));
-        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        add(nameLable, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 30, 340, 30));
-        jLabel1 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         orderTable = new javax.swing.JTable();
         viewButton = new javax.swing.JButton();
@@ -109,12 +104,11 @@ public class SupervisorMainJPanel extends javax.swing.JPanel {
         assignButton = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         orderIdField = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(204, 204, 255));
+        setBackground(new java.awt.Color(255, 180, 153));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel1.setText("Supervisor");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 60, -1, -1));
+        add(nameLable, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 30, 340, 30));
 
         orderTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -134,35 +128,49 @@ public class SupervisorMainJPanel extends javax.swing.JPanel {
         });
         jScrollPane2.setViewportView(orderTable);
 
-        add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 110, -1, 190));
+        add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 130, -1, 190));
 
+        viewButton.setBackground(new java.awt.Color(255, 102, 102));
+        viewButton.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        viewButton.setForeground(new java.awt.Color(255, 255, 255));
         viewButton.setText("View Details");
         viewButton.setActionCommand("Assign Coordinator");
+        viewButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         viewButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 viewButtonActionPerformed(evt);
             }
         });
-        add(viewButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 320, -1, -1));
+        add(viewButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 340, 160, 50));
 
-        add(assignComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 400, 290, -1));
+        add(assignComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 460, 290, -1));
 
+        jLabel2.setFont(new java.awt.Font("Helvetica Neue", 3, 13)); // NOI18N
         jLabel2.setText("Order Id:");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 370, -1, 20));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 420, -1, 20));
 
+        assignButton.setBackground(new java.awt.Color(255, 102, 102));
+        assignButton.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        assignButton.setForeground(new java.awt.Color(255, 255, 255));
         assignButton.setText("Assign");
+        assignButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         assignButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 assignButtonActionPerformed(evt);
             }
         });
-        add(assignButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 450, 190, -1));
+        add(assignButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 520, 220, 50));
 
+        jLabel3.setFont(new java.awt.Font("Helvetica Neue", 3, 13)); // NOI18N
         jLabel3.setText("Assign Coordinator:");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 400, -1, 20));
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 460, -1, 20));
 
         orderIdField.setEditable(false);
-        add(orderIdField, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 360, 290, -1));
+        add(orderIdField, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 420, 290, -1));
+
+        jLabel1.setFont(new java.awt.Font("Helvetica Neue", 3, 48)); // NOI18N
+        jLabel1.setText("Supervisor Client Orders");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 40, 600, 70));
     }// </editor-fold>//GEN-END:initComponents
 
     private void viewButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewButtonActionPerformed
@@ -182,23 +190,39 @@ public class SupervisorMainJPanel extends javax.swing.JPanel {
 
     private void assignButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_assignButtonActionPerformed
         // TODO add your handling code here:
-        Coordinator c=(Coordinator)assignComboBox.getSelectedItem();
-        selectedOrder.setCoord(c);
-        selectedOrder.setStatus("In Kitchen");
-        JOptionPane.showMessageDialog(null,"Coordinator added");
+        
+        int selectedRow = orderTable.getSelectedRow();
+
+        if(selectedRow>=0){
+
+            Coordinator c=(Coordinator)assignComboBox.getSelectedItem();
+            if(c!=null){
+            selectedOrder.setCoord(c);
+            selectedOrder.setStatus("In Kitchen");
+            JOptionPane.showMessageDialog(null,"Coordinator added");
+            }
+            else{
+               JOptionPane.showMessageDialog(null,"No coordinator present"); 
+            }
         
         populateOrder();
+
+        }
+        else{
+            JOptionPane.showMessageDialog(null,"Please select row");
+        }
+
     }//GEN-LAST:event_assignButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel nameLable;
     private javax.swing.JButton assignButton;
     private javax.swing.JComboBox assignComboBox;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JLabel nameLable;
     private javax.swing.JTextField orderIdField;
     private javax.swing.JTable orderTable;
     private javax.swing.JButton viewButton;

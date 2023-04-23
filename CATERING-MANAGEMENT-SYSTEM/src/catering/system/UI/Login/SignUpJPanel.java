@@ -9,6 +9,7 @@ import catering.system.Organization.ServiceEnterpriseOrganization.Client;
 import catering.system.Role.ClientRole;
 import catering.system.Users.Employee;
 import catering.system.Users.UserAccount;
+import catering.system.validations.Validate;
 import java.awt.CardLayout;
 import java.util.ArrayList;
 import java.util.regex.Matcher;
@@ -30,6 +31,7 @@ public class SignUpJPanel extends javax.swing.JPanel {
     ApplicationSystem system;
     private ArrayList<Client> clientList ;
     JButton logoutJButton;
+    Validate validate;
     
     public SignUpJPanel() {
         initComponents();
@@ -39,6 +41,7 @@ public class SignUpJPanel extends javax.swing.JPanel {
         initComponents();
         this.container = container;
         this.system = system;
+        this.validate=new Validate();
         this.logoutJButton = logoutJButton;
         this.clientList = new ArrayList<Client>();
         for (int i = 0; i < system.getClientDirectory().getClientList().size(); i++) {
@@ -229,8 +232,12 @@ public class SignUpJPanel extends javax.swing.JPanel {
     
     private void AddBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddBtnActionPerformed
         // TODO add your handling code here:
+        Boolean isUsernameValid= validate.checkUserName(usernameText.getText());
         Boolean isValid = validateFields(usernameText.getText(), AddressText.getText(), phoneText.getText(), nameText.getText(), restPwdText.getPassword(), EmailTxt.getText());
         if (!isValid) {
+            return;
+        }
+        if (!isUsernameValid) {
             return;
         }
         for (int i = 0; i < clientList.size(); i++) {

@@ -224,6 +224,7 @@ public class ClientWorkAreaJPanel extends javax.swing.JPanel {
 
     private void placeOrderButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_placeOrderButtonActionPerformed
         // TODO add your handling code here:
+        try{
         int selectedRow = menuTable.getSelectedRow();
         boolean isValid= valid.checkNoNegativeZero(QualityField.getText());
         if(isValid){
@@ -249,10 +250,16 @@ public class ClientWorkAreaJPanel extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null,"Please select row");
         }
         }
+        }
+        catch(NumberFormatException e){
+            JOptionPane.showMessageDialog(null,"Should be an integer");
+            System.out.println("Should be an integer");
+        }
     }//GEN-LAST:event_placeOrderButtonActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        try{
         ArrayList<Client> clientList=this.system.getClientDirectory().getClientList();
         Client selectedClient= new Client();
         for(Client c:clientList){
@@ -271,6 +278,11 @@ public class ClientWorkAreaJPanel extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null,"Payment Done");
             populate();
             populateOrder();
+        }
+        }
+        catch(NumberFormatException e){
+            JOptionPane.showMessageDialog(null,"Should be an integer");
+            System.out.println("Should be an integer");
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 

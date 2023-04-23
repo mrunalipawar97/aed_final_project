@@ -51,36 +51,48 @@ public class FoodProdAdminMainJPanel extends javax.swing.JPanel {
         setBackground(new java.awt.Color(204, 204, 255));
         setLayout(new java.awt.BorderLayout());
 
-        jPanel1.setBackground(new java.awt.Color(204, 204, 255));
+        jPanel1.setBackground(new java.awt.Color(255, 180, 153));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         jSplitPane1.setRightComponent(jPanel1);
 
         jPanel2.setBackground(new java.awt.Color(255, 204, 204));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        addSupervisorButton.setBackground(new java.awt.Color(255, 102, 102));
+        addSupervisorButton.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        addSupervisorButton.setForeground(new java.awt.Color(255, 255, 255));
         addSupervisorButton.setText("Add Supervisor");
+        addSupervisorButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         addSupervisorButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addSupervisorButtonActionPerformed(evt);
             }
         });
-        jPanel2.add(addSupervisorButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, 160, 40));
+        jPanel2.add(addSupervisorButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 190, 50));
 
+        addCoordinatorButton.setBackground(new java.awt.Color(255, 102, 102));
+        addCoordinatorButton.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        addCoordinatorButton.setForeground(new java.awt.Color(255, 255, 255));
         addCoordinatorButton.setText("Add Coordinator");
+        addCoordinatorButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         addCoordinatorButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addCoordinatorButtonActionPerformed(evt);
             }
         });
-        jPanel2.add(addCoordinatorButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 280, 160, 40));
+        jPanel2.add(addCoordinatorButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 360, 190, 60));
 
+        addCateringManagerButton.setBackground(new java.awt.Color(255, 102, 102));
+        addCateringManagerButton.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        addCateringManagerButton.setForeground(new java.awt.Color(255, 255, 255));
         addCateringManagerButton.setText("Add Catering Manager");
+        addCateringManagerButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         addCateringManagerButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addCateringManagerButtonActionPerformed(evt);
             }
         });
-        jPanel2.add(addCateringManagerButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, 160, 40));
+        jPanel2.add(addCateringManagerButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 220, 200, 60));
 
         jSplitPane1.setLeftComponent(jPanel2);
 
