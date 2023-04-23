@@ -34,6 +34,30 @@ public class Validate {
             }
         }
     }
+    public boolean isValidCardNumber(String cardNumber) {
+        cardNumber = cardNumber.replaceAll("\\D", "");
+        if (cardNumber.length() != 16) 
+        { 
+            JOptionPane.showMessageDialog(null, "Please fill a valid Card number of 16 digits!");
+            return false;
+        } 
+        else{
+            
+            return true; 
+        }
+    }
+    
+    public boolean isValidCvvNumber(String cardNumber) {
+        cardNumber = cardNumber.replaceAll("\\D", "");
+        if (cardNumber.length() != 3) 
+        { 
+            JOptionPane.showMessageDialog(null, "Please fill a valid cvv number of 3 digits!");
+            return false;
+        } 
+        else{
+            return true; 
+        }
+    }
     
      public boolean checkUserName(String name) {
         if (name != null && name.isEmpty()) {

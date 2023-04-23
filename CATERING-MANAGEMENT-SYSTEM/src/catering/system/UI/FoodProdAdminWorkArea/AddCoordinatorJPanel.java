@@ -397,7 +397,7 @@ public class AddCoordinatorJPanel extends javax.swing.JPanel {
         int selectedRow = coordinatorTable.getSelectedRow();
         if(selectedRow>=0){
             this.selectedCoordinator= (Coordinator) coordinatorTable.getValueAt(selectedRow,0);
-            this.system.getEnterpriseDirectory().deleteSupervisor(selectedCoordinator.getName());
+            this.system.getEnterpriseDirectory().deleteCoordinator(selectedCoordinator.getName());
             JOptionPane.showMessageDialog(null,"Coordinator Deleted!");
             populate();
         }
