@@ -7,13 +7,12 @@ package catering.system.UI.FoodProdAdminWorkArea;
 import business.ApplicationSystem;
 import catering.system.FoodProdOrganization.CateringManager;
 import catering.system.FoodWarehouseOrganization.Inventory;
+import catering.system.FoodWarehouseOrganization.InventoryManager;
+import catering.system.OrderManagement.InventoryOrder;
 import catering.system.OrderManagement.InventoryOrderDirectory;
-import catering.system.Organization.ServiceEnterpriseOrganization.Client;
 import catering.system.Users.UserAccount;
 import java.awt.CardLayout;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JSplitPane;
@@ -32,13 +31,15 @@ public class PlaceInventoryOrderJPanel extends javax.swing.JPanel {
     ApplicationSystem system;
     DefaultTableModel viewOrderTableModel;
     DefaultTableModel cartOrderTableModel;
-    private UserAccount userAccount;
-    Inventory inventory;
+    DefaultTableModel finalOrderTableModel;
+    UserAccount ua;
+    Inventory selectedInventory;
     private String selectedItem;
     private String selectedPrice;
+    private int selectedQuantity;
     private String removeItem;
     private InventoryOrderDirectory orderDirectory;
-    Client client;
+    CateringManager im;
     JSplitPane screen;
     Double Total = 0.0;
 
@@ -46,35 +47,31 @@ public class PlaceInventoryOrderJPanel extends javax.swing.JPanel {
         initComponents();
     }
 
-    PlaceInventoryOrderJPanel(JPanel userProcessContainer, ApplicationSystem system) {
+    PlaceInventoryOrderJPanel(JPanel userProcessContainer,UserAccount ua, ApplicationSystem system) {
         initComponents();
         this.system = system;
         this.userProcessContainer = userProcessContainer;
-        this.userAccount = new UserAccount();
-        inventory = new Inventory();
+        this.ua = ua;
+        selectedInventory = new Inventory();
         this.screen = new JSplitPane();
         this.viewOrderTableModel = new DefaultTableModel();
         orderItemTable.setModel(viewOrderTableModel);
         viewOrderTableModel.addColumn("Item");
         viewOrderTableModel.addColumn("Price");
-
-        this.cartOrderTableModel = new DefaultTableModel();
-        orderCartTable.setModel(cartOrderTableModel);
-        cartOrderTableModel.addColumn("Item");
-        cartOrderTableModel.addColumn("Price");
-        cartOrderTableModel.addColumn("Quantity");
+        this.finalOrderTableModel= (DefaultTableModel) finalOrderTable.getModel();
+        this.cartOrderTableModel = (DefaultTableModel) orderCartTable.getModel();
         orderDirectory = new InventoryOrderDirectory();
         showInventoryItemTable();
         System.out.println(orderDirectory.getInventoryOrderList().size() + " size initial ");
         showInventoryCartTable();
         System.out.println(orderDirectory.getInventoryOrderList().size() + " size initial ");
-        //cust = findCustomer();
+        im = findCateringManager();
+        populateOrder();
         //title.setText("Welcome to virtual "+ grocery.getName());
 
     }
 
     public void showInventoryItemTable() {
-
         viewOrderTableModel.setRowCount(0);
         ArrayList<Inventory> itemlist = this.system.getEnterpriseDirectory().getInventoryDirectory().getItemsList();
         System.out.println(itemlist);
@@ -103,9 +100,11 @@ public class PlaceInventoryOrderJPanel extends javax.swing.JPanel {
     }
 
     public CateringManager findCateringManager() {
-
+        System.out.println("in find manager:" + system.getEnterpriseDirectory().getCateringManagerList().size());
+        System.out.println( "username 1:" + ua.getEmployee().getEmpName());
         for (int i = 0; i < system.getEnterpriseDirectory().getCateringManagerList().size(); i++) {
-            if (system.getEnterpriseDirectory().getCateringManagerList().get(i).getAccountDetails().getUsername().equals(this.userAccount.getUsername())) {
+            if (system.getEnterpriseDirectory().getCateringManagerList().get(i).getAccountDetails().getUsername().equals(this.ua.getUsername())) {
+                 System.out.println( "username 2 :" + system.getEnterpriseDirectory().getCateringManagerList().get(i).getAccountDetails().getUsername());
                 return system.getEnterpriseDirectory().getCateringManagerList().get(i);
             }
         }
@@ -139,6 +138,11 @@ public class PlaceInventoryOrderJPanel extends javax.swing.JPanel {
         removeItemTextField = new javax.swing.JTextField();
         jScrollPane2 = new javax.swing.JScrollPane();
         orderCartTable = new javax.swing.JTable();
+        jLabel5 = new javax.swing.JLabel();
+        priceField = new javax.swing.JTextField();
+        paymentButton = new javax.swing.JButton();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        finalOrderTable = new javax.swing.JTable();
 
         setBackground(new java.awt.Color(255, 203, 162));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -271,15 +275,20 @@ public class PlaceInventoryOrderJPanel extends javax.swing.JPanel {
         orderCartTable.setFont(new java.awt.Font("Helvetica Neue", 0, 12)); // NOI18N
         orderCartTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Order Item", "Price", "Quantity"
             }
-        ));
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Object.class, java.lang.String.class, java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
         orderCartTable.setGridColor(new java.awt.Color(0, 0, 0));
         orderCartTable.setSelectionBackground(new java.awt.Color(0, 0, 0));
         orderCartTable.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -290,10 +299,44 @@ public class PlaceInventoryOrderJPanel extends javax.swing.JPanel {
         jScrollPane2.setViewportView(orderCartTable);
 
         add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 550, 450, 170));
+
+        jLabel5.setText("Price:");
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 780, 60, 20));
+
+        priceField.setEnabled(false);
+        add(priceField, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 780, 180, 30));
+
+        paymentButton.setText("Pay");
+        paymentButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                paymentButtonActionPerformed(evt);
+            }
+        });
+        add(paymentButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 590, 120, 40));
+
+        finalOrderTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Order Id", "Paid Money", "Order Status", "Catering Manager"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Object.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jScrollPane3.setViewportView(finalOrderTable);
+
+        add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 410, -1, 190));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-        CateringManagerMainJPanel dm = new CateringManagerMainJPanel(userProcessContainer, system);
+        CateringManagerMainJPanel dm = new CateringManagerMainJPanel(userProcessContainer, ua, system);
         userProcessContainer.add("manageHospitalsJPanel", dm);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);
@@ -315,7 +358,8 @@ public class PlaceInventoryOrderJPanel extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(this, "Kindly select items and add quantity");
             return;
         }
-        orderDirectory.createOrder(selectedItem, selectedPrice, Integer.parseInt(quantityText.getText()), inventory, userAccount);
+        orderDirectory.createOrder(selectedInventory, selectedPrice, selectedQuantity, im);
+                //selectedItem, selectedPrice, Integer.parseInt(quantityText.getText()), im);
         cartOrderTableModel.addRow(new Object[]{
             selectedItem,
             selectedPrice,
@@ -360,31 +404,90 @@ public class PlaceInventoryOrderJPanel extends javax.swing.JPanel {
 
     private void placeOrderButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_placeOrderButtonActionPerformed
         // TODO add your handling code here:
-        CateringManager catman = findCateringManager();
+        int selectedRow = orderCartTable.getSelectedRow();
+        if(selectedRow >= 0){
+//            String inte = (String)orderCartTable.getValueAt(selectedRow, 0);
+//            //selectedInventory = (Inventory)inte;
+//            String p = (String)orderCartTable.getValueAt(selectedRow, 1);
+//            double price = Double.valueOf(p);
+//            String i=(String)orderCartTable.getValueAt(selectedRow, 2);
+//            selectedQuantity = Integer.valueOf(i);
 
-        setOrderList(catman);
-        for (int i = 0; i < orderDirectory.getInventoryOrderList().size(); i++) {
-            Total += (Double.parseDouble(orderDirectory.getInventoryOrderList().get(i).getOrderPrice()) * orderDirectory.getInventoryOrderList().get(i).getOrderQuantity());
+            String p = (String)orderCartTable.getValueAt(selectedRow, 1);
+            double price = Double.valueOf(p);
+            this.selectedPrice = String.valueOf(price*selectedQuantity);
+            JOptionPane.showMessageDialog(null,"Please Proceed to Payment to Place Order");  
+        }
+        else{
+            JOptionPane.showConfirmDialog(null, "please select row");
         }
     }//GEN-LAST:event_placeOrderButtonActionPerformed
-    public void setOrderList(CateringManager cm) {
 
+    private void paymentButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_paymentButtonActionPerformed
+        // TODO add your handling code here:
+        
+        populateOrder();
+        /*ArrayList<CateringManager> cateringManagerlists = this.system.getEnterpriseDirectory().getCateringManagerList();
+        CateringManager selectedCm = new CateringManager();
+        for(CateringManager c : cateringManagerlists){
+            if(ua == c.getAccountDetails()){
+                selectedCm = c;
+            }
+        }
+        InventoryOrder corder = this.system.getEnterpriseDirectory().getInventoryOrderDirectory().createOrder(selectedInventory, selectedPrice, selectedQuantity, im);
+        System.out.print(corder + "-- corder");
+        JOptionPane.showMessageDialog(null,"Payment Done");
+        populateOrder();*/
+    }//GEN-LAST:event_paymentButtonActionPerformed
+   
+    public void populateOrder()
+    {
+        finalOrderTableModel.setRowCount(0);
+        ArrayList<InventoryOrder> applications = orderDirectory.getInventoryOrderList();
+        //ArrayList<InventoryOrder> applications = this.system.getEnterpriseDirectory().getInventoryOrderDirectory().getInventoryOrderList();
+        System.out.println(applications);
+        
+         if(applications.size() > 0){
+            for (InventoryOrder app : applications){
+                if(ua==app.getCm().getAccountDetails()){
+                    Object row[]= new Object[4];
+                    row[0]=app;
+                    row[1] = app.getOrderPrice();
+                    row[2]=app.getStatus();
+                    row[3]=app.getCm().getName();
+
+                    finalOrderTableModel.addRow(row);
+                }
+            }
+        } else{
+            System.out.println("Empty Menu");
+        }
+    }
+    
+    public void setOrderList(CateringManager cm) {
+        System.out.println("set order list :"+cm.getName());
+      
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AddButton;
     private javax.swing.JButton btnBack;
     private javax.swing.JButton clearItemButton;
+    private javax.swing.JTable finalOrderTable;
     private javax.swing.JTextField itemText;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTable orderCartTable;
     private javax.swing.JTable orderItemTable;
+    private javax.swing.JButton paymentButton;
     private javax.swing.JButton placeOrderButton;
+    private javax.swing.JTextField priceField;
     private javax.swing.JTextField quantityText;
     private javax.swing.JButton removeItemButton;
     private javax.swing.JTextField removeItemTextField;

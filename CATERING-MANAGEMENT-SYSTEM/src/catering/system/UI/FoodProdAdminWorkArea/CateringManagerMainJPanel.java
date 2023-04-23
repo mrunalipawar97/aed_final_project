@@ -5,6 +5,7 @@
 package catering.system.UI.FoodProdAdminWorkArea;
 
 import business.ApplicationSystem;
+import catering.system.Users.UserAccount;
 import java.awt.CardLayout;
 import javax.swing.JPanel;
 
@@ -16,7 +17,7 @@ public class CateringManagerMainJPanel extends javax.swing.JPanel {
 
     JPanel userProcessContainer;
     ApplicationSystem system;
-
+    UserAccount ua;
     /**
      * Creates new form CateringManagerMainJPanel
      */
@@ -24,9 +25,10 @@ public class CateringManagerMainJPanel extends javax.swing.JPanel {
         initComponents();
     }
 
-    public CateringManagerMainJPanel(JPanel userProcessContainer, ApplicationSystem business) {
+    public CateringManagerMainJPanel(JPanel userProcessContainer, UserAccount ua,ApplicationSystem business) {
         initComponents();
         this.system = business;
+        this.ua = ua;
         this.userProcessContainer = userProcessContainer;
         nameLable.setText("Welcome Catering Manager ");
     }
@@ -169,14 +171,14 @@ public class CateringManagerMainJPanel extends javax.swing.JPanel {
 
     private void AddMenuButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddMenuButtonActionPerformed
         // TODO add your handling code here:
-        AddMenuJPanel addMenu = new AddMenuJPanel(userProcessContainer, system);
+        AddMenuJPanel addMenu = new AddMenuJPanel(userProcessContainer, ua,system);
         userProcessContainer.add("manageServiceEntJPanel", addMenu);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);
     }//GEN-LAST:event_AddMenuButtonActionPerformed
 
     private void placeInventoryOrderButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_placeInventoryOrderButtonActionPerformed
-        PlaceInventoryOrderJPanel placeInventoryOrderJPanel = new PlaceInventoryOrderJPanel(userProcessContainer, system);
+        PlaceInventoryOrderJPanel placeInventoryOrderJPanel = new PlaceInventoryOrderJPanel(userProcessContainer, ua, system);
         userProcessContainer.add("manageServiceEntJPanel", placeInventoryOrderJPanel);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);
@@ -184,7 +186,7 @@ public class CateringManagerMainJPanel extends javax.swing.JPanel {
 
     private void ViewOrdersButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ViewOrdersButton1ActionPerformed
         // TODO add your handling code here:
-        ViewOrdersCateringManagerJPanel dm = new ViewOrdersCateringManagerJPanel(userProcessContainer, system);
+        ViewOrdersCateringManagerJPanel dm = new ViewOrdersCateringManagerJPanel(userProcessContainer, ua, system);
         userProcessContainer.add("manageServiceEntJPanel", dm);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);

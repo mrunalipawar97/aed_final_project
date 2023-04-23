@@ -6,6 +6,7 @@ package catering.system.UI.FoodProdAdminWorkArea;
 
 import business.ApplicationSystem;
 import catering.system.FoodProdOrganization.Menu;
+import catering.system.Users.UserAccount;
 import catering.system.validations.ValidateNumbers;
 import java.awt.CardLayout;
 import java.text.SimpleDateFormat;
@@ -23,6 +24,7 @@ public class AddMenuJPanel extends javax.swing.JPanel {
     JPanel userProcessContainer;
     ApplicationSystem system;
     DefaultTableModel viewTableModel;
+    UserAccount ua;
 
     /**
      * Creates new form AddMenuJPanel
@@ -31,9 +33,10 @@ public class AddMenuJPanel extends javax.swing.JPanel {
         initComponents();
     }
 
-    AddMenuJPanel(JPanel userProcessContainer, ApplicationSystem system) {
+    AddMenuJPanel(JPanel userProcessContainer, UserAccount ua, ApplicationSystem system) {
         initComponents();
         this.system=system;
+        this.ua = ua;
         this.userProcessContainer=userProcessContainer;
         this.viewTableModel= (DefaultTableModel) menuTable.getModel();
         populate();
@@ -161,7 +164,7 @@ public class AddMenuJPanel extends javax.swing.JPanel {
         }
     }
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-        CateringManagerMainJPanel dm= new CateringManagerMainJPanel(userProcessContainer, system);
+        CateringManagerMainJPanel dm= new CateringManagerMainJPanel(userProcessContainer, ua,system);
         userProcessContainer.add("manageHospitalsJPanel",dm);
         CardLayout layout=(CardLayout)userProcessContainer.getLayout();
         layout.next(userProcessContainer);

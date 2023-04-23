@@ -4,7 +4,10 @@
  */
 package catering.system.FoodProdOrganization;
 
+import catering.system.OrderManagement.InventoryOrder;
+import catering.system.OrderManagement.InventoryOrderDirectory;
 import catering.system.Users.UserAccount;
+import java.util.ArrayList;
 
 /**
  *
@@ -18,8 +21,15 @@ public class CateringManager {
     private String phone;
     private UserAccount accountDetails;
     private String Network;
-    
+    private ArrayList<InventoryOrder> orderList;
+    private ArrayList<InventoryOrderDirectory> orderDirectoryList;
 
+    public CateringManager() {
+        id = count;
+        count++;
+        this.orderList = new ArrayList<InventoryOrder>();
+        this.orderDirectoryList = new ArrayList<InventoryOrderDirectory>();
+    }
     
     public UserAccount getAccountDetails() {
         return accountDetails;
@@ -40,18 +50,27 @@ public class CateringManager {
     public void setPhone(String phone) {
         this.phone = phone;
     }
-    
-
-
+   
     public void setAccountDetails(UserAccount accountDetails) {
         this.accountDetails = accountDetails;
     }
-    
-    public CateringManager() {
-        id = count;
-        count++;
+
+    public ArrayList<InventoryOrder> getOrderList() {
+        return orderList;
     }
-    
+
+    public void setOrderList(ArrayList<InventoryOrder> orderList) {
+        this.orderList = orderList;
+    }
+
+    public ArrayList<InventoryOrderDirectory> getOrderDirectoryList() {
+        return orderDirectoryList;
+    }
+
+    public void setOrderDirectoryList(ArrayList<InventoryOrderDirectory> orderDirectoryList) {
+        this.orderDirectoryList = orderDirectoryList;
+    }
+
     public String getName() {
         return name;
     }

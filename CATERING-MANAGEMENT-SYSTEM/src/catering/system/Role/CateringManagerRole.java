@@ -20,6 +20,6 @@ public class CateringManagerRole extends Role{
 
     @Override
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, ApplicationSystem business) {
-        return new CateringManagerMainJPanel(userProcessContainer, business);
+        return new CateringManagerMainJPanel(userProcessContainer, account ,business);
     }
 }
