@@ -9,6 +9,7 @@ import catering.system.FoodQualityOrganization.NutritionAuditor;
 import catering.system.Role.NutritionAuditorRole;
 import catering.system.Users.Employee;
 import catering.system.Users.UserAccount;
+import catering.system.validations.Validate;
 import catering.system.validations.ValidateStrings;
 import java.awt.CardLayout;
 import java.util.ArrayList;
@@ -30,6 +31,7 @@ public class NutritionAuditorJPanel extends javax.swing.JPanel {
     //private ArrayList<NutritionAuditor> nutritionList;  
     NutritionAuditor selectedNutritionAuditor;
     DefaultTableModel nutritionAuditorTableModel;
+    Validate validate;
     
     public NutritionAuditorJPanel() {
         initComponents();
@@ -41,6 +43,7 @@ public class NutritionAuditorJPanel extends javax.swing.JPanel {
         this.system = system;
         this.nutritionAuditorTableModel= (DefaultTableModel) nutritionAuditorTable.getModel();
         this.selectedNutritionAuditor = new NutritionAuditor();
+        this.validate=new Validate();
         populateNutritionManagerDetails();
         
     }
@@ -285,8 +288,16 @@ public class NutritionAuditorJPanel extends javax.swing.JPanel {
 
     private void updateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateButtonActionPerformed
         // TODO add your handling code here:
-        Boolean isValid = ValidateStrings.validateStringFields(updateUsernameTextField.getText(), updateAddressTextField.getText(), updatePhoneTextField.getText(), updateAddressTextField.getText(), updatePasswordTextField.getPassword());
+        Boolean isNameValid = validate.checkName(auditorNameTextField.getText());
+        Boolean isUsernameValid= validate.checkUserName(updateUsernameTextField.getText());
+        Boolean isValid = ValidateStrings.validateStringFields(updateUsernameTextField.getText(), updateAddressTextField.getText(), updatePhoneTextField.getText(), updateNameTextField.getText(), updatePasswordTextField.getPassword());
         if (!isValid) {
+            return;
+        }
+        if (!isNameValid) {
+            return;
+        }
+        if (!isUsernameValid) {
             return;
         }
         int selectedRow = nutritionAuditorTable.getSelectedRow();
@@ -324,10 +335,17 @@ public class NutritionAuditorJPanel extends javax.swing.JPanel {
 
     private void addAuditorButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addAuditorButtonActionPerformed
         // TODO add your handling code here:
-        
+        Boolean isNameValid = validate.checkName(auditorNameTextField.getText());
+        Boolean isUsernameValid= validate.checkUserName(auditorUsernameTextField.getText());
         Boolean isValid = ValidateStrings.validateStringFields(auditorUsernameTextField.getText(), auditorAddressTextField.getText(), auditorPhoneTextField.getText(), auditorNameTextField.getText(), auditorPasswordTextField.getPassword());
         System.out.println(isValid+"isValid");
         if (!isValid) {
+            return;
+        }
+        if (!isNameValid) {
+            return;
+        }
+        if (!isUsernameValid) {
             return;
         }
         for (int i = 0; i < system.getUserAccountDirectory().getUserAccountList().size(); i++) {
