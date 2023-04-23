@@ -53,7 +53,7 @@ public class CateringManagerMainJPanel extends javax.swing.JPanel {
         ViewOrdersButton1 = new javax.swing.JButton();
         nameLable = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(255, 203, 162));
+        setBackground(new java.awt.Color(255, 180, 153));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));

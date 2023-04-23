@@ -34,6 +34,20 @@ public class Validate {
             }
         }
     }
+    
+     public boolean checkUserName(String name) {
+        if (name != null && name.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Please fill out the field, it cannot be null or empty!");
+            return false;
+        } else {
+            if (name.matches("[a-z]*")) {
+                return true;
+            } else {
+                JOptionPane.showMessageDialog(null, "Please fill a valid UserName!");
+                return false;
+            }
+        }
+    }
 
     public boolean checkEmail(String email) {
         if (email != null && email.isEmpty()) {
@@ -75,7 +89,7 @@ public class Validate {
             if (Pattern.compile(regexPattern).matcher(fieldName).matches()) {
                 return true;
             } else {
-                JOptionPane.showMessageDialog(null, "Please fill a valid number!");
+                JOptionPane.showMessageDialog(null, "Please fill a valid number and range!");
                 return false;
             }
         }

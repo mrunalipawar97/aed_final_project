@@ -88,6 +88,7 @@ public class FoodInventoryOrderJPanel extends javax.swing.JPanel {
         cartTable = new javax.swing.JTable();
         addCourseHeaderLabel = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(255, 180, 153));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(254, 254, 226));

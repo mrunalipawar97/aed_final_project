@@ -111,8 +111,8 @@ public class LoginPageJPanel extends javax.swing.JPanel {
         });
         add(signUpButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 170, 200, 30));
 
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/catering.jpeg"))); // NOI18N
-        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 27, 850, 630));
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/MEAL_MATE.gif"))); // NOI18N
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 27, 900, 650));
 
         jLabel4.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
         jLabel4.setText("New User?");

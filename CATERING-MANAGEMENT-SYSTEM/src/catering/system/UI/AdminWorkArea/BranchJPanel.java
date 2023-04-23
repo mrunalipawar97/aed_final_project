@@ -73,7 +73,7 @@ public class BranchJPanel extends javax.swing.JPanel {
         branchJTable = new javax.swing.JTable();
         AddBranchButton = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(204, 255, 204));
+        setBackground(new java.awt.Color(255, 180, 153));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Katari", 1, 24)); // NOI18N
@@ -86,10 +86,11 @@ public class BranchJPanel extends javax.swing.JPanel {
         add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 320, 120, -1));
 
         branchNameJLabel.setBackground(new java.awt.Color(0, 0, 0));
+        branchNameJLabel.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         branchNameJLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        branchNameJLabel.setText("Branch Name");
-        add(branchNameJLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 150, 80, 30));
-        add(branchNameTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 150, 150, 30));
+        branchNameJLabel.setText("Branch Name: ");
+        add(branchNameJLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 150, 120, 30));
+        add(branchNameTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 150, 290, 30));
 
         branchJTable.setBackground(new java.awt.Color(254, 254, 226));
         branchJTable.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
@@ -124,14 +125,17 @@ public class BranchJPanel extends javax.swing.JPanel {
 
         add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 350, 470, 180));
 
-        AddBranchButton.setBackground(new java.awt.Color(127, 195, 126));
+        AddBranchButton.setBackground(new java.awt.Color(255, 102, 102));
+        AddBranchButton.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        AddBranchButton.setForeground(new java.awt.Color(255, 255, 255));
         AddBranchButton.setText("Add Branch");
+        AddBranchButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         AddBranchButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 AddBranchButtonActionPerformed(evt);
             }
         });
-        add(AddBranchButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 210, 140, 30));
+        add(AddBranchButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 210, 160, 40));
     }// </editor-fold>//GEN-END:initComponents
 
     private void AddBranchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddBranchButtonActionPerformed

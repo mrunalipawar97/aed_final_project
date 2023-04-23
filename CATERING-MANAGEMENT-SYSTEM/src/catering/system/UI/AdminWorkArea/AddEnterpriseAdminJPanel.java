@@ -110,7 +110,7 @@ public class AddEnterpriseAdminJPanel extends javax.swing.JPanel {
         updateEntAdminButton = new javax.swing.JButton();
         deleteEnterpriseAdmin = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(153, 153, 255));
+        setBackground(new java.awt.Color(255, 180, 153));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         add(entComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 100, 240, 30));
@@ -153,14 +153,17 @@ public class AddEnterpriseAdminJPanel extends javax.swing.JPanel {
         updateRestManagerLabel1.setText("Name");
         add(updateRestManagerLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 150, -1, 30));
 
+        addAdminButton.setBackground(new java.awt.Color(255, 102, 102));
         addAdminButton.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        addAdminButton.setForeground(new java.awt.Color(255, 255, 255));
         addAdminButton.setText("Add Admin");
+        addAdminButton.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         addAdminButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addAdminButtonActionPerformed(evt);
             }
         });
-        add(addAdminButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 310, -1, 30));
+        add(addAdminButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 310, 120, 40));
 
         adminTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -186,14 +189,17 @@ public class AddEnterpriseAdminJPanel extends javax.swing.JPanel {
         jLabel2.setText("Add Enterprise Admins");
         add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 20, 420, -1));
 
+        viewAdminButton.setBackground(new java.awt.Color(255, 102, 102));
         viewAdminButton.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        viewAdminButton.setForeground(new java.awt.Color(255, 255, 255));
         viewAdminButton.setText("View Details");
+        viewAdminButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         viewAdminButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 viewAdminButtonActionPerformed(evt);
             }
         });
-        add(viewAdminButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 320, 110, -1));
+        add(viewAdminButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 310, 120, 40));
 
         updateRestManagerLabel2.setBackground(new java.awt.Color(254, 254, 226));
         updateRestManagerLabel2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
@@ -236,21 +242,29 @@ public class AddEnterpriseAdminJPanel extends javax.swing.JPanel {
         entTypeField.setEnabled(false);
         add(entTypeField, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 430, 240, 30));
 
+        updateEntAdminButton.setBackground(new java.awt.Color(255, 102, 102));
+        updateEntAdminButton.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        updateEntAdminButton.setForeground(new java.awt.Color(255, 255, 255));
         updateEntAdminButton.setText("Update Enterprise Admin");
+        updateEntAdminButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         updateEntAdminButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 updateEntAdminButtonActionPerformed(evt);
             }
         });
-        add(updateEntAdminButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 630, -1, -1));
+        add(updateEntAdminButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 650, 240, 40));
 
+        deleteEnterpriseAdmin.setBackground(new java.awt.Color(255, 102, 102));
+        deleteEnterpriseAdmin.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        deleteEnterpriseAdmin.setForeground(new java.awt.Color(255, 255, 255));
         deleteEnterpriseAdmin.setText("Delete  Enterprise Admin");
+        deleteEnterpriseAdmin.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         deleteEnterpriseAdmin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 deleteEnterpriseAdminActionPerformed(evt);
             }
         });
-        add(deleteEnterpriseAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 320, -1, -1));
+        add(deleteEnterpriseAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 310, 190, 40));
     }// </editor-fold>//GEN-END:initComponents
 
     private void restManagerTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_restManagerTextActionPerformed
@@ -261,11 +275,15 @@ public class AddEnterpriseAdminJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         Boolean isValid = ValidateStrings.validateFields(usernameText.getText(), restManagerText.getText(), restPwdText.getPassword());
         Boolean isNameValid=valid.checkName(restManagerText.getText());
+        Boolean isUsernameValid= valid.checkUserName(usernameText.getText());
         Enterprise ent= (Enterprise) entComboBox.getSelectedItem();
         if (!isValid) {
             return;
         }
         if (!isNameValid) {
+            return;
+        }
+        if (!isUsernameValid) {
             return;
         }
         for (int i = 0; i < system.getUserAccountDirectory().getUserAccountList().size(); i++) {
@@ -275,7 +293,7 @@ public class AddEnterpriseAdminJPanel extends javax.swing.JPanel {
             }
         }
         if(system.getEnterpriseDirectory().getEnterpriseAdminList().size()>0){
-            for (int i = 0; i < system.getEnterpriseDirectory().getEnterpriseList().size(); i++) {
+            for (int i = 0; i < system.getEnterpriseDirectory().getEnterpriseAdminList().size(); i++) {
                 if(system.getEnterpriseDirectory().getEnterpriseAdminList().get(i).getEnt().getEntType().equals(ent.getEntType())){
                     JOptionPane.showMessageDialog(null,"Enterprise Admin Already Present", "Error message" ,JOptionPane.ERROR_MESSAGE);
                     return;
