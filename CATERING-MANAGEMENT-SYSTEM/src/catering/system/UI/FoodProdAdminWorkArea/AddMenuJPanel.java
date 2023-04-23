@@ -7,6 +7,7 @@ package catering.system.UI.FoodProdAdminWorkArea;
 import business.ApplicationSystem;
 import catering.system.FoodProdOrganization.Menu;
 import catering.system.Users.UserAccount;
+import catering.system.validations.Validate;
 import catering.system.validations.ValidateNumbers;
 import java.awt.CardLayout;
 import java.text.SimpleDateFormat;
@@ -25,6 +26,7 @@ public class AddMenuJPanel extends javax.swing.JPanel {
     ApplicationSystem system;
     DefaultTableModel viewTableModel;
     UserAccount ua;
+    Validate validate;
 
     /**
      * Creates new form AddMenuJPanel
@@ -38,6 +40,7 @@ public class AddMenuJPanel extends javax.swing.JPanel {
         this.system=system;
         this.ua = ua;
         this.userProcessContainer=userProcessContainer;
+        this.validate=new Validate();
         this.viewTableModel= (DefaultTableModel) menuTable.getModel();
         populate();
     }
@@ -69,49 +72,60 @@ public class AddMenuJPanel extends javax.swing.JPanel {
         jLabel7 = new javax.swing.JLabel();
         jDateChooser1 = new com.toedter.calendar.JDateChooser();
 
-        setBackground(new java.awt.Color(204, 204, 255));
+        setBackground(new java.awt.Color(255, 180, 153));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnBack.setBackground(new java.awt.Color(255, 204, 204));
+        btnBack.setBackground(new java.awt.Color(255, 102, 102));
         btnBack.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnBack.setForeground(new java.awt.Color(51, 51, 51));
+        btnBack.setForeground(new java.awt.Color(255, 255, 255));
         btnBack.setText("Back");
+        btnBack.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackActionPerformed(evt);
             }
         });
-        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 131, -1));
+        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 190, 50));
 
-        jLabel1.setText("Add Menu");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 90, -1, -1));
+        jLabel1.setFont(new java.awt.Font("Helvetica Neue", 3, 36)); // NOI18N
+        jLabel1.setText("Menu Creation");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 10, -1, -1));
         add(breakfastField, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 180, 220, -1));
         add(lunchField, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 230, 220, -1));
         add(dinnerField, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 280, 220, -1));
 
+        jLabel2.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         jLabel2.setText("Choose Date:");
         add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 140, -1, -1));
 
+        jLabel3.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         jLabel3.setText("Price Per Batch:");
         add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 380, -1, -1));
         add(batchField, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 330, 220, -1));
 
+        jLabel4.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         jLabel4.setText("Breakfast:");
         add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 180, -1, -1));
 
+        jLabel5.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         jLabel5.setText("Lunch:");
         add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 230, -1, -1));
 
+        jLabel6.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         jLabel6.setText("Dinner:");
         add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 280, -1, -1));
 
+        addMenuButton.setBackground(new java.awt.Color(255, 102, 102));
+        addMenuButton.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        addMenuButton.setForeground(new java.awt.Color(255, 255, 255));
         addMenuButton.setText("Add Menu");
+        addMenuButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         addMenuButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addMenuButtonActionPerformed(evt);
             }
         });
-        add(addMenuButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 450, -1, -1));
+        add(addMenuButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 440, 180, 50));
 
         menuTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -131,9 +145,10 @@ public class AddMenuJPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(menuTable);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 70, 500, 310));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 130, 500, 310));
         add(priceField, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 380, 210, 20));
 
+        jLabel7.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         jLabel7.setText("Batch:");
         add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 330, -1, -1));
         add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 140, 210, -1));
@@ -172,9 +187,18 @@ public class AddMenuJPanel extends javax.swing.JPanel {
 
     private void addMenuButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addMenuButtonActionPerformed
         // TODO add your handling code here:
+        try{
+        Boolean isValidBatch=validate.checkNoNegativeZero(batchField.getText());
+        Boolean isValidPrice=validate.checkNoNegativeZero(priceField.getText());
         Boolean isPriceValid = ValidateNumbers.verifyNumbers(priceField);
         Boolean isBatchValid = ValidateNumbers.verifyNumbers(batchField);
         if (!isPriceValid || !isBatchValid) {
+            return;
+        }
+        if(!isValidBatch){
+            return;
+        }
+        if(!isValidPrice){
             return;
         }
         Date menuDate= jDateChooser1.getDate();
@@ -188,6 +212,11 @@ public class AddMenuJPanel extends javax.swing.JPanel {
         dinnerField.setText("");
         batchField.setText("");
         priceField.setText("");
+        }
+        catch(NumberFormatException e){
+            JOptionPane.showMessageDialog(null, "only int in batch float in price allowed");
+            System.out.println("only int in batch float in price allowed");
+        }
         
     }//GEN-LAST:event_addMenuButtonActionPerformed
 

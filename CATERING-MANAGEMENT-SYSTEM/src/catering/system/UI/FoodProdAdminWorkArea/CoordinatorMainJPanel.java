@@ -90,21 +90,14 @@ public class CoordinatorMainJPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         nameLable = new javax.swing.JLabel();
-
-        setBackground(new java.awt.Color(204, 204, 255));
-        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        add(nameLable, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 30, 340, 30));
-
-        jLabel1 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         orderTable = new javax.swing.JTable();
         assignButton = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(204, 204, 255));
+        setBackground(new java.awt.Color(255, 180, 153));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel1.setText("Co-ordinator");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 30, -1, -1));
+        add(nameLable, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 30, 340, 30));
 
         orderTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -124,15 +117,23 @@ public class CoordinatorMainJPanel extends javax.swing.JPanel {
         });
         jScrollPane2.setViewportView(orderTable);
 
-        add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 110, 460, 190));
+        add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 180, 460, 190));
 
+        assignButton.setBackground(new java.awt.Color(255, 102, 102));
+        assignButton.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        assignButton.setForeground(new java.awt.Color(255, 255, 255));
         assignButton.setText("Move to Delivered");
+        assignButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         assignButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 assignButtonActionPerformed(evt);
             }
         });
-        add(assignButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 320, 200, -1));
+        add(assignButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 420, 250, 60));
+
+        jLabel1.setFont(new java.awt.Font("Helvetica Neue", 3, 48)); // NOI18N
+        jLabel1.setText("View Delivery and Transit Orders");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 60, 770, 70));
     }// </editor-fold>//GEN-END:initComponents
 
     private void assignButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_assignButtonActionPerformed
@@ -154,11 +155,10 @@ public class CoordinatorMainJPanel extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-
-    private javax.swing.JLabel nameLable;
     private javax.swing.JButton assignButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JLabel nameLable;
     private javax.swing.JTable orderTable;
     // End of variables declaration//GEN-END:variables
 }

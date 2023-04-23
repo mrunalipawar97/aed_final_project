@@ -5,12 +5,11 @@
 package catering.system.UI.FoodProdAdminWorkArea;
 
 import business.ApplicationSystem;
-import catering.system.Enterprise.Enterprise;
-import catering.system.Enterprise.EnterpriseAdmin;
 import catering.system.FoodProdOrganization.Supervisor;
 import catering.system.Role.SuperviserRole;
 import catering.system.Users.Employee;
 import catering.system.Users.UserAccount;
+import catering.system.validations.Validate;
 import catering.system.validations.ValidateStrings;
 import java.awt.CardLayout;
 import java.util.ArrayList;
@@ -27,6 +26,7 @@ public class AddSupervisorJPanel extends javax.swing.JPanel {
     ApplicationSystem system;
     DefaultTableModel supervisorTableModel;
     Supervisor selectedSupervisor;
+    Validate validate;
 
     /**
      * Creates new form AddSupervisorJPanel
@@ -38,6 +38,7 @@ public class AddSupervisorJPanel extends javax.swing.JPanel {
     AddSupervisorJPanel(ApplicationSystem system, JPanel userProcessContainer) {
         initComponents();
         this.system=system;
+        this.validate=new Validate();
         this.userProcessContainer=userProcessContainer;
         this.supervisorTableModel= (DefaultTableModel) supervisorTable.getModel();
         this.selectedSupervisor= new Supervisor();
@@ -97,8 +98,6 @@ public class AddSupervisorJPanel extends javax.swing.JPanel {
         nameUpdateField = new javax.swing.JTextField();
         usernameUpdateField = new javax.swing.JTextField();
         passwordUpdateField = new javax.swing.JPasswordField();
-        addressUpdateField = new javax.swing.JPasswordField();
-        phoneUpdateField = new javax.swing.JPasswordField();
         restPwdLabel3 = new javax.swing.JLabel();
         restPwdLabel4 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
@@ -106,23 +105,27 @@ public class AddSupervisorJPanel extends javax.swing.JPanel {
         addressLabel2 = new javax.swing.JLabel();
         updateSupervisor = new javax.swing.JButton();
         deleteSupervisorButton = new javax.swing.JButton();
+        addressUpdateField = new javax.swing.JTextField();
+        phoneUpdateField = new javax.swing.JTextField();
 
-        setBackground(new java.awt.Color(204, 204, 255));
+        setBackground(new java.awt.Color(255, 180, 153));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setText("Add Supervisor");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 10, -1, -1));
+        jLabel1.setFont(new java.awt.Font("Helvetica Neue", 3, 36)); // NOI18N
+        jLabel1.setText("Supervisor Work Area");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 10, -1, -1));
 
-        btnBack.setBackground(new java.awt.Color(255, 204, 204));
+        btnBack.setBackground(new java.awt.Color(255, 102, 102));
         btnBack.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnBack.setForeground(new java.awt.Color(51, 51, 51));
+        btnBack.setForeground(new java.awt.Color(255, 255, 255));
         btnBack.setText("Back");
+        btnBack.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackActionPerformed(evt);
             }
         });
-        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 131, -1));
+        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 170, 40));
 
         restManagerText.setForeground(new java.awt.Color(72, 72, 72));
         restManagerText.addActionListener(new java.awt.event.ActionListener() {
@@ -130,7 +133,7 @@ public class AddSupervisorJPanel extends javax.swing.JPanel {
                 restManagerTextActionPerformed(evt);
             }
         });
-        add(restManagerText, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 60, 280, -1));
+        add(restManagerText, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 70, 280, -1));
 
         restPwdLabel1.setBackground(new java.awt.Color(254, 254, 226));
         restPwdLabel1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
@@ -140,7 +143,7 @@ public class AddSupervisorJPanel extends javax.swing.JPanel {
         add(restPwdLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 320, -1, -1));
 
         usernameText.setForeground(new java.awt.Color(72, 72, 72));
-        add(usernameText, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 100, 280, -1));
+        add(usernameText, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 110, 280, -1));
 
         jLabel6.setBackground(new java.awt.Color(254, 254, 226));
         jLabel6.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
@@ -150,7 +153,7 @@ public class AddSupervisorJPanel extends javax.swing.JPanel {
         add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 400, -1, -1));
 
         restPwdText.setForeground(new java.awt.Color(72, 72, 72));
-        add(restPwdText, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 140, 280, -1));
+        add(restPwdText, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 150, 280, -1));
 
         restPwdLabel2.setBackground(new java.awt.Color(254, 254, 226));
         restPwdLabel2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
@@ -172,10 +175,10 @@ public class AddSupervisorJPanel extends javax.swing.JPanel {
                 phoneTextActionPerformed(evt);
             }
         });
-        add(phoneText, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 190, 260, -1));
+        add(phoneText, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 190, 280, -1));
 
         AddressText.setForeground(new java.awt.Color(72, 72, 72));
-        add(AddressText, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 230, 270, -1));
+        add(AddressText, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 230, 270, -1));
 
         addressLabel1.setBackground(new java.awt.Color(254, 254, 226));
         addressLabel1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
@@ -184,15 +187,17 @@ public class AddSupervisorJPanel extends javax.swing.JPanel {
         addressLabel1.setText("Address");
         add(addressLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 480, -1, -1));
 
-        addManagerButton.setBackground(new java.awt.Color(127, 195, 126));
+        addManagerButton.setBackground(new java.awt.Color(255, 102, 102));
         addManagerButton.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        addManagerButton.setForeground(new java.awt.Color(255, 255, 255));
         addManagerButton.setText("Add");
+        addManagerButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         addManagerButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addManagerButtonActionPerformed(evt);
             }
         });
-        add(addManagerButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 270, -1, -1));
+        add(addManagerButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 270, 120, 40));
 
         supervisorTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -214,14 +219,17 @@ public class AddSupervisorJPanel extends javax.swing.JPanel {
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 50, -1, 170));
 
+        viewAdminButton.setBackground(new java.awt.Color(255, 102, 102));
         viewAdminButton.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        viewAdminButton.setForeground(new java.awt.Color(255, 255, 255));
         viewAdminButton.setText("View Details");
+        viewAdminButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         viewAdminButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 viewAdminButtonActionPerformed(evt);
             }
         });
-        add(viewAdminButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 240, 110, -1));
+        add(viewAdminButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 230, 170, 50));
 
         nameUpdateField.setForeground(new java.awt.Color(72, 72, 72));
         nameUpdateField.addActionListener(new java.awt.event.ActionListener() {
@@ -237,62 +245,66 @@ public class AddSupervisorJPanel extends javax.swing.JPanel {
         passwordUpdateField.setForeground(new java.awt.Color(72, 72, 72));
         add(passwordUpdateField, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 390, 240, 30));
 
-        addressUpdateField.setForeground(new java.awt.Color(72, 72, 72));
-        add(addressUpdateField, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 470, 240, 30));
-
-        phoneUpdateField.setForeground(new java.awt.Color(72, 72, 72));
-        add(phoneUpdateField, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 430, 240, 30));
-
         restPwdLabel3.setBackground(new java.awt.Color(254, 254, 226));
         restPwdLabel3.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         restPwdLabel3.setForeground(new java.awt.Color(254, 254, 226));
         restPwdLabel3.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         restPwdLabel3.setText("Name");
-        add(restPwdLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, -1, -1));
+        add(restPwdLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, -1, -1));
 
         restPwdLabel4.setBackground(new java.awt.Color(254, 254, 226));
         restPwdLabel4.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         restPwdLabel4.setForeground(new java.awt.Color(254, 254, 226));
         restPwdLabel4.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         restPwdLabel4.setText("Username");
-        add(restPwdLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, -1, -1));
+        add(restPwdLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, -1, -1));
 
         jLabel7.setBackground(new java.awt.Color(254, 254, 226));
         jLabel7.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(254, 254, 226));
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         jLabel7.setText("Password");
-        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, -1, -1));
+        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, -1, -1));
 
         phoneLabel1.setBackground(new java.awt.Color(254, 254, 226));
         phoneLabel1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         phoneLabel1.setForeground(new java.awt.Color(254, 254, 226));
         phoneLabel1.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         phoneLabel1.setText("Phone");
-        add(phoneLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, -1, -1));
+        add(phoneLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, -1, -1));
 
         addressLabel2.setBackground(new java.awt.Color(254, 254, 226));
         addressLabel2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         addressLabel2.setForeground(new java.awt.Color(254, 254, 226));
         addressLabel2.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         addressLabel2.setText("Address");
-        add(addressLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, -1, -1));
+        add(addressLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 230, -1, -1));
 
+        updateSupervisor.setBackground(new java.awt.Color(255, 102, 102));
+        updateSupervisor.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        updateSupervisor.setForeground(new java.awt.Color(255, 255, 255));
         updateSupervisor.setText("Update Supervisor");
+        updateSupervisor.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         updateSupervisor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 updateSupervisorActionPerformed(evt);
             }
         });
-        add(updateSupervisor, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 510, -1, -1));
+        add(updateSupervisor, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 510, 200, 50));
 
+        deleteSupervisorButton.setBackground(new java.awt.Color(255, 102, 102));
+        deleteSupervisorButton.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        deleteSupervisorButton.setForeground(new java.awt.Color(255, 255, 255));
         deleteSupervisorButton.setText("Delete Supervisor");
+        deleteSupervisorButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         deleteSupervisorButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 deleteSupervisorButtonActionPerformed(evt);
             }
         });
-        add(deleteSupervisorButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 240, -1, -1));
+        add(deleteSupervisorButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 230, 160, 50));
+        add(addressUpdateField, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 470, 240, 30));
+        add(phoneUpdateField, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 430, 240, 30));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
@@ -312,8 +324,12 @@ public class AddSupervisorJPanel extends javax.swing.JPanel {
 
     private void addManagerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addManagerButtonActionPerformed
         // TODO add your handling code here:
+        Boolean isUsernameValid= validate.checkUserName(usernameText.getText());
         Boolean isValid = ValidateStrings.validateStringFields(usernameText.getText(), AddressText.getText(), phoneText.getText(), restManagerText.getText(), restPwdText.getPassword());
         if (!isValid) {
+            return;
+        }
+        if (!isUsernameValid) {
             return;
         }
         for (int i = 0; i < system.getUserAccountDirectory().getUserAccountList().size(); i++) {
@@ -362,9 +378,13 @@ public class AddSupervisorJPanel extends javax.swing.JPanel {
 
     private void updateSupervisorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateSupervisorActionPerformed
         // TODO add your handling code here:
+        Boolean isUsernameValid= validate.checkUserName(usernameUpdateField.getText());
         Boolean isValid = ValidateStrings.validateStringFields(usernameUpdateField.getText(), addressUpdateField.getText(), phoneUpdateField.getText(), nameUpdateField.getText(), passwordUpdateField.getPassword());
         if(!isValid){
            return; 
+        }
+        if (!isUsernameValid) {
+            return;
         }
         int selectedRow = supervisorTable.getSelectedRow();
         if(selectedRow>=0){
@@ -407,7 +427,7 @@ public class AddSupervisorJPanel extends javax.swing.JPanel {
     private javax.swing.JButton addManagerButton;
     private javax.swing.JLabel addressLabel1;
     private javax.swing.JLabel addressLabel2;
-    private javax.swing.JPasswordField addressUpdateField;
+    private javax.swing.JTextField addressUpdateField;
     private javax.swing.JButton btnBack;
     private javax.swing.JButton deleteSupervisorButton;
     private javax.swing.JLabel jLabel1;
@@ -419,7 +439,7 @@ public class AddSupervisorJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel phoneLabel;
     private javax.swing.JLabel phoneLabel1;
     private javax.swing.JTextField phoneText;
-    private javax.swing.JPasswordField phoneUpdateField;
+    private javax.swing.JTextField phoneUpdateField;
     private javax.swing.JTextField restManagerText;
     private javax.swing.JLabel restPwdLabel1;
     private javax.swing.JLabel restPwdLabel2;

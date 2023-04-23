@@ -17,6 +17,10 @@ import javax.swing.JTextField;
  * @author jeelkanzaria
  */
 public class ValidateStrings extends InputVerifier{
+    Validate validate;
+    ValidateStrings(){
+        this.validate=new Validate();
+    }
     public static boolean checkNullEmpty(String fieldName) {
         if (fieldName != null && fieldName.isEmpty()) {
             JOptionPane.showMessageDialog(null, "Please fill out the field, it cannot be null or empty!");

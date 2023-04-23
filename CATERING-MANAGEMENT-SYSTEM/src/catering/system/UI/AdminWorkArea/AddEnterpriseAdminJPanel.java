@@ -275,11 +275,15 @@ public class AddEnterpriseAdminJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         Boolean isValid = ValidateStrings.validateFields(usernameText.getText(), restManagerText.getText(), restPwdText.getPassword());
         Boolean isNameValid=valid.checkName(restManagerText.getText());
+        Boolean isUsernameValid= valid.checkUserName(usernameText.getText());
         Enterprise ent= (Enterprise) entComboBox.getSelectedItem();
         if (!isValid) {
             return;
         }
         if (!isNameValid) {
+            return;
+        }
+        if (!isUsernameValid) {
             return;
         }
         for (int i = 0; i < system.getUserAccountDirectory().getUserAccountList().size(); i++) {

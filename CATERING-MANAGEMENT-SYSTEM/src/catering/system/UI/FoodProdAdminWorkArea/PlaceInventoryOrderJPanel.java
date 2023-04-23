@@ -144,7 +144,7 @@ public class PlaceInventoryOrderJPanel extends javax.swing.JPanel {
         jScrollPane3 = new javax.swing.JScrollPane();
         finalOrderTable = new javax.swing.JTable();
 
-        setBackground(new java.awt.Color(255, 203, 162));
+        setBackground(new java.awt.Color(255, 180, 153));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnBack.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
