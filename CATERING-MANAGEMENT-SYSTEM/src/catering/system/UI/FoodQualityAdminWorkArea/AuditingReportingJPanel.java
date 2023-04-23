@@ -118,14 +118,15 @@ public class AuditingReportingJPanel extends javax.swing.JPanel {
         jLabel3 = new javax.swing.JLabel();
         showMenujButton = new javax.swing.JButton();
         breakfastTextField = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 180, 153));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnBack.setBackground(new java.awt.Color(255, 204, 204));
-        btnBack.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnBack.setForeground(new java.awt.Color(51, 51, 51));
+        btnBack.setBackground(new java.awt.Color(255, 203, 162));
+        btnBack.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         btnBack.setText("Back");
+        btnBack.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackActionPerformed(evt);
@@ -134,14 +135,14 @@ public class AuditingReportingJPanel extends javax.swing.JPanel {
         add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 131, 40));
 
         title.setBackground(new java.awt.Color(255, 255, 255));
-        title.setFont(new java.awt.Font("Lucida Grande", 1, 24)); // NOI18N
+        title.setFont(new java.awt.Font("Helvetica Neue", 1, 36)); // NOI18N
         title.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         title.setText("Food Menu Rating");
-        add(title, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 20, 340, 60));
+        add(title, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 20, 340, 60));
 
-        healthScoreLabel.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        healthScoreLabel.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         healthScoreLabel.setText("Rate the Healthiness of Food Items");
-        add(healthScoreLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 420, 280, 30));
+        add(healthScoreLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 420, 320, 30));
 
         healthScorejTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -163,7 +164,7 @@ public class AuditingReportingJPanel extends javax.swing.JPanel {
         });
         jScrollPane2.setViewportView(healthScorejTable);
 
-        add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 460, 600, 190));
+        add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 460, 600, 190));
 
         menuTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -183,44 +184,57 @@ public class AuditingReportingJPanel extends javax.swing.JPanel {
         });
         jScrollPane3.setViewportView(menuTable);
 
-        add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, 500, 190));
+        add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 120, 510, 190));
 
         FeedbackComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" }));
-        add(FeedbackComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 300, 220, 30));
+        add(FeedbackComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 270, 220, 30));
 
         LunchTextField.setEnabled(false);
-        add(LunchTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 200, 220, 30));
+        add(LunchTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 170, 220, 30));
 
         dinnerTextField.setEnabled(false);
-        add(dinnerTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 250, 220, 30));
+        add(dinnerTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 220, 220, 30));
 
+        jButton1.setBackground(new java.awt.Color(255, 203, 162));
+        jButton1.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         jButton1.setText("Health Score");
+        jButton1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 350, 130, 40));
+        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1060, 320, 130, 40));
 
+        jLabel1.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         jLabel1.setText("Lunch");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 210, -1, 20));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 170, 50, 30));
 
+        jLabel2.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         jLabel2.setText("Dinner");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 260, -1, -1));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 230, 50, 20));
 
+        jLabel3.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         jLabel3.setText("Breakfast");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 150, -1, 20));
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 120, -1, 30));
 
+        showMenujButton.setBackground(new java.awt.Color(255, 203, 162));
+        showMenujButton.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         showMenujButton.setText("Show");
+        showMenujButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         showMenujButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 showMenujButtonActionPerformed(evt);
             }
         });
-        add(showMenujButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 100, 100, 30));
+        add(showMenujButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 340, 100, 30));
 
         breakfastTextField.setEnabled(false);
-        add(breakfastTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 150, 220, 30));
+        add(breakfastTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 120, 220, 30));
+
+        jLabel4.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        jLabel4.setText("Rating");
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 270, 50, 30));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
@@ -277,6 +291,7 @@ public class AuditingReportingJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTable menuTable;

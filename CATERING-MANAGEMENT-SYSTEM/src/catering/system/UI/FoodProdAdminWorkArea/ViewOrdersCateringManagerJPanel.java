@@ -101,9 +101,8 @@ public class ViewOrdersCateringManagerJPanel extends javax.swing.JPanel {
         setBackground(new java.awt.Color(255, 180, 153));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnBack.setBackground(new java.awt.Color(255, 102, 102));
-        btnBack.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnBack.setForeground(new java.awt.Color(255, 255, 255));
+        btnBack.setBackground(new java.awt.Color(255, 203, 162));
+        btnBack.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         btnBack.setText("Back");
         btnBack.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnBack.addActionListener(new java.awt.event.ActionListener() {
@@ -137,9 +136,8 @@ public class ViewOrdersCateringManagerJPanel extends javax.swing.JPanel {
 
         add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 190, -1, 190));
 
-        assignButton.setBackground(new java.awt.Color(255, 102, 102));
-        assignButton.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
-        assignButton.setForeground(new java.awt.Color(255, 255, 255));
+        assignButton.setBackground(new java.awt.Color(255, 203, 162));
+        assignButton.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         assignButton.setText("Move to In Transit");
         assignButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         assignButton.addActionListener(new java.awt.event.ActionListener() {
@@ -147,7 +145,7 @@ public class ViewOrdersCateringManagerJPanel extends javax.swing.JPanel {
                 assignButtonActionPerformed(evt);
             }
         });
-        add(assignButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 410, 240, 60));
+        add(assignButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 410, 200, 50));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed

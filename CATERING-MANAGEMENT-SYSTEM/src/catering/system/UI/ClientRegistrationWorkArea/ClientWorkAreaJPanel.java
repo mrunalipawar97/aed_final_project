@@ -129,7 +129,7 @@ public class ClientWorkAreaJPanel extends javax.swing.JPanel {
 
         jLabel1.setFont(new java.awt.Font("Helvetica Neue", 3, 48)); // NOI18N
         jLabel1.setText("Welcome to Meal Mate");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 10, -1, -1));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 20, -1, -1));
 
         menuTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -149,23 +149,22 @@ public class ClientWorkAreaJPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(menuTable);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 500, 190));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 170, 500, 190));
 
         priceField.setEnabled(false);
-        add(priceField, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 340, 250, -1));
+        add(priceField, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 390, 250, 30));
 
-        jLabel2.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
-        jLabel2.setText("CVV:");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 440, -1, 20));
-        add(QualityField, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 350, 250, -1));
+        jLabel2.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        jLabel2.setText("CVV");
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 490, 30, 30));
+        add(QualityField, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 400, 250, 30));
 
-        jLabel3.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         jLabel3.setText("Quantity:");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 350, -1, 20));
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 410, 80, 20));
 
-        placeOrderButton.setBackground(new java.awt.Color(255, 102, 102));
-        placeOrderButton.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
-        placeOrderButton.setForeground(new java.awt.Color(255, 255, 255));
+        placeOrderButton.setBackground(new java.awt.Color(255, 203, 162));
+        placeOrderButton.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         placeOrderButton.setText("Place Order");
         placeOrderButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         placeOrderButton.addActionListener(new java.awt.event.ActionListener() {
@@ -173,17 +172,17 @@ public class ClientWorkAreaJPanel extends javax.swing.JPanel {
                 placeOrderButtonActionPerformed(evt);
             }
         });
-        add(placeOrderButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 400, 190, 40));
-        add(cvvField, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 440, 250, -1));
-        add(cardnoField, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 390, 250, -1));
+        add(placeOrderButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 460, 190, 40));
+        add(cvvField, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 490, 250, 30));
+        add(cardnoField, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 440, 250, 30));
 
-        jLabel4.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
-        jLabel4.setText("Price:");
-        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 340, -1, 20));
+        jLabel4.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        jLabel4.setText("Price");
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 390, 40, 30));
 
-        jLabel5.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
-        jLabel5.setText("Card Number:");
-        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 390, -1, 20));
+        jLabel5.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        jLabel5.setText("Card Number");
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 440, -1, 30));
 
         orderTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -203,11 +202,10 @@ public class ClientWorkAreaJPanel extends javax.swing.JPanel {
         });
         jScrollPane2.setViewportView(orderTable);
 
-        add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 110, -1, 190));
+        add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 170, -1, 190));
 
-        jButton1.setBackground(new java.awt.Color(255, 102, 102));
-        jButton1.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
+        jButton1.setBackground(new java.awt.Color(255, 203, 162));
+        jButton1.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         jButton1.setText("Make Payment");
         jButton1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -215,11 +213,11 @@ public class ClientWorkAreaJPanel extends javax.swing.JPanel {
                 jButton1ActionPerformed(evt);
             }
         });
-        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 490, 180, 50));
+        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 540, 180, 50));
 
         jLabel6.setFont(new java.awt.Font("Helvetica Neue", 1, 24)); // NOI18N
         jLabel6.setText("~Place your order with Us!!!");
-        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 70, 370, 30));
+        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 80, 370, 30));
     }// </editor-fold>//GEN-END:initComponents
 
     private void placeOrderButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_placeOrderButtonActionPerformed

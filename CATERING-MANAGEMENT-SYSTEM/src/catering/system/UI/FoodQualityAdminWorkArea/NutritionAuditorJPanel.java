@@ -123,10 +123,10 @@ public class NutritionAuditorJPanel extends javax.swing.JPanel {
         setBackground(new java.awt.Color(255, 180, 153));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnBack.setBackground(new java.awt.Color(255, 204, 204));
-        btnBack.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnBack.setForeground(new java.awt.Color(51, 51, 51));
+        btnBack.setBackground(new java.awt.Color(255, 203, 162));
+        btnBack.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         btnBack.setText("Back");
+        btnBack.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackActionPerformed(evt);
@@ -134,80 +134,96 @@ public class NutritionAuditorJPanel extends javax.swing.JPanel {
         });
         add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 131, 40));
 
+        jLabel2.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         jLabel2.setText("Auditor Name");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 150, 110, 30));
-        add(auditorNameTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 150, 170, 30));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 160, 100, 30));
+        add(auditorNameTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 160, 170, 30));
 
+        jLabel3.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         jLabel3.setText("Username ");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 200, 70, 30));
-        add(auditorUsernameTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 200, 170, 30));
-        add(auditorPasswordTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 250, 170, 30));
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 210, -1, 30));
+        add(auditorUsernameTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 210, 170, 30));
+        add(auditorPasswordTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 260, 170, 30));
 
+        jLabel4.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         jLabel4.setText("Password ");
-        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 250, 70, 30));
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 260, 80, 30));
 
+        jLabel5.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         jLabel5.setText("Phone No");
-        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 300, 70, 30));
-        add(auditorPhoneTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 300, 170, 30));
-        add(auditorAddressTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 350, 170, 30));
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 310, 70, 30));
+        add(auditorPhoneTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 310, 170, 30));
+        add(auditorAddressTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 360, 170, 30));
 
+        jLabel6.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         jLabel6.setText("Address");
-        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 350, 70, 30));
+        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 360, 70, 30));
 
-        addAuditorButton.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        addAuditorButton.setBackground(new java.awt.Color(255, 203, 162));
+        addAuditorButton.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         addAuditorButton.setText("Add Auditor");
+        addAuditorButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         addAuditorButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addAuditorButtonActionPerformed(evt);
             }
         });
-        add(addAuditorButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 410, 110, 30));
+        add(addAuditorButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 420, 110, 30));
 
-        jLabel8.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         jLabel8.setText("Add Nutrition Auditor");
-        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 100, 200, 30));
+        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 100, 200, 30));
 
+        jLabel9.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         jLabel9.setText("Auditor Name");
-        add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 160, 110, 30));
-        add(updateNameTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 160, 170, 30));
+        add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 160, 100, 30));
+        add(updateNameTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 160, 170, 30));
 
+        jLabel10.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         jLabel10.setText("Username ");
-        add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 210, 70, 30));
-        add(updateUsernameTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 210, 170, 30));
-        add(updatePasswordTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 270, 170, 30));
+        add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 210, 80, 30));
+        add(updateUsernameTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 210, 170, 30));
+        add(updatePasswordTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 260, 170, 30));
 
+        jLabel11.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         jLabel11.setText("Password ");
-        add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 270, 70, 30));
+        add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 260, 80, 30));
 
+        jLabel12.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         jLabel12.setText("Phone No");
-        add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 320, 70, 30));
-        add(updatePhoneTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 320, 170, 30));
-        add(updateAddressTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 380, 170, 30));
+        add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 310, 70, 30));
+        add(updatePhoneTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 310, 170, 30));
+        add(updateAddressTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 360, 170, 30));
 
+        jLabel13.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         jLabel13.setText("Address");
-        add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 380, 70, 30));
+        add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 360, 70, 30));
 
-        jLabel15.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        jLabel15.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         jLabel15.setText("Update / Delete Nutrition Auditor");
-        add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 100, 230, 30));
+        add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 100, 230, 30));
 
-        deleteButton.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        deleteButton.setBackground(new java.awt.Color(255, 203, 162));
+        deleteButton.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         deleteButton.setText("Delete");
+        deleteButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         deleteButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 deleteButtonActionPerformed(evt);
             }
         });
-        add(deleteButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 440, 110, 40));
+        add(deleteButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 430, 110, 40));
 
-        updateButton.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        updateButton.setBackground(new java.awt.Color(255, 203, 162));
+        updateButton.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         updateButton.setText("Update");
+        updateButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         updateButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 updateButtonActionPerformed(evt);
             }
         });
-        add(updateButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 440, 100, 40));
+        add(updateButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 430, 100, 40));
 
         nutritionAuditorTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -234,28 +250,30 @@ public class NutritionAuditorJPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(nutritionAuditorTable);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 570, 600, 118));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 550, 600, 140));
 
         viewNutritionAuditorJLabel.setBackground(new java.awt.Color(255, 255, 255));
-        viewNutritionAuditorJLabel.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        viewNutritionAuditorJLabel.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         viewNutritionAuditorJLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         viewNutritionAuditorJLabel.setText("View Nutrition Auditor ");
-        add(viewNutritionAuditorJLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 540, 210, -1));
+        add(viewNutritionAuditorJLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 510, 230, 30));
 
         title.setBackground(new java.awt.Color(255, 255, 255));
-        title.setFont(new java.awt.Font("Lucida Grande", 1, 24)); // NOI18N
+        title.setFont(new java.awt.Font("Helvetica Neue", 3, 36)); // NOI18N
         title.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         title.setText("Manage Nutrition Auditor");
-        add(title, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 20, 530, 50));
+        add(title, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 20, 530, 50));
 
-        viewAdminButton.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        viewAdminButton.setBackground(new java.awt.Color(255, 203, 162));
+        viewAdminButton.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         viewAdminButton.setText("View Details");
+        viewAdminButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         viewAdminButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 viewAdminButtonActionPerformed(evt);
             }
         });
-        add(viewAdminButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 440, 110, 40));
+        add(viewAdminButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 430, 110, 40));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed

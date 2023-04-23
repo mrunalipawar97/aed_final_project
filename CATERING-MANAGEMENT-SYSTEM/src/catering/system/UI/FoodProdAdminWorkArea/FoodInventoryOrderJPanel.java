@@ -91,7 +91,7 @@ public class FoodInventoryOrderJPanel extends javax.swing.JPanel {
         setBackground(new java.awt.Color(255, 180, 153));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(254, 254, 226));
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         restListTable.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
@@ -124,14 +124,15 @@ public class FoodInventoryOrderJPanel extends javax.swing.JPanel {
         restListTable.setGridColor(new java.awt.Color(0, 0, 0));
         jScrollPane1.setViewportView(restListTable);
 
-        enterpriseLabel.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        enterpriseLabel.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
         enterpriseLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         enterpriseLabel.setText("Inventory Store List");
         enterpriseLabel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        showMenuButton.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        showMenuButton.setBackground(new java.awt.Color(255, 203, 162));
+        showMenuButton.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         showMenuButton.setText("Show Menu");
-        showMenuButton.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        showMenuButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         showMenuButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 showMenuButtonActionPerformed(evt);
@@ -169,10 +170,10 @@ public class FoodInventoryOrderJPanel extends javax.swing.JPanel {
 
         add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 130, -1, -1));
 
-        jPanel2.setBackground(new java.awt.Color(254, 254, 226));
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jLabel2.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("View Orders");
         jLabel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -239,9 +240,9 @@ public class FoodInventoryOrderJPanel extends javax.swing.JPanel {
 
         add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 130, -1, 305));
 
-        addCourseHeaderLabel.setFont(new java.awt.Font("Kannada MN", 1, 20)); // NOI18N
-        addCourseHeaderLabel.setText("FOOD PRODUCTION PORTAL");
-        add(addCourseHeaderLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 30, 400, -1));
+        addCourseHeaderLabel.setFont(new java.awt.Font("Helvetica Neue", 1, 36)); // NOI18N
+        addCourseHeaderLabel.setText("Food Production Portal");
+        add(addCourseHeaderLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 30, 460, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void showMenuButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showMenuButtonActionPerformed

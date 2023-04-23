@@ -85,8 +85,8 @@ public class AddEnterpriseJPanel extends javax.swing.JPanel {
         setBackground(new java.awt.Color(255, 180, 153));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
-        jLabel1.setText("Enterprise name:");
+        jLabel1.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        jLabel1.setText("Enterprise name");
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, -1, 20));
 
         typeComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Service Enterprise", "Food Production Enterprise", "Food Quality Enterprise", "Food WareHouse Enterprise" }));
@@ -94,16 +94,15 @@ public class AddEnterpriseJPanel extends javax.swing.JPanel {
 
         jLabel2.setFont(new java.awt.Font("Helvetica Neue", 1, 36)); // NOI18N
         jLabel2.setText("Add Enterprise");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 20, -1, -1));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 30, -1, -1));
 
-        jLabel3.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
-        jLabel3.setText("Enterprise type:");
+        jLabel3.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        jLabel3.setText("Enterprise type");
         add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, -1, 20));
         add(nameField, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 220, 240, -1));
 
-        addEntButton.setBackground(new java.awt.Color(255, 102, 102));
-        addEntButton.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
-        addEntButton.setForeground(new java.awt.Color(255, 255, 255));
+        addEntButton.setBackground(new java.awt.Color(255, 203, 162));
+        addEntButton.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         addEntButton.setText("Add Enterprise");
         addEntButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         addEntButton.addActionListener(new java.awt.event.ActionListener() {
@@ -131,11 +130,10 @@ public class AddEnterpriseJPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(entTable);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 130, -1, 190));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 130, -1, 190));
 
-        updateEntButton.setBackground(new java.awt.Color(255, 102, 102));
-        updateEntButton.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
-        updateEntButton.setForeground(new java.awt.Color(255, 255, 255));
+        updateEntButton.setBackground(new java.awt.Color(255, 203, 162));
+        updateEntButton.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         updateEntButton.setText("Update Enterprise");
         updateEntButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         updateEntButton.addActionListener(new java.awt.event.ActionListener() {
@@ -145,9 +143,8 @@ public class AddEnterpriseJPanel extends javax.swing.JPanel {
         });
         add(updateEntButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 580, 240, 40));
 
-        viewEntButton.setBackground(new java.awt.Color(255, 102, 102));
-        viewEntButton.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
-        viewEntButton.setForeground(new java.awt.Color(255, 255, 255));
+        viewEntButton.setBackground(new java.awt.Color(255, 203, 162));
+        viewEntButton.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         viewEntButton.setText("View Enterprise");
         viewEntButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         viewEntButton.addActionListener(new java.awt.event.ActionListener() {
@@ -155,7 +152,7 @@ public class AddEnterpriseJPanel extends javax.swing.JPanel {
                 viewEntButtonActionPerformed(evt);
             }
         });
-        add(viewEntButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 350, 190, 50));
+        add(viewEntButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 350, 190, 50));
 
         jLabel4.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         jLabel4.setText("Enterprise type:");
@@ -169,9 +166,8 @@ public class AddEnterpriseJPanel extends javax.swing.JPanel {
         add(viewEnttypeField, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 470, 280, -1));
         add(viewEntNameField, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 520, 280, -1));
 
-        deleteEnterpriseButton.setBackground(new java.awt.Color(255, 102, 102));
-        deleteEnterpriseButton.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
-        deleteEnterpriseButton.setForeground(new java.awt.Color(255, 255, 255));
+        deleteEnterpriseButton.setBackground(new java.awt.Color(255, 203, 162));
+        deleteEnterpriseButton.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         deleteEnterpriseButton.setText("Delete  Enterprise");
         deleteEnterpriseButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         deleteEnterpriseButton.addActionListener(new java.awt.event.ActionListener() {
@@ -179,7 +175,7 @@ public class AddEnterpriseJPanel extends javax.swing.JPanel {
                 deleteEnterpriseButtonActionPerformed(evt);
             }
         });
-        add(deleteEnterpriseButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 350, 190, 50));
+        add(deleteEnterpriseButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 350, 190, 50));
     }// </editor-fold>//GEN-END:initComponents
 
     private void addEntButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addEntButtonActionPerformed

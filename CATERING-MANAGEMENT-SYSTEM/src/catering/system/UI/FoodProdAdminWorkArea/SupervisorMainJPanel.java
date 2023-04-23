@@ -108,7 +108,9 @@ public class SupervisorMainJPanel extends javax.swing.JPanel {
 
         setBackground(new java.awt.Color(255, 180, 153));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        add(nameLable, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 30, 340, 30));
+
+        nameLable.setFont(new java.awt.Font("Helvetica Neue", 3, 24)); // NOI18N
+        add(nameLable, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 340, 30));
 
         orderTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -128,11 +130,10 @@ public class SupervisorMainJPanel extends javax.swing.JPanel {
         });
         jScrollPane2.setViewportView(orderTable);
 
-        add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 130, -1, 190));
+        add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 150, -1, 190));
 
-        viewButton.setBackground(new java.awt.Color(255, 102, 102));
-        viewButton.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
-        viewButton.setForeground(new java.awt.Color(255, 255, 255));
+        viewButton.setBackground(new java.awt.Color(255, 203, 162));
+        viewButton.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         viewButton.setText("View Details");
         viewButton.setActionCommand("Assign Coordinator");
         viewButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -141,17 +142,16 @@ public class SupervisorMainJPanel extends javax.swing.JPanel {
                 viewButtonActionPerformed(evt);
             }
         });
-        add(viewButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 340, 160, 50));
+        add(viewButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 360, 160, 50));
 
-        add(assignComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 460, 290, -1));
+        add(assignComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 490, 290, 30));
 
-        jLabel2.setFont(new java.awt.Font("Helvetica Neue", 3, 13)); // NOI18N
-        jLabel2.setText("Order Id:");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 420, -1, 20));
+        jLabel2.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        jLabel2.setText("Order Id");
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 440, 70, 30));
 
-        assignButton.setBackground(new java.awt.Color(255, 102, 102));
-        assignButton.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
-        assignButton.setForeground(new java.awt.Color(255, 255, 255));
+        assignButton.setBackground(new java.awt.Color(255, 203, 162));
+        assignButton.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         assignButton.setText("Assign");
         assignButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         assignButton.addActionListener(new java.awt.event.ActionListener() {
@@ -159,18 +159,18 @@ public class SupervisorMainJPanel extends javax.swing.JPanel {
                 assignButtonActionPerformed(evt);
             }
         });
-        add(assignButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 520, 220, 50));
+        add(assignButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 540, 190, 40));
 
-        jLabel3.setFont(new java.awt.Font("Helvetica Neue", 3, 13)); // NOI18N
-        jLabel3.setText("Assign Coordinator:");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 460, -1, 20));
+        jLabel3.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        jLabel3.setText("Assign Coordinator");
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 490, -1, 30));
 
         orderIdField.setEditable(false);
-        add(orderIdField, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 420, 290, -1));
+        add(orderIdField, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 440, 290, 30));
 
-        jLabel1.setFont(new java.awt.Font("Helvetica Neue", 3, 48)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Helvetica Neue", 3, 36)); // NOI18N
         jLabel1.setText("Supervisor Client Orders");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 40, 600, 70));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 40, 600, 70));
     }// </editor-fold>//GEN-END:initComponents
 
     private void viewButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewButtonActionPerformed

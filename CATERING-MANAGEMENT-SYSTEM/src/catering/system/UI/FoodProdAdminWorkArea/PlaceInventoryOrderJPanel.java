@@ -147,9 +147,10 @@ public class PlaceInventoryOrderJPanel extends javax.swing.JPanel {
         setBackground(new java.awt.Color(255, 180, 153));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnBack.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnBack.setForeground(new java.awt.Color(51, 51, 51));
+        btnBack.setBackground(new java.awt.Color(255, 203, 162));
+        btnBack.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         btnBack.setText("Back");
+        btnBack.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackActionPerformed(evt);
@@ -183,21 +184,19 @@ public class PlaceInventoryOrderJPanel extends javax.swing.JPanel {
 
         jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 50, 480, 170));
 
-        jLabel1.setFont(new java.awt.Font("Devanagari Sangam MN", 1, 14)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Select Items from Menu");
         jLabel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 10, 195, 30));
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 10, 250, 30));
 
-        jLabel3.setFont(new java.awt.Font("Devanagari Sangam MN", 1, 13)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(72, 72, 72));
+        jLabel3.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         jLabel3.setText("Selected Item");
         jLabel3.setAutoscrolls(true);
         jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 240, -1, -1));
 
-        jLabel4.setFont(new java.awt.Font("Devanagari Sangam MN", 1, 13)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(72, 72, 72));
+        jLabel4.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         jLabel4.setText("Quantity");
         jLabel4.setAutoscrolls(true);
@@ -205,29 +204,31 @@ public class PlaceInventoryOrderJPanel extends javax.swing.JPanel {
 
         quantityText.setFont(new java.awt.Font("Devanagari Sangam MN", 0, 13)); // NOI18N
         quantityText.setForeground(new java.awt.Color(72, 72, 72));
-        jPanel2.add(quantityText, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 290, 145, 30));
+        jPanel2.add(quantityText, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 290, 145, 30));
 
-        AddButton.setFont(new java.awt.Font("Devanagari Sangam MN", 1, 13)); // NOI18N
+        AddButton.setBackground(new java.awt.Color(255, 203, 162));
+        AddButton.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         AddButton.setText("Add Item");
-        AddButton.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        AddButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         AddButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 AddButtonActionPerformed(evt);
             }
         });
-        jPanel2.add(AddButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 340, 160, 40));
+        jPanel2.add(AddButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 340, 160, 40));
 
         itemText.setEditable(false);
         itemText.setBackground(new java.awt.Color(255, 255, 255));
         itemText.setFont(new java.awt.Font("Devanagari Sangam MN", 0, 13)); // NOI18N
         itemText.setForeground(new java.awt.Color(72, 72, 72));
-        jPanel2.add(itemText, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 240, 145, 30));
+        jPanel2.add(itemText, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 240, 145, 30));
 
         add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 40, 570, 400));
 
-        placeOrderButton.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
+        placeOrderButton.setBackground(new java.awt.Color(255, 203, 162));
+        placeOrderButton.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         placeOrderButton.setText("Place Order");
-        placeOrderButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        placeOrderButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         placeOrderButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 placeOrderButtonActionPerformed(evt);
@@ -238,12 +239,12 @@ public class PlaceInventoryOrderJPanel extends javax.swing.JPanel {
         yourCartLabel.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         yourCartLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         yourCartLabel.setText("Your Cart ");
-        yourCartLabel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         add(yourCartLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 520, 110, -1));
 
-        removeItemButton.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
+        removeItemButton.setBackground(new java.awt.Color(255, 203, 162));
+        removeItemButton.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         removeItemButton.setText("Remove");
-        removeItemButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        removeItemButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         removeItemButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 removeItemButtonActionPerformed(evt);
@@ -251,9 +252,10 @@ public class PlaceInventoryOrderJPanel extends javax.swing.JPanel {
         });
         add(removeItemButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 550, 110, 40));
 
-        clearItemButton.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
+        clearItemButton.setBackground(new java.awt.Color(255, 203, 162));
+        clearItemButton.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         clearItemButton.setText("Clear ");
-        clearItemButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        clearItemButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         clearItemButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 clearItemButtonActionPerformed(evt);
@@ -261,12 +263,11 @@ public class PlaceInventoryOrderJPanel extends javax.swing.JPanel {
         });
         add(clearItemButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 610, 110, 40));
 
-        selectItemJLabel.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
-        selectItemJLabel.setForeground(new java.awt.Color(72, 72, 72));
+        selectItemJLabel.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         selectItemJLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         selectItemJLabel.setText("Selected Item");
         selectItemJLabel.setAutoscrolls(true);
-        add(selectItemJLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 740, -1, -1));
+        add(selectItemJLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 740, -1, 30));
 
         removeItemTextField.setForeground(new java.awt.Color(72, 72, 72));
         add(removeItemTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 740, 180, 30));
@@ -300,13 +301,17 @@ public class PlaceInventoryOrderJPanel extends javax.swing.JPanel {
 
         add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 550, 450, 170));
 
-        jLabel5.setText("Price:");
-        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 780, 60, 20));
+        jLabel5.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        jLabel5.setText("Price");
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 790, 40, 30));
 
         priceField.setEnabled(false);
-        add(priceField, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 780, 180, 30));
+        add(priceField, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 790, 180, 30));
 
+        paymentButton.setBackground(new java.awt.Color(255, 203, 162));
+        paymentButton.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         paymentButton.setText("Pay");
+        paymentButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         paymentButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 paymentButtonActionPerformed(evt);

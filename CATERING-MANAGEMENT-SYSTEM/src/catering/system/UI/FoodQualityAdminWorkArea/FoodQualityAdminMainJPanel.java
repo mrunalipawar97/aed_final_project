@@ -50,16 +50,16 @@ public class FoodQualityAdminMainJPanel extends javax.swing.JPanel {
         setBackground(new java.awt.Color(255, 180, 153));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        addCourseHeaderLabel.setFont(new java.awt.Font("Kannada MN", 1, 20)); // NOI18N
-        addCourseHeaderLabel.setText("FOOD QUALITY ADMIN PORTAL");
-        add(addCourseHeaderLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 30, 350, -1));
+        addCourseHeaderLabel.setFont(new java.awt.Font("Helvetica Neue", 1, 36)); // NOI18N
+        addCourseHeaderLabel.setText("Food Quality Admin Portal");
+        add(addCourseHeaderLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 60, 480, -1));
 
         jPanel6.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel8.setBackground(new java.awt.Color(0, 108, 103));
 
-        addNutritionAuditorButton.setBackground(new java.awt.Color(255, 255, 204));
-        addNutritionAuditorButton.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
+        addNutritionAuditorButton.setBackground(new java.awt.Color(255, 203, 162));
+        addNutritionAuditorButton.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         addNutritionAuditorButton.setForeground(new java.awt.Color(51, 51, 51));
         addNutritionAuditorButton.setText("Add Nutrition Auditor");
         addNutritionAuditorButton.addActionListener(new java.awt.event.ActionListener() {
@@ -73,31 +73,31 @@ public class FoodQualityAdminMainJPanel extends javax.swing.JPanel {
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
-                .addContainerGap(14, Short.MAX_VALUE)
+                .addContainerGap(103, Short.MAX_VALUE)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
                         .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(29, 29, 29))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
-                        .addComponent(addNutritionAuditorButton, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(19, 19, 19))))
+                        .addComponent(addNutritionAuditorButton, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(95, 95, 95))))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
-                .addContainerGap(31, Short.MAX_VALUE)
+                .addContainerGap(231, Short.MAX_VALUE)
                 .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(addNutritionAuditorButton, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(14, 14, 14))
+                .addGap(28, 28, 28))
         );
 
-        add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 130, 260, 200));
+        add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 190, 430, 400));
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
-        auditorReportPortalButton.setBackground(new java.awt.Color(255, 255, 204));
-        auditorReportPortalButton.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
+        auditorReportPortalButton.setBackground(new java.awt.Color(255, 203, 162));
+        auditorReportPortalButton.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         auditorReportPortalButton.setForeground(new java.awt.Color(51, 51, 51));
         auditorReportPortalButton.setText("Auditor Report Portal");
         auditorReportPortalButton.addActionListener(new java.awt.event.ActionListener() {
@@ -113,23 +113,23 @@ public class FoodQualityAdminMainJPanel extends javax.swing.JPanel {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(39, 39, 39)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(190, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(23, Short.MAX_VALUE)
-                .addComponent(auditorReportPortalButton, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(auditorReportPortalButton, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(76, 76, 76))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(202, Short.MAX_VALUE)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(auditorReportPortalButton, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20))
+                .addGap(32, 32, 32))
         );
 
-        add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 130, 260, 200));
+        add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 190, 410, 400));
     }// </editor-fold>//GEN-END:initComponents
 
     private void addNutritionAuditorButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addNutritionAuditorButtonActionPerformed

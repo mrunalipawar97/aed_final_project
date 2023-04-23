@@ -76,23 +76,22 @@ public class BranchJPanel extends javax.swing.JPanel {
         setBackground(new java.awt.Color(255, 180, 153));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Katari", 1, 24)); // NOI18N
-        jLabel1.setText("ADD BRANCH ");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 20, 250, 50));
+        jLabel1.setFont(new java.awt.Font("Helvetica Neue", 1, 36)); // NOI18N
+        jLabel1.setText("Add Branch");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 20, 300, 50));
 
-        jLabel2.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Helvetica Neue", 1, 24)); // NOI18N
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("List of Network");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 320, 120, -1));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 310, 190, -1));
 
         branchNameJLabel.setBackground(new java.awt.Color(0, 0, 0));
-        branchNameJLabel.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        branchNameJLabel.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         branchNameJLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         branchNameJLabel.setText("Branch Name: ");
         add(branchNameJLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 150, 120, 30));
         add(branchNameTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 150, 290, 30));
 
-        branchJTable.setBackground(new java.awt.Color(254, 254, 226));
         branchJTable.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         branchJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -123,11 +122,10 @@ public class BranchJPanel extends javax.swing.JPanel {
         branchJTable.setGridColor(new java.awt.Color(0, 0, 0));
         jScrollPane2.setViewportView(branchJTable);
 
-        add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 350, 470, 180));
+        add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 340, 470, 180));
 
-        AddBranchButton.setBackground(new java.awt.Color(255, 102, 102));
-        AddBranchButton.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
-        AddBranchButton.setForeground(new java.awt.Color(255, 255, 255));
+        AddBranchButton.setBackground(new java.awt.Color(255, 203, 162));
+        AddBranchButton.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         AddBranchButton.setText("Add Branch");
         AddBranchButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         AddBranchButton.addActionListener(new java.awt.event.ActionListener() {
@@ -135,7 +133,7 @@ public class BranchJPanel extends javax.swing.JPanel {
                 AddBranchButtonActionPerformed(evt);
             }
         });
-        add(AddBranchButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 210, 160, 40));
+        add(AddBranchButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 210, 160, 40));
     }// </editor-fold>//GEN-END:initComponents
 
     private void AddBranchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddBranchButtonActionPerformed
