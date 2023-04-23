@@ -120,7 +120,7 @@ public class NutritionAuditorJPanel extends javax.swing.JPanel {
         title = new javax.swing.JLabel();
         viewAdminButton = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(204, 204, 255));
+        setBackground(new java.awt.Color(255, 180, 153));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnBack.setBackground(new java.awt.Color(255, 204, 204));

@@ -5,8 +5,10 @@
 package catering.system.UI.FoodWarehouseAdminWorkArea;
 
 import business.ApplicationSystem;
+import catering.system.FoodWarehouseOrganization.Inventory;
 import catering.system.FoodWarehouseOrganization.InventoryManager;
 import java.awt.CardLayout;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
@@ -32,28 +34,20 @@ public class InventoryStoreManagementJPanel extends javax.swing.JPanel {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.system = system;
-        storeListTableModel = new DefaultTableModel();
-        storeListTable.setModel(storeListTableModel);
-        storeListTableModel.addColumn("Name");
-        storeListTableModel.addColumn("Manager");
-        storeListTableModel.addColumn("Location");
-        storeListTableModel.addColumn("Phone");
-        storeListTableModel.addColumn("Branch");
-
+        storeListTableModel = (DefaultTableModel)storeListTable.getModel();
         showComboBoxesList();
         showDeleteList();
         viewGroceryList();
     }
     
     public void viewGroceryList() {
-        if (system.getInventoryDirectory().getStoreList().size()>0) {
+        if (system.getInventoryDirectory().getStoreList().size() > 0) {
             for (int i = 0; i < system.getInventoryDirectory().getStoreList().size(); i++) {
                 storeListTableModel.addRow(new Object[]{
                     system.getInventoryDirectory().getStoreList().get(i).getName(),
                     system.getInventoryDirectory().getStoreList().get(i).getManagerDetails().getName(),
                     system.getInventoryDirectory().getStoreList().get(i).getLocation(),
                     system.getInventoryDirectory().getStoreList().get(i).getPhone(),
-                    system.getInventoryDirectory().getStoreList().get(i).getLocationNet()
                 });
             }
         }
@@ -67,11 +61,23 @@ public class InventoryStoreManagementJPanel extends javax.swing.JPanel {
         }
     }
 
+    
     public void showComboBoxesList() {
-        for (int i = 0; i < system.getInventoryManagerDirectory().getInventoryManagerList().size(); i++) {
+        managerListCombobox.removeAllItems();
+        ArrayList<InventoryManager> managerslist = this.system.getEnterpriseDirectory().getInventoryManagerDirectory().getInventoryManagerList();
+        System.out.println(managerslist+" managerslist");
+         if(managerslist.size() > 0){
+             for (InventoryManager im :managerslist){
+                 managerListCombobox.addItem(im);
+             }
+        }
+        else{
+            System.out.println("Empty List");
+        }
+        /*for (int i = 0; i < system.getInventoryManagerDirectory().getInventoryManagerList().size(); i++) {
             managerListCombobox.addItem(system.getInventoryManagerDirectory().getInventoryManagerList().get(i).getName());
             updateManagerListCombobox.addItem(system.getInventoryManagerDirectory().getInventoryManagerList().get(i).getName());
-        }
+        }*/
     }
     
     public void resetUpdate() {
@@ -132,7 +138,7 @@ public class InventoryStoreManagementJPanel extends javax.swing.JPanel {
         updateStoreNameText = new javax.swing.JTextField();
         updateManagerListCombobox = new javax.swing.JComboBox<>();
         ManagerJLabel = new javax.swing.JLabel();
-        managerListCombobox = new javax.swing.JComboBox<>();
+        managerListCombobox = new javax.swing.JComboBox();
         phoneJLabel = new javax.swing.JLabel();
         locationJLabel = new javax.swing.JLabel();
         locationTextField = new javax.swing.JTextField();
@@ -147,7 +153,7 @@ public class InventoryStoreManagementJPanel extends javax.swing.JPanel {
         storeListCombobox = new javax.swing.JComboBox<>();
         deleteStoreButton = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(241, 199, 241));
+        setBackground(new java.awt.Color(255, 180, 153));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
@@ -182,7 +188,6 @@ public class InventoryStoreManagementJPanel extends javax.swing.JPanel {
         jLabel4.setText("View Items");
         add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 450, 110, 24));
 
-        storeListTable.setBackground(new java.awt.Color(204, 204, 255));
         storeListTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -281,7 +286,7 @@ public class InventoryStoreManagementJPanel extends javax.swing.JPanel {
         add(ManagerJLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 190, 110, 30));
 
         managerListCombobox.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
-        managerListCombobox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None" }));
+        managerListCombobox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "None" }));
         managerListCombobox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 managerListComboboxActionPerformed(evt);
@@ -395,8 +400,8 @@ public class InventoryStoreManagementJPanel extends javax.swing.JPanel {
 
         InventoryManager rm = getCurrentManager(managerSelectedItem);
         system.getInventoryDirectory().createInventoryStore(storeNameText.getText(), rm, phoneTextField.getText(), locationTextField.getText());
-        System.out.println("Inventory Added ....");
-        JOptionPane.showMessageDialog(this, "Inventory added successfully");
+        System.out.println("Inventory Store Added ....");
+        JOptionPane.showMessageDialog(this, "Inventory store added successfully");
         storeListCombobox.addItem(storeNameText.getText());
         updateStoreListCombobox.addItem(storeNameText.getText());
 
@@ -404,8 +409,7 @@ public class InventoryStoreManagementJPanel extends javax.swing.JPanel {
             storeNameText.getText(),
             managerSelectedItem,
             locationTextField.getText(),
-            phoneTextField.getText(),
-            rm.getLocation()
+            phoneTextField.getText()
         });
         storeNameText.setText("");
         locationTextField.setText("");
@@ -421,27 +425,6 @@ public class InventoryStoreManagementJPanel extends javax.swing.JPanel {
         CardLayout layout=(CardLayout)userProcessContainer.getLayout();
         layout.next(userProcessContainer);
     }//GEN-LAST:event_btnBackActionPerformed
-
-    private void updateStoreListComboboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateStoreListComboboxActionPerformed
-        // TODO add your handling code here:
-        if (updateStoreListCombobox.getSelectedItem() != "None") {
-            String selectedItem = (String) updateStoreListCombobox.getSelectedItem();
-            for (int i = 0; i < system.getInventoryDirectory().getStoreList().size(); i++) {
-                if (system.getInventoryDirectory().getStoreList().get(i).getName().equalsIgnoreCase(selectedItem)) {
-                    updateStoreNameText.setText(system.getInventoryDirectory().getStoreList().get(i).getName());
-                    updateLocationTextField.setText(system.getInventoryDirectory().getStoreList().get(i).getLocation());
-                    updatePhoneTextField.setText(system.getInventoryDirectory().getStoreList().get(i).getPhone());
-                    updateManagerListCombobox.setSelectedItem(system.getInventoryDirectory().getStoreList().get(i).getManagerDetails());
-                    break;
-                }
-            }
-        }else{
-            updateStoreNameText.setText("");
-            updateLocationTextField.setText("");
-            updatePhoneTextField.setText("");
-            updateManagerListCombobox.setSelectedItem(null);
-        }
-    }//GEN-LAST:event_updateStoreListComboboxActionPerformed
 
     private void updateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateButtonActionPerformed
         // TODO add your handling code here:
@@ -480,14 +463,13 @@ public class InventoryStoreManagementJPanel extends javax.swing.JPanel {
                     updateStoreNameText.getText(),
                     managerSelectedItem,
                     updateLocationTextField.getText(),
-                    updatePhoneTextField.getText(),
-                    "Boston"
+                    updatePhoneTextField.getText()
                 });
                 storeListTableModel.removeRow(i);
                 storeListCombobox.removeItemAt(i + 1);
             }//end of if block
         }
-        System.out.println("Grocery Updated ....");
+        System.out.println("Inventory Store Updated ....");
         resetUpdate();
     }//GEN-LAST:event_updateButtonActionPerformed
 
@@ -546,6 +528,27 @@ public class InventoryStoreManagementJPanel extends javax.swing.JPanel {
         storeListCombobox.setSelectedIndex(0);
     }//GEN-LAST:event_deleteStoreButtonActionPerformed
 
+    private void updateStoreListComboboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateStoreListComboboxActionPerformed
+        // TODO add your handling code here:
+        if (updateStoreListCombobox.getSelectedItem() != "None") {
+            String selectedItem = (String) updateStoreListCombobox.getSelectedItem();
+            for (int i = 0; i < system.getInventoryDirectory().getStoreList().size(); i++) {
+                if (system.getInventoryDirectory().getStoreList().get(i).getName().equalsIgnoreCase(selectedItem)) {
+                    updateStoreNameText.setText(system.getInventoryDirectory().getStoreList().get(i).getName());
+                    updateLocationTextField.setText(system.getInventoryDirectory().getStoreList().get(i).getLocation());
+                    updatePhoneTextField.setText(system.getInventoryDirectory().getStoreList().get(i).getPhone());
+                    updateManagerListCombobox.setSelectedItem(system.getInventoryDirectory().getStoreList().get(i).getManagerDetails());
+                    break;
+                }
+            }
+        }else{
+            updateStoreNameText.setText("");
+            updateLocationTextField.setText("");
+            updatePhoneTextField.setText("");
+            updateManagerListCombobox.setSelectedItem(null);
+        }
+    }//GEN-LAST:event_updateStoreListComboboxActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel ManagerJLabel;
@@ -562,7 +565,7 @@ public class InventoryStoreManagementJPanel extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel locationJLabel;
     private javax.swing.JTextField locationTextField;
-    private javax.swing.JComboBox<String> managerListCombobox;
+    private javax.swing.JComboBox managerListCombobox;
     private javax.swing.JLabel phoneJLabel;
     private javax.swing.JTextField phoneTextField;
     private javax.swing.JLabel restNameLabel1;

@@ -47,14 +47,14 @@ public class FoodQualityAdminMainJPanel extends javax.swing.JPanel {
         jLabel3 = new javax.swing.JLabel();
         auditorReportPortalButton = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(204, 204, 255));
+        setBackground(new java.awt.Color(255, 180, 153));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         addCourseHeaderLabel.setFont(new java.awt.Font("Kannada MN", 1, 20)); // NOI18N
         addCourseHeaderLabel.setText("FOOD QUALITY ADMIN PORTAL");
         add(addCourseHeaderLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 30, 350, -1));
 
-        jPanel6.setBackground(new java.awt.Color(255, 204, 204));
+        jPanel6.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel8.setBackground(new java.awt.Color(0, 108, 103));
 
@@ -94,7 +94,7 @@ public class FoodQualityAdminMainJPanel extends javax.swing.JPanel {
 
         add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 130, 260, 200));
 
-        jPanel3.setBackground(new java.awt.Color(255, 204, 204));
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
         auditorReportPortalButton.setBackground(new java.awt.Color(255, 255, 204));
         auditorReportPortalButton.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
