@@ -71,10 +71,13 @@ public class AddInventoryJPanel extends javax.swing.JPanel {
         itemsCombo.removeAllItems();
         ArrayList<Inventory> itemlist = this.system.getEnterpriseDirectory().getInventoryDirectory().getItemsList();
         System.out.println(itemlist);
-         if(itemlist.size() > 0){
+        if(itemlist.size() > 0){
              for (Inventory app:itemlist){
                  itemsCombo.addItem(app);
              }
+        }
+        else{
+            System.out.println("Empty List");
         }
     }
 
