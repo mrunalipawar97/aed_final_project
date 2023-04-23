@@ -6,6 +6,7 @@ package catering.system.UI.AdminWorkArea;
 
 import business.ApplicationSystem;
 import catering.system.Enterprise.Enterprise;
+import catering.system.validations.Validate;
 import catering.system.validations.ValidateStrings;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
@@ -21,6 +22,7 @@ public class AddEnterpriseJPanel extends javax.swing.JPanel {
     JPanel container;
     DefaultTableModel entTableModel;
     public Enterprise selectedEnterprise;
+    Validate valid;
     /**
      * Creates new form AddEnterpriseJPanel
      */
@@ -33,6 +35,7 @@ public class AddEnterpriseJPanel extends javax.swing.JPanel {
         this.system=system;
         this.container=container;
         this.entTableModel= (DefaultTableModel) entTable.getModel();
+        this.valid=new Validate();
         populate();
     }
     
@@ -77,6 +80,7 @@ public class AddEnterpriseJPanel extends javax.swing.JPanel {
         jLabel5 = new javax.swing.JLabel();
         viewEnttypeField = new javax.swing.JTextField();
         viewEntNameField = new javax.swing.JTextField();
+        deleteEnterpriseButton = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(153, 153, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -137,7 +141,7 @@ public class AddEnterpriseJPanel extends javax.swing.JPanel {
                 viewEntButtonActionPerformed(evt);
             }
         });
-        add(viewEntButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 420, 150, -1));
+        add(viewEntButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 420, 150, -1));
 
         jLabel4.setText("Enterprise type:");
         add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 470, -1, 20));
@@ -148,6 +152,14 @@ public class AddEnterpriseJPanel extends javax.swing.JPanel {
         viewEnttypeField.setEnabled(false);
         add(viewEnttypeField, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 470, 170, -1));
         add(viewEntNameField, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 520, 170, -1));
+
+        deleteEnterpriseButton.setText("Delete  Enterprise");
+        deleteEnterpriseButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteEnterpriseButtonActionPerformed(evt);
+            }
+        });
+        add(deleteEnterpriseButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 420, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void addEntButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addEntButtonActionPerformed
@@ -155,11 +167,18 @@ public class AddEnterpriseJPanel extends javax.swing.JPanel {
         String type=(String) typeComboBox.getSelectedItem();
         String name= nameField.getText();
         Boolean isNotEmptyNull= ValidateStrings.checkNullEmpty(name);
-        Boolean isValid = ValidateStrings.verifyString(name);
+        for (int i = 0; i < system.getEnterpriseDirectory().getEnterpriseList().size(); i++) {
+            if(system.getEnterpriseDirectory().getEnterpriseList().get(i).getEntType().equals(type)){
+                JOptionPane.showMessageDialog(null,"Enterprise Already Present", "Error message" ,JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+        }
+        Boolean isValid = valid.checkName(name);
         if(isValid && isNotEmptyNull){
             system.getEnterpriseDirectory().createEnterprise(name,type);
             JOptionPane.showMessageDialog(null, "Enterprise created.");
             populate();
+            nameField.setText("");
         }
     }//GEN-LAST:event_addEntButtonActionPerformed
 
@@ -181,19 +200,32 @@ public class AddEnterpriseJPanel extends javax.swing.JPanel {
 
     private void updateEntButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateEntButtonActionPerformed
         // TODO add your handling code here:
-        if(!viewEntNameField.getText().isEmpty() && viewEntNameField != null){
+        Boolean isValid=valid.checkName(viewEntNameField.getText());
+        if(isValid){
             selectedEnterprise.setEnterpriseName(viewEntNameField.getText());
             JOptionPane.showMessageDialog(null,"Updated Enterprise Name!"); 
+            populate();
+        }
+    }//GEN-LAST:event_updateEntButtonActionPerformed
+
+    private void deleteEnterpriseButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteEnterpriseButtonActionPerformed
+        // TODO add your handling code here:
+        int selectedRow = entTable.getSelectedRow();
+        if(selectedRow>=0){
+            selectedEnterprise= (Enterprise) entTable.getValueAt(selectedRow,0);
+            this.system.getEnterpriseDirectory().deleteEnterprise(selectedEnterprise);
+            JOptionPane.showMessageDialog(null,"Enterprise Deleted!");
             populate();
         }
         else{
             JOptionPane.showMessageDialog(null,"Any row selection is not done!");
         }
-    }//GEN-LAST:event_updateEntButtonActionPerformed
+    }//GEN-LAST:event_deleteEnterpriseButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addEntButton;
+    private javax.swing.JButton deleteEnterpriseButton;
     private javax.swing.JTable entTable;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

@@ -139,6 +139,12 @@ public class EnterpriseDirectory {
         return ent;
     }
     
+    public Enterprise deleteEnterprise(Enterprise ent) {
+        enterpriseList.remove(ent);
+
+        return ent;
+    }
+    
     public Boolean deleteEnterpriseAdmin(String name) {
         for(int i = 0; i < enterpriseAdminList.size(); i ++) {
             if(enterpriseAdminList.get(i).getName().equals(name)) {
@@ -155,6 +161,7 @@ public class EnterpriseDirectory {
         cust.setName(name);
         cust.setAccountDetails(ua);
         ent.setEntAdminName(name);
+        cust.setEnt(ent);
         enterpriseAdminList.add(cust);
         return cust;
     }

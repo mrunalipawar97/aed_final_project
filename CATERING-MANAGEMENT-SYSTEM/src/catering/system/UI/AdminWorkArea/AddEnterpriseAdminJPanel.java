@@ -13,6 +13,7 @@ import catering.system.Role.FoodWarehouseEntAdminRole;
 import catering.system.Role.SeviceEntAdminRole;
 import catering.system.Users.Employee;
 import catering.system.Users.UserAccount;
+import catering.system.validations.Validate;
 import catering.system.validations.ValidateStrings;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
@@ -27,7 +28,8 @@ public class AddEnterpriseAdminJPanel extends javax.swing.JPanel {
     private ApplicationSystem system;
     JPanel container;
     DefaultTableModel entTableModel;
-    private Enterprise selectedEnterprise;
+    private EnterpriseAdmin selectedEnterprise;
+    Validate valid;
 
     /**
      * Creates new form AddEnterpriseAdminJPanel
@@ -40,8 +42,9 @@ public class AddEnterpriseAdminJPanel extends javax.swing.JPanel {
         initComponents();
         this.system=system;
         this.container=container;
+        this.valid=new Validate();
         this.entTableModel= (DefaultTableModel) adminTable.getModel();
-        this.selectedEnterprise= new Enterprise();
+        this.selectedEnterprise= new EnterpriseAdmin();
         populate();
         populateDropdown();
     }
@@ -50,21 +53,20 @@ public class AddEnterpriseAdminJPanel extends javax.swing.JPanel {
         entTableModel.setRowCount(0);
         ArrayList<Enterprise> enterpiseList=this.system.getEnterpriseDirectory().getEnterpriseList();
         ArrayList<EnterpriseAdmin> entAdminList=this.system.getEnterpriseDirectory().getEnterpriseAdminList();
-        if(enterpiseList.size()>0){
-            for (Enterprise ent:enterpiseList){
-                System.out.println(ent+"ent");
-                if(ent.getEntAdminName()!=null){
-                    Object row[]= new Object[3];
-                    row[0]=ent;
-                    row[1]=ent.getEntAdminName();
-                    row[2]=ent.getAdmin().getAccountDetails().getUsername();
+        if(entAdminList.size()>0){
+            for (EnterpriseAdmin entAdmin:entAdminList){
+                System.out.println(entAdmin+"ent");
+                    Object row[]= new Object[4];
+                    row[0]=entAdmin;
+                    row[1]=entAdmin.getName();
+                    row[2]=entAdmin.getAccountDetails().getUsername();
+                    row[3]=entAdmin.getAccountDetails().getPassword();
 
                     entTableModel.addRow(row);
-                }
             }
         }
         else{
-            JOptionPane.showMessageDialog(null,"No Enterprise Found");
+            JOptionPane.showMessageDialog(null,"No Enterprise Admin Found");
         }
     }
     public void populateDropdown(){
@@ -106,6 +108,7 @@ public class AddEnterpriseAdminJPanel extends javax.swing.JPanel {
         updtPwdField = new javax.swing.JPasswordField();
         entTypeField = new javax.swing.JTextField();
         updateEntAdminButton = new javax.swing.JButton();
+        deleteEnterpriseAdmin = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(153, 153, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -190,7 +193,7 @@ public class AddEnterpriseAdminJPanel extends javax.swing.JPanel {
                 viewAdminButtonActionPerformed(evt);
             }
         });
-        add(viewAdminButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 340, 110, -1));
+        add(viewAdminButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 320, 110, -1));
 
         updateRestManagerLabel2.setBackground(new java.awt.Color(254, 254, 226));
         updateRestManagerLabel2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
@@ -240,6 +243,14 @@ public class AddEnterpriseAdminJPanel extends javax.swing.JPanel {
             }
         });
         add(updateEntAdminButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 630, -1, -1));
+
+        deleteEnterpriseAdmin.setText("Delete  Enterprise Admin");
+        deleteEnterpriseAdmin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteEnterpriseAdminActionPerformed(evt);
+            }
+        });
+        add(deleteEnterpriseAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 320, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void restManagerTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_restManagerTextActionPerformed
@@ -249,7 +260,12 @@ public class AddEnterpriseAdminJPanel extends javax.swing.JPanel {
     private void addAdminButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addAdminButtonActionPerformed
         // TODO add your handling code here:
         Boolean isValid = ValidateStrings.validateFields(usernameText.getText(), restManagerText.getText(), restPwdText.getPassword());
+        Boolean isNameValid=valid.checkName(restManagerText.getText());
+        Enterprise ent= (Enterprise) entComboBox.getSelectedItem();
         if (!isValid) {
+            return;
+        }
+        if (!isNameValid) {
             return;
         }
         for (int i = 0; i < system.getUserAccountDirectory().getUserAccountList().size(); i++) {
@@ -258,9 +274,17 @@ public class AddEnterpriseAdminJPanel extends javax.swing.JPanel {
                 return;
             }
         }
+        if(system.getEnterpriseDirectory().getEnterpriseAdminList().size()>0){
+            for (int i = 0; i < system.getEnterpriseDirectory().getEnterpriseList().size(); i++) {
+                if(system.getEnterpriseDirectory().getEnterpriseAdminList().get(i).getEnt().getEntType().equals(ent.getEntType())){
+                    JOptionPane.showMessageDialog(null,"Enterprise Admin Already Present", "Error message" ,JOptionPane.ERROR_MESSAGE);
+                    return;
+                }
+            }
+        }
         char[] ch = restPwdText.getPassword();
         String pwd = new String(ch);
-        Enterprise ent= (Enterprise) entComboBox.getSelectedItem();
+        
         Employee employee = system.getEmployeeDirectory().createEmployee(restManagerText.getText());
         String entType=ent.getEntType();
         System.out.println(ent+"ent");
@@ -314,11 +338,11 @@ public class AddEnterpriseAdminJPanel extends javax.swing.JPanel {
         
         if(selectedRow>=0){
             
-            selectedEnterprise = (Enterprise) adminTable.getValueAt(selectedRow, 0);
-            entTypeField.setText(selectedEnterprise.getEntType());
-            adminNameField.setText(selectedEnterprise.getEntAdminName());
-            adminUsernameField.setText(selectedEnterprise.getAdmin().getAccountDetails().getUsername());
-            updtPwdField.setText(selectedEnterprise.getAdmin().getAccountDetails().getPassword());
+            selectedEnterprise = (EnterpriseAdmin) adminTable.getValueAt(selectedRow, 0);
+            entTypeField.setText(selectedEnterprise.getEnt().getEntType());
+            adminNameField.setText(selectedEnterprise.getName());
+            adminUsernameField.setText(selectedEnterprise.getAccountDetails().getUsername());
+            updtPwdField.setText(selectedEnterprise.getAccountDetails().getPassword());
             
         }
         else{
@@ -328,20 +352,43 @@ public class AddEnterpriseAdminJPanel extends javax.swing.JPanel {
 
     private void updateEntAdminButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateEntAdminButtonActionPerformed
         // TODO add your handling code here:
+        Boolean isValid = ValidateStrings.validateFields(adminUsernameField.getText(), adminNameField.getText(), updtPwdField.getPassword());
+        if (!isValid) {
+            return;
+        }
         int selectedRow = adminTable.getSelectedRow();
         if(selectedRow>=0){
             
-            selectedEnterprise.getAdmin().setName(adminNameField.getText());
-            selectedEnterprise.setEntAdminName(adminNameField.getText());
-            selectedEnterprise.getAdmin().getAccountDetails().setUsername(adminUsernameField.getText());
-            selectedEnterprise.getAdmin().getAccountDetails().setPassword(updtPwdField.getText());
+            selectedEnterprise.setName(adminNameField.getText());
+            selectedEnterprise.getEnt().setEntAdminName(adminNameField.getText());
+            selectedEnterprise.getAccountDetails().setUsername(adminUsernameField.getText());
+            selectedEnterprise.getAccountDetails().setPassword(updtPwdField.getText());
             JOptionPane.showMessageDialog(null,"Updated Enterprise Name!"); 
             populate();
+            entTypeField.setText("");
+            adminNameField.setText("");
+            adminUsernameField.setText("");
+            updtPwdField.setText("");
         }
         else{
             JOptionPane.showMessageDialog(null,"Any row selection is not done!");
         }
     }//GEN-LAST:event_updateEntAdminButtonActionPerformed
+
+    private void deleteEnterpriseAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteEnterpriseAdminActionPerformed
+        // TODO add your handling code here:
+        int selectedRow = adminTable.getSelectedRow();
+        if(selectedRow>=0){
+            selectedEnterprise= (EnterpriseAdmin) adminTable.getValueAt(selectedRow,0);
+            this.system.getEnterpriseDirectory().deleteEnterpriseAdmin(selectedEnterprise.getName());
+            this.system.getUserAccountDirectory().deleteUser(selectedEnterprise.getName());
+            JOptionPane.showMessageDialog(null,"Enterprise Deleted!");
+            populate();
+        }
+        else{
+            JOptionPane.showMessageDialog(null,"Any row selection is not done!");
+        }
+    }//GEN-LAST:event_deleteEnterpriseAdminActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -349,6 +396,7 @@ public class AddEnterpriseAdminJPanel extends javax.swing.JPanel {
     private javax.swing.JTextField adminNameField;
     private javax.swing.JTable adminTable;
     private javax.swing.JTextField adminUsernameField;
+    private javax.swing.JButton deleteEnterpriseAdmin;
     private javax.swing.JComboBox entComboBox;
     private javax.swing.JTextField entTypeField;
     private javax.swing.JLabel jLabel2;
