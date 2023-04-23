@@ -238,8 +238,8 @@ public class AuditingReportingJPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-        FoodQualityAdminMainJPanel dm = new FoodQualityAdminMainJPanel(userProcessContainer, system);
-        userProcessContainer.add("foodQualityAdminJPanel", dm);
+        NutritionAuditorWorkAreaJPanel dm = new NutritionAuditorWorkAreaJPanel(userProcessContainer, system);
+        userProcessContainer.add("nutritionAuditorJPanel", dm);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);
     }//GEN-LAST:event_btnBackActionPerformed

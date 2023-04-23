@@ -5,9 +5,9 @@
 package catering.system.UI.FoodWarehouseAdminWorkArea;
 
 import business.ApplicationSystem;
-import catering.system.Enterprise.Enterprise;
 import catering.system.FoodWarehouseOrganization.Inventory;
 import catering.system.Users.UserAccount;
+import catering.system.validations.Validate;
 import java.awt.CardLayout;
 import java.util.ArrayList;
 import java.util.regex.Matcher;
@@ -29,6 +29,7 @@ public class AddInventoryJPanel extends javax.swing.JPanel {
     DefaultTableModel viewInventoryTableModel;
     UserAccount ua;
     Inventory inventory;
+    Validate validate;
 
     public AddInventoryJPanel() {
         initComponents();
@@ -40,6 +41,7 @@ public class AddInventoryJPanel extends javax.swing.JPanel {
         this.userProcessContainer = userProcessContainer;
         this.ua = ua;
         this.inventory = new Inventory();
+        this.validate=new Validate();
         //this.viewInventoryTableModel= (DefaultTableModel) inventoryTable.getModel();
         this.viewInventoryTableModel = new DefaultTableModel();
         inventoryTable.setModel(viewInventoryTableModel);
@@ -305,8 +307,17 @@ public class AddInventoryJPanel extends javax.swing.JPanel {
 
     private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonActionPerformed
         // TODO add your handling code here:
+        
+        Boolean isItemValid= validate.checkName(itemText.getText());
+        Boolean isPriceValid= validate.checkNoNegativeZero(priceText.getText());
         Boolean isValid = validateFields(itemText.getText(), priceText.getText());
         if (!isValid) {
+            return;
+        }
+        if (!isPriceValid) {
+            return;
+        }
+        if (!isItemValid) {
             return;
         }
         Inventory inventory = this.system.getEnterpriseDirectory().getInventoryDirectory().createInventory(itemText.getText(), Double.valueOf(priceText.getText()));
@@ -333,6 +344,14 @@ public class AddInventoryJPanel extends javax.swing.JPanel {
 
     private void updateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateButtonActionPerformed
         // TODO add your handling code here:
+        Boolean isItemValid= validate.checkName(updateItemText.getText());
+        Boolean isPriceValid= validate.checkNoNegativeZero(updatePriceText.getText());
+        if(!isItemValid){
+            return;
+        }
+        if(!isPriceValid){
+            return;
+        }
         if (!validateFields(updateItemText.getText(), updatePriceText.getText())) {
             return;
         }

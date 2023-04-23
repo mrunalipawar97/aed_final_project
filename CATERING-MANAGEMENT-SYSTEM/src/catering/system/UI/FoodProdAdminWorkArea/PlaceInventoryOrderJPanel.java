@@ -7,10 +7,10 @@ package catering.system.UI.FoodProdAdminWorkArea;
 import business.ApplicationSystem;
 import catering.system.FoodProdOrganization.CateringManager;
 import catering.system.FoodWarehouseOrganization.Inventory;
-import catering.system.FoodWarehouseOrganization.InventoryManager;
 import catering.system.OrderManagement.InventoryOrder;
 import catering.system.OrderManagement.InventoryOrderDirectory;
 import catering.system.Users.UserAccount;
+import catering.system.validations.Validate;
 import java.awt.CardLayout;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
@@ -42,6 +42,7 @@ public class PlaceInventoryOrderJPanel extends javax.swing.JPanel {
     CateringManager im;
     JSplitPane screen;
     Double Total = 0.0;
+    Validate validate;
 
     public PlaceInventoryOrderJPanel() {
         initComponents();
@@ -54,6 +55,7 @@ public class PlaceInventoryOrderJPanel extends javax.swing.JPanel {
         this.ua = ua;
         selectedInventory = new Inventory();
         this.screen = new JSplitPane();
+        this.validate=new Validate();
         this.viewOrderTableModel = new DefaultTableModel();
         orderItemTable.setModel(viewOrderTableModel);
         viewOrderTableModel.addColumn("Item");
@@ -67,6 +69,7 @@ public class PlaceInventoryOrderJPanel extends javax.swing.JPanel {
         System.out.println(orderDirectory.getInventoryOrderList().size() + " size initial ");
         im = findCateringManager();
         populateOrder();
+        
         //title.setText("Welcome to virtual "+ grocery.getName());
 
     }
@@ -358,7 +361,11 @@ public class PlaceInventoryOrderJPanel extends javax.swing.JPanel {
 
     private void AddButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddButtonActionPerformed
         // TODO add your handling code here:
-
+        try{
+        Boolean isQuantityValid=validate.checkNoNegativeZero(quantityText.getText());
+        if(!isQuantityValid){
+            return;
+        }
         if (itemText.getText().isEmpty() || quantityText.getText().isEmpty()) {
             JOptionPane.showMessageDialog(this, "Kindly select items and add quantity");
             return;
@@ -374,6 +381,10 @@ public class PlaceInventoryOrderJPanel extends javax.swing.JPanel {
         quantityText.setText("");
         JOptionPane.showMessageDialog(this, "Item added to cart");
         System.out.println(orderDirectory.getInventoryOrderList().size() + " size ");
+        }
+        catch(NumberFormatException e){
+           JOptionPane.showMessageDialog(this, "It should be Integer"); 
+        }
     }//GEN-LAST:event_AddButtonActionPerformed
 
     private void orderCartTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_orderCartTableMouseClicked

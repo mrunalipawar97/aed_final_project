@@ -9,6 +9,7 @@ import catering.system.FoodWarehouseOrganization.InventoryManager;
 import catering.system.Role.InventoryManagerRole;
 import catering.system.Users.Employee;
 import catering.system.Users.UserAccount;
+import catering.system.validations.Validate;
 import catering.system.validations.ValidateStrings;
 import java.awt.CardLayout;
 import java.util.ArrayList;
@@ -31,6 +32,7 @@ public class InventoryManagerManagementJPanel extends javax.swing.JPanel {
     //private ArrayList<InventoryManager> managersList;
     InventoryManager selectedInventoryManager;
     DefaultTableModel inventoryManagerTableModel;
+    Validate validate;
 
     public InventoryManagerManagementJPanel() {
         initComponents();
@@ -42,6 +44,7 @@ public class InventoryManagerManagementJPanel extends javax.swing.JPanel {
         this.system = system;
         this.inventoryManagerTableModel= (DefaultTableModel) managerListTable.getModel();
         this.selectedInventoryManager= new InventoryManager();
+        this.validate=new Validate();
         populateManagerDetails();
         //showUpdateList();
     }
@@ -354,10 +357,19 @@ public class InventoryManagerManagementJPanel extends javax.swing.JPanel {
 
     private void addManagerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addManagerButtonActionPerformed
         // TODO add your handling code here:
-       
+        
+        
         Boolean isValid = ValidateStrings.validateStringFields(usernameTextField.getText(), addressTextField.getText(), phoneTextField.getText(), storeManagerTextField.getText(), passwordTextField.getPassword());
         System.out.println(isValid+"isValid");
         if (!isValid) {
+            return;
+        }
+        Boolean isNameValid = validate.checkName(storeManagerTextField.getText());
+        Boolean isUsernameValid= validate.checkUserName(usernameTextField.getText());
+        if(!isUsernameValid){
+            return;
+        }
+        if(!isNameValid){
             return;
         }
         for (int i = 0; i < system.getUserAccountDirectory().getUserAccountList().size(); i++) {
@@ -427,8 +439,18 @@ public class InventoryManagerManagementJPanel extends javax.swing.JPanel {
 
     private void updateCateringManagerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateCateringManagerButtonActionPerformed
         // TODO add your handling code here:
+        
         Boolean isValid = ValidateStrings.validateStringFields(updateUsernameTextField.getText(), updateAddressTextField.getText(), updatePhoneTextField.getText(), updateAddressTextField.getText(), updatePasswordTextField.getPassword());
+        Boolean isNameValid = validate.checkName(updateNameTextField.getText());
+        Boolean isUsernameValid= validate.checkUserName(updateUsernameTextField.getText());
         if (!isValid) {
+            return;
+        }
+
+        if(!isUsernameValid){
+            return;
+        }
+        if(!isNameValid){
             return;
         }
         int selectedRow = managerListTable.getSelectedRow();
