@@ -5,8 +5,18 @@
 package catering.system.UI.FoodProdAdminWorkArea;
 
 import business.ApplicationSystem;
+import catering.system.FoodProdOrganization.CateringManager;
+import catering.system.FoodWarehouseOrganization.Inventory;
+import catering.system.OrderManagement.InventoryOrderDirectory;
+import catering.system.Organization.ServiceEnterpriseOrganization.Client;
+import catering.system.Users.UserAccount;
 import java.awt.CardLayout;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JSplitPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -18,20 +28,88 @@ public class PlaceInventoryOrderJPanel extends javax.swing.JPanel {
     /**
      * Creates new form PlaceInventoryOrderJPanel
      */
-    
     JPanel userProcessContainer;
     ApplicationSystem system;
-    DefaultTableModel viewTableModel;
-    
+    DefaultTableModel viewOrderTableModel;
+    DefaultTableModel cartOrderTableModel;
+    private UserAccount userAccount;
+    Inventory inventory;
+    private String selectedItem;
+    private String selectedPrice;
+    private String removeItem;
+    private InventoryOrderDirectory orderDirectory;
+    Client client;
+    JSplitPane screen;
+    Double Total = 0.0;
+
     public PlaceInventoryOrderJPanel() {
         initComponents();
     }
-    
+
     PlaceInventoryOrderJPanel(JPanel userProcessContainer, ApplicationSystem system) {
         initComponents();
-        this.system=system;
-        this.userProcessContainer=userProcessContainer;
-        //this.viewTableModel= (DefaultTableModel) menuTable.getModel();
+        this.system = system;
+        this.userProcessContainer = userProcessContainer;
+        this.userAccount = new UserAccount();
+        inventory = new Inventory();
+        this.screen = new JSplitPane();
+        this.viewOrderTableModel = new DefaultTableModel();
+        orderItemTable.setModel(viewOrderTableModel);
+        viewOrderTableModel.addColumn("Item");
+        viewOrderTableModel.addColumn("Price");
+
+        this.cartOrderTableModel = new DefaultTableModel();
+        orderCartTable.setModel(cartOrderTableModel);
+        cartOrderTableModel.addColumn("Item");
+        cartOrderTableModel.addColumn("Price");
+        cartOrderTableModel.addColumn("Quantity");
+        orderDirectory = new InventoryOrderDirectory();
+        showInventoryItemTable();
+        System.out.println(orderDirectory.getInventoryOrderList().size() + " size initial ");
+        showInventoryCartTable();
+        System.out.println(orderDirectory.getInventoryOrderList().size() + " size initial ");
+        //cust = findCustomer();
+        //title.setText("Welcome to virtual "+ grocery.getName());
+
+    }
+
+    public void showInventoryItemTable() {
+
+        viewOrderTableModel.setRowCount(0);
+        ArrayList<Inventory> itemlist = this.system.getEnterpriseDirectory().getInventoryDirectory().getItemsList();
+        System.out.println(itemlist);
+        if (itemlist.size() > 0) {
+            for (Inventory app : itemlist) {
+                Object row[] = new Object[2];
+                row[0] = app;
+                row[1] = app.getPrice();
+                viewOrderTableModel.addRow(row);
+            }
+        } else {
+            System.out.println("Empty List");
+        }
+    }
+
+    public void showInventoryCartTable() {
+        if (orderDirectory.getInventoryOrderList().size() > 0) {
+            for (int i = 0; i < orderDirectory.getInventoryOrderList().size(); i++) {
+                cartOrderTableModel.addRow(new Object[]{
+                    orderDirectory.getInventoryOrderList().get(i).getOrderItem(),
+                    orderDirectory.getInventoryOrderList().get(i).getOrderPrice(),
+                    orderDirectory.getInventoryOrderList().get(i).getOrderQuantity()
+                });
+            }
+        }
+    }
+
+    public CateringManager findCateringManager() {
+
+        for (int i = 0; i < system.getEnterpriseDirectory().getCateringManagerList().size(); i++) {
+            if (system.getEnterpriseDirectory().getCateringManagerList().get(i).getAccountDetails().getUsername().equals(this.userAccount.getUsername())) {
+                return system.getEnterpriseDirectory().getCateringManagerList().get(i);
+            }
+        }
+        return null;
     }
 
     /**
@@ -44,6 +122,23 @@ public class PlaceInventoryOrderJPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         btnBack = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        orderItemTable = new javax.swing.JTable();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        quantityText = new javax.swing.JTextField();
+        AddButton = new javax.swing.JButton();
+        itemText = new javax.swing.JTextField();
+        placeOrderButton = new javax.swing.JButton();
+        yourCartLabel = new javax.swing.JLabel();
+        removeItemButton = new javax.swing.JButton();
+        clearItemButton = new javax.swing.JButton();
+        selectItemJLabel = new javax.swing.JLabel();
+        removeItemTextField = new javax.swing.JTextField();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        orderCartTable = new javax.swing.JTable();
 
         setBackground(new java.awt.Color(255, 203, 162));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -57,17 +152,243 @@ public class PlaceInventoryOrderJPanel extends javax.swing.JPanel {
             }
         });
         add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 110, 40));
+
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        orderItemTable.setFont(new java.awt.Font("Devanagari Sangam MN", 0, 12)); // NOI18N
+        orderItemTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        orderItemTable.setGridColor(new java.awt.Color(0, 0, 0));
+        orderItemTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                orderItemTableMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(orderItemTable);
+
+        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 50, 480, 170));
+
+        jLabel1.setFont(new java.awt.Font("Devanagari Sangam MN", 1, 14)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Select Items from Menu");
+        jLabel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 10, 195, 30));
+
+        jLabel3.setFont(new java.awt.Font("Devanagari Sangam MN", 1, 13)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(72, 72, 72));
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        jLabel3.setText("Selected Item");
+        jLabel3.setAutoscrolls(true);
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 240, -1, -1));
+
+        jLabel4.setFont(new java.awt.Font("Devanagari Sangam MN", 1, 13)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(72, 72, 72));
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        jLabel4.setText("Quantity");
+        jLabel4.setAutoscrolls(true);
+        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 290, -1, -1));
+
+        quantityText.setFont(new java.awt.Font("Devanagari Sangam MN", 0, 13)); // NOI18N
+        quantityText.setForeground(new java.awt.Color(72, 72, 72));
+        jPanel2.add(quantityText, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 290, 145, 30));
+
+        AddButton.setFont(new java.awt.Font("Devanagari Sangam MN", 1, 13)); // NOI18N
+        AddButton.setText("Add Item");
+        AddButton.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        AddButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AddButtonActionPerformed(evt);
+            }
+        });
+        jPanel2.add(AddButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 340, 160, 40));
+
+        itemText.setEditable(false);
+        itemText.setBackground(new java.awt.Color(255, 255, 255));
+        itemText.setFont(new java.awt.Font("Devanagari Sangam MN", 0, 13)); // NOI18N
+        itemText.setForeground(new java.awt.Color(72, 72, 72));
+        jPanel2.add(itemText, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 240, 145, 30));
+
+        add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 40, 570, 400));
+
+        placeOrderButton.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
+        placeOrderButton.setText("Place Order");
+        placeOrderButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        placeOrderButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                placeOrderButtonActionPerformed(evt);
+            }
+        });
+        add(placeOrderButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 670, 110, 40));
+
+        yourCartLabel.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        yourCartLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        yourCartLabel.setText("Your Cart ");
+        yourCartLabel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        add(yourCartLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 520, 110, -1));
+
+        removeItemButton.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
+        removeItemButton.setText("Remove");
+        removeItemButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        removeItemButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                removeItemButtonActionPerformed(evt);
+            }
+        });
+        add(removeItemButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 550, 110, 40));
+
+        clearItemButton.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
+        clearItemButton.setText("Clear ");
+        clearItemButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        clearItemButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                clearItemButtonActionPerformed(evt);
+            }
+        });
+        add(clearItemButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 610, 110, 40));
+
+        selectItemJLabel.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        selectItemJLabel.setForeground(new java.awt.Color(72, 72, 72));
+        selectItemJLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        selectItemJLabel.setText("Selected Item");
+        selectItemJLabel.setAutoscrolls(true);
+        add(selectItemJLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 740, -1, -1));
+
+        removeItemTextField.setForeground(new java.awt.Color(72, 72, 72));
+        add(removeItemTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 740, 180, 30));
+
+        orderCartTable.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        orderCartTable.setFont(new java.awt.Font("Helvetica Neue", 0, 12)); // NOI18N
+        orderCartTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        orderCartTable.setGridColor(new java.awt.Color(0, 0, 0));
+        orderCartTable.setSelectionBackground(new java.awt.Color(0, 0, 0));
+        orderCartTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                orderCartTableMouseClicked(evt);
+            }
+        });
+        jScrollPane2.setViewportView(orderCartTable);
+
+        add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 550, 450, 170));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-        CateringManagerMainJPanel dm= new CateringManagerMainJPanel(userProcessContainer, system);
-        userProcessContainer.add("manageHospitalsJPanel",dm);
-        CardLayout layout=(CardLayout)userProcessContainer.getLayout();
+        CateringManagerMainJPanel dm = new CateringManagerMainJPanel(userProcessContainer, system);
+        userProcessContainer.add("manageHospitalsJPanel", dm);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);
     }//GEN-LAST:event_btnBackActionPerformed
 
+    private void orderItemTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_orderItemTableMouseClicked
+        // TODO add your handling code here:
+        // TODO add your handling code here:
+        System.out.println(viewOrderTableModel.getValueAt(orderItemTable.getSelectedRow(), 0) + " selected added list ");
+        selectedItem = String.valueOf(viewOrderTableModel.getValueAt(orderItemTable.getSelectedRow(), 0));
+        selectedPrice = String.valueOf(viewOrderTableModel.getValueAt(orderItemTable.getSelectedRow(), 1));
+        itemText.setText(selectedItem);
+    }//GEN-LAST:event_orderItemTableMouseClicked
+
+    private void AddButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddButtonActionPerformed
+        // TODO add your handling code here:
+
+        if (itemText.getText().isEmpty() || quantityText.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Kindly select items and add quantity");
+            return;
+        }
+        orderDirectory.createOrder(selectedItem, selectedPrice, Integer.parseInt(quantityText.getText()), inventory, userAccount);
+        cartOrderTableModel.addRow(new Object[]{
+            selectedItem,
+            selectedPrice,
+            quantityText.getText()
+        });
+        itemText.setText("");
+        quantityText.setText("");
+        JOptionPane.showMessageDialog(this, "Item added to cart");
+        System.out.println(orderDirectory.getInventoryOrderList().size() + " size ");
+    }//GEN-LAST:event_AddButtonActionPerformed
+
+    private void orderCartTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_orderCartTableMouseClicked
+        // TODO add your handling code here:
+        removeItem = String.valueOf(cartOrderTableModel.getValueAt(orderCartTable.getSelectedRow(), 0));
+        removeItemTextField.setText(removeItem);
+    }//GEN-LAST:event_orderCartTableMouseClicked
+
+    private void removeItemButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeItemButtonActionPerformed
+        // TODO add your handling code here:
+        if (removeItemTextField.getText().isEmpty() || removeItem == null) {
+            JOptionPane.showMessageDialog(this, "Kindly select item to remove");
+            return;
+        }
+        orderDirectory.deleteOrder(removeItem);
+        for (int i = 0; i < orderCartTable.getRowCount(); i++) {
+            if (((String) orderCartTable.getValueAt(i, 0)).equals(removeItem)) {
+                cartOrderTableModel.removeRow(i);
+            }
+        }
+        removeItemTextField.setText("");
+        JOptionPane.showMessageDialog(this, "Item removed successfully");
+    }//GEN-LAST:event_removeItemButtonActionPerformed
+
+    private void clearItemButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearItemButtonActionPerformed
+        // TODO add your handling code here:
+        orderDirectory.deleteOrderAll();
+        for (int i = cartOrderTableModel.getRowCount() - 1; i >= 0; i--) {
+            cartOrderTableModel.removeRow(i);
+        }
+        JOptionPane.showMessageDialog(this, "Items removed successfully");
+    }//GEN-LAST:event_clearItemButtonActionPerformed
+
+    private void placeOrderButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_placeOrderButtonActionPerformed
+        // TODO add your handling code here:
+        CateringManager catman = findCateringManager();
+
+        setOrderList(catman);
+        for (int i = 0; i < orderDirectory.getInventoryOrderList().size(); i++) {
+            Total += (Double.parseDouble(orderDirectory.getInventoryOrderList().get(i).getOrderPrice()) * orderDirectory.getInventoryOrderList().get(i).getOrderQuantity());
+        }
+    }//GEN-LAST:event_placeOrderButtonActionPerformed
+    public void setOrderList(CateringManager cm) {
+
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton AddButton;
     private javax.swing.JButton btnBack;
+    private javax.swing.JButton clearItemButton;
+    private javax.swing.JTextField itemText;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTable orderCartTable;
+    private javax.swing.JTable orderItemTable;
+    private javax.swing.JButton placeOrderButton;
+    private javax.swing.JTextField quantityText;
+    private javax.swing.JButton removeItemButton;
+    private javax.swing.JTextField removeItemTextField;
+    private javax.swing.JLabel selectItemJLabel;
+    private javax.swing.JLabel yourCartLabel;
     // End of variables declaration//GEN-END:variables
 }

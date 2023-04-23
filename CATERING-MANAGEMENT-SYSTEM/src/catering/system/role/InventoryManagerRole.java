@@ -20,8 +20,7 @@ public class InventoryManagerRole extends Role {
 
     @Override
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, ApplicationSystem business) {
-        return new InventoryManagerWorkAreaJPanel(userProcessContainer, business);
-        //need to replace with required workarea jpanel
+        return new InventoryManagerWorkAreaJPanel(userProcessContainer,account ,business);
     }
 
 }

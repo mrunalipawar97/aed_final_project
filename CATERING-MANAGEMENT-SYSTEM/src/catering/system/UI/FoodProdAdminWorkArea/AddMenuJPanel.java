@@ -36,6 +36,7 @@ public class AddMenuJPanel extends javax.swing.JPanel {
         this.system=system;
         this.userProcessContainer=userProcessContainer;
         this.viewTableModel= (DefaultTableModel) menuTable.getModel();
+        populate();
     }
 
     /**

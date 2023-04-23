@@ -8,8 +8,7 @@ import business.ApplicationSystem;
 import catering.system.FoodWarehouseOrganization.Inventory;
 import catering.system.Users.UserAccount;
 import java.awt.CardLayout;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.ArrayList;
 import java.util.regex.Matcher;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -24,67 +23,75 @@ public class AddInventoryJPanel extends javax.swing.JPanel {
     /**
      * Creates new form AddInventoryJPanel
      */
-    
     JPanel userProcessContainer;
     ApplicationSystem system;
     DefaultTableModel viewInventoryTableModel;
-    UserAccount userAccount;
+    UserAccount ua;
     Inventory inventory;
-            
+
     public AddInventoryJPanel() {
         initComponents();
     }
-  
-    public AddInventoryJPanel(JPanel userProcessContainer, ApplicationSystem system) {
+
+    public AddInventoryJPanel(JPanel userProcessContainer, ApplicationSystem system, UserAccount ua) {
         initComponents();
-        this.system=system;
-        this.userProcessContainer=userProcessContainer;
-        this.userAccount = new UserAccount();
-        inventory = new Inventory();
+        this.system = system;
+        this.userProcessContainer = userProcessContainer;
+        this.ua = ua;
+        this.inventory = new Inventory();
         //this.viewInventoryTableModel= (DefaultTableModel) inventoryTable.getModel();
         this.viewInventoryTableModel = new DefaultTableModel();
         inventoryTable.setModel(viewInventoryTableModel);
         viewInventoryTableModel.addColumn("Item Name");
         viewInventoryTableModel.addColumn("Price");
-        System.out.println(inventory.getMenu());
-        showDeleteList();
-        viewMenuList();
+        //System.out.println(inventory.getMenu());
+        populateInventoryItems();
+        showItemsList();
     }
-    
-    public void viewMenuList() {
-        HashMap<String, String> menu = inventory.getMenu();
-        if (menu.size() > 0) {
-            for (Map.Entry<String, String> e : menu.entrySet()) {
-                viewInventoryTableModel.addRow(new Object[]{
-                    e.getKey(),
-                    e.getValue()
-                });
+
+    public void populateInventoryItems() {
+       viewInventoryTableModel.setRowCount(0);
+       ArrayList<Inventory> itemlist = this.system.getEnterpriseDirectory().getInventoryDirectory().getItemsList();
+       System.out.println(itemlist);
+       if(itemlist.size() > 0){
+            for (Inventory app:itemlist){
+                Object row[]= new Object[2];
+                row[0]=app;
+                row[1]=app.getPrice();
+                viewInventoryTableModel.addRow(row);
             }
+       }else{
+            System.out.println("Empty List");
         }
     }
 
-    public void showDeleteList() {
-        HashMap<String, String> menu = inventory.getMenu();
-        if (inventory.getMenu().size() > 0) {
-            for (Map.Entry<String, String> e : menu.entrySet()) {
-                itemsCombo.addItem(e.getKey());
-            }
+   
+
+    public void showItemsList() {
+        itemsCombo.removeAllItems();
+        ArrayList<Inventory> itemlist = this.system.getEnterpriseDirectory().getInventoryDirectory().getItemsList();
+        System.out.println(itemlist);
+         if(itemlist.size() > 0){
+             for (Inventory app:itemlist){
+                 itemsCombo.addItem(app);
+             }
         }
     }
-    
+
     public Boolean validateFields(String item, String price) {
         String pattern = "^(\\d*\\.)?\\d+$";
         java.util.regex.Pattern r = java.util.regex.Pattern.compile(pattern);
         Matcher m = r.matcher(price);
-        if(item.isEmpty() || price.isEmpty()) {
-            JOptionPane.showMessageDialog(null,"Fields cannot be empty");
+        if (item.isEmpty() || price.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Fields cannot be empty");
             return false;
-        } else if(!m.find()) {
+        } else if (!m.find()) {
             JOptionPane.showMessageDialog(null, "Please enter Valid price");
             return false;
         }
         return true;
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -105,7 +112,7 @@ public class AddInventoryJPanel extends javax.swing.JPanel {
         UpdateItemPanel = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        itemsCombo = new javax.swing.JComboBox<>();
+        itemsCombo = new javax.swing.JComboBox();
         ItemPanel = new javax.swing.JLabel();
         updateItemText = new javax.swing.JTextField();
         PriceLabel = new javax.swing.JLabel();
@@ -117,7 +124,7 @@ public class AddInventoryJPanel extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         inventoryTable = new javax.swing.JTable();
 
-        setBackground(new java.awt.Color(204, 204, 255));
+        setBackground(new java.awt.Color(255, 203, 162));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         backButton.setBackground(new java.awt.Color(255, 204, 204));
@@ -131,7 +138,7 @@ public class AddInventoryJPanel extends javax.swing.JPanel {
         });
         add(backButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 27, 130, 40));
 
-        AddItemPanel.setBackground(new java.awt.Color(255, 204, 204));
+        AddItemPanel.setBackground(new java.awt.Color(255, 255, 255));
         AddItemPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         AddItemLabel.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
@@ -162,21 +169,22 @@ public class AddInventoryJPanel extends javax.swing.JPanel {
         AddItemPriceLabel.setText("Price");
         AddItemPanel.add(AddItemPriceLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(33, 99, 109, -1));
 
-        addButton.setFont(new java.awt.Font("Times New Roman", 0, 13)); // NOI18N
+        addButton.setBackground(new java.awt.Color(255, 203, 162));
         addButton.setText("Add");
-        addButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        addButton.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         addButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addButtonActionPerformed(evt);
             }
         });
-        AddItemPanel.add(addButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 150, 114, 27));
+        AddItemPanel.add(addButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 160, 114, 27));
 
-        add(AddItemPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 180, 400, 250));
+        add(AddItemPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, 420, 250));
 
-        UpdateItemPanel.setBackground(new java.awt.Color(255, 204, 204));
+        UpdateItemPanel.setBackground(new java.awt.Color(255, 255, 255));
         UpdateItemPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel4.setBackground(new java.awt.Color(255, 255, 255));
         jLabel4.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("Update / Delete an Item");
@@ -189,7 +197,7 @@ public class AddInventoryJPanel extends javax.swing.JPanel {
         UpdateItemPanel.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 54, 128, -1));
 
         itemsCombo.setForeground(new java.awt.Color(72, 72, 72));
-        itemsCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--None" }));
+        itemsCombo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "--None" }));
         itemsCombo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 itemsComboActionPerformed(evt);
@@ -220,9 +228,10 @@ public class AddInventoryJPanel extends javax.swing.JPanel {
         updatePriceText.setForeground(new java.awt.Color(72, 72, 72));
         UpdateItemPanel.add(updatePriceText, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 154, 197, -1));
 
+        updateButton.setBackground(new java.awt.Color(255, 203, 162));
         updateButton.setFont(new java.awt.Font("Times New Roman", 0, 13)); // NOI18N
         updateButton.setText("Update");
-        updateButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        updateButton.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         updateButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 updateButtonActionPerformed(evt);
@@ -230,9 +239,10 @@ public class AddInventoryJPanel extends javax.swing.JPanel {
         });
         UpdateItemPanel.add(updateButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(52, 205, 118, 27));
 
+        deleteButton.setBackground(new java.awt.Color(255, 203, 162));
         deleteButton.setFont(new java.awt.Font("Times New Roman", 0, 13)); // NOI18N
         deleteButton.setText("Delete");
-        deleteButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        deleteButton.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         deleteButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 deleteButtonActionPerformed(evt);
@@ -240,7 +250,7 @@ public class AddInventoryJPanel extends javax.swing.JPanel {
         });
         UpdateItemPanel.add(deleteButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(254, 205, 119, 27));
 
-        add(UpdateItemPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 180, 430, 250));
+        add(UpdateItemPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 440, 430, 290));
 
         addCourseHeaderLabel.setFont(new java.awt.Font("Kannada MN", 1, 24)); // NOI18N
         addCourseHeaderLabel.setText("FOOD WAREHOUSE INVENTORY");
@@ -248,11 +258,10 @@ public class AddInventoryJPanel extends javax.swing.JPanel {
 
         jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel3.setText("View Orders");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 560, 130, -1));
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 140, 130, -1));
 
-        inventoryTable.setBackground(new java.awt.Color(255, 204, 204));
         inventoryTable.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        inventoryTable.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
+        inventoryTable.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
         inventoryTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null},
@@ -265,13 +274,13 @@ public class AddInventoryJPanel extends javax.swing.JPanel {
         inventoryTable.setGridColor(new java.awt.Color(0, 0, 0));
         jScrollPane1.setViewportView(inventoryTable);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 590, 380, 170));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 170, 380, 170));
     }// </editor-fold>//GEN-END:initComponents
 
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
-        InventoryManagerWorkAreaJPanel dm= new InventoryManagerWorkAreaJPanel(userProcessContainer,system);
-        userProcessContainer.add("manageHospitalsJPanel",dm);
-        CardLayout layout=(CardLayout)userProcessContainer.getLayout();
+        InventoryManagerWorkAreaJPanel dm = new InventoryManagerWorkAreaJPanel(userProcessContainer, ua, system);
+        userProcessContainer.add("manageHospitalsJPanel", dm);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);
     }//GEN-LAST:event_backButtonActionPerformed
 
@@ -285,32 +294,22 @@ public class AddInventoryJPanel extends javax.swing.JPanel {
         if (!isValid) {
             return;
         }
-        HashMap<String, String> menu = inventory.getMenu();
-        menu.put(itemText.getText(), priceText.getText());
-        inventory.setMenu(menu);
-        JOptionPane.showMessageDialog(this, "Item added successfully");
-        itemsCombo.addItem(itemText.getText());
-        System.out.println(itemText.getText() + " test " + priceText.getText());
-        viewInventoryTableModel.addRow(new Object[]{
-            itemText.getText(),
-            priceText.getText()
-        });
+        Inventory inventory = this.system.getEnterpriseDirectory().getInventoryDirectory().createInventory(itemText.getText(), Double.valueOf(priceText.getText()));
+        JOptionPane.showMessageDialog(null, "Inventory item added successfully");
+        populateInventoryItems();
+        showItemsList();
         itemText.setText("");
         priceText.setText("");
     }//GEN-LAST:event_addButtonActionPerformed
 
     private void itemsComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemsComboActionPerformed
         // TODO add your handling code here:
-        HashMap<String, String> menu = inventory.getMenu();
         if (itemsCombo.getSelectedItem() != null) {
-            String selectedItem = (String) itemsCombo.getSelectedItem();
-            for (Map.Entry<String, String> e : menu.entrySet()) {
-                if (e.getKey().equalsIgnoreCase(selectedItem)) {
-                    updateItemText.setText(e.getKey());
-                    updatePriceText.setText(String.valueOf(e.getValue()));
-                }
-            }
+            Inventory  selectedItem = (Inventory) itemsCombo.getSelectedItem();
+            updateItemText.setText(selectedItem.getName());
+            updatePriceText.setText(String.valueOf(selectedItem.getPrice()));
         }
+       
     }//GEN-LAST:event_itemsComboActionPerformed
 
     private void updateItemTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateItemTextActionPerformed
@@ -319,73 +318,15 @@ public class AddInventoryJPanel extends javax.swing.JPanel {
 
     private void updateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateButtonActionPerformed
         // TODO add your handling code here:
-        if(itemsCombo.getSelectedItem() == null || itemsCombo.getSelectedIndex() == 0) {
-            JOptionPane.showMessageDialog(null,"Select a value from dropdown");
-            return;
-        } else if (!validateFields(updateItemText.getText(), updatePriceText.getText())) {
-            return;
-        }
-        HashMap<String, String> menu = inventory.getMenu();
-        if (itemsCombo.getSelectedItem() != null) {
-            String selectedItem = (String) itemsCombo.getSelectedItem();
-            for (Map.Entry<String, String> e : menu.entrySet()) {
-                if (e.getKey().equalsIgnoreCase(selectedItem)) {
-                    menu.remove(e);
-                    menu.put(updateItemText.getText(), updatePriceText.getText());
-                    JOptionPane.showMessageDialog(this, "Menu Item updated successfully");
-                }
-            }
-        }
-        inventory.setMenu(menu);
-        String selectedItem = (String) itemsCombo.getSelectedItem();
-        itemsCombo.getSelectedIndex();
-        for (int i = 0; i < inventoryTable.getRowCount(); i++) {
-            if (((String) inventoryTable.getValueAt(i, 0)).equals(selectedItem)) {
-                itemsCombo.addItem(updateItemText.getText());
-                viewInventoryTableModel.addRow(new Object[]{
-                    updateItemText.getText(),
-                    updatePriceText.getText()
-                });
-                viewInventoryTableModel.removeRow(i);
-                itemsCombo.removeItemAt(i + 1);
-
-            }//end of if block
-        }
+    
         reset();
 
     }//GEN-LAST:event_updateButtonActionPerformed
 
     private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
         // TODO add your handling code here:
-        if(itemsCombo.getSelectedItem() == null || itemsCombo.getSelectedIndex() == 0) {
-            JOptionPane.showMessageDialog(null,"Select a value from dropdown");
-            return;
-        }
-        HashMap<String, String> menu = inventory.getMenu();
-        String selectedItem = (String) itemsCombo.getSelectedItem();
-        itemsCombo.getSelectedIndex();
-        if (itemsCombo.getSelectedItem() != null) {
-            for (Map.Entry<String, String> e : menu.entrySet()) {
-                if (e.getKey().equalsIgnoreCase(selectedItem)) {
-                    System.out.println("inside delete..");
-                    menu.remove(e.getKey());
-                    JOptionPane.showMessageDialog(this, "Menu Item deleted successfully");
-                }
-            }
-        }
-        for (int i = 0; i < inventoryTable.getRowCount(); i++) {
-            if (((String) inventoryTable.getValueAt(i, 0)).equals(selectedItem)) {
-                viewInventoryTableModel.removeRow(i);
-                itemsCombo.removeItemAt(i + 1);
-                updateItemText.setText("");
-                updatePriceText.setText("");
-            }//end of if block
-        }
-
-        inventory.setMenu(menu);
-        System.out.println(menu.size() + "jsdje " + inventory.getMenu().size());
+        
         reset();
-        // TODO add your handling code here:
     }//GEN-LAST:event_deleteButtonActionPerformed
 
     public void reset() {
@@ -409,7 +350,7 @@ public class AddInventoryJPanel extends javax.swing.JPanel {
     private javax.swing.JButton deleteButton;
     private javax.swing.JTable inventoryTable;
     private javax.swing.JTextField itemText;
-    private javax.swing.JComboBox<String> itemsCombo;
+    private javax.swing.JComboBox itemsCombo;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;

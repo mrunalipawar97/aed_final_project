@@ -22,21 +22,26 @@ public class Inventory {
     private String managerName;    
     private String location;
     private String phone;
+    private double price;
     private InventoryManager managerDetails;
     private UserAccount userAccount;
-    private HashMap<String, String> menu;
-    private ArrayList<InventoryOrder> inventoryOrderList;
-    private HashMap<String, ArrayList<InventoryOrder>> orders;
-    private ArrayList<InventoryOrderDirectory> inventoryOrderDirectoryList;
+    private ArrayList<InventoryOrder> orderList;
+    private ArrayList<InventoryOrderDirectory> orderDirectoryList;
     private String locationNet;
     
     public Inventory() {
         id = count;
         count++;
-        menu = new HashMap<String, String>();
-        inventoryOrderList = new ArrayList<InventoryOrder>();
-        orders = new HashMap<String, ArrayList<InventoryOrder>>();
-        inventoryOrderDirectoryList = new ArrayList<InventoryOrderDirectory>();
+        orderList = new ArrayList<InventoryOrder>();
+        orderDirectoryList = new ArrayList<InventoryOrderDirectory>();
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
     }
 
     public String getName() {
@@ -103,36 +108,21 @@ public class Inventory {
         this.userAccount = userAccount;
     }
 
-    public HashMap<String, String> getMenu() {
-        return menu;
+
+    public ArrayList<InventoryOrder> getOrderList() {
+        return orderList;
     }
 
-    public void setMenu(HashMap<String, String> menu) {
-        this.menu = menu;
+    public void setOrderList(ArrayList<InventoryOrder> orderList) {
+        this.orderList = orderList;
     }
 
-    public ArrayList<InventoryOrder> getInventoryOrderList() {
-        return inventoryOrderList;
+    public ArrayList<InventoryOrderDirectory> getOrderDirectoryList() {
+        return orderDirectoryList;
     }
 
-    public void setInventoryOrderList(ArrayList<InventoryOrder> inventoryOrderList) {
-        this.inventoryOrderList = inventoryOrderList;
-    }
-
-    public HashMap<String, ArrayList<InventoryOrder>> getOrders() {
-        return orders;
-    }
-
-    public void setOrders(HashMap<String, ArrayList<InventoryOrder>> orders) {
-        this.orders = orders;
-    }
-
-    public ArrayList<InventoryOrderDirectory> getInventoryOrderDirectoryList() {
-        return inventoryOrderDirectoryList;
-    }
-
-    public void setInventoryOrderDirectoryList(ArrayList<InventoryOrderDirectory> inventoryOrderDirectoryList) {
-        this.inventoryOrderDirectoryList = inventoryOrderDirectoryList;
+    public void setOrderDirectoryList(ArrayList<InventoryOrderDirectory> orderDirectoryList) {
+        this.orderDirectoryList = orderDirectoryList;
     }
 
     public String getLocationNet() {
@@ -143,4 +133,9 @@ public class Inventory {
         this.locationNet = locationNet;
     }
     
+    @Override
+    public String toString() {
+        return this.name;
+    }
+
 }
