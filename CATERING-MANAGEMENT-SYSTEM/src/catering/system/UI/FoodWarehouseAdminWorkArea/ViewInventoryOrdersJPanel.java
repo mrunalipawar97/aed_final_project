@@ -106,6 +106,7 @@ public class ViewInventoryOrdersJPanel extends javax.swing.JPanel {
         viewOrdersJLable.setText("View Orders");
         add(viewOrdersJLable, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 140, 189, -1));
 
+
         rejectButton.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         rejectButton.setText("Reject");
         rejectButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));

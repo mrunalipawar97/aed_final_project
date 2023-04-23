@@ -133,7 +133,7 @@ public class NutritionAuditorWorkAreaJPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void auditingButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_auditingButtonActionPerformed
-        AuditingReportingJPanel ar= new AuditingReportingJPanel(userProcessContainer, system);
+        AuditingReportingJPanel ar= new AuditingReportingJPanel(userProcessContainer,system);
         userProcessContainer.add("auditingReportingJPanel",ar);
         CardLayout layout=(CardLayout)userProcessContainer.getLayout();
         layout.next(userProcessContainer);

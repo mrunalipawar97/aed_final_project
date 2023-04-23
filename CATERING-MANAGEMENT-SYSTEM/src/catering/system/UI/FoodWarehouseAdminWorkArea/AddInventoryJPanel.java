@@ -5,6 +5,7 @@
 package catering.system.UI.FoodWarehouseAdminWorkArea;
 
 import business.ApplicationSystem;
+import catering.system.Enterprise.Enterprise;
 import catering.system.FoodWarehouseOrganization.Inventory;
 import catering.system.Users.UserAccount;
 import java.awt.CardLayout;
@@ -122,6 +123,7 @@ public class AddInventoryJPanel extends javax.swing.JPanel {
         updatePriceText = new javax.swing.JTextField();
         updateButton = new javax.swing.JButton();
         deleteButton = new javax.swing.JButton();
+        viewItemButton = new javax.swing.JButton();
         addCourseHeaderLabel = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -253,6 +255,16 @@ public class AddInventoryJPanel extends javax.swing.JPanel {
         });
         UpdateItemPanel.add(deleteButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(254, 205, 119, 27));
 
+        viewItemButton.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        viewItemButton.setText("View Item");
+        viewItemButton.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        viewItemButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                viewItemButtonActionPerformed(evt);
+            }
+        });
+        UpdateItemPanel.add(viewItemButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 250, 110, 30));
+
         add(UpdateItemPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 440, 430, 290));
 
         addCourseHeaderLabel.setFont(new java.awt.Font("Kannada MN", 1, 24)); // NOI18N
@@ -321,7 +333,37 @@ public class AddInventoryJPanel extends javax.swing.JPanel {
 
     private void updateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateButtonActionPerformed
         // TODO add your handling code here:
-    
+        if (!validateFields(updateItemText.getText(), updatePriceText.getText())) {
+            return;
+        }
+        if (itemsCombo.getSelectedItem() != null) {
+             String selectedItem = (String) itemsCombo.getSelectedItem();
+        }
+        
+        int selectedRow = inventoryTable.getSelectedRow();
+        
+        if(selectedRow >= 0){
+            inventory.setName(updateItemText.getText());
+            inventory.setPrice(Double.valueOf(updatePriceText.getText()));
+        }else{
+            JOptionPane.showMessageDialog(null,"Any row selection is not done!");
+        }
+        
+        /* int selectedRow = adminTable.getSelectedRow();
+        if(selectedRow>=0){
+            
+            selectedEnterprise.getAdmin().setName(adminNameField.getText());
+            selectedEnterprise.setEntAdminName(adminNameField.getText());
+            selectedEnterprise.getAdmin().getAccountDetails().setUsername(adminUsernameField.getText());
+            selectedEnterprise.getAdmin().getAccountDetails().setPassword(updtPwdField.getText());
+            JOptionPane.showMessageDialog(null,"Updated Enterprise Name!"); 
+            populate();
+        }
+        else{
+            JOptionPane.showMessageDialog(null,"Any row selection is not done!");
+        }
+        */
+        populateInventoryItems();
         reset();
 
     }//GEN-LAST:event_updateButtonActionPerformed
@@ -331,6 +373,21 @@ public class AddInventoryJPanel extends javax.swing.JPanel {
         
         reset();
     }//GEN-LAST:event_deleteButtonActionPerformed
+
+    private void viewItemButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewItemButtonActionPerformed
+        // TODO add your handling code here:
+        int selectedRow = inventoryTable.getSelectedRow();
+        
+        if(selectedRow>=0){
+            
+            inventory = (Inventory) inventoryTable.getValueAt(selectedRow, 0);
+            updateItemText.setText(inventory.getName());
+            updatePriceText.setText(String.valueOf(inventory.getPrice()));  
+        }
+        else{
+            JOptionPane.showMessageDialog(null,"Please select row");
+        }
+    }//GEN-LAST:event_viewItemButtonActionPerformed
 
     public void reset() {
         itemsCombo.setSelectedIndex(0);
@@ -362,5 +419,6 @@ public class AddInventoryJPanel extends javax.swing.JPanel {
     private javax.swing.JButton updateButton;
     private javax.swing.JTextField updateItemText;
     private javax.swing.JTextField updatePriceText;
+    private javax.swing.JButton viewItemButton;
     // End of variables declaration//GEN-END:variables
 }
