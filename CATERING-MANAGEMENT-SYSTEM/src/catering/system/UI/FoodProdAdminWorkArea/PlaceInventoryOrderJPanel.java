@@ -11,6 +11,7 @@ import catering.system.OrderManagement.InventoryOrderDirectory;
 import catering.system.Organization.ServiceEnterpriseOrganization.Client;
 import catering.system.Users.UserAccount;
 import java.awt.CardLayout;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import javax.swing.JOptionPane;
@@ -27,8 +28,6 @@ public class PlaceInventoryOrderJPanel extends javax.swing.JPanel {
     /**
      * Creates new form PlaceInventoryOrderJPanel
      */
-    
-   
     JPanel userProcessContainer;
     ApplicationSystem system;
     DefaultTableModel viewOrderTableModel;
@@ -42,15 +41,15 @@ public class PlaceInventoryOrderJPanel extends javax.swing.JPanel {
     Client client;
     JSplitPane screen;
     Double Total = 0.0;
-    
+
     public PlaceInventoryOrderJPanel() {
         initComponents();
     }
-    
-    PlaceInventoryOrderJPanel(JPanel userProcessContainer,ApplicationSystem system) {
+
+    PlaceInventoryOrderJPanel(JPanel userProcessContainer, ApplicationSystem system) {
         initComponents();
-        this.system=system;
-        this.userProcessContainer=userProcessContainer;
+        this.system = system;
+        this.userProcessContainer = userProcessContainer;
         this.userAccount = new UserAccount();
         inventory = new Inventory();
         this.screen = new JSplitPane();
@@ -58,7 +57,7 @@ public class PlaceInventoryOrderJPanel extends javax.swing.JPanel {
         orderItemTable.setModel(viewOrderTableModel);
         viewOrderTableModel.addColumn("Item");
         viewOrderTableModel.addColumn("Price");
-        
+
         this.cartOrderTableModel = new DefaultTableModel();
         orderCartTable.setModel(cartOrderTableModel);
         cartOrderTableModel.addColumn("Item");
@@ -67,8 +66,6 @@ public class PlaceInventoryOrderJPanel extends javax.swing.JPanel {
         orderDirectory = new InventoryOrderDirectory();
         showInventoryItemTable();
         System.out.println(orderDirectory.getInventoryOrderList().size() + " size initial ");
-        //this.viewOrderTableModel= (DefaultTableModel) orderItemTable.getModel();
-        
         showInventoryCartTable();
         System.out.println(orderDirectory.getInventoryOrderList().size() + " size initial ");
         //cust = findCustomer();
@@ -76,22 +73,23 @@ public class PlaceInventoryOrderJPanel extends javax.swing.JPanel {
 
     }
 
-    
     public void showInventoryItemTable() {
-        HashMap<String, String> menu = inventory.getMenu();
-        System.out.println(orderDirectory.getInventoryOrderList().size() + " size in show menu");
-        System.out.println("In Show inventory Item table" + menu);
-        if (menu.size() > 0) {
-            System.out.println("menu size" + menu.size());
-            for (Map.Entry<String, String> e : menu.entrySet()) {
-                viewOrderTableModel.addRow(new Object[]{
-                    e.getKey(),
-                    e.getValue()
-                });
+
+        viewOrderTableModel.setRowCount(0);
+        ArrayList<Inventory> itemlist = this.system.getEnterpriseDirectory().getInventoryDirectory().getItemsList();
+        System.out.println(itemlist);
+        if (itemlist.size() > 0) {
+            for (Inventory app : itemlist) {
+                Object row[] = new Object[2];
+                row[0] = app;
+                row[1] = app.getPrice();
+                viewOrderTableModel.addRow(row);
             }
+        } else {
+            System.out.println("Empty List");
         }
     }
-    
+
     public void showInventoryCartTable() {
         if (orderDirectory.getInventoryOrderList().size() > 0) {
             for (int i = 0; i < orderDirectory.getInventoryOrderList().size(); i++) {
@@ -103,17 +101,17 @@ public class PlaceInventoryOrderJPanel extends javax.swing.JPanel {
             }
         }
     }
-    
+
     public CateringManager findCateringManager() {
-       
-        for(int i = 0; i < system.getEnterpriseDirectory().getCateringManagerList().size(); i ++) {
-            if(system.getEnterpriseDirectory().getCateringManagerList().get(i).getAccountDetails().getUsername().equals(this.userAccount.getUsername())) {
+
+        for (int i = 0; i < system.getEnterpriseDirectory().getCateringManagerList().size(); i++) {
+            if (system.getEnterpriseDirectory().getCateringManagerList().get(i).getAccountDetails().getUsername().equals(this.userAccount.getUsername())) {
                 return system.getEnterpriseDirectory().getCateringManagerList().get(i);
             }
         }
         return null;
     }
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -295,16 +293,16 @@ public class PlaceInventoryOrderJPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-        CateringManagerMainJPanel dm= new CateringManagerMainJPanel(userProcessContainer, system);
-        userProcessContainer.add("manageHospitalsJPanel",dm);
-        CardLayout layout=(CardLayout)userProcessContainer.getLayout();
+        CateringManagerMainJPanel dm = new CateringManagerMainJPanel(userProcessContainer, system);
+        userProcessContainer.add("manageHospitalsJPanel", dm);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void orderItemTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_orderItemTableMouseClicked
         // TODO add your handling code here:
         // TODO add your handling code here:
-        System.out.println(viewOrderTableModel.getValueAt(orderItemTable.getSelectedRow(), 0) +" selected added list ");
+        System.out.println(viewOrderTableModel.getValueAt(orderItemTable.getSelectedRow(), 0) + " selected added list ");
         selectedItem = String.valueOf(viewOrderTableModel.getValueAt(orderItemTable.getSelectedRow(), 0));
         selectedPrice = String.valueOf(viewOrderTableModel.getValueAt(orderItemTable.getSelectedRow(), 1));
         itemText.setText(selectedItem);
@@ -313,7 +311,7 @@ public class PlaceInventoryOrderJPanel extends javax.swing.JPanel {
     private void AddButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddButtonActionPerformed
         // TODO add your handling code here:
 
-        if(itemText.getText().isEmpty() ||  quantityText.getText().isEmpty()) {
+        if (itemText.getText().isEmpty() || quantityText.getText().isEmpty()) {
             JOptionPane.showMessageDialog(this, "Kindly select items and add quantity");
             return;
         }
@@ -337,7 +335,7 @@ public class PlaceInventoryOrderJPanel extends javax.swing.JPanel {
 
     private void removeItemButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeItemButtonActionPerformed
         // TODO add your handling code here:
-        if(removeItemTextField.getText().isEmpty() || removeItem == null) {
+        if (removeItemTextField.getText().isEmpty() || removeItem == null) {
             JOptionPane.showMessageDialog(this, "Kindly select item to remove");
             return;
         }
@@ -370,16 +368,9 @@ public class PlaceInventoryOrderJPanel extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_placeOrderButtonActionPerformed
     public void setOrderList(CateringManager cm) {
-        for (int i = 0; i < orderDirectory.getInventoryOrderList().size(); i++) {
-            inventory.getInventoryOrderList().add(orderDirectory.getInventoryOrderList().get(i));
-        ///    cm.getInventoryOrderList().add(orderDirectory.getInventoryOrderList().get(i));
 
-        }
-//        inventory.getInventoryOrderList().put(String.valueOf(inventory.getOrders().size()), orderDirectory.getInventoryOrderList());
-        //cm.getOrderDirectoryList().add(orderDirectory);
-        inventory.getInventoryOrderDirectoryList().add(orderDirectory);
     }
-    
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AddButton;
     private javax.swing.JButton btnBack;

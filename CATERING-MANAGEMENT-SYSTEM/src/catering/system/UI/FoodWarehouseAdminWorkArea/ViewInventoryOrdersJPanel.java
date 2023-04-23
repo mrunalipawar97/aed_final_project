@@ -27,7 +27,7 @@ public class ViewInventoryOrdersJPanel extends javax.swing.JPanel {
     JPanel userProcessContainer;
     ApplicationSystem system;
     DefaultTableModel viewOrdersTableModel;
-    UserAccount userAccount;
+    UserAccount ua;
     Inventory inventory;
     private InventoryOrderDirectory selectedDir;
 
@@ -35,10 +35,10 @@ public class ViewInventoryOrdersJPanel extends javax.swing.JPanel {
         initComponents();
     }
 
-    public ViewInventoryOrdersJPanel(JPanel userProcessContainer, ApplicationSystem system) {
+    public ViewInventoryOrdersJPanel(JPanel userProcessContainer, ApplicationSystem system, UserAccount ua) {
         initComponents();
         this.system = system;
-        this.userAccount = userAccount;
+        this.ua = ua;
         this.userProcessContainer = userProcessContainer;
         inventory = new Inventory();
         //this.viewOrdersTableModel = (DefaultTableModel) orderListTable.getModel();
@@ -136,7 +136,7 @@ public class ViewInventoryOrdersJPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
-        InventoryManagerWorkAreaJPanel dm = new InventoryManagerWorkAreaJPanel(userProcessContainer, system);
+        InventoryManagerWorkAreaJPanel dm = new InventoryManagerWorkAreaJPanel(userProcessContainer, ua, system);
         userProcessContainer.add("manageHospitalsJPanel", dm);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);
@@ -144,7 +144,7 @@ public class ViewInventoryOrdersJPanel extends javax.swing.JPanel {
 
     private void orderListTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_orderListTableMouseClicked
         // TODO add your handling code here:
-        if (orderListTable.getSelectedRow() < 0) {
+       /* if (orderListTable.getSelectedRow() < 0) {
             JOptionPane.showMessageDialog(this, "Please select a row");
             return;
         }
@@ -155,8 +155,8 @@ public class ViewInventoryOrdersJPanel extends javax.swing.JPanel {
         for (int i = viewOrdersTableModel.getRowCount() - 1; i >= 0; i--) {
             viewOrdersTableModel.removeRow(i);
         }
-        selectedDir = inventory.getInventoryOrderDirectoryList().get(orderListTable.getSelectedRow());
-        ArrayList<InventoryOrder> orderlist = inventory.getInventoryOrderDirectoryList().get(orderListTable.getSelectedRow()).getInventoryOrderList();
+        selectedDir = inventory.getOrderDirectoryList().get(orderListTable.getSelectedRow());
+        ArrayList<InventoryOrder> orderlist = inventory.getOrderDirectoryList().get(orderListTable.getSelectedRow()).getInventoryOrderList();
         for (int i = 0; i < orderlist.size(); i++) {
             viewOrdersTableModel.addRow(new Object[]{
                 orderlist.get(i).getOrderItem(),
@@ -165,7 +165,7 @@ public class ViewInventoryOrdersJPanel extends javax.swing.JPanel {
                 selectedDir.getClientDetails().getUsername(),
                 selectedDir.getInventory().getName()
             });
-        }
+        }*/
     }//GEN-LAST:event_orderListTableMouseClicked
 
     private void rejectButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rejectButtonActionPerformed
@@ -189,7 +189,7 @@ public class ViewInventoryOrdersJPanel extends javax.swing.JPanel {
 
 
     public void viewOrderDirList() {
-        String name = "";
+     /*   String name = "";
         for (int i = viewOrdersTableModel.getRowCount() - 1; i >= 0; i--) {
             viewOrdersTableModel.removeRow(i);
         }
@@ -204,7 +204,7 @@ public class ViewInventoryOrdersJPanel extends javax.swing.JPanel {
                 inventory.getInventoryOrderDirectoryList().get(i).getComment(),
                 inventory.getInventoryOrderDirectoryList().get(i).getFeedbackComment()
             });
-        }
+        }*/
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables

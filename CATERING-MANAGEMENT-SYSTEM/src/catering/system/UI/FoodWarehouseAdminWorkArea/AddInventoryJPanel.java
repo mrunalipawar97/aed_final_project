@@ -8,8 +8,7 @@ import business.ApplicationSystem;
 import catering.system.FoodWarehouseOrganization.Inventory;
 import catering.system.Users.UserAccount;
 import java.awt.CardLayout;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.ArrayList;
 import java.util.regex.Matcher;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -27,57 +26,55 @@ public class AddInventoryJPanel extends javax.swing.JPanel {
     JPanel userProcessContainer;
     ApplicationSystem system;
     DefaultTableModel viewInventoryTableModel;
-    UserAccount userAccount;
+    UserAccount ua;
     Inventory inventory;
 
     public AddInventoryJPanel() {
         initComponents();
     }
 
-    public AddInventoryJPanel(JPanel userProcessContainer, ApplicationSystem system) {
+    public AddInventoryJPanel(JPanel userProcessContainer, ApplicationSystem system, UserAccount ua) {
         initComponents();
         this.system = system;
         this.userProcessContainer = userProcessContainer;
-        this.userAccount = new UserAccount();
-        inventory = new Inventory();
+        this.ua = ua;
+        this.inventory = new Inventory();
         //this.viewInventoryTableModel= (DefaultTableModel) inventoryTable.getModel();
         this.viewInventoryTableModel = new DefaultTableModel();
         inventoryTable.setModel(viewInventoryTableModel);
         viewInventoryTableModel.addColumn("Item Name");
         viewInventoryTableModel.addColumn("Price");
-        System.out.println(inventory.getMenu());
-        showDeleteList();
-        viewMenuList();
-        populateTable();
+        //System.out.println(inventory.getMenu());
+        populateInventoryItems();
+        showItemsList();
     }
 
-    public void viewMenuList() {
-        HashMap<String, String> menu = inventory.getMenu();
-        System.out.println(menu.size() + "view menulist  add inventory jpanel" + inventory.getMenu().size());
-        if (menu.size() > 0) {
-            for (Map.Entry<String, String> e : menu.entrySet()) {
-                viewInventoryTableModel.addRow(new Object[]{
-                    e.getKey(),
-                    e.getValue()
-                });
+    public void populateInventoryItems() {
+       viewInventoryTableModel.setRowCount(0);
+       ArrayList<Inventory> itemlist = this.system.getEnterpriseDirectory().getInventoryDirectory().getItemsList();
+       System.out.println(itemlist);
+       if(itemlist.size() > 0){
+            for (Inventory app:itemlist){
+                Object row[]= new Object[2];
+                row[0]=app;
+                row[1]=app.getPrice();
+                viewInventoryTableModel.addRow(row);
             }
+       }else{
+            System.out.println("Empty List");
         }
     }
 
-    public void populateTable() {
-        viewInventoryTableModel.setRowCount(0);
-        viewInventoryTableModel.addRow(new Object[]{
-            itemText.getText(),
-            priceText.getText()
-        });
-    }
+   
 
-    public void showDeleteList() {
-        HashMap<String, String> menu = inventory.getMenu();
-        if (inventory.getMenu().size() > 0) {
-            for (Map.Entry<String, String> e : menu.entrySet()) {
-                itemsCombo.addItem(e.getKey());
-            }
+    public void showItemsList() {
+        itemsCombo.removeAllItems();
+        ArrayList<Inventory> itemlist = this.system.getEnterpriseDirectory().getInventoryDirectory().getItemsList();
+        System.out.println(itemlist);
+         if(itemlist.size() > 0){
+             for (Inventory app:itemlist){
+                 itemsCombo.addItem(app);
+             }
         }
     }
 
@@ -115,7 +112,7 @@ public class AddInventoryJPanel extends javax.swing.JPanel {
         UpdateItemPanel = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        itemsCombo = new javax.swing.JComboBox<>();
+        itemsCombo = new javax.swing.JComboBox();
         ItemPanel = new javax.swing.JLabel();
         updateItemText = new javax.swing.JTextField();
         PriceLabel = new javax.swing.JLabel();
@@ -200,7 +197,7 @@ public class AddInventoryJPanel extends javax.swing.JPanel {
         UpdateItemPanel.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 54, 128, -1));
 
         itemsCombo.setForeground(new java.awt.Color(72, 72, 72));
-        itemsCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--None" }));
+        itemsCombo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "--None" }));
         itemsCombo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 itemsComboActionPerformed(evt);
@@ -281,7 +278,7 @@ public class AddInventoryJPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
-        InventoryManagerWorkAreaJPanel dm = new InventoryManagerWorkAreaJPanel(userProcessContainer, system);
+        InventoryManagerWorkAreaJPanel dm = new InventoryManagerWorkAreaJPanel(userProcessContainer, ua, system);
         userProcessContainer.add("manageHospitalsJPanel", dm);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);
@@ -297,29 +294,22 @@ public class AddInventoryJPanel extends javax.swing.JPanel {
         if (!isValid) {
             return;
         }
-        HashMap<String, String> menu = inventory.getMenu();
-        menu.put(itemText.getText(), priceText.getText());
-        inventory.setMenu(menu);
-        JOptionPane.showMessageDialog(this, "Item added successfully");
-        itemsCombo.addItem(itemText.getText());
-        System.out.println(itemText.getText() + " test " + priceText.getText());
-        populateTable() ;
+        Inventory inventory = this.system.getEnterpriseDirectory().getInventoryDirectory().createInventory(itemText.getText(), Double.valueOf(priceText.getText()));
+        JOptionPane.showMessageDialog(null, "Inventory item added successfully");
+        populateInventoryItems();
+        showItemsList();
         itemText.setText("");
         priceText.setText("");
     }//GEN-LAST:event_addButtonActionPerformed
 
     private void itemsComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemsComboActionPerformed
         // TODO add your handling code here:
-        HashMap<String, String> menu = inventory.getMenu();
         if (itemsCombo.getSelectedItem() != null) {
-            String selectedItem = (String) itemsCombo.getSelectedItem();
-            for (Map.Entry<String, String> e : menu.entrySet()) {
-                if (e.getKey().equalsIgnoreCase(selectedItem)) {
-                    updateItemText.setText(e.getKey());
-                    updatePriceText.setText(String.valueOf(e.getValue()));
-                }
-            }
+            Inventory  selectedItem = (Inventory) itemsCombo.getSelectedItem();
+            updateItemText.setText(selectedItem.getName());
+            updatePriceText.setText(String.valueOf(selectedItem.getPrice()));
         }
+       
     }//GEN-LAST:event_itemsComboActionPerformed
 
     private void updateItemTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateItemTextActionPerformed
@@ -328,73 +318,15 @@ public class AddInventoryJPanel extends javax.swing.JPanel {
 
     private void updateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateButtonActionPerformed
         // TODO add your handling code here:
-        if (itemsCombo.getSelectedItem() == null || itemsCombo.getSelectedIndex() == 0) {
-            JOptionPane.showMessageDialog(null, "Select a value from dropdown");
-            return;
-        } else if (!validateFields(updateItemText.getText(), updatePriceText.getText())) {
-            return;
-        }
-        HashMap<String, String> menu = inventory.getMenu();
-        if (itemsCombo.getSelectedItem() != null) {
-            String selectedItem = (String) itemsCombo.getSelectedItem();
-            for (Map.Entry<String, String> e : menu.entrySet()) {
-                if (e.getKey().equalsIgnoreCase(selectedItem)) {
-                    menu.remove(e);
-                    menu.put(updateItemText.getText(), updatePriceText.getText());
-                    JOptionPane.showMessageDialog(this, "Menu Item updated successfully");
-                }
-            }
-        }
-        inventory.setMenu(menu);
-        String selectedItem = (String) itemsCombo.getSelectedItem();
-        itemsCombo.getSelectedIndex();
-        for (int i = 0; i < inventoryTable.getRowCount(); i++) {
-            if (((String) inventoryTable.getValueAt(i, 0)).equals(selectedItem)) {
-                itemsCombo.addItem(updateItemText.getText());
-                viewInventoryTableModel.addRow(new Object[]{
-                    updateItemText.getText(),
-                    updatePriceText.getText()
-                });
-                viewInventoryTableModel.removeRow(i);
-                itemsCombo.removeItemAt(i + 1);
-
-            }//end of if block
-        }
+    
         reset();
 
     }//GEN-LAST:event_updateButtonActionPerformed
 
     private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
         // TODO add your handling code here:
-        if (itemsCombo.getSelectedItem() == null || itemsCombo.getSelectedIndex() == 0) {
-            JOptionPane.showMessageDialog(null, "Select a value from dropdown");
-            return;
-        }
-        HashMap<String, String> menu = inventory.getMenu();
-        String selectedItem = (String) itemsCombo.getSelectedItem();
-        itemsCombo.getSelectedIndex();
-        if (itemsCombo.getSelectedItem() != null) {
-            for (Map.Entry<String, String> e : menu.entrySet()) {
-                if (e.getKey().equalsIgnoreCase(selectedItem)) {
-                    System.out.println("inside delete..");
-                    menu.remove(e.getKey());
-                    JOptionPane.showMessageDialog(this, "Menu Item deleted successfully");
-                }
-            }
-        }
-        for (int i = 0; i < inventoryTable.getRowCount(); i++) {
-            if (((String) inventoryTable.getValueAt(i, 0)).equals(selectedItem)) {
-                viewInventoryTableModel.removeRow(i);
-                itemsCombo.removeItemAt(i + 1);
-                updateItemText.setText("");
-                updatePriceText.setText("");
-            }//end of if block
-        }
-
-        inventory.setMenu(menu);
-        System.out.println(menu.size() + "delete button " + inventory.getMenu().size());
+        
         reset();
-        // TODO add your handling code here:
     }//GEN-LAST:event_deleteButtonActionPerformed
 
     public void reset() {
@@ -418,7 +350,7 @@ public class AddInventoryJPanel extends javax.swing.JPanel {
     private javax.swing.JButton deleteButton;
     private javax.swing.JTable inventoryTable;
     private javax.swing.JTextField itemText;
-    private javax.swing.JComboBox<String> itemsCombo;
+    private javax.swing.JComboBox itemsCombo;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;

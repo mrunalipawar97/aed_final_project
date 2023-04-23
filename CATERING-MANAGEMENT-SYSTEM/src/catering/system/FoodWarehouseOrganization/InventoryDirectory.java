@@ -13,9 +13,19 @@ import java.util.ArrayList;
 public class InventoryDirectory {
     
     private ArrayList<Inventory> storeList;
+    private ArrayList<Inventory> itemsList;
     
     public InventoryDirectory() {
-        storeList = new ArrayList();
+        this.storeList = new ArrayList<Inventory>();
+        this.itemsList = new ArrayList<Inventory>();
+    }
+
+    public ArrayList<Inventory> getItemsList() {
+        return itemsList;
+    }
+
+    public void setItemsList(ArrayList<Inventory> itemsList) {
+        this.itemsList = itemsList;
     }
 
     public ArrayList<Inventory> getStoreList() {
@@ -38,15 +48,22 @@ public class InventoryDirectory {
     
     
     
-    public Inventory createInventory(String name, InventoryManager im, String phone, String location, String locationNet){
+    public Inventory createInventoryStore(String name, InventoryManager im, String phone, String location){
         Inventory inventory = new Inventory();
         inventory.setName(name);
         inventory.setPhone(phone);
         inventory.setLocation(location);
         inventory.setManagerDetails(im);
-        inventory.setLocationNet(locationNet);
         inventory.setUserAccount(im.getAccountDetails());
         storeList.add(inventory);
+        return inventory;
+    }
+    
+     public Inventory createInventory(String name, double price){
+        Inventory inventory = new Inventory();
+        inventory.setName(name);
+        inventory.setPrice(price);
+        itemsList.add(inventory);
         return inventory;
     }
     

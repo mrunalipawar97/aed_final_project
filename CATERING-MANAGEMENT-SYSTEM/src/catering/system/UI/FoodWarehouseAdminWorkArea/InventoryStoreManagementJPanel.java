@@ -38,7 +38,7 @@ public class InventoryStoreManagementJPanel extends javax.swing.JPanel {
         storeListTableModel.addColumn("Manager");
         storeListTableModel.addColumn("Location");
         storeListTableModel.addColumn("Phone");
-        storeListTableModel.addColumn("Network");
+        storeListTableModel.addColumn("Branch");
 
         showComboBoxesList();
         showDeleteList();
@@ -394,7 +394,7 @@ public class InventoryStoreManagementJPanel extends javax.swing.JPanel {
         String selectedItem = (String) storeListCombobox.getSelectedItem();
 
         InventoryManager rm = getCurrentManager(managerSelectedItem);
-        system.getInventoryDirectory().createInventory(storeNameText.getText(), rm, phoneTextField.getText(), locationTextField.getText(), rm.getLocation());
+        system.getInventoryDirectory().createInventoryStore(storeNameText.getText(), rm, phoneTextField.getText(), locationTextField.getText());
         System.out.println("Inventory Added ....");
         JOptionPane.showMessageDialog(this, "Inventory added successfully");
         storeListCombobox.addItem(storeNameText.getText());
