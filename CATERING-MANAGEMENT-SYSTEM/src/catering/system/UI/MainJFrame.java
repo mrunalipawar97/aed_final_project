@@ -63,9 +63,10 @@ public class MainJFrame extends javax.swing.JFrame {
 
         jSplitPane1.setOrientation(javax.swing.JSplitPane.VERTICAL_SPLIT);
 
-        jPanel1.setBackground(new java.awt.Color(255, 153, 153));
+        jPanel1.setBackground(new java.awt.Color(255, 255, 204));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        logoutJButton.setBackground(new java.awt.Color(255, 203, 162));
         logoutJButton.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
         logoutJButton.setText("LOGOUT");
         logoutJButton.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 0));

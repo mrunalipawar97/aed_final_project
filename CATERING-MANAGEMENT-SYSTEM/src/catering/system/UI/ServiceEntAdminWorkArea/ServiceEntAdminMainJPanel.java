@@ -53,18 +53,17 @@ public class ServiceEntAdminMainJPanel extends javax.swing.JPanel {
         jLabel8 = new javax.swing.JLabel();
         ManageHospitalButton = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(204, 204, 255));
+        setBackground(new java.awt.Color(255, 180, 153));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        addCourseHeaderLabel.setFont(new java.awt.Font("Kannada MN", 1, 20)); // NOI18N
-        addCourseHeaderLabel.setText("SERVICE ENTERPRISE ADMIN PORTAL");
-        add(addCourseHeaderLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 30, 400, -1));
+        addCourseHeaderLabel.setFont(new java.awt.Font("Helvetica Neue", 3, 36)); // NOI18N
+        addCourseHeaderLabel.setText("Service Enterprise Admin Portal");
+        add(addCourseHeaderLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 40, 620, -1));
 
-        jPanel3.setBackground(new java.awt.Color(255, 204, 204));
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
-        manageGovernmentButton.setBackground(new java.awt.Color(255, 255, 204));
-        manageGovernmentButton.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
-        manageGovernmentButton.setForeground(new java.awt.Color(51, 51, 51));
+        manageGovernmentButton.setBackground(new java.awt.Color(255, 203, 162));
+        manageGovernmentButton.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         manageGovernmentButton.setText("Government");
         manageGovernmentButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -95,13 +94,12 @@ public class ServiceEntAdminMainJPanel extends javax.swing.JPanel {
                 .addGap(20, 20, 20))
         );
 
-        add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 290, 260, 220));
+        add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 410, 260, 220));
 
-        jPanel4.setBackground(new java.awt.Color(255, 204, 204));
+        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
 
-        ManageOfficesButton.setBackground(new java.awt.Color(255, 255, 204));
-        ManageOfficesButton.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
-        ManageOfficesButton.setForeground(new java.awt.Color(51, 51, 51));
+        ManageOfficesButton.setBackground(new java.awt.Color(255, 203, 162));
+        ManageOfficesButton.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         ManageOfficesButton.setText("Offices");
         ManageOfficesButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -132,13 +130,12 @@ public class ServiceEntAdminMainJPanel extends javax.swing.JPanel {
                 .addGap(20, 20, 20))
         );
 
-        add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 288, -1, 220));
+        add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 410, -1, 220));
 
-        jPanel5.setBackground(new java.awt.Color(255, 204, 204));
+        jPanel5.setBackground(new java.awt.Color(255, 255, 255));
 
-        ManageSchoolsButton.setBackground(new java.awt.Color(255, 255, 204));
-        ManageSchoolsButton.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
-        ManageSchoolsButton.setForeground(new java.awt.Color(51, 51, 51));
+        ManageSchoolsButton.setBackground(new java.awt.Color(255, 203, 162));
+        ManageSchoolsButton.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         ManageSchoolsButton.setText("Schools");
         ManageSchoolsButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -162,20 +159,19 @@ public class ServiceEntAdminMainJPanel extends javax.swing.JPanel {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(26, 26, 26)
                 .addComponent(ManageSchoolsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(23, 23, 23))
+                .addGap(15, 15, 15))
         );
 
-        add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 70, -1, 200));
+        add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 140, -1, 200));
 
-        jPanel6.setBackground(new java.awt.Color(255, 204, 204));
+        jPanel6.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel8.setBackground(new java.awt.Color(0, 108, 103));
 
-        ManageHospitalButton.setBackground(new java.awt.Color(255, 255, 204));
-        ManageHospitalButton.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
-        ManageHospitalButton.setForeground(new java.awt.Color(51, 51, 51));
+        ManageHospitalButton.setBackground(new java.awt.Color(255, 203, 162));
+        ManageHospitalButton.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         ManageHospitalButton.setText("Hospitals");
         ManageHospitalButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -207,7 +203,7 @@ public class ServiceEntAdminMainJPanel extends javax.swing.JPanel {
                 .addGap(14, 14, 14))
         );
 
-        add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 260, 200));
+        add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 140, 260, 200));
     }// </editor-fold>//GEN-END:initComponents
 
     private void ManageHospitalButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ManageHospitalButtonActionPerformed

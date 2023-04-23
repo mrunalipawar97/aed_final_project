@@ -38,7 +38,7 @@
         <Container class="javax.swing.JPanel" name="jPanel1">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="99" green="99" red="ff" type="rgb"/>
+              <Color blue="cc" green="ff" red="ff" type="rgb"/>
             </Property>
           </Properties>
           <Constraints>
@@ -53,6 +53,9 @@
           <SubComponents>
             <Component class="javax.swing.JButton" name="logoutJButton">
               <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="a2" green="cb" red="ff" type="rgb"/>
+                </Property>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Lucida Grande" size="18" style="1"/>
                 </Property>

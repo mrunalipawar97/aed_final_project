@@ -122,25 +122,25 @@ public class ViewOfficeOrderDetails extends javax.swing.JPanel {
         btnBack = new javax.swing.JButton();
         barChartJPanel = new javax.swing.JPanel();
 
-        setBackground(new java.awt.Color(204, 204, 255));
+        setBackground(new java.awt.Color(255, 180, 153));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel1.setFont(new java.awt.Font("Helvetica Neue", 3, 36)); // NOI18N
         jLabel1.setText("Office Order Details");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 80, -1, -1));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 50, 350, -1));
 
-        btnBack.setBackground(new java.awt.Color(255, 204, 204));
-        btnBack.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnBack.setForeground(new java.awt.Color(51, 51, 51));
+        btnBack.setBackground(new java.awt.Color(255, 203, 162));
+        btnBack.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnBack.setText("Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackActionPerformed(evt);
             }
         });
-        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 131, -1));
+        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 131, 50));
 
         barChartJPanel.setLayout(new java.awt.BorderLayout());
-        add(barChartJPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 650, 420));
+        add(barChartJPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 110, 650, 420));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed

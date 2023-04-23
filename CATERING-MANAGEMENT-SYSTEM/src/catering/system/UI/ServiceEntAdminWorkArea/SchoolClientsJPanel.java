@@ -79,14 +79,14 @@ public class SchoolClientsJPanel extends javax.swing.JPanel {
         clientTable = new javax.swing.JTable();
         deleteClientButton = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(204, 204, 255));
+        setBackground(new java.awt.Color(255, 180, 153));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setText("Manage School Clients");
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 80, -1, -1));
 
-        btnBack.setBackground(new java.awt.Color(255, 204, 204));
-        btnBack.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnBack.setBackground(new java.awt.Color(255, 203, 162));
+        btnBack.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnBack.setForeground(new java.awt.Color(51, 51, 51));
         btnBack.setText("Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
