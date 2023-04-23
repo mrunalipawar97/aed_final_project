@@ -12,6 +12,7 @@ import catering.system.FoodQualityOrganization.NutritionAuditorDirectory;
 import catering.system.FoodWarehouseOrganization.InventoryDirectory;
 import catering.system.FoodWarehouseOrganization.InventoryManagerDirectory;
 import catering.system.OrderManagement.ClientOrderDirectory;
+import catering.system.OrderManagement.InventoryOrderDirectory;
 import catering.system.Users.UserAccount;
 import java.util.ArrayList;
 import java.util.Date;
@@ -31,6 +32,7 @@ public class EnterpriseDirectory {
     ClientOrderDirectory clientOrderDirectory;
     NutritionAuditorDirectory nutritionAuditorDirectory;
     InventoryDirectory inventoryDirectory;
+    InventoryOrderDirectory inventoryOrderDirectory;
     
     public EnterpriseDirectory() {
         this.enterpriseList = new ArrayList<Enterprise>();
@@ -43,6 +45,7 @@ public class EnterpriseDirectory {
         this.clientOrderDirectory= new ClientOrderDirectory();
         this.nutritionAuditorDirectory = new NutritionAuditorDirectory();
         this.inventoryDirectory = new InventoryDirectory();
+        this.inventoryOrderDirectory = new InventoryOrderDirectory();
     }
 
     public ArrayList<Enterprise> getEnterpriseList() {
@@ -238,6 +241,13 @@ public class EnterpriseDirectory {
         menuList.add(cust);
         return cust;
     }
-    
-    
+
+    public InventoryOrderDirectory getInventoryOrderDirectory() {
+        return inventoryOrderDirectory;
+    }
+
+    public void setInventoryOrderDirectory(InventoryOrderDirectory inventoryOrderDirectory) {
+        this.inventoryOrderDirectory = inventoryOrderDirectory;
+    }
+
 }

@@ -40,7 +40,7 @@ public class AuditingReportingJPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         btnBack = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        title = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(153, 153, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -56,8 +56,11 @@ public class AuditingReportingJPanel extends javax.swing.JPanel {
         });
         add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 131, -1));
 
-        jLabel1.setText("Auditing Reporting");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 30, 180, -1));
+        title.setBackground(new java.awt.Color(255, 255, 255));
+        title.setFont(new java.awt.Font("Lucida Grande", 1, 24)); // NOI18N
+        title.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        title.setText("Auditor ");
+        add(title, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 20, 340, 60));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
@@ -70,6 +73,6 @@ public class AuditingReportingJPanel extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel title;
     // End of variables declaration//GEN-END:variables
 }

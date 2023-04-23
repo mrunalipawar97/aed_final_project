@@ -94,6 +94,4 @@ public class ClientOrder {
         return this.orderId;
     }
 
-    
-    
 }

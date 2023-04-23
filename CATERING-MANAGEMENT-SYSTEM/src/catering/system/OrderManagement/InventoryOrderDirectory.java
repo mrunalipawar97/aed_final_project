@@ -4,7 +4,11 @@
  */
 package catering.system.OrderManagement;
 
+import catering.system.FoodProdOrganization.CateringManager;
+import catering.system.FoodProdOrganization.Menu;
 import catering.system.FoodWarehouseOrganization.Inventory;
+import catering.system.FoodWarehouseOrganization.InventoryManager;
+import catering.system.Organization.ServiceEnterpriseOrganization.Client;
 import catering.system.Users.UserAccount;
 import java.util.ArrayList;
 
@@ -127,13 +131,12 @@ public class InventoryOrderDirectory {
         }
     }
 
-    public InventoryOrder createOrder(String item, String price, int quantity, Inventory inventory, UserAccount user) {
+    public InventoryOrder createOrder(Inventory iv, String price, int quantity, CateringManager user) {
         InventoryOrder order = new InventoryOrder();
-        order.setOrderItem(item);
+        order.setInventory(iv);
         order.setOrderPrice(price);
         order.setOrderQuantity(quantity);
-        inventory = inventory;
-        clientDetails = user;
+        order.setCm(user);
         inventoryOrderList.add(order);
         return order;
     }

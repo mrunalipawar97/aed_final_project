@@ -7,6 +7,7 @@ package catering.system.UI.FoodProdAdminWorkArea;
 import business.ApplicationSystem;
 import catering.system.FoodProdOrganization.Coordinator;
 import catering.system.OrderManagement.ClientOrder;
+import catering.system.Users.UserAccount;
 import java.awt.CardLayout;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
@@ -22,6 +23,7 @@ public class ViewOrdersCateringManagerJPanel extends javax.swing.JPanel {
     ApplicationSystem system;
     DefaultTableModel orderTableModel;
     Coordinator coord;
+    UserAccount ua;
 
     /**
      * Creates new form ViewOrdersCateringManagerJPanel
@@ -30,10 +32,11 @@ public class ViewOrdersCateringManagerJPanel extends javax.swing.JPanel {
         initComponents();
     }
 
-    ViewOrdersCateringManagerJPanel(JPanel userProcessContainer, ApplicationSystem system) {
+    ViewOrdersCateringManagerJPanel(JPanel userProcessContainer, UserAccount ua,ApplicationSystem system) {
         initComponents();
         this.orderTableModel= (DefaultTableModel) orderTable.getModel();
         this.system=system;
+        this.ua = ua;
         this.coord=new Coordinator();
         this.userProcessContainer=userProcessContainer;
         populateOrder();
@@ -142,7 +145,7 @@ public class ViewOrdersCateringManagerJPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-        CateringManagerMainJPanel dm= new CateringManagerMainJPanel(userProcessContainer, system);
+        CateringManagerMainJPanel dm= new CateringManagerMainJPanel(userProcessContainer, ua, system);
         userProcessContainer.add("manageHospitalsJPanel",dm);
         CardLayout layout=(CardLayout)userProcessContainer.getLayout();
         layout.next(userProcessContainer);
