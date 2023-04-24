@@ -49,21 +49,21 @@ A catering management system application using Java Swing is designed to handle 
   
 
 # Contributors
-  * Mrunali Pawar - 002646797
+  + **Mrunali Pawar - 002646797**
     + Food Quality Admin Work Area -> Nutritional auditor, prepare analysis and show metric.
     + Food Warehouse Admin Work Area -> Add Inventory Manager. 
     + Add Inventory
     + Inventory Order Placement from catering manager and Acceptance,Rejection
     + UML Class Diagram
     
-  * Nishi Pancholi - 002620349
+  + **Nishi Pancholi - 002620349**
     + Service Enterprise Admin Work Area -> manage clients, Graphs for order per organization.
     + Food Production Admin Work Area -> Add Catering Manager, Add Supervisor, Add Coordinator
     + Order Transit to each role and transistion.
     + Client Order to Menu
     + Architecture Diagram
     
-  * Jeel Kanzaria - 002652655
+   + **Jeel Kanzaria - 002652655**
     + Add Enterprise, Add Enterprise Admin, Client Registration
     + Nutritional audior Work Area creation
     + UI changes to panels and buttons
