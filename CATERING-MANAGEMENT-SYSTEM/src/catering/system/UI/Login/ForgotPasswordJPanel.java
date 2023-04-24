@@ -75,7 +75,7 @@ public class ForgotPasswordJPanel extends javax.swing.JPanel {
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         restPwdLabel2.setBackground(new java.awt.Color(254, 254, 226));
-        restPwdLabel2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        restPwdLabel2.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         restPwdLabel2.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         restPwdLabel2.setText("Enter Your Email ID");
         add(restPwdLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 250, 154, -1));

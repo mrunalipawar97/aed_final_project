@@ -77,7 +77,6 @@ public class HospitalClientJPanel extends javax.swing.JPanel {
         btnBack = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         clientTable = new javax.swing.JTable();
-        deleteClientButton = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 180, 153));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -120,16 +119,6 @@ public class HospitalClientJPanel extends javax.swing.JPanel {
         jScrollPane1.setViewportView(clientTable);
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(252, 130, 520, 290));
-
-        deleteClientButton.setBackground(new java.awt.Color(255, 203, 162));
-        deleteClientButton.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
-        deleteClientButton.setText("Delete Hospital Client");
-        deleteClientButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                deleteClientButtonActionPerformed(evt);
-            }
-        });
-        add(deleteClientButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(435, 460, 220, 40));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
@@ -139,31 +128,10 @@ public class HospitalClientJPanel extends javax.swing.JPanel {
         layout.next(userProcessContainer);
     }//GEN-LAST:event_btnBackActionPerformed
 
-    private void deleteClientButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteClientButtonActionPerformed
-        // TODO add your handling code here:
-        int selectedRow = clientTable.getSelectedRow();
-        if(selectedRow>=0){
-            Client c= (Client) clientTable.getValueAt(selectedRow,0);
-            ArrayList<UserAccount> uaList=this.system.getUserAccountDirectory().getUserAccountList();
-            for(UserAccount ua:uaList){
-                if(ua==c.getAccountDetails()){
-                    this.system.getUserAccountDirectory().deleteUser(c.getName());
-                }
-            }
-            this.system.getClientDirectory().deleteClient(c.getName());
-            JOptionPane.showMessageDialog(null,"Client Deleted!");
-            populate();
-        }
-        else{
-            JOptionPane.showMessageDialog(null,"Any row selection is not done!");
-        }
-    }//GEN-LAST:event_deleteClientButtonActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
     private javax.swing.JTable clientTable;
-    private javax.swing.JButton deleteClientButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
