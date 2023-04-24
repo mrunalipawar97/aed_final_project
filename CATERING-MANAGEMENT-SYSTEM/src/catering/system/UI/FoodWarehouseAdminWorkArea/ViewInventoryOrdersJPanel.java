@@ -41,30 +41,28 @@ public class ViewInventoryOrdersJPanel extends javax.swing.JPanel {
         this.ua = ua;
         this.userProcessContainer = userProcessContainer;
         inventory = new Inventory();
-        this.viewOrdersTableModel= (DefaultTableModel) orderListTable.getModel();
+        this.viewOrdersTableModel = (DefaultTableModel) orderListTable.getModel();
         populateOrder();
 
     }
-    
-    public void populateOrder()
-    {
-        viewOrdersTableModel.setRowCount(0);
-        ArrayList<InventoryOrder> applications=this.system.getInventoryOrderDirectory().getInventoryOrderList();
-        System.out.println(applications);
-        if(applications.size()>0){
-            for (InventoryOrder app:applications){
-//                if(ua==app.getClient().getAccountDetails()){
-                    Object row[]= new Object[4];
-                    row[0]=app;
-                    row[1]=app.getOrderPrice();
-                    row[2]=app.getStatus();
-                    row[3]=app.getCm().getName();
 
-                    viewOrdersTableModel.addRow(row);
+    public void populateOrder() {
+        viewOrdersTableModel.setRowCount(0);
+        ArrayList<InventoryOrder> applications = this.system.getInventoryOrderDirectory().getInventoryOrderList();
+        System.out.println(applications);
+        if (applications.size() > 0) {
+            for (InventoryOrder app : applications) {
+//                if(ua==app.getClient().getAccountDetails()){
+                Object row[] = new Object[4];
+                row[0] = app;
+                row[1] = app.getOrderPrice();
+                row[2] = app.getStatus();
+                row[3] = app.getCm().getName();
+
+                viewOrdersTableModel.addRow(row);
 //                }
             }
-        }
-        else{
+        } else {
             System.out.println("Empty Menu");
         }
     }
@@ -160,15 +158,15 @@ public class ViewInventoryOrdersJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_backButtonActionPerformed
 
     private void rejectButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rejectButtonActionPerformed
-         int selectedRow = orderListTable.getSelectedRow();
-        if(selectedRow >= 0) {
-            InventoryOrder io = (InventoryOrder)orderListTable.getValueAt(selectedRow, 0);
-            ArrayList<InventoryOrder> applications=this.system.getInventoryOrderDirectory().getInventoryOrderList();
+        int selectedRow = orderListTable.getSelectedRow();
+        if (selectedRow >= 0) {
+            InventoryOrder io = (InventoryOrder) orderListTable.getValueAt(selectedRow, 0);
+            ArrayList<InventoryOrder> applications = this.system.getInventoryOrderDirectory().getInventoryOrderList();
             System.out.println(applications);
-            for (InventoryOrder order : applications){
-                order.setStatus("Rejected");
-            }
-            JOptionPane.showMessageDialog(null,"Invertory order request rejected");
+
+            io.setStatus("Rejected");
+
+            JOptionPane.showMessageDialog(null, "Invertory order request rejected");
             populateOrder();
         }
     }//GEN-LAST:event_rejectButtonActionPerformed
@@ -176,23 +174,19 @@ public class ViewInventoryOrdersJPanel extends javax.swing.JPanel {
     private void acceptButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_acceptButtonActionPerformed
         //TODO add your handling code here:
         int selectedRow = orderListTable.getSelectedRow();
-        if(selectedRow >= 0) {
-            InventoryOrder io = (InventoryOrder)orderListTable.getValueAt(selectedRow, 0);
-            ArrayList<InventoryOrder> applications=this.system.getInventoryOrderDirectory().getInventoryOrderList();
+        if (selectedRow >= 0) {
+            InventoryOrder io = (InventoryOrder) orderListTable.getValueAt(selectedRow, 0);
+            ArrayList<InventoryOrder> applications = this.system.getInventoryOrderDirectory().getInventoryOrderList();
             System.out.println(applications);
-            for (InventoryOrder order : applications){
-                order.setStatus("Accepted");
-            }
-            JOptionPane.showMessageDialog(null,"Invertory order request accepted");
+            io.setStatus("Accepted");
+            JOptionPane.showMessageDialog(null, "Invertory order request accepted");
             populateOrder();
         }
-        
+
     }//GEN-LAST:event_acceptButtonActionPerformed
 
-
-
     public void viewOrderDirList() {
-     /*   String name = "";
+        /*   String name = "";
         for (int i = viewOrdersTableModel.getRowCount() - 1; i >= 0; i--) {
             viewOrdersTableModel.removeRow(i);
         }
@@ -209,7 +203,7 @@ public class ViewInventoryOrdersJPanel extends javax.swing.JPanel {
             });
         }*/
     }
-    
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton acceptButton;
     private javax.swing.JLabel addCourseHeaderLabel;

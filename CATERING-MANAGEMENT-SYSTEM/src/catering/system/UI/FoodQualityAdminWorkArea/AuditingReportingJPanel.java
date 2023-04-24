@@ -102,7 +102,6 @@ public class AuditingReportingJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        btnBack = new javax.swing.JButton();
         title = new javax.swing.JLabel();
         healthScoreLabel = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -122,17 +121,6 @@ public class AuditingReportingJPanel extends javax.swing.JPanel {
 
         setBackground(new java.awt.Color(255, 180, 153));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        btnBack.setBackground(new java.awt.Color(255, 203, 162));
-        btnBack.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
-        btnBack.setText("Back");
-        btnBack.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btnBack.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBackActionPerformed(evt);
-            }
-        });
-        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 131, 40));
 
         title.setBackground(new java.awt.Color(255, 255, 255));
         title.setFont(new java.awt.Font("Helvetica Neue", 1, 36)); // NOI18N
@@ -237,13 +225,6 @@ public class AuditingReportingJPanel extends javax.swing.JPanel {
         add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 270, 50, 30));
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-        NutritionAuditorWorkAreaJPanel dm = new NutritionAuditorWorkAreaJPanel(userProcessContainer, system);
-        userProcessContainer.add("nutritionAuditorJPanel", dm);
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.next(userProcessContainer);
-    }//GEN-LAST:event_btnBackActionPerformed
-
     private void showMenujButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showMenujButtonActionPerformed
         // TODO add your handling code here:
         int selectedRow = menuTable.getSelectedRow();
@@ -283,7 +264,6 @@ public class AuditingReportingJPanel extends javax.swing.JPanel {
     private javax.swing.JComboBox FeedbackComboBox;
     private javax.swing.JTextField LunchTextField;
     private javax.swing.JTextField breakfastTextField;
-    private javax.swing.JButton btnBack;
     private javax.swing.JTextField dinnerTextField;
     private javax.swing.JLabel healthScoreLabel;
     private javax.swing.JTable healthScorejTable;

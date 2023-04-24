@@ -200,9 +200,26 @@ public class AddMenuJPanel extends javax.swing.JPanel {
             return;
         }
         Date menuDate= jDateChooser1.getDate();
-      
+       
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        String date = sdf.format(menuDate);
+         System.out.println("date"+date);
+        ArrayList<Menu> menuList=system.getEnterpriseDirectory().getMenuList();
+       
+        if(menuList.size() > 0){
+            for (int i = 0; i < menuList.size(); i++) {
+                String d = sdf.format(menuList.get(i).getDate());
+                 System.out.println("d"+date);
+                if(d.equals(date)){
+                    
+                    System.out.println("i 00" + d);
+                    JOptionPane.showMessageDialog(null,"Menu for this Date Already Present", "Error message" ,JOptionPane.ERROR_MESSAGE);
+                    return;
+                }
+            }
+        }
+        
         Menu employee = system.getEnterpriseDirectory().createMenu(menuDate, breakfastField.getText(), lunchField.getText(), dinnerField.getText(), Integer.valueOf(batchField.getText()), Float.valueOf(priceField.getText()));
-
         JOptionPane.showMessageDialog(null, "Menu added successfully");
         populate();
         breakfastField.setText("");

@@ -37,9 +37,9 @@ public class InventoryDirectory {
     }
 
     public Boolean deleteInvetory(String name) {
-        for(int i = 0; i < storeList.size(); i ++) {
-            if(storeList.get(i).getName().equals(name)) {
-                storeList.remove(i);
+        for(int i = 0; i < itemsList.size(); i ++) {
+            if(itemsList.get(i).getName().equals(name)) {
+                itemsList.remove(i);
                 return true;
             }
         }

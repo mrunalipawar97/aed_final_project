@@ -28,7 +28,7 @@ public class AddInventoryJPanel extends javax.swing.JPanel {
     ApplicationSystem system;
     DefaultTableModel viewInventoryTableModel;
     UserAccount ua;
-    Inventory inventory;
+    Inventory selectedItem;
     Validate validate;
 
     public AddInventoryJPanel() {
@@ -40,7 +40,7 @@ public class AddInventoryJPanel extends javax.swing.JPanel {
         this.system = system;
         this.userProcessContainer = userProcessContainer;
         this.ua = ua;
-        this.inventory = new Inventory();
+        this.selectedItem = new Inventory();
         this.validate=new Validate();
         //this.viewInventoryTableModel= (DefaultTableModel) inventoryTable.getModel();
         this.viewInventoryTableModel = new DefaultTableModel();
@@ -188,7 +188,7 @@ public class AddInventoryJPanel extends javax.swing.JPanel {
         });
         AddItemPanel.add(addButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 170, 114, 27));
 
-        add(AddItemPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, 460, 250));
+        add(AddItemPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, 470, 220));
 
         UpdateItemPanel.setBackground(new java.awt.Color(255, 255, 255));
         UpdateItemPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -254,7 +254,7 @@ public class AddInventoryJPanel extends javax.swing.JPanel {
                 deleteButtonActionPerformed(evt);
             }
         });
-        UpdateItemPanel.add(deleteButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 220, 119, 27));
+        UpdateItemPanel.add(deleteButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 220, 119, 27));
 
         viewItemButton.setBackground(new java.awt.Color(255, 203, 162));
         viewItemButton.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
@@ -265,9 +265,9 @@ public class AddInventoryJPanel extends javax.swing.JPanel {
                 viewItemButtonActionPerformed(evt);
             }
         });
-        UpdateItemPanel.add(viewItemButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 280, 110, 30));
+        UpdateItemPanel.add(viewItemButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 220, 110, 30));
 
-        add(UpdateItemPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 430, 460, 350));
+        add(UpdateItemPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 400, 530, 280));
 
         addCourseHeaderLabel.setFont(new java.awt.Font("Helvetica Neue", 1, 36)); // NOI18N
         addCourseHeaderLabel.setText("Food Warehouse Inventory");
@@ -275,7 +275,7 @@ public class AddInventoryJPanel extends javax.swing.JPanel {
 
         jLabel3.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         jLabel3.setText("View Orders");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 140, 130, -1));
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 130, 130, -1));
 
         inventoryTable.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         inventoryTable.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
@@ -291,7 +291,7 @@ public class AddInventoryJPanel extends javax.swing.JPanel {
         inventoryTable.setGridColor(new java.awt.Color(0, 0, 0));
         jScrollPane1.setViewportView(inventoryTable);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 170, 380, 200));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 160, 380, 200));
     }// </editor-fold>//GEN-END:initComponents
 
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
@@ -356,40 +356,32 @@ public class AddInventoryJPanel extends javax.swing.JPanel {
             return;
         }
         if (itemsCombo.getSelectedItem() != null) {
-             String selectedItem = (String) itemsCombo.getSelectedItem();
+             Inventory selectedItem = (Inventory) itemsCombo.getSelectedItem();
         }
         
         int selectedRow = inventoryTable.getSelectedRow();
         
         if(selectedRow >= 0){
-            inventory.setName(updateItemText.getText());
-            inventory.setPrice(Double.valueOf(updatePriceText.getText()));
+            selectedItem.setName(updateItemText.getText());
+            selectedItem.setPrice(Double.valueOf(updatePriceText.getText()));
         }else{
             JOptionPane.showMessageDialog(null,"Any row selection is not done!");
         }
-        
-        /* int selectedRow = adminTable.getSelectedRow();
-        if(selectedRow>=0){
-            
-            selectedEnterprise.getAdmin().setName(adminNameField.getText());
-            selectedEnterprise.setEntAdminName(adminNameField.getText());
-            selectedEnterprise.getAdmin().getAccountDetails().setUsername(adminUsernameField.getText());
-            selectedEnterprise.getAdmin().getAccountDetails().setPassword(updtPwdField.getText());
-            JOptionPane.showMessageDialog(null,"Updated Enterprise Name!"); 
-            populate();
-        }
-        else{
-            JOptionPane.showMessageDialog(null,"Any row selection is not done!");
-        }
-        */
         populateInventoryItems();
         reset();
-
     }//GEN-LAST:event_updateButtonActionPerformed
 
     private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
         // TODO add your handling code here:
-        
+        int selectedRow = inventoryTable.getSelectedRow();
+        if(selectedRow>=0){ 
+            selectedItem = (Inventory)inventoryTable.getValueAt(selectedRow,0);
+            this.system.getEnterpriseDirectory().getInventoryDirectory().deleteInvetory(selectedItem.getName());
+            JOptionPane.showMessageDialog(null,"Item Deleted!");
+            populateInventoryItems();        
+        }else{
+            JOptionPane.showMessageDialog(null,"Any row selection is not done!"); 
+        }
         reset();
     }//GEN-LAST:event_deleteButtonActionPerformed
 
@@ -399,9 +391,9 @@ public class AddInventoryJPanel extends javax.swing.JPanel {
         
         if(selectedRow>=0){
             
-            inventory = (Inventory) inventoryTable.getValueAt(selectedRow, 0);
-            updateItemText.setText(inventory.getName());
-            updatePriceText.setText(String.valueOf(inventory.getPrice()));  
+            selectedItem = (Inventory) inventoryTable.getValueAt(selectedRow, 0);
+            updateItemText.setText(selectedItem.getName());
+            updatePriceText.setText(String.valueOf(selectedItem.getPrice()));  
         }
         else{
             JOptionPane.showMessageDialog(null,"Please select row");

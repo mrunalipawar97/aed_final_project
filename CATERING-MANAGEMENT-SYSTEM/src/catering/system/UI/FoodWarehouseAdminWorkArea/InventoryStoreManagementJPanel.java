@@ -36,7 +36,6 @@ public class InventoryStoreManagementJPanel extends javax.swing.JPanel {
         this.system = system;
         storeListTableModel = (DefaultTableModel)storeListTable.getModel();
         showComboBoxesList();
-        showDeleteList();
         viewGroceryList();
     }
     
@@ -53,14 +52,7 @@ public class InventoryStoreManagementJPanel extends javax.swing.JPanel {
         }
     }
 
-    public void showDeleteList() {
-        for (int i = 0; i < system.getInventoryDirectory().getStoreList().size(); i++) {
-            storeListCombobox.addItem(system.getInventoryDirectory().getStoreList().get(i).getName());
-            updateStoreListCombobox.addItem(system.getInventoryDirectory().getStoreList().get(i).getName());
-
-        }
-    }
-
+    
     
     public void showComboBoxesList() {
         managerListCombobox.removeAllItems();
@@ -80,14 +72,7 @@ public class InventoryStoreManagementJPanel extends javax.swing.JPanel {
         }*/
     }
     
-    public void resetUpdate() {
-        updateStoreListCombobox.setSelectedIndex(0);        
-        updateManagerListCombobox.setSelectedIndex(0);
-
-        updateLocationTextField.setText("");
-        updatePhoneTextField.setText("");
-        updateStoreNameText.setText("");
-    }
+  
     
     public InventoryManager getCurrentManager(String name) {
         for (int i = 0; i < system.getInventoryManagerDirectory().getInventoryManagerList().size(); i++) {
@@ -129,29 +114,13 @@ public class InventoryStoreManagementJPanel extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         storeListTable = new javax.swing.JTable();
         btnBack = new javax.swing.JButton();
-        jLabel5 = new javax.swing.JLabel();
-        selectManagerLabel = new javax.swing.JLabel();
-        updateStoreListCombobox = new javax.swing.JComboBox<>();
-        updateRestManagerLabel = new javax.swing.JLabel();
-        updateButton = new javax.swing.JButton();
-        restNameLabel1 = new javax.swing.JLabel();
-        updateStoreNameText = new javax.swing.JTextField();
-        updateManagerListCombobox = new javax.swing.JComboBox<>();
         ManagerJLabel = new javax.swing.JLabel();
         managerListCombobox = new javax.swing.JComboBox();
         phoneJLabel = new javax.swing.JLabel();
         locationJLabel = new javax.swing.JLabel();
         locationTextField = new javax.swing.JTextField();
         phoneTextField = new javax.swing.JTextField();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        updatePhoneTextField = new javax.swing.JTextField();
-        updateLocationTextField = new javax.swing.JTextField();
         title = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        deleteNameLabel = new javax.swing.JLabel();
-        storeListCombobox = new javax.swing.JComboBox<>();
-        deleteStoreButton = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 180, 153));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -188,7 +157,7 @@ public class InventoryStoreManagementJPanel extends javax.swing.JPanel {
         jLabel4.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("View Items");
-        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 460, 110, 24));
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 110, 110, 24));
 
         storeListTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -215,7 +184,7 @@ public class InventoryStoreManagementJPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(storeListTable);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 490, 540, 188));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 140, 540, 188));
 
         btnBack.setBackground(new java.awt.Color(255, 203, 162));
         btnBack.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
@@ -227,63 +196,6 @@ public class InventoryStoreManagementJPanel extends javax.swing.JPanel {
             }
         });
         add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 133, 40));
-
-        jLabel5.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
-        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel5.setText("Update Item");
-        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 100, 120, 30));
-
-        selectManagerLabel.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
-        selectManagerLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        selectManagerLabel.setText("Select Item");
-        add(selectManagerLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 140, 105, 30));
-
-        updateStoreListCombobox.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
-        updateStoreListCombobox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None" }));
-        updateStoreListCombobox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                updateStoreListComboboxActionPerformed(evt);
-            }
-        });
-        add(updateStoreListCombobox, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 140, 150, 30));
-
-        updateRestManagerLabel.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
-        updateRestManagerLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        updateRestManagerLabel.setText("Manager Name");
-        add(updateRestManagerLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 240, 129, 30));
-
-        updateButton.setBackground(new java.awt.Color(255, 203, 162));
-        updateButton.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
-        updateButton.setText("Update");
-        updateButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        updateButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                updateButtonActionPerformed(evt);
-            }
-        });
-        add(updateButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 400, 133, 30));
-
-        restNameLabel1.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
-        restNameLabel1.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        restNameLabel1.setText("Name");
-        add(restNameLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 190, 73, 30));
-
-        updateStoreNameText.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
-        updateStoreNameText.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                updateStoreNameTextActionPerformed(evt);
-            }
-        });
-        add(updateStoreNameText, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 190, 150, 30));
-
-        updateManagerListCombobox.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
-        updateManagerListCombobox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None" }));
-        updateManagerListCombobox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                updateManagerListComboboxActionPerformed(evt);
-            }
-        });
-        add(updateManagerListCombobox, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 240, 150, 30));
 
         ManagerJLabel.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         ManagerJLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
@@ -320,67 +232,11 @@ public class InventoryStoreManagementJPanel extends javax.swing.JPanel {
         phoneTextField.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
         add(phoneTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 240, 150, 30));
 
-        jLabel7.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
-        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        jLabel7.setText("Phone");
-        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 290, 80, 30));
-
-        jLabel8.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
-        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        jLabel8.setText("Location");
-        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 340, 60, 30));
-
-        updatePhoneTextField.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
-        updatePhoneTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                updatePhoneTextFieldActionPerformed(evt);
-            }
-        });
-        add(updatePhoneTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 290, 150, 30));
-
-        updateLocationTextField.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
-        updateLocationTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                updateLocationTextFieldActionPerformed(evt);
-            }
-        });
-        add(updateLocationTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 340, 150, 30));
-
         title.setBackground(new java.awt.Color(255, 255, 255));
         title.setFont(new java.awt.Font("Helvetica Neue", 1, 36)); // NOI18N
         title.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         title.setText("Manage Inventory Store");
         add(title, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 20, 510, 50));
-
-        jLabel2.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("Delete Item");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 100, 110, 30));
-
-        deleteNameLabel.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
-        deleteNameLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        deleteNameLabel.setText("Name");
-        add(deleteNameLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 140, 52, 30));
-
-        storeListCombobox.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
-        storeListCombobox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None" }));
-        storeListCombobox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                storeListComboboxActionPerformed(evt);
-            }
-        });
-        add(storeListCombobox, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 140, 164, 30));
-
-        deleteStoreButton.setBackground(new java.awt.Color(255, 203, 162));
-        deleteStoreButton.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
-        deleteStoreButton.setText("Delete");
-        deleteStoreButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        deleteStoreButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                deleteStoreButtonActionPerformed(evt);
-            }
-        });
-        add(deleteStoreButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 200, 133, 30));
     }// </editor-fold>//GEN-END:initComponents
 
     private void storeNameTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_storeNameTextActionPerformed
@@ -403,14 +259,13 @@ public class InventoryStoreManagementJPanel extends javax.swing.JPanel {
         }
         String managerSelectedItem = (String) managerListCombobox.getSelectedItem();
 
-        String selectedItem = (String) storeListCombobox.getSelectedItem();
+        //String selectedItem = (String) storeListCombobox.getSelectedItem();
 
         InventoryManager rm = getCurrentManager(managerSelectedItem);
         system.getInventoryDirectory().createInventoryStore(storeNameText.getText(), rm, phoneTextField.getText(), locationTextField.getText());
         System.out.println("Inventory Store Added ....");
         JOptionPane.showMessageDialog(this, "Inventory store added successfully");
-        storeListCombobox.addItem(storeNameText.getText());
-        updateStoreListCombobox.addItem(storeNameText.getText());
+        
 
         storeListTableModel.addRow(new Object[]{
             storeNameText.getText(),
@@ -433,61 +288,6 @@ public class InventoryStoreManagementJPanel extends javax.swing.JPanel {
         layout.next(userProcessContainer);
     }//GEN-LAST:event_btnBackActionPerformed
 
-    private void updateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateButtonActionPerformed
-        // TODO add your handling code here:
-        String managerSelectedItem = (String) updateManagerListCombobox.getSelectedItem();
-        InventoryManager rm = getCurrentManager(managerSelectedItem);
-        boolean flag = false;
-
-        String selectedItem = (String) updateStoreListCombobox.getSelectedItem();
-        storeListCombobox.getSelectedIndex();
-        if(updateStoreListCombobox.getSelectedItem() == null || updateStoreListCombobox.getSelectedIndex() == 0) {
-            JOptionPane.showMessageDialog(null,"Select a value from dropdown of Inventory to update","Error message", JOptionPane.ERROR_MESSAGE);
-            return;
-        } else if (!validateFields(updateLocationTextField.getText(), updatePhoneTextField.getText(), updateStoreNameText.getText())) {
-            return;
-        }
-        if(updateManagerListCombobox.getSelectedItem() == null || updateManagerListCombobox.getSelectedIndex() == 0) {
-            JOptionPane.showMessageDialog(null,"Select a value from manager dropdown of Inventory to update","Error message", JOptionPane.ERROR_MESSAGE);
-            return;
-        }
-        if (flag == false) {
-            //            Boolean isDelete = ecosystem.getRestaurantDirectory().deleteRestaurant(selectedItem);
-            for (int i = 0; i < system.getInventoryDirectory().getStoreList().size(); i++) {
-                if (system.getInventoryDirectory().getStoreList().get(i).getName().equals(selectedItem)) {
-                    system.getInventoryDirectory().getStoreList().get(i).setName(updateStoreNameText.getText());
-                    system.getInventoryDirectory().getStoreList().get(i).setLocation(updateLocationTextField.getText());
-                    system.getInventoryDirectory().getStoreList().get(i).setPhone(updatePhoneTextField.getText());
-                    system.getInventoryDirectory().getStoreList().get(i).setManagerDetails(rm);
-                }
-            }
-        }
-
-        for (int i = 0; i < storeListTable.getRowCount(); i++) {
-            if (((String) storeListTable.getValueAt(i, 0)).equals(selectedItem)) {
-                storeListCombobox.addItem(updateStoreNameText.getText());
-                storeListTableModel.addRow(new Object[]{
-                    updateStoreNameText.getText(),
-                    managerSelectedItem,
-                    updateLocationTextField.getText(),
-                    updatePhoneTextField.getText()
-                });
-                storeListTableModel.removeRow(i);
-                storeListCombobox.removeItemAt(i + 1);
-            }//end of if block
-        }
-        System.out.println("Inventory Store Updated ....");
-        resetUpdate();
-    }//GEN-LAST:event_updateButtonActionPerformed
-
-    private void updateStoreNameTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateStoreNameTextActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_updateStoreNameTextActionPerformed
-
-    private void updateManagerListComboboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateManagerListComboboxActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_updateManagerListComboboxActionPerformed
-
     private void managerListComboboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_managerListComboboxActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_managerListComboboxActionPerformed
@@ -496,98 +296,22 @@ public class InventoryStoreManagementJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_locationTextFieldActionPerformed
 
-    private void updatePhoneTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updatePhoneTextFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_updatePhoneTextFieldActionPerformed
-
-    private void updateLocationTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateLocationTextFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_updateLocationTextFieldActionPerformed
-
-    private void storeListComboboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_storeListComboboxActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_storeListComboboxActionPerformed
-
-    private void deleteStoreButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteStoreButtonActionPerformed
-        // TODO add your handling code here:
-        boolean flag = false;
-
-        String selectedItem = (String) storeListCombobox.getSelectedItem();
-        storeListCombobox.getSelectedIndex();
-        if(storeListCombobox.getSelectedItem() == null || storeListCombobox.getSelectedIndex() == 0) {
-            JOptionPane.showMessageDialog(null,"Select a value from dropdown of Inventory to delete","Error message", JOptionPane.ERROR_MESSAGE);
-            return;
-        }
-        if (flag == false) {
-            Boolean isDelete = system.getInventoryDirectory().deleteInvetory(selectedItem);
-            for (int i = 0; i < storeListTable.getRowCount(); i++) {
-                if (((String) storeListTable.getValueAt(i, 0)).equals(selectedItem)) {
-                    storeListTableModel.removeRow(i);
-                    storeListCombobox.removeItemAt(i + 1);
-                    updateStoreListCombobox.removeItemAt(i + 1);
-                }//end of if block
-            }
-            if (isDelete) {
-                System.out.println("Inventory deleted ....");
-                JOptionPane.showMessageDialog(this, "Inventory deleted successfully");
-            }
-        }
-        storeListCombobox.setSelectedIndex(0);
-    }//GEN-LAST:event_deleteStoreButtonActionPerformed
-
-    private void updateStoreListComboboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateStoreListComboboxActionPerformed
-        // TODO add your handling code here:
-        if (updateStoreListCombobox.getSelectedItem() != "None") {
-            String selectedItem = (String) updateStoreListCombobox.getSelectedItem();
-            for (int i = 0; i < system.getInventoryDirectory().getStoreList().size(); i++) {
-                if (system.getInventoryDirectory().getStoreList().get(i).getName().equalsIgnoreCase(selectedItem)) {
-                    updateStoreNameText.setText(system.getInventoryDirectory().getStoreList().get(i).getName());
-                    updateLocationTextField.setText(system.getInventoryDirectory().getStoreList().get(i).getLocation());
-                    updatePhoneTextField.setText(system.getInventoryDirectory().getStoreList().get(i).getPhone());
-                    updateManagerListCombobox.setSelectedItem(system.getInventoryDirectory().getStoreList().get(i).getManagerDetails());
-                    break;
-                }
-            }
-        }else{
-            updateStoreNameText.setText("");
-            updateLocationTextField.setText("");
-            updatePhoneTextField.setText("");
-            updateManagerListCombobox.setSelectedItem(null);
-        }
-    }//GEN-LAST:event_updateStoreListComboboxActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel ManagerJLabel;
     private javax.swing.JButton addStoreButton;
     private javax.swing.JButton btnBack;
-    private javax.swing.JLabel deleteNameLabel;
-    private javax.swing.JButton deleteStoreButton;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel locationJLabel;
     private javax.swing.JTextField locationTextField;
     private javax.swing.JComboBox managerListCombobox;
     private javax.swing.JLabel phoneJLabel;
     private javax.swing.JTextField phoneTextField;
-    private javax.swing.JLabel restNameLabel1;
-    private javax.swing.JLabel selectManagerLabel;
-    private javax.swing.JComboBox<String> storeListCombobox;
     private javax.swing.JTable storeListTable;
     private javax.swing.JLabel storeNameJLabel;
     private javax.swing.JTextField storeNameText;
     private javax.swing.JLabel title;
-    private javax.swing.JButton updateButton;
-    private javax.swing.JTextField updateLocationTextField;
-    private javax.swing.JComboBox<String> updateManagerListCombobox;
-    private javax.swing.JTextField updatePhoneTextField;
-    private javax.swing.JLabel updateRestManagerLabel;
-    private javax.swing.JComboBox<String> updateStoreListCombobox;
-    private javax.swing.JTextField updateStoreNameText;
     // End of variables declaration//GEN-END:variables
 }

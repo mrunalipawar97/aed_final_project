@@ -288,7 +288,7 @@ public class NutritionAuditorJPanel extends javax.swing.JPanel {
 
     private void updateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateButtonActionPerformed
         // TODO add your handling code here:
-        Boolean isNameValid = validate.checkName(auditorNameTextField.getText());
+        Boolean isNameValid = validate.checkName(updateNameTextField.getText());
         Boolean isUsernameValid= validate.checkUserName(updateUsernameTextField.getText());
         Boolean isValid = ValidateStrings.validateStringFields(updateUsernameTextField.getText(), updateAddressTextField.getText(), updatePhoneTextField.getText(), updateNameTextField.getText(), updatePasswordTextField.getPassword());
         if (!isValid) {
@@ -326,8 +326,13 @@ public class NutritionAuditorJPanel extends javax.swing.JPanel {
         if (selectedRow >= 0) {
             this.selectedNutritionAuditor = (NutritionAuditor) nutritionAuditorTable.getValueAt(selectedRow, 0);
             this.system.getEnterpriseDirectory().getNutritionAuditorDirectory().deleteNutritionAuditorManager(selectedNutritionAuditor.getAuditorName());
-            JOptionPane.showMessageDialog(null, "Catering Manager Deleted!");
+            JOptionPane.showMessageDialog(null, "Nurtition Auditor Deleted!");
             populateNutritionManagerDetails();
+            updateNameTextField.setText("");
+            updateAddressTextField.setText("");
+            updateUsernameTextField.setText("");
+            updatePasswordTextField.setText("");
+            updatePhoneTextField.setText("");
         } else {
             JOptionPane.showMessageDialog(null, "Any row selection is not done!");
         }
