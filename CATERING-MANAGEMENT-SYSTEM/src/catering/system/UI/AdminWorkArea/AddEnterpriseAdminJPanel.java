@@ -116,10 +116,10 @@ public class AddEnterpriseAdminJPanel extends javax.swing.JPanel {
         add(entComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 120, 240, 30));
 
         updateRestManagerLabel.setBackground(new java.awt.Color(254, 254, 226));
-        updateRestManagerLabel.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        updateRestManagerLabel.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         updateRestManagerLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         updateRestManagerLabel.setText("Enterprise Type");
-        add(updateRestManagerLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 120, -1, 30));
+        add(updateRestManagerLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 120, -1, 30));
 
         restManagerText.setForeground(new java.awt.Color(72, 72, 72));
         restManagerText.addActionListener(new java.awt.event.ActionListener() {
@@ -130,25 +130,25 @@ public class AddEnterpriseAdminJPanel extends javax.swing.JPanel {
         add(restManagerText, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 170, 240, 30));
 
         restPwdLabel1.setBackground(new java.awt.Color(254, 254, 226));
-        restPwdLabel1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        restPwdLabel1.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         restPwdLabel1.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         restPwdLabel1.setText("Username");
-        add(restPwdLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 210, -1, 50));
+        add(restPwdLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 210, -1, 50));
 
         usernameText.setForeground(new java.awt.Color(72, 72, 72));
         add(usernameText, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 220, 240, 30));
 
         jLabel6.setBackground(new java.awt.Color(254, 254, 226));
-        jLabel6.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         jLabel6.setText("Password");
-        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 270, -1, 40));
+        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 270, -1, 40));
 
         restPwdText.setForeground(new java.awt.Color(72, 72, 72));
         add(restPwdText, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 270, 240, 30));
 
         updateRestManagerLabel1.setBackground(new java.awt.Color(254, 254, 226));
-        updateRestManagerLabel1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        updateRestManagerLabel1.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         updateRestManagerLabel1.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         updateRestManagerLabel1.setText("Name");
         add(updateRestManagerLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 170, -1, 30));
@@ -200,28 +200,28 @@ public class AddEnterpriseAdminJPanel extends javax.swing.JPanel {
         add(viewAdminButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 330, 120, 40));
 
         updateRestManagerLabel2.setBackground(new java.awt.Color(254, 254, 226));
-        updateRestManagerLabel2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        updateRestManagerLabel2.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         updateRestManagerLabel2.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         updateRestManagerLabel2.setText("Enterprise Type");
-        add(updateRestManagerLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 420, -1, 30));
+        add(updateRestManagerLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 420, -1, 30));
 
         updateRestManagerLabel3.setBackground(new java.awt.Color(254, 254, 226));
-        updateRestManagerLabel3.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        updateRestManagerLabel3.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         updateRestManagerLabel3.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         updateRestManagerLabel3.setText("Name");
         add(updateRestManagerLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 470, -1, 30));
 
         restPwdLabel2.setBackground(new java.awt.Color(254, 254, 226));
-        restPwdLabel2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        restPwdLabel2.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         restPwdLabel2.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         restPwdLabel2.setText("Username");
-        add(restPwdLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 510, -1, 50));
+        add(restPwdLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 510, -1, 50));
 
         jLabel7.setBackground(new java.awt.Color(254, 254, 226));
-        jLabel7.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         jLabel7.setText("Password");
-        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 570, -1, 40));
+        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 570, -1, 40));
 
         adminNameField.setForeground(new java.awt.Color(72, 72, 72));
         adminNameField.addActionListener(new java.awt.event.ActionListener() {

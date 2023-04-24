@@ -205,7 +205,6 @@ public class PlaceInventoryOrderJPanel extends javax.swing.JPanel {
         jLabel4.setAutoscrolls(true);
         jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 290, -1, -1));
 
-        quantityText.setFont(new java.awt.Font("Devanagari Sangam MN", 0, 13)); // NOI18N
         quantityText.setForeground(new java.awt.Color(72, 72, 72));
         jPanel2.add(quantityText, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 290, 145, 30));
 
@@ -222,7 +221,6 @@ public class PlaceInventoryOrderJPanel extends javax.swing.JPanel {
 
         itemText.setEditable(false);
         itemText.setBackground(new java.awt.Color(255, 255, 255));
-        itemText.setFont(new java.awt.Font("Devanagari Sangam MN", 0, 13)); // NOI18N
         itemText.setForeground(new java.awt.Color(72, 72, 72));
         jPanel2.add(itemText, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 240, 145, 30));
 

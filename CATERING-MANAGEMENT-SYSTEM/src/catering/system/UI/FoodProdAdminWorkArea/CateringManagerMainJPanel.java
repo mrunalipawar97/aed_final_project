@@ -61,7 +61,7 @@ public class CateringManagerMainJPanel extends javax.swing.JPanel {
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Menu.png"))); // NOI18N
 
         AddMenuButton.setBackground(new java.awt.Color(255, 203, 162));
-        AddMenuButton.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
+        AddMenuButton.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         AddMenuButton.setForeground(new java.awt.Color(51, 51, 51));
         AddMenuButton.setText("Add Menu");
         AddMenuButton.addActionListener(new java.awt.event.ActionListener() {
@@ -98,7 +98,7 @@ public class CateringManagerMainJPanel extends javax.swing.JPanel {
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Inventory_orders.png"))); // NOI18N
 
         placeInventoryOrderButton.setBackground(new java.awt.Color(255, 203, 162));
-        placeInventoryOrderButton.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
+        placeInventoryOrderButton.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         placeInventoryOrderButton.setForeground(new java.awt.Color(51, 51, 51));
         placeInventoryOrderButton.setText("Inventory Orders");
         placeInventoryOrderButton.addActionListener(new java.awt.event.ActionListener() {
@@ -135,7 +135,7 @@ public class CateringManagerMainJPanel extends javax.swing.JPanel {
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/view_orders.png"))); // NOI18N
 
         ViewOrdersButton1.setBackground(new java.awt.Color(255, 203, 162));
-        ViewOrdersButton1.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
+        ViewOrdersButton1.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         ViewOrdersButton1.setForeground(new java.awt.Color(51, 51, 51));
         ViewOrdersButton1.setText("View Orders");
         ViewOrdersButton1.addActionListener(new java.awt.event.ActionListener() {

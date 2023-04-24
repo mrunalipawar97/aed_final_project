@@ -96,7 +96,7 @@ public class SchoolClientsJPanel extends javax.swing.JPanel {
                 btnBackActionPerformed(evt);
             }
         });
-        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 120, 40));
+        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 30, 170, 40));
 
         clientTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -130,7 +130,7 @@ public class SchoolClientsJPanel extends javax.swing.JPanel {
                 deleteClientButtonActionPerformed(evt);
             }
         });
-        add(deleteClientButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 490, -1, 40));
+        add(deleteClientButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 490, 140, 40));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed

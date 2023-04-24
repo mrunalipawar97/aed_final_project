@@ -66,7 +66,7 @@ public class NutritionAuditorWorkAreaJPanel extends javax.swing.JPanel {
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Food_nutrition_auditor.png"))); // NOI18N
 
         auditingButton.setBackground(new java.awt.Color(255, 203, 162));
-        auditingButton.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
+        auditingButton.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         auditingButton.setForeground(new java.awt.Color(51, 51, 51));
         auditingButton.setText("Auditing/Reporting");
         auditingButton.addActionListener(new java.awt.event.ActionListener() {
@@ -103,7 +103,7 @@ public class NutritionAuditorWorkAreaJPanel extends javax.swing.JPanel {
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Feedback.png"))); // NOI18N
 
         feedbackPortalButton.setBackground(new java.awt.Color(255, 203, 162));
-        feedbackPortalButton.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
+        feedbackPortalButton.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         feedbackPortalButton.setForeground(new java.awt.Color(51, 51, 51));
         feedbackPortalButton.setText("Feedback Portal");
         feedbackPortalButton.addActionListener(new java.awt.event.ActionListener() {

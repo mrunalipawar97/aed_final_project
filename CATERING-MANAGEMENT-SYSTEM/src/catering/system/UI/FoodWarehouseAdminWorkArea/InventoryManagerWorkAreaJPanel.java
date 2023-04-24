@@ -96,7 +96,7 @@ public class InventoryManagerWorkAreaJPanel extends javax.swing.JPanel {
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Inventory.png"))); // NOI18N
 
         AddInventoryButton.setBackground(new java.awt.Color(255, 203, 162));
-        AddInventoryButton.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
+        AddInventoryButton.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         AddInventoryButton.setForeground(new java.awt.Color(51, 51, 51));
         AddInventoryButton.setText("Add Inventory");
         AddInventoryButton.addActionListener(new java.awt.event.ActionListener() {
@@ -109,13 +109,13 @@ public class InventoryManagerWorkAreaJPanel extends javax.swing.JPanel {
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(84, 84, 84)
-                .addComponent(AddInventoryButton, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(89, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(AddInventoryButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(0, 89, Short.MAX_VALUE)
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(79, 79, 79))
         );
         jPanel3Layout.setVerticalGroup(
@@ -135,7 +135,7 @@ public class InventoryManagerWorkAreaJPanel extends javax.swing.JPanel {
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/food_inventory_orders.png"))); // NOI18N
 
         ViewInventoryOrdersButton.setBackground(new java.awt.Color(255, 203, 162));
-        ViewInventoryOrdersButton.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
+        ViewInventoryOrdersButton.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         ViewInventoryOrdersButton.setForeground(new java.awt.Color(51, 51, 51));
         ViewInventoryOrdersButton.setText("View Inventory Orders");
         ViewInventoryOrdersButton.addActionListener(new java.awt.event.ActionListener() {
@@ -149,10 +149,10 @@ public class InventoryManagerWorkAreaJPanel extends javax.swing.JPanel {
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addContainerGap(99, Short.MAX_VALUE)
+                .addContainerGap(86, Short.MAX_VALUE)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ViewInventoryOrdersButton, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ViewInventoryOrdersButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(69, 69, 69))
         );
         jPanel4Layout.setVerticalGroup(
