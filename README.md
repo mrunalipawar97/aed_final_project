@@ -75,3 +75,6 @@ A catering management system application using Java Swing is designed to handle 
 Design model : https://app.diagrams.net
 # UML CLass Diagram
 Clas Level Diagram : https://app.diagrams.net/?libs=general;uml#G1Q8zU_co9XT7DdAwQorqyQTsB-az7yApB
+
++ We created our own gifs : https://www.canva.com/design/DAFg6HiTBSg/M4IWXmnhzcd4KQx-gV_Vkw/edit
+                          https://www.canva.com/design/DAFg6EjF8jg/8vJxCwuxez-ghe0sXWA95A/edit
