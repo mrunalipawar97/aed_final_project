@@ -461,7 +461,7 @@ public class InventoryManagerManagementJPanel extends javax.swing.JPanel {
             selectedInventoryManager.setPhone(updatePhoneTextField.getText());
             selectedInventoryManager.getAccountDetails().setUsername(updateUsernameTextField.getText());
             selectedInventoryManager.getAccountDetails().setPassword(updatePasswordTextField.getText());
-            JOptionPane.showMessageDialog(null, "Updated Catering Manager!");
+            JOptionPane.showMessageDialog(null, "Updated Inventory Manager!");
             populateManagerDetails();
             updateNameTextField.setText("");
             updateAddressTextField.setText("");
