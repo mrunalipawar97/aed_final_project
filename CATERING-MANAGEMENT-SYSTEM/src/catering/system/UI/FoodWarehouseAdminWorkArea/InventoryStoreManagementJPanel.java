@@ -135,7 +135,6 @@ public class InventoryStoreManagementJPanel extends javax.swing.JPanel {
         storeNameJLabel.setText("Name");
         add(storeNameJLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 140, 50, 30));
 
-        storeNameText.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
         storeNameText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 storeNameTextActionPerformed(evt);
@@ -202,7 +201,6 @@ public class InventoryStoreManagementJPanel extends javax.swing.JPanel {
         ManagerJLabel.setText("Manager Name");
         add(ManagerJLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 190, 110, 30));
 
-        managerListCombobox.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
         managerListCombobox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "None" }));
         managerListCombobox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -221,15 +219,12 @@ public class InventoryStoreManagementJPanel extends javax.swing.JPanel {
         locationJLabel.setText("Location");
         add(locationJLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 290, 70, 30));
 
-        locationTextField.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
         locationTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 locationTextFieldActionPerformed(evt);
             }
         });
         add(locationTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 290, 150, 30));
-
-        phoneTextField.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
         add(phoneTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 240, 150, 30));
 
         title.setBackground(new java.awt.Color(255, 255, 255));

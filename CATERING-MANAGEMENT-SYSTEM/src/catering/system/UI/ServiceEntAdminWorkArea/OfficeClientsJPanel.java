@@ -129,7 +129,7 @@ public class OfficeClientsJPanel extends javax.swing.JPanel {
                 deleteClientButtonActionPerformed(evt);
             }
         });
-        add(deleteClientButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 420, -1, -1));
+        add(deleteClientButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 420, 160, 30));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed

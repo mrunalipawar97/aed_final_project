@@ -44,14 +44,14 @@
           <Color blue="e2" green="fe" red="fe" type="rgb"/>
         </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Times New Roman" size="14" style="1"/>
+          <Font name="Helvetica Neue" size="14" style="1"/>
         </Property>
         <Property name="horizontalAlignment" type="int" value="11"/>
         <Property name="text" type="java.lang.String" value="Enterprise Type"/>
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="110" y="120" width="-1" height="30"/>
+          <AbsoluteConstraints x="100" y="120" width="-1" height="30"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -76,14 +76,14 @@
           <Color blue="e2" green="fe" red="fe" type="rgb"/>
         </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Times New Roman" size="14" style="1"/>
+          <Font name="Helvetica Neue" size="14" style="1"/>
         </Property>
         <Property name="horizontalAlignment" type="int" value="11"/>
         <Property name="text" type="java.lang.String" value="Username"/>
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="150" y="210" width="-1" height="50"/>
+          <AbsoluteConstraints x="140" y="210" width="-1" height="50"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -105,14 +105,14 @@
           <Color blue="e2" green="fe" red="fe" type="rgb"/>
         </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Times New Roman" size="14" style="1"/>
+          <Font name="Helvetica Neue" size="14" style="1"/>
         </Property>
         <Property name="horizontalAlignment" type="int" value="11"/>
         <Property name="text" type="java.lang.String" value="Password"/>
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="150" y="270" width="-1" height="40"/>
+          <AbsoluteConstraints x="140" y="270" width="-1" height="40"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -134,7 +134,7 @@
           <Color blue="e2" green="fe" red="fe" type="rgb"/>
         </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Times New Roman" size="14" style="1"/>
+          <Font name="Helvetica Neue" size="14" style="1"/>
         </Property>
         <Property name="horizontalAlignment" type="int" value="11"/>
         <Property name="text" type="java.lang.String" value="Name"/>
@@ -259,14 +259,14 @@
           <Color blue="e2" green="fe" red="fe" type="rgb"/>
         </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Times New Roman" size="14" style="1"/>
+          <Font name="Helvetica Neue" size="14" style="1"/>
         </Property>
         <Property name="horizontalAlignment" type="int" value="11"/>
         <Property name="text" type="java.lang.String" value="Enterprise Type"/>
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="300" y="420" width="-1" height="30"/>
+          <AbsoluteConstraints x="290" y="420" width="-1" height="30"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -276,7 +276,7 @@
           <Color blue="e2" green="fe" red="fe" type="rgb"/>
         </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Times New Roman" size="14" style="1"/>
+          <Font name="Helvetica Neue" size="14" style="1"/>
         </Property>
         <Property name="horizontalAlignment" type="int" value="11"/>
         <Property name="text" type="java.lang.String" value="Name"/>
@@ -293,14 +293,14 @@
           <Color blue="e2" green="fe" red="fe" type="rgb"/>
         </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Times New Roman" size="14" style="1"/>
+          <Font name="Helvetica Neue" size="14" style="1"/>
         </Property>
         <Property name="horizontalAlignment" type="int" value="11"/>
         <Property name="text" type="java.lang.String" value="Username"/>
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="340" y="510" width="-1" height="50"/>
+          <AbsoluteConstraints x="330" y="510" width="-1" height="50"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -310,14 +310,14 @@
           <Color blue="e2" green="fe" red="fe" type="rgb"/>
         </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Times New Roman" size="14" style="1"/>
+          <Font name="Helvetica Neue" size="14" style="1"/>
         </Property>
         <Property name="horizontalAlignment" type="int" value="11"/>
         <Property name="text" type="java.lang.String" value="Password"/>
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="340" y="570" width="-1" height="40"/>
+          <AbsoluteConstraints x="330" y="570" width="-1" height="40"/>
         </Constraint>
       </Constraints>
     </Component>

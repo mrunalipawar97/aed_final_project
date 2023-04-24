@@ -154,7 +154,6 @@ public class AddInventoryJPanel extends javax.swing.JPanel {
         AddItemLabel.setText("Add Item");
         AddItemPanel.add(AddItemLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 311, -1));
 
-        itemText.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         itemText.setForeground(new java.awt.Color(72, 72, 72));
         itemText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -163,7 +162,6 @@ public class AddInventoryJPanel extends javax.swing.JPanel {
         });
         AddItemPanel.add(itemText, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 70, 177, 30));
 
-        priceText.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         priceText.setForeground(new java.awt.Color(72, 72, 72));
         AddItemPanel.add(priceText, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 120, 177, 30));
 

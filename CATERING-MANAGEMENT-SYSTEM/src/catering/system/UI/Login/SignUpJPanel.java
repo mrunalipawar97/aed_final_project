@@ -99,10 +99,10 @@ public class SignUpJPanel extends javax.swing.JPanel {
         add(backButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 58, 100, 40));
 
         updateRestManagerLabel.setBackground(new java.awt.Color(46, 31, 39));
-        updateRestManagerLabel.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        updateRestManagerLabel.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         updateRestManagerLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         updateRestManagerLabel.setText("Name");
-        add(updateRestManagerLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 130, 60, -1));
+        add(updateRestManagerLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 130, 70, 30));
 
         nameText.setForeground(new java.awt.Color(72, 72, 72));
         nameText.addActionListener(new java.awt.event.ActionListener() {
@@ -113,43 +113,43 @@ public class SignUpJPanel extends javax.swing.JPanel {
         add(nameText, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 130, 170, 30));
 
         restPwdLabel1.setBackground(new java.awt.Color(46, 31, 39));
-        restPwdLabel1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        restPwdLabel1.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         restPwdLabel1.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         restPwdLabel1.setText("Username");
-        add(restPwdLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 180, 100, 20));
+        add(restPwdLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 180, 100, 30));
 
         usernameText.setForeground(new java.awt.Color(72, 72, 72));
         add(usernameText, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 180, 170, 30));
 
         jLabel6.setBackground(new java.awt.Color(46, 31, 39));
-        jLabel6.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         jLabel6.setText("Password");
-        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 230, 100, -1));
+        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 230, 100, 30));
 
         restPwdText.setForeground(new java.awt.Color(72, 72, 72));
         add(restPwdText, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 230, 170, 30));
 
         phoneLabel.setBackground(new java.awt.Color(46, 31, 39));
-        phoneLabel.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        phoneLabel.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         phoneLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         phoneLabel.setText("Phone");
-        add(phoneLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 280, 90, -1));
+        add(phoneLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 280, 90, 30));
 
         phoneText.setForeground(new java.awt.Color(72, 72, 72));
         add(phoneText, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 280, 170, 30));
 
         addressLabel.setBackground(new java.awt.Color(46, 31, 39));
-        addressLabel.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        addressLabel.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         addressLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         addressLabel.setText("Address");
-        add(addressLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 330, 80, -1));
+        add(addressLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 330, 80, 30));
 
         AddressText.setForeground(new java.awt.Color(72, 72, 72));
         add(AddressText, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 330, 170, 30));
 
         Email.setBackground(new java.awt.Color(46, 31, 39));
-        Email.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        Email.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         Email.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         Email.setText("Client Type");
         add(Email, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 430, -1, 30));
@@ -158,7 +158,7 @@ public class SignUpJPanel extends javax.swing.JPanel {
         add(EmailTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 380, 170, 30));
 
         Email1.setBackground(new java.awt.Color(46, 31, 39));
-        Email1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        Email1.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         Email1.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         Email1.setText("Location");
         add(Email1, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 480, 70, 40));
@@ -180,7 +180,7 @@ public class SignUpJPanel extends javax.swing.JPanel {
         add(orgTypeComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 430, 170, 30));
 
         Email2.setBackground(new java.awt.Color(46, 31, 39));
-        Email2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        Email2.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         Email2.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         Email2.setText("Email");
         add(Email2, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 380, 60, 30));

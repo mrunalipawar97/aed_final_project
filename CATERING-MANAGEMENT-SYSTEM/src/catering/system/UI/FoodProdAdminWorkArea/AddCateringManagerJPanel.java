@@ -137,7 +137,7 @@ public class AddCateringManagerJPanel extends javax.swing.JPanel {
         restPwdLabel1.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         restPwdLabel1.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         restPwdLabel1.setText("Name");
-        add(restPwdLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 390, 50, -1));
+        add(restPwdLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 370, 50, -1));
 
         usernameText.setForeground(new java.awt.Color(72, 72, 72));
         add(usernameText, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 160, 230, 30));
@@ -146,7 +146,7 @@ public class AddCateringManagerJPanel extends javax.swing.JPanel {
         jLabel6.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         jLabel6.setText("Password");
-        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 478, -1, 30));
+        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 460, -1, 30));
 
         restPwdText.setForeground(new java.awt.Color(72, 72, 72));
         restPwdText.addActionListener(new java.awt.event.ActionListener() {
@@ -160,13 +160,13 @@ public class AddCateringManagerJPanel extends javax.swing.JPanel {
         restPwdLabel2.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         restPwdLabel2.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         restPwdLabel2.setText("Username");
-        add(restPwdLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 430, -1, 30));
+        add(restPwdLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 410, -1, 30));
 
         phoneLabel.setBackground(new java.awt.Color(254, 254, 226));
         phoneLabel.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         phoneLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         phoneLabel.setText("Phone");
-        add(phoneLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 540, 60, 20));
+        add(phoneLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 520, 60, 20));
 
         phoneText.setForeground(new java.awt.Color(72, 72, 72));
         phoneText.addActionListener(new java.awt.event.ActionListener() {
@@ -183,7 +183,7 @@ public class AddCateringManagerJPanel extends javax.swing.JPanel {
         addressLabel1.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         addressLabel1.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         addressLabel1.setText("Address");
-        add(addressLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 580, 70, 30));
+        add(addressLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 560, 70, 30));
 
         addManagerButton.setBackground(new java.awt.Color(255, 203, 162));
         addManagerButton.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
@@ -233,13 +233,13 @@ public class AddCateringManagerJPanel extends javax.swing.JPanel {
                 nameUpdateFieldActionPerformed(evt);
             }
         });
-        add(nameUpdateField, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 380, 240, 30));
+        add(nameUpdateField, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 360, 240, 30));
 
         usernameUpdateField.setForeground(new java.awt.Color(72, 72, 72));
-        add(usernameUpdateField, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 430, 240, 30));
+        add(usernameUpdateField, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 410, 240, 30));
 
         passwordUpdateField.setForeground(new java.awt.Color(72, 72, 72));
-        add(passwordUpdateField, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 480, 240, 30));
+        add(passwordUpdateField, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 460, 240, 30));
 
         restPwdLabel3.setBackground(new java.awt.Color(254, 254, 226));
         restPwdLabel3.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
@@ -280,7 +280,7 @@ public class AddCateringManagerJPanel extends javax.swing.JPanel {
                 updateSupervisorActionPerformed(evt);
             }
         });
-        add(updateSupervisor, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 630, 240, 40));
+        add(updateSupervisor, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 610, 240, 40));
 
         deleteSupervisorButton.setBackground(new java.awt.Color(255, 203, 162));
         deleteSupervisorButton.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
@@ -292,8 +292,8 @@ public class AddCateringManagerJPanel extends javax.swing.JPanel {
             }
         });
         add(deleteSupervisorButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 310, 230, 40));
-        add(addressUpdateField, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 580, 240, 30));
-        add(phoneUpdateField, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 530, 240, 30));
+        add(addressUpdateField, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 560, 240, 30));
+        add(phoneUpdateField, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 510, 240, 30));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed

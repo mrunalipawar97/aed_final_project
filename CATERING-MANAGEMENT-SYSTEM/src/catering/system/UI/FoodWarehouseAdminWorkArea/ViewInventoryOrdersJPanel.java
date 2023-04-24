@@ -98,7 +98,7 @@ public class ViewInventoryOrdersJPanel extends javax.swing.JPanel {
         });
         add(backButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 38, 131, 40));
 
-        viewOrdersJLable.setFont(new java.awt.Font("Kannada Sangam MN", 1, 18)); // NOI18N
+        viewOrdersJLable.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         viewOrdersJLable.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         viewOrdersJLable.setText("View Orders");
         add(viewOrdersJLable, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 130, 189, -1));

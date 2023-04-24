@@ -84,7 +84,7 @@ public class AddMenuJPanel extends javax.swing.JPanel {
                 btnBackActionPerformed(evt);
             }
         });
-        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 190, 50));
+        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, 160, 50));
 
         jLabel1.setFont(new java.awt.Font("Helvetica Neue", 3, 36)); // NOI18N
         jLabel1.setText("Menu Creation");

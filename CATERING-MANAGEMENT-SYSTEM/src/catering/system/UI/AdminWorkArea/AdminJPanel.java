@@ -63,7 +63,7 @@ public class AdminJPanel extends javax.swing.JPanel {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 200, 50));
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 170, 50));
 
         jButton2.setBackground(new java.awt.Color(255, 203, 162));
         jButton2.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
@@ -74,7 +74,7 @@ public class AdminJPanel extends javax.swing.JPanel {
                 jButton2ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 450, 200, 50));
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 450, 170, 50));
 
         jButton3.setBackground(new java.awt.Color(255, 203, 162));
         jButton3.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
@@ -85,7 +85,7 @@ public class AdminJPanel extends javax.swing.JPanel {
                 jButton3ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, 200, 50));
+        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, 170, 50));
 
         jSplitPane1.setLeftComponent(jPanel1);
 

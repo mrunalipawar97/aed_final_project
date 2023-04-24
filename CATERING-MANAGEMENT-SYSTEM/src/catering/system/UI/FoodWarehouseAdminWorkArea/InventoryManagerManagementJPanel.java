@@ -149,8 +149,6 @@ public class InventoryManagerManagementJPanel extends javax.swing.JPanel {
         managerNameJLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         managerNameJLabel.setText("Name");
         add(managerNameJLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 167, 64, 30));
-
-        storeManagerTextField.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         add(storeManagerTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 170, 170, 30));
 
         usernameJLabel.setBackground(new java.awt.Color(255, 255, 255));
@@ -158,8 +156,6 @@ public class InventoryManagerManagementJPanel extends javax.swing.JPanel {
         usernameJLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         usernameJLabel.setText("Username");
         add(usernameJLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 217, 90, 30));
-
-        usernameTextField.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         add(usernameTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 220, 170, 30));
 
         passwordJLable.setBackground(new java.awt.Color(255, 255, 255));
@@ -167,8 +163,6 @@ public class InventoryManagerManagementJPanel extends javax.swing.JPanel {
         passwordJLable.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         passwordJLable.setText("Password");
         add(passwordJLable, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 277, 80, 20));
-
-        passwordTextField.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         add(passwordTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 270, 170, 30));
 
         jLabel8.setBackground(new java.awt.Color(255, 255, 255));
@@ -193,8 +187,6 @@ public class InventoryManagerManagementJPanel extends javax.swing.JPanel {
         phoneJLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         phoneJLabel.setText("Phone");
         add(phoneJLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 320, 60, 30));
-
-        phoneTextField.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         add(phoneTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 320, 170, 30));
 
         addressJLabel.setBackground(new java.awt.Color(255, 255, 255));
@@ -202,8 +194,6 @@ public class InventoryManagerManagementJPanel extends javax.swing.JPanel {
         addressJLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         addressJLabel.setText("Address");
         add(addressJLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 370, 64, 30));
-
-        addressTextField.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         add(addressTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 370, 170, 30));
 
         viewInventoryManagerJLabel.setBackground(new java.awt.Color(255, 255, 255));
@@ -313,18 +303,13 @@ public class InventoryManagerManagementJPanel extends javax.swing.JPanel {
         addressLabel1.setText("Address");
         add(addressLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 370, -1, 30));
 
-        updateAddressTextField.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
         updateAddressTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 updateAddressTextFieldActionPerformed(evt);
             }
         });
         add(updateAddressTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 370, 240, 30));
-
-        updateUsernameTextField.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
         add(updateUsernameTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 220, 240, 30));
-
-        updatePasswordTextField.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
         add(updatePasswordTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 270, 240, 30));
 
         updateCateringManagerButton.setBackground(new java.awt.Color(255, 203, 162));
@@ -338,7 +323,6 @@ public class InventoryManagerManagementJPanel extends javax.swing.JPanel {
         });
         add(updateCateringManagerButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 440, 110, 40));
 
-        updatePhoneTextField.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
         updatePhoneTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 updatePhoneTextFieldActionPerformed(evt);
@@ -346,7 +330,6 @@ public class InventoryManagerManagementJPanel extends javax.swing.JPanel {
         });
         add(updatePhoneTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 320, 240, 30));
 
-        updateNameTextField.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
         updateNameTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 updateNameTextFieldActionPerformed(evt);
